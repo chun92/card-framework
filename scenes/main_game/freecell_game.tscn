@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://4sjnrl4pid6b"]
+
+[ext_resource type="PackedScene" uid="uid://c7u8hryloq7hy" path="res://card_framework/card_manager.tscn" id="1_kh5ya"]
+
+[node name="FreecellGame" type="Node"]
+
+[node name="CardManager" parent="." instance=ExtResource("1_kh5ya")]
