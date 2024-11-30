@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=3 uid="uid://60bwveuu2rt"]
+
+[ext_resource type="Script" path="res://example1/example_1.gd" id="1_2r7vq"]
+[ext_resource type="PackedScene" uid="uid://c7u8hryloq7hy" path="res://card_framework/card_manager.tscn" id="1_rurpr"]
+[ext_resource type="Texture2D" uid="uid://bnx5n1lm62uhd" path="res://freecell/assets/images/cards/cardBack_blue1.png" id="2_dmr8e"]
+[ext_resource type="PackedScene" uid="uid://dk6rb7lhv1ef6" path="res://card_framework/pile.tscn" id="2_xkfcc"]
+[ext_resource type="PackedScene" uid="uid://bkpjlq7ggckg6" path="res://card_framework/hand.tscn" id="3_xp5g3"]
+
+[node name="Example1" type="Node"]
+script = ExtResource("1_2r7vq")
+
+[node name="CardCreateButton" type="Button" parent="."]
+offset_right = 96.0
+offset_bottom = 31.0
+text = "CreateCard"
+
+[node name="CardManager" parent="." instance=ExtResource("1_rurpr")]
+card_asset_dir = "res://freecell/assets/images/cards"
+card_info_dir = "res://freecell/card_info"
+back_image = ExtResource("2_dmr8e")
+
+[node name="Pile1" parent="CardManager" instance=ExtResource("2_xkfcc")]
+offset_left = 700.0
+offset_top = 200.0
+offset_right = 700.0
+offset_bottom = 200.0
+sensor_color = Color(0.188235, 0.862745, 0.207843, 1)
+placement_color = Color(0, 0, 1, 1)
+
+[node name="Pile2" parent="CardManager" instance=ExtResource("2_xkfcc")]
+offset_left = 1200.0
+offset_top = 200.0
+offset_right = 1200.0
+offset_bottom = 200.0
+card_face_up = false
+sensor_color = Color(0, 1, 0, 1)
+placement_color = Color(0, 0, 1, 1)
+
+[node name="Hand" parent="CardManager" instance=ExtResource("3_xp5g3")]
+offset_left = 500.0
+offset_top = 500.0
+offset_right = 1500.0
+offset_bottom = 1000.0
+sensor_color = Color(0, 1, 0, 1)
+placement_color = Color(0, 0, 1, 1)
+
+[connection signal="pressed" from="CardCreateButton" to="." method="_on_card_create_button_pressed"]
