@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://dghhf8lu7oopx"]
+
+[ext_resource type="Script" path="res://freecell/scenes/card_container/freecell.gd" id="1_thg1m"]
+
+[node name="Freecell" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+mouse_filter = 1
+script = ExtResource("1_thg1m")
+stack_display_gap = 0
+max_stack_display = 1
+align_drop_zone_with_top_card = false
+sensor_color = Color(0, 1, 0, 1)
+placement_color = Color(0, 0, 1, 1)
+
+[node name="Cards" type="Control" parent="."]
+anchors_preset = 0
+mouse_filter = 1

@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bn72g6fewh8aq"]
+
+[node name="Tableau" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+mouse_filter = 1
+
+[node name="Cards" type="Control" parent="."]
+anchors_preset = 0
+mouse_filter = 1
