@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://4sjnrl4pid6b"]
+[gd_scene load_steps=8 format=3 uid="uid://4sjnrl4pid6b"]
 
 [ext_resource type="PackedScene" uid="uid://c7u8hryloq7hy" path="res://card_framework/card_manager.tscn" id="1_kh5ya"]
 [ext_resource type="Script" path="res://freecell/scenes/main_game/freecell_game.gd" id="1_qroca"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bnx5n1lm62uhd" path="res://freecell/assets/images/cards/cardBack_blue1.png" id="2_6hvfq"]
 [ext_resource type="PackedScene" uid="uid://c644xfredmjoj" path="res://freecell/scenes/card_factory/frecell_card_factory.tscn" id="4_hp8si"]
 [ext_resource type="PackedScene" uid="uid://d134c8yu6d6qv" path="res://freecell/scenes/card_container/foundation.tscn" id="4_ivlr5"]
+[ext_resource type="PackedScene" uid="uid://bn72g6fewh8aq" path="res://freecell/scenes/card_container/tableau.tscn" id="7_wmb6j"]
 
 [node name="FreecellGame" type="Node"]
 script = ExtResource("1_qroca")
@@ -87,3 +88,51 @@ offset_top = 50.0
 offset_right = 1720.0
 offset_bottom = 50.0
 suit = 3
+
+[node name="Tableau_1" parent="CardManager" instance=ExtResource("7_wmb6j")]
+offset_left = 100.0
+offset_top = 300.0
+offset_right = 100.0
+offset_bottom = 300.0
+
+[node name="Tableau_2" parent="CardManager" instance=ExtResource("7_wmb6j")]
+offset_left = 331.0
+offset_top = 300.0
+offset_right = 331.0
+offset_bottom = 300.0
+
+[node name="Tableau_3" parent="CardManager" instance=ExtResource("7_wmb6j")]
+offset_left = 562.0
+offset_top = 300.0
+offset_right = 562.0
+offset_bottom = 300.0
+
+[node name="Tableau_4" parent="CardManager" instance=ExtResource("7_wmb6j")]
+offset_left = 793.0
+offset_top = 300.0
+offset_right = 793.0
+offset_bottom = 300.0
+
+[node name="Tableau_5" parent="CardManager" instance=ExtResource("7_wmb6j")]
+offset_left = 1024.0
+offset_top = 300.0
+offset_right = 1024.0
+offset_bottom = 300.0
+
+[node name="Tableau_6" parent="CardManager" instance=ExtResource("7_wmb6j")]
+offset_left = 1255.0
+offset_top = 300.0
+offset_right = 1255.0
+offset_bottom = 300.0
+
+[node name="Tableau_7" parent="CardManager" instance=ExtResource("7_wmb6j")]
+offset_left = 1486.0
+offset_top = 300.0
+offset_right = 1486.0
+offset_bottom = 300.0
+
+[node name="Tableau_8" parent="CardManager" instance=ExtResource("7_wmb6j")]
+offset_left = 1717.0
+offset_top = 300.0
+offset_right = 1717.0
+offset_bottom = 300.0

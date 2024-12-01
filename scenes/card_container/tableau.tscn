@@ -1,6 +1,15 @@
-[gd_scene format=3 uid="uid://bn72g6fewh8aq"]
+[gd_scene load_steps=2 format=3 uid="uid://bn72g6fewh8aq"]
+
+[ext_resource type="Script" path="res://freecell/scenes/card_container/tableau.gd" id="1_xk3i2"]
 
 [node name="Tableau" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 mouse_filter = 1
+script = ExtResource("1_xk3i2")
+stack_display_gap = 40
+max_stack_display = 52
+layout = 1
+restrict_to_top_card = false
+sensor_color = Color(0, 1, 0, 1)
+placement_color = Color(0, 0, 1, 1)
