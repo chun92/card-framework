@@ -1,7 +1,7 @@
 class_name PlayingCard
 extends Card
 
-enum Suit {SPADE, HEART, DIAMOND, CLUB, NONE}
+enum Suit {SPADE = 1, HEART = 2, DIAMOND = 3, CLUB = 4, NONE = 0}
 enum Number {_2 = 2, _3 = 3, _4 = 4, _5 = 5, _6 = 6, _7 = 7, _8 = 8, _9 = 9, _10 = 10, _J = 11, _Q = 12, _K = 13, _A = 1, _OTHER = 0}
 
 var suit: Suit :

@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://c644xfredmjoj"]
+
+[ext_resource type="Script" path="res://freecell/scenes/card_factory/frecell_card_factory.gd" id="1_oppd4"]
+[ext_resource type="PackedScene" uid="uid://gyx3vifd5cc1" path="res://freecell/scenes/card/playing_card.tscn" id="2_ydiob"]
+
+[node name="FrecellCardFactory" type="Node"]
+script = ExtResource("1_oppd4")
+default_card_scene = ExtResource("2_ydiob")
