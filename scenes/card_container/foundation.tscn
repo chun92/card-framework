@@ -13,7 +13,3 @@ allow_card_movement = false
 align_drop_zone_with_top_card = false
 sensor_color = Color(0, 1, 0, 1)
 placement_color = Color(0, 0, 1, 1)
-
-[node name="Cards" type="Control" parent="."]
-anchors_preset = 0
-mouse_filter = 1
