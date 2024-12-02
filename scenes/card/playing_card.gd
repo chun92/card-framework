@@ -29,6 +29,54 @@ var card_color: CardColor :
 		return CardColor.NONE
 
 
+static func get_card_name(suit: Suit, number: Number) -> String:
+	var suit_str: String
+	match suit:
+		Suit.SPADE:
+			suit_str = "spade"
+		Suit.HEART:
+			suit_str = "heart"
+		Suit.DIAMOND:
+			suit_str = "diamond"
+		Suit.CLUB:
+			suit_str = "club"
+		_:
+			suit_str = "none"
+			
+	var number_str: String
+	match number:
+		PlayingCard.Number._A:
+			number_str = "A"
+		PlayingCard.Number._2:
+			number_str = "2"
+		PlayingCard.Number._3:
+			number_str = "3"
+		PlayingCard.Number._4:
+			number_str = "4"
+		PlayingCard.Number._5:
+			number_str = "5"
+		PlayingCard.Number._6:
+			number_str = "6"
+		PlayingCard.Number._7:
+			number_str = "7"
+		PlayingCard.Number._8:
+			number_str = "8"
+		PlayingCard.Number._9:
+			number_str = "9"
+		PlayingCard.Number._10:
+			number_str = "10"
+		PlayingCard.Number._J:
+			number_str = "J"
+		PlayingCard.Number._Q:
+			number_str = "Q"
+		PlayingCard.Number._K:
+			number_str = "K"
+		PlayingCard.Number._OTHER:
+			number_str = "other"
+	
+	return suit_str + "_" + number_str
+
+
 func is_next_number(target_card: PlayingCard) -> bool:
 	var current_number = int(number)
 	var target_number = int(target_card.number)
