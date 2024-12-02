@@ -3,6 +3,7 @@ extends Card
 
 enum Suit {SPADE = 1, HEART = 2, DIAMOND = 3, CLUB = 4, NONE = 0}
 enum Number {_2 = 2, _3 = 3, _4 = 4, _5 = 5, _6 = 6, _7 = 7, _8 = 8, _9 = 9, _10 = 10, _J = 11, _Q = 12, _K = 13, _A = 1, _OTHER = 0}
+enum CardColor {BLACK = 1, RED = 2, NONE = 0}
 
 var suit: Suit :
 	get():
@@ -12,12 +13,31 @@ var number: Number :
 	get():
 		return _get_number_from_string(card_info["value"])
 
+var card_color: CardColor :
+	get():
+		match suit:
+			Suit.SPADE:
+				return CardColor.BLACK
+			Suit.HEART:
+				return CardColor.RED
+			Suit.DIAMOND:
+				return CardColor.RED
+			Suit.CLUB:
+				return CardColor.BLACK
+			_:
+				return CardColor.NONE
+		return CardColor.NONE
+
 
 func is_next_number(target_card: PlayingCard) -> bool:
 	var current_number = int(number)
 	var target_number = int(target_card.number)
 	var next_number = (current_number % 13) + 1
 	return next_number == target_number
+	
+
+func is_different_color(other: PlayingCard) -> bool:
+	return card_color != other.card_color
 
 
 func _get_suit_from_string(_str: String) -> Suit:
