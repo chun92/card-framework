@@ -97,13 +97,3 @@ func _get_suit(card: int) -> PlayingCard.Suit:
 		_: 
 			push_error("Wrong card suit within the game generating process")
 			return PlayingCard.Suit.NONE
-
-
-func _ready():
-	# XXX: Test codes
-	var game_seed = 94717719
-	print("Hand %d" % game_seed)
-	var deck = deal(game_seed)
-	generate_cards(deck)
-	print_log(deck)
-	

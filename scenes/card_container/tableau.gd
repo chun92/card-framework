@@ -6,10 +6,16 @@ extends Pile
 #If not set or set to 0, the stack length is unlimited.
 @export var max_stack_length: int
 
+var is_initializing := false
+
+
 func card_can_be_added(_card: Card) -> bool:
 	var target_card = _card as PlayingCard
 	if target_card == null:
 		return false
+		
+	if is_initializing:
+		return true
 		
 	if _held_cards.is_empty():
 		return true

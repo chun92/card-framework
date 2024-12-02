@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://4sjnrl4pid6b"]
+[gd_scene load_steps=9 format=3 uid="uid://4sjnrl4pid6b"]
 
 [ext_resource type="PackedScene" uid="uid://c7u8hryloq7hy" path="res://card_framework/card_manager.tscn" id="1_kh5ya"]
 [ext_resource type="Script" path="res://freecell/scenes/main_game/freecell_game.gd" id="1_qroca"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://c644xfredmjoj" path="res://freecell/scenes/card_factory/frecell_card_factory.tscn" id="4_hp8si"]
 [ext_resource type="PackedScene" uid="uid://d134c8yu6d6qv" path="res://freecell/scenes/card_container/foundation.tscn" id="4_ivlr5"]
 [ext_resource type="PackedScene" uid="uid://bn72g6fewh8aq" path="res://freecell/scenes/card_container/tableau.tscn" id="7_wmb6j"]
+[ext_resource type="PackedScene" uid="uid://dxmui4fuxab8t" path="res://freecell/scenes/main_game/game_generator.tscn" id="8_flq1e"]
 
 [node name="FreecellGame" type="Node"]
 script = ExtResource("1_qroca")
@@ -67,27 +68,28 @@ offset_left = 1120.0
 offset_top = 50.0
 offset_right = 1120.0
 offset_bottom = 50.0
-suit = 1
+suit = 2
 
 [node name="Foundation_Spade" parent="CardManager" instance=ExtResource("4_ivlr5")]
 offset_left = 1320.0
 offset_top = 50.0
 offset_right = 1320.0
 offset_bottom = 50.0
+suit = 1
 
 [node name="Foundation_Diamond" parent="CardManager" instance=ExtResource("4_ivlr5")]
 offset_left = 1520.0
 offset_top = 50.0
 offset_right = 1520.0
 offset_bottom = 50.0
-suit = 2
+suit = 3
 
 [node name="Foundation_Club" parent="CardManager" instance=ExtResource("4_ivlr5")]
 offset_left = 1720.0
 offset_top = 50.0
 offset_right = 1720.0
 offset_bottom = 50.0
-suit = 3
+suit = 4
 
 [node name="Tableau_1" parent="CardManager" instance=ExtResource("7_wmb6j")]
 offset_left = 100.0
@@ -136,3 +138,5 @@ offset_left = 1717.0
 offset_top = 300.0
 offset_right = 1717.0
 offset_bottom = 300.0
+
+[node name="GameGenerator" parent="." instance=ExtResource("8_flq1e")]
