@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://4sjnrl4pid6b"]
+[gd_scene load_steps=13 format=3 uid="uid://4sjnrl4pid6b"]
 
 [ext_resource type="PackedScene" uid="uid://c7u8hryloq7hy" path="res://card_framework/card_manager.tscn" id="1_kh5ya"]
 [ext_resource type="Script" path="res://freecell/scenes/main_game/freecell_game.gd" id="1_qroca"]
@@ -6,8 +6,12 @@
 [ext_resource type="Texture2D" uid="uid://bnx5n1lm62uhd" path="res://freecell/assets/images/cards/cardBack_blue1.png" id="2_6hvfq"]
 [ext_resource type="PackedScene" uid="uid://c644xfredmjoj" path="res://freecell/scenes/card_factory/frecell_card_factory.tscn" id="4_hp8si"]
 [ext_resource type="PackedScene" uid="uid://d134c8yu6d6qv" path="res://freecell/scenes/card_container/foundation.tscn" id="4_ivlr5"]
+[ext_resource type="Texture2D" uid="uid://ciq4unq0c1ema" path="res://freecell/assets/images/spots/foundation_heart_spot.png" id="7_epxn1"]
 [ext_resource type="PackedScene" uid="uid://bn72g6fewh8aq" path="res://freecell/scenes/card_container/tableau.tscn" id="7_wmb6j"]
 [ext_resource type="PackedScene" uid="uid://dxmui4fuxab8t" path="res://freecell/scenes/main_game/game_generator.tscn" id="8_flq1e"]
+[ext_resource type="Texture2D" uid="uid://cl7jpb0rqwpjq" path="res://freecell/assets/images/spots/foundation_spade_spot.png" id="8_neli8"]
+[ext_resource type="Texture2D" uid="uid://cs060bvtns8hy" path="res://freecell/assets/images/spots/foundation_diamond_spot.png" id="9_mghkt"]
+[ext_resource type="Texture2D" uid="uid://c7x2lxmfwbnfc" path="res://freecell/assets/images/spots/foundation_club_spot.png" id="10_lka7w"]
 
 [node name="FreecellGame" type="Node"]
 script = ExtResource("1_qroca")
@@ -69,6 +73,7 @@ offset_top = 50.0
 offset_right = 1120.0
 offset_bottom = 50.0
 suit = 2
+sensor_texture = ExtResource("7_epxn1")
 
 [node name="Foundation_Spade" parent="CardManager" instance=ExtResource("4_ivlr5")]
 offset_left = 1320.0
@@ -76,6 +81,7 @@ offset_top = 50.0
 offset_right = 1320.0
 offset_bottom = 50.0
 suit = 1
+sensor_texture = ExtResource("8_neli8")
 
 [node name="Foundation_Diamond" parent="CardManager" instance=ExtResource("4_ivlr5")]
 offset_left = 1520.0
@@ -83,6 +89,7 @@ offset_top = 50.0
 offset_right = 1520.0
 offset_bottom = 50.0
 suit = 3
+sensor_texture = ExtResource("9_mghkt")
 
 [node name="Foundation_Club" parent="CardManager" instance=ExtResource("4_ivlr5")]
 offset_left = 1720.0
@@ -90,6 +97,7 @@ offset_top = 50.0
 offset_right = 1720.0
 offset_bottom = 50.0
 suit = 4
+sensor_texture = ExtResource("10_lka7w")
 
 [node name="Tableau_1" parent="CardManager" instance=ExtResource("7_wmb6j")]
 offset_left = 100.0
