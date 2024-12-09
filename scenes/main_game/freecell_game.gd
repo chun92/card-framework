@@ -57,3 +57,28 @@ func _new_game():
 		
 	for tableau in tableaus:
 		tableau.is_initializing = false
+
+
+func _count_remaining_freecell() -> int:
+	var count = 0
+	for freecell in freecells:
+		if freecell.is_empty():
+			count += 1
+	return count
+
+
+func _count_remaining_tableaus() -> int:
+	var count = 0
+	for tableau in tableaus:
+		if tableau.is_empty():
+			count += 1
+	return count
+
+
+func _maximum_number_of_super_move(tableau: Tableau) -> int:
+	var empty_freecells = _count_remaining_freecell()
+	var empty_tableaus = _count_remaining_tableaus()
+	var result = 2 ^ empty_tableaus * (empty_freecells + 1)
+	if tableau.is_empty():
+		result = result / 2
+	return result

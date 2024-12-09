@@ -68,15 +68,34 @@ func _calculate_offset(index: int) -> Vector2:
 
 	return offset
 
+
+func is_empty() -> bool:
+	return _held_cards.is_empty()
+
+
 # XXX: Test Code
 func _on_card_clicked(card: Card):
+	var current_card = null
+	var holding_card_list = []
 	if has_card(card):
-		for i in _held_cards.size():
+		for i in range(_held_cards.size() - 1, -1, -1):
 			var target_card = _held_cards[i]
-			if target_card != card:
+			if current_card == null:
+				current_card = target_card
+				holding_card_list.append(current_card)
+			elif current_card.is_next_number(target_card) and current_card.is_different_color(target_card):
+				current_card = target_card
+				holding_card_list.append(current_card)
+				if current_card == card:
+					break
+			else:
+				holding_card_list.clear()
+				break
+	
+	for target_card in holding_card_list:
+		if target_card != card:
 				target_card.start_hovering()
 				target_card.set_holding()
-			
 
 
 # XXX: Test Code

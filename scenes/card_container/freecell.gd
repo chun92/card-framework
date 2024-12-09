@@ -6,7 +6,10 @@ func card_can_be_added(_card: Card) -> bool:
 	if playing_card == null:
 		return false
 
-	if _held_cards.size() >= 1:
+	if !is_empty():
 		return false
 
 	return true
+
+func is_empty() -> bool:
+	return _held_cards.is_empty()
