@@ -15,15 +15,18 @@ func _ready() -> void:
 	for i in range(1, 5):
 		var freecell = card_manager.get_node("Freecell_%d" % i)
 		freecells.append(freecell)
+		freecell.freecell_game = self
 		
-	foundations.append(card_manager.get_node("Foundation_Heart"))
-	foundations.append(card_manager.get_node("Foundation_Spade"))
-	foundations.append(card_manager.get_node("Foundation_Diamond"))
-	foundations.append(card_manager.get_node("Foundation_Club"))
+	var suits = ["Heart", "Spade", "Diamond", "Club"]
+	for suit in suits:
+		var foundation = card_manager.get_node("Foundation_%s" % suit)
+		foundations.append(foundation)
+		foundation.freecell_game = self
 		
 	for i in range(1, 9):
 		var tableau = card_manager.get_node("Tableau_%d" % i)
 		tableaus.append(tableau)
+		tableau.freecell_game = self
 		
 	var button = $Button_new_game
 	button.connect("pressed", _new_game)
@@ -78,7 +81,38 @@ func _count_remaining_tableaus() -> int:
 func _maximum_number_of_super_move(tableau: Tableau) -> int:
 	var empty_freecells = _count_remaining_freecell()
 	var empty_tableaus = _count_remaining_tableaus()
-	var result = 2 ^ empty_tableaus * (empty_freecells + 1)
-	if tableau.is_empty():
+	var result = pow(2, empty_tableaus) * (empty_freecells + 1)
+	if tableau != null and tableau.is_empty():
+		@warning_ignore("integer_division")
 		result = result / 2
+	print("empty_freecells: %d, empty_tableaus: %d, result: %d" % [empty_freecells, empty_tableaus, result])
 	return result
+
+
+func check_card_can_be_held(card: Card, tableau: Tableau) -> bool:
+	var current_card: Card = null
+	var holding_card_list := []
+	if tableau.has_card(card):
+		var max_super_move = _maximum_number_of_super_move(null)
+		for i in range(tableau._held_cards.size() - 1, -1, -1):
+			var target_card = tableau._held_cards[i]
+			if current_card == null:
+				current_card = target_card
+				holding_card_list.append(current_card)
+			elif holding_card_list.size() >= max_super_move:
+				holding_card_list.clear()
+				return false
+			elif current_card.is_next_number(target_card) and current_card.is_different_color(target_card):
+				current_card = target_card
+				holding_card_list.append(current_card)
+				if current_card == card:
+					break
+			else:
+				holding_card_list.clear()
+				return false
+	
+	for target_card in holding_card_list:
+		if target_card != card:
+			target_card.start_hovering()
+			target_card.set_holding()
+	return true

@@ -2,6 +2,7 @@ class_name Foundation
 extends Pile
 
 @export var suit:= PlayingCard.Suit.NONE
+var freecell_game: FreecellGame
 
 func card_can_be_added(_card: Card) -> bool:
 	var target_card = _card as PlayingCard
