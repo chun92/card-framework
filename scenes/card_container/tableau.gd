@@ -8,6 +8,11 @@ extends Pile
 
 var is_initializing := false
 
+func _ready():
+	super._ready()
+	restrict_to_top_card = false
+	CardFrameworkSignalBus.card_clicked.connect(_on_card_clicked)
+	CardFrameworkSignalBus.card_released.connect(_on_card_released)
 
 func card_can_be_added(_card: Card) -> bool:
 	var target_card = _card as PlayingCard
@@ -62,3 +67,23 @@ func _calculate_offset(index: int) -> Vector2:
 			offset.x -= offset_value
 
 	return offset
+
+# XXX: Test Code
+func _on_card_clicked(card: Card):
+	if has_card(card):
+		for i in _held_cards.size():
+			var target_card = _held_cards[i]
+			if target_card != card:
+				target_card.start_hovering()
+				target_card.set_holding()
+			
+
+
+# XXX: Test Code
+func _on_card_released(card: Card):
+	if has_card(card):
+		for i in _held_cards.size():
+			var target_card = _held_cards[i]
+			if target_card != card:
+				target_card.end_hovering(false)
+				target_card.set_releasing(false)
