@@ -38,6 +38,9 @@ func card_can_be_added(_card: Card) -> bool:
 		
 	return false
 
+func _update_target_positions():
+	super._update_target_positions()
+
 
 func _calculate_offset(index: int) -> Vector2:
 	var total_cards_in_stack = _held_cards.size()
@@ -74,9 +77,8 @@ func is_empty() -> bool:
 	return _held_cards.is_empty()
 
 
-# XXX: Test Code
 func _on_card_clicked(card: Card):
-	freecell_game.check_card_can_be_held(card, self)
+	freecell_game.hold_multiple_cards(card, self)
 
 
 # XXX: Test Code

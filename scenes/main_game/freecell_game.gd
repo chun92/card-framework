@@ -27,7 +27,9 @@ func _ready() -> void:
 		var tableau = card_manager.get_node("Tableau_%d" % i)
 		tableaus.append(tableau)
 		tableau.freecell_game = self
-		
+	
+	CardFrameworkSignalBus.card_dropped.connect(_on_card_dropped)
+
 	var button = $Button_new_game
 	button.connect("pressed", _new_game)
 
@@ -62,6 +64,11 @@ func _new_game():
 		tableau.is_initializing = false
 
 
+func _on_card_dropped(_card: Card, _target_drop_zone: DropZone) -> void:
+	for tableau in tableaus:
+		_update_cards_can_be_interactwith(tableau)
+
+
 func _count_remaining_freecell() -> int:
 	var count = 0
 	for freecell in freecells:
@@ -89,7 +96,7 @@ func _maximum_number_of_super_move(tableau: Tableau) -> int:
 	return result
 
 
-func check_card_can_be_held(card: Card, tableau: Tableau) -> bool:
+func hold_multiple_cards(card: Card, tableau: Tableau):
 	var current_card: Card = null
 	var holding_card_list := []
 	if tableau.has_card(card):
@@ -101,7 +108,7 @@ func check_card_can_be_held(card: Card, tableau: Tableau) -> bool:
 				holding_card_list.append(current_card)
 			elif holding_card_list.size() >= max_super_move:
 				holding_card_list.clear()
-				return false
+				return 
 			elif current_card.is_next_number(target_card) and current_card.is_different_color(target_card):
 				current_card = target_card
 				holding_card_list.append(current_card)
@@ -109,10 +116,33 @@ func check_card_can_be_held(card: Card, tableau: Tableau) -> bool:
 					break
 			else:
 				holding_card_list.clear()
-				return false
+				return
 	
 	for target_card in holding_card_list:
 		if target_card != card:
 			target_card.start_hovering()
 			target_card.set_holding()
+	return
+
+
+func _update_cards_can_be_interactwith(tableau: Tableau):
+	var current_card: Card = null
+	var count := 0
+	var max_super_move = _maximum_number_of_super_move(null)
+	for card in tableau._held_cards:
+		card.can_be_interact_with = false
+	for i in range(tableau._held_cards.size() - 1, -1, -1):
+		var target_card = tableau._held_cards[i]
+		if current_card == null:
+			current_card = target_card
+			target_card.can_be_interact_with = true
+			count += 1
+		elif count >= max_super_move:
+			return
+		elif current_card.is_next_number(target_card) and current_card.is_different_color(target_card):
+			current_card = target_card
+			target_card.can_be_interact_with = true
+			count += 1
+		else:
+			return
 	return true
