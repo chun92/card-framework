@@ -94,7 +94,7 @@ func _get_suit_from_string(_str: String) -> Suit:
 	elif _str == "heart":
 		return Suit.HEART
 	elif _str == "diamond":
-		return Suit.HEART
+		return Suit.DIAMOND
 	elif _str == "club":
 		return Suit.CLUB
 	else:
