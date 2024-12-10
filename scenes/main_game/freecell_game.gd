@@ -62,6 +62,7 @@ func _new_game():
 		
 	for tableau in tableaus:
 		tableau.is_initializing = false
+		_update_cards_can_be_interactwith(tableau)
 
 
 func _on_card_dropped(_card: Card, _target_drop_zone: DropZone) -> void:
