@@ -50,6 +50,7 @@ func print_log(cards):
 
 
 func _get_number(card: int) -> PlayingCard.Number:
+	@warning_ignore("integer_division")
 	var num = card / 4
 	match num:
 		0: 

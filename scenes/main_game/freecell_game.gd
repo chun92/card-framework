@@ -65,7 +65,7 @@ func _new_game():
 		_update_cards_can_be_interactwith(tableau)
 
 
-func _on_card_dropped(_card: Card, _target_drop_zone: DropZone) -> void:
+func _on_card_dropped(_card: Card, _target_card_container: CardContainer) -> void:
 	for tableau in tableaus:
 		_update_cards_can_be_interactwith(tableau)
 

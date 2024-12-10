@@ -4,7 +4,10 @@ extends Pile
 @export var suit:= PlayingCard.Suit.NONE
 var freecell_game: FreecellGame
 
-func card_can_be_added(_card: Card) -> bool:
+func _card_can_be_added(_cards: Array) -> bool:
+	if _cards.size() != 1:
+		return false
+	var _card = _cards[0]
 	var target_card = _card as PlayingCard
 	if target_card == null:
 		return false

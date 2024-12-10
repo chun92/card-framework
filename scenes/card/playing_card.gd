@@ -26,12 +26,11 @@ var card_color: CardColor :
 				return CardColor.BLACK
 			_:
 				return CardColor.NONE
-		return CardColor.NONE
 
 
-static func get_card_name(suit: Suit, number: Number) -> String:
+static func get_card_name(_suit: Suit, _number: Number) -> String:
 	var suit_str: String
-	match suit:
+	match _suit:
 		Suit.SPADE:
 			suit_str = "spade"
 		Suit.HEART:
@@ -44,7 +43,7 @@ static func get_card_name(suit: Suit, number: Number) -> String:
 			suit_str = "none"
 			
 	var number_str: String
-	match number:
+	match _number:
 		PlayingCard.Number._A:
 			number_str = "A"
 		PlayingCard.Number._2:
