@@ -146,4 +146,5 @@ func _update_cards_can_be_interactwith(tableau: Tableau):
 			count += 1
 		else:
 			return
-	return true
+		if current_card.number == PlayingCard.Number._K:
+			return
