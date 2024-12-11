@@ -62,11 +62,6 @@ func _new_game():
 		tableau.is_initializing = false
 		_update_cards_can_be_interactwith(tableau)
 
-# XXX
-# func _on_card_dropped(_card: Card, _target_card_container: CardContainer) -> void:
-# 	for tableau in tableaus:
-# 		_update_cards_can_be_interactwith(tableau)
-
 
 func _count_remaining_freecell() -> int:
 	var count = 0
