@@ -18,3 +18,8 @@ func _card_can_be_added(_cards: Array) -> bool:
 
 func is_empty() -> bool:
 	return _held_cards.is_empty()
+
+
+func move_cards(cards: Array):
+	super.move_cards(cards)
+	freecell_game.update_all_tableaus_cards_can_be_interactwith()

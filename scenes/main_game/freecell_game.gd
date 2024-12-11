@@ -6,7 +6,7 @@ var foundations := []
 var tableaus := []
 var card_factory: FreecellCardFactory
 # XXX: temp magin number
-var current_seed := 617
+var current_seed := 164
 
 @onready var card_manager = $CardManager
 @onready var game_generator = $GameGenerator
@@ -27,8 +27,6 @@ func _ready() -> void:
 		var tableau = card_manager.get_node("Tableau_%d" % i)
 		tableaus.append(tableau)
 		tableau.freecell_game = self
-	
-	CardFrameworkSignalBus.card_dropped.connect(_on_card_dropped)
 
 	var button = $Button_new_game
 	button.connect("pressed", _new_game)
@@ -64,10 +62,10 @@ func _new_game():
 		tableau.is_initializing = false
 		_update_cards_can_be_interactwith(tableau)
 
-
-func _on_card_dropped(_card: Card, _target_card_container: CardContainer) -> void:
-	for tableau in tableaus:
-		_update_cards_can_be_interactwith(tableau)
+# XXX
+# func _on_card_dropped(_card: Card, _target_card_container: CardContainer) -> void:
+# 	for tableau in tableaus:
+# 		_update_cards_can_be_interactwith(tableau)
 
 
 func _count_remaining_freecell() -> int:
@@ -86,14 +84,13 @@ func _count_remaining_tableaus() -> int:
 	return count
 
 
-func _maximum_number_of_super_move(tableau: Tableau) -> int:
+func maximum_number_of_super_move(tableau: Tableau) -> int:
 	var empty_freecells = _count_remaining_freecell()
 	var empty_tableaus = _count_remaining_tableaus()
 	var result = pow(2, empty_tableaus) * (empty_freecells + 1)
 	if tableau != null and tableau.is_empty():
 		@warning_ignore("integer_division")
 		result = result / 2
-	print("empty_freecells: %d, empty_tableaus: %d, result: %d" % [empty_freecells, empty_tableaus, result])
 	return result
 
 
@@ -101,7 +98,7 @@ func hold_multiple_cards(card: Card, tableau: Tableau):
 	var current_card: Card = null
 	var holding_card_list := []
 	if tableau.has_card(card):
-		var max_super_move = _maximum_number_of_super_move(null)
+		var max_super_move = maximum_number_of_super_move(null)
 		for i in range(tableau._held_cards.size() - 1, -1, -1):
 			var target_card = tableau._held_cards[i]
 			if current_card == null:
@@ -118,6 +115,8 @@ func hold_multiple_cards(card: Card, tableau: Tableau):
 			else:
 				holding_card_list.clear()
 				return
+			if current_card == card:
+				break
 	
 	for target_card in holding_card_list:
 		if target_card != card:
@@ -125,11 +124,15 @@ func hold_multiple_cards(card: Card, tableau: Tableau):
 			target_card.set_holding()
 	return
 
+func update_all_tableaus_cards_can_be_interactwith():
+	for tableau in tableaus:
+		_update_cards_can_be_interactwith(tableau)
+
 
 func _update_cards_can_be_interactwith(tableau: Tableau):
 	var current_card: Card = null
 	var count := 0
-	var max_super_move = _maximum_number_of_super_move(null)
+	var max_super_move = maximum_number_of_super_move(null)
 	for card in tableau._held_cards:
 		card.can_be_interact_with = false
 	for i in range(tableau._held_cards.size() - 1, -1, -1):

@@ -15,9 +15,12 @@ func _ready():
 	CardFrameworkSignalBus.card_clicked.connect(_on_card_clicked)
 
 func _card_can_be_added(_cards: Array) -> bool:
-	if _cards.size() != 1:
+	if _cards.size() > freecell_game.maximum_number_of_super_move(self):
 		return false
-	var card = _cards[0]
+	if _cards.size() == 0:
+		return false
+
+	var card = _cards[-1]
 	var target_card = card as PlayingCard
 	if target_card == null:
 		return false
@@ -79,6 +82,7 @@ func is_empty() -> bool:
 func _on_card_clicked(card: Card):
 	freecell_game.hold_multiple_cards(card, self)
 
+
 func move_cards(cards: Array):
-	for card in cards:
-		card.move_to_card_container(self)
+	super.move_cards(cards)
+	freecell_game.update_all_tableaus_cards_can_be_interactwith()

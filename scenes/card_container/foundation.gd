@@ -22,3 +22,8 @@ func _card_can_be_added(_cards: Array) -> bool:
 		return true
 	else:
 		return false
+
+
+func move_cards(cards: Array):
+	super.move_cards(cards)
+	freecell_game.update_all_tableaus_cards_can_be_interactwith()
