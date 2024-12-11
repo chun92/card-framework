@@ -13,7 +13,6 @@ func _ready():
 	super._ready()
 	restrict_to_top_card = false
 	CardFrameworkSignalBus.card_clicked.connect(_on_card_clicked)
-	CardFrameworkSignalBus.card_released.connect(_on_card_released)
 
 func _card_can_be_added(_cards: Array) -> bool:
 	if _cards.size() != 1:
@@ -40,9 +39,6 @@ func _card_can_be_added(_cards: Array) -> bool:
 		return true
 		
 	return false
-
-func _update_target_positions():
-	super._update_target_positions()
 
 
 func _calculate_offset(index: int) -> Vector2:
@@ -83,15 +79,6 @@ func is_empty() -> bool:
 func _on_card_clicked(card: Card):
 	freecell_game.hold_multiple_cards(card, self)
 
-
-# XXX: Test Code
-func _on_card_released(_card: Card):
-	pass
-	# if has_card(card):
-	# 	card.end_hovering(false)
-	# 	card.set_releasing()
-		# for i in _held_cards.size():
-		# 	var target_card = _held_cards[i]
-		# 	if target_card != card:
-		# 		target_card.end_hovering(false)
-		# 		target_card.set_releasing()
+func move_cards(cards: Array):
+	for card in cards:
+		card.move_to_card_container(self)
