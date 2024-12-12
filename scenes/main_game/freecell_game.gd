@@ -3,7 +3,7 @@ extends Node
 
 const suits = ["Heart", "Spade", "Diamond", "Club"]
 const auto_move_timer_wating_time = 0.2
-
+const game_generating_timer_waiting_time = 0.1
 
 var freecells := []
 var foundations := []
@@ -17,14 +17,18 @@ var auto_move_timer: Timer
 var auto_move_target := {}
 var auto_moving_map := {}
 
+var game_generating_timer: Timer
+
 
 @onready var card_manager = $CardManager
 @onready var game_generator = $GameGenerator
+@onready var start_position = $CardManager/StartPosition
 
 func _ready() -> void:
 	_set_containers()
 	_set_ui_buttons()
 	_set_auto_mover()
+	_set_game_generating_timer()
 
 
 func _count_remaining_freecell() -> int:
@@ -85,6 +89,8 @@ func hold_multiple_cards(card: Card, tableau: Tableau):
 
 func update_all_tableaus_cards_can_be_interactwith():
 	for tableau in tableaus:
+		if tableau.is_initializing:
+			continue
 		_update_cards_can_be_interactwith(tableau)
 		_check_auto_move(tableau)
 	for freecell in freecells:
@@ -207,6 +213,13 @@ func _set_auto_mover():
 	add_child(auto_move_timer)
 
 
+func _set_game_generating_timer():
+	game_generating_timer = Timer.new()
+	game_generating_timer.wait_time = game_generating_timer_waiting_time
+	game_generating_timer.one_shot = true
+	add_child(game_generating_timer)
+
+
 func _set_ui_buttons():
 	var button = $Button_new_game
 	button.connect("pressed", _new_game)
@@ -231,7 +244,9 @@ func _new_game():
 	
 	for tableau in tableaus:
 		tableau.clear_cards()
-		
+	
+	start_position.clear_cards()
+
 	all_cards.clear()
 	auto_moving_map.clear()
 		
@@ -244,13 +259,20 @@ func _new_game():
 	for tableau in tableaus:
 		tableau.is_initializing = true
 	
+	for i in range(cards_str.size() - 1, -1, -1):
+		var card_name = cards_str[i]
+		var card = card_factory.create_card(card_name, start_position)
+		all_cards.append(card)
+
 	var current_index := 0
 	var offset := tableaus.size()
-	for card_name in cards_str:
+	for i in range(start_position._held_cards.size() - 1, -1, -1):
+		var card = start_position._held_cards[i]
 		var tableau = tableaus[current_index]
-		var card = card_factory.create_card(card_name, tableau)
-		all_cards.append(card)
+		tableau.move_cards([card])
 		current_index = (current_index + 1) % offset
+		game_generating_timer.start(game_generating_timer_waiting_time)
+		await game_generating_timer.timeout
 		
 	for tableau in tableaus:
 		tableau.is_initializing = false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://4sjnrl4pid6b"]
+[gd_scene load_steps=14 format=3 uid="uid://4sjnrl4pid6b"]
 
 [ext_resource type="PackedScene" uid="uid://c7u8hryloq7hy" path="res://card_framework/card_manager.tscn" id="1_kh5ya"]
 [ext_resource type="Script" path="res://freecell/scenes/main_game/freecell_game.gd" id="1_qroca"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://cl7jpb0rqwpjq" path="res://freecell/assets/images/spots/foundation_spade_spot.png" id="8_neli8"]
 [ext_resource type="Texture2D" uid="uid://cs060bvtns8hy" path="res://freecell/assets/images/spots/foundation_diamond_spot.png" id="9_mghkt"]
 [ext_resource type="Texture2D" uid="uid://c7x2lxmfwbnfc" path="res://freecell/assets/images/spots/foundation_club_spot.png" id="10_lka7w"]
+[ext_resource type="PackedScene" uid="uid://dk6rb7lhv1ef6" path="res://card_framework/pile.tscn" id="12_yh0vm"]
 
 [node name="FreecellGame" type="Node"]
 script = ExtResource("1_qroca")
@@ -146,5 +147,16 @@ offset_left = 1717.0
 offset_top = 300.0
 offset_right = 1717.0
 offset_bottom = 300.0
+
+[node name="StartPosition" parent="CardManager" instance=ExtResource("12_yh0vm")]
+offset_left = 909.0
+offset_top = 820.0
+offset_right = 909.0
+offset_bottom = 820.0
+stack_display_gap = 0
+max_stack_display = 1
+allow_card_movement = false
+restrict_to_top_card = false
+align_drop_zone_with_top_card = false
 
 [node name="GameGenerator" parent="." instance=ExtResource("8_flq1e")]
