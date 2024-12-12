@@ -83,9 +83,19 @@ func _on_card_clicked(card: Card):
 	freecell_game.hold_multiple_cards(card, self)
 
 
+func get_string() -> String:
+	var card_info := ""
+	var card = get_top_card()
+	if card != null:
+		card_info = card.get_string()
+	var held_card_size = _held_cards.size()
+	return "Tableau: %d, Top Card: %s, Size: %d" % [unique_id, card_info, held_card_size]
+
+
 func move_cards(cards: Array):
 	super.move_cards(cards)
 	freecell_game.update_all_tableaus_cards_can_be_interactwith()
+
 
 func get_top_card() -> PlayingCard:
 	if _held_cards.size() == 0:

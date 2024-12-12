@@ -24,6 +24,15 @@ func _card_can_be_added(_cards: Array) -> bool:
 		return false
 
 
+func get_string() -> String:
+	var card_info := ""
+	var card = get_top_card()
+	if card != null:
+		card_info = card.get_string()
+	var suit_str = PlayingCard.get_suit_as_string(suit)
+	return "Foundation: %s, Top Card: %s" % [suit_str, card_info]
+
+
 func move_cards(cards: Array):
 	super.move_cards(cards)
 	freecell_game.update_all_tableaus_cards_can_be_interactwith()

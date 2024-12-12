@@ -28,7 +28,10 @@ var card_color: CardColor :
 				return CardColor.NONE
 
 
-static func get_card_name(_suit: Suit, _number: Number) -> String:
+var is_stop_control := false
+
+
+static func get_suit_as_string(_suit: Suit) -> String:
 	var suit_str: String
 	match _suit:
 		Suit.SPADE:
@@ -41,7 +44,10 @@ static func get_card_name(_suit: Suit, _number: Number) -> String:
 			suit_str = "club"
 		_:
 			suit_str = "none"
-			
+	return suit_str
+
+
+static func get_number_as_string(_number: Number) -> String:
 	var number_str: String
 	match _number:
 		PlayingCard.Number._A:
@@ -72,7 +78,12 @@ static func get_card_name(_suit: Suit, _number: Number) -> String:
 			number_str = "K"
 		PlayingCard.Number._OTHER:
 			number_str = "other"
-	
+	return number_str
+
+
+static func get_card_name(_suit: Suit, _number: Number) -> String:
+	var suit_str = get_suit_as_string(_suit)
+	var number_str = get_number_as_string(_number)
 	return suit_str + "_" + number_str
 
 
@@ -129,3 +140,22 @@ func _get_number_from_string(_str: String) -> Number:
 		return Number._A
 	else:
 		return Number._OTHER
+
+
+
+func _on_mouse_enter():
+	if is_stop_control:
+		return
+	super._on_mouse_enter()
+
+
+func _on_mouse_exited():
+	if is_stop_control:
+		return
+	super._on_mouse_exited()
+
+
+func _on_gui_input(event: InputEvent):
+	if is_stop_control:
+		return
+	super._on_gui_input(event)

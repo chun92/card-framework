@@ -2,15 +2,20 @@ class_name FreecellGame
 extends Node
 
 const suits = ["Heart", "Spade", "Diamond", "Club"]
+const auto_move_timer_wating_time = 0.2
+
 
 var freecells := []
 var foundations := []
 var tableaus := []
+var all_cards := []
 var card_factory: FreecellCardFactory
 # XXX: temp magin number
 var current_seed := 164
+
 var auto_move_timer: Timer
 var auto_move_target := {}
+var auto_moving_map := {}
 
 
 @onready var card_manager = $CardManager
@@ -171,7 +176,11 @@ func _check_auto_move(container):
 			"card": top_card,
 			"foundation": foundation
 		}
-		auto_move_timer.start(0.2)
+		if auto_moving_map.find_key(top_card):
+			return
+		auto_moving_map[top_card] = foundation
+		_set_all_card_control(true)
+		auto_move_timer.start(auto_move_timer_wating_time)
 
 
 func _set_containers():
@@ -192,7 +201,7 @@ func _set_containers():
 
 func _set_auto_mover():
 	auto_move_timer = Timer.new()
-	auto_move_timer.wait_time = 0.2
+	auto_move_timer.wait_time = auto_move_timer_wating_time
 	auto_move_timer.one_shot = true
 	auto_move_timer.timeout.connect(_on_timeout)
 	add_child(auto_move_timer)
@@ -207,6 +216,9 @@ func _on_timeout():
 	var target_card = auto_move_target["card"]
 	var target_foundation = auto_move_target["foundation"]
 	target_foundation.move_cards([target_card])
+	auto_moving_map.erase(target_card)
+	if auto_moving_map.size() == 0:
+		_set_all_card_control(false)
 
 
 func _new_game():
@@ -219,6 +231,9 @@ func _new_game():
 	
 	for tableau in tableaus:
 		tableau.clear_cards()
+		
+	all_cards.clear()
+	auto_moving_map.clear()
 		
 	if card_factory == null:
 		card_factory = $CardManager/FreecellCardFactory
@@ -233,9 +248,14 @@ func _new_game():
 	var offset := tableaus.size()
 	for card_name in cards_str:
 		var tableau = tableaus[current_index]
-		card_factory.create_card(card_name, tableau)
+		var card = card_factory.create_card(card_name, tableau)
+		all_cards.append(card)
 		current_index = (current_index + 1) % offset
 		
 	for tableau in tableaus:
 		tableau.is_initializing = false
 		_update_cards_can_be_interactwith(tableau)
+
+func _set_all_card_control(disable: bool):
+	for card in all_cards:
+		card.is_stop_control = disable
