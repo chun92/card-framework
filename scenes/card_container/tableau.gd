@@ -86,3 +86,8 @@ func _on_card_clicked(card: Card):
 func move_cards(cards: Array):
 	super.move_cards(cards)
 	freecell_game.update_all_tableaus_cards_can_be_interactwith()
+
+func get_top_card() -> PlayingCard:
+	if _held_cards.size() == 0:
+		return null
+	return _held_cards.back() as PlayingCard

@@ -1,6 +1,8 @@
 class_name FreecellGame
 extends Node
 
+const suits = ["Heart", "Spade", "Diamond", "Club"]
+
 var freecells := []
 var foundations := []
 var tableaus := []
@@ -17,7 +19,6 @@ func _ready() -> void:
 		freecells.append(freecell)
 		freecell.freecell_game = self
 		
-	var suits = ["Heart", "Spade", "Diamond", "Club"]
 	for suit in suits:
 		var foundation = card_manager.get_node("Foundation_%s" % suit)
 		foundations.append(foundation)
@@ -122,6 +123,9 @@ func hold_multiple_cards(card: Card, tableau: Tableau):
 func update_all_tableaus_cards_can_be_interactwith():
 	for tableau in tableaus:
 		_update_cards_can_be_interactwith(tableau)
+		_check_auto_move(tableau)
+	for freecell in freecells:
+		_check_auto_move(freecell)
 
 
 func _update_cards_can_be_interactwith(tableau: Tableau):
@@ -146,3 +150,65 @@ func _update_cards_can_be_interactwith(tableau: Tableau):
 			return
 		if current_card.number == PlayingCard.Number._K:
 			return
+
+func _get_foundation(suit: PlayingCard.Suit) -> Foundation:
+	match suit:
+		PlayingCard.Suit.SPADE:
+			return foundations[1]
+		PlayingCard.Suit.HEART:
+			return foundations[0]
+		PlayingCard.Suit.DIAMOND:
+			return foundations[2]
+		PlayingCard.Suit.CLUB:
+			return foundations[3]
+		_:
+			return null
+
+func _get_minimum_number(a: Foundation, b: Foundation) -> int:
+	var a_top_card = a.get_top_card()
+	var b_top_card = b.get_top_card()
+	var a_top_number = 0
+	var b_top_number = 0
+	if a_top_card != null:
+		a_top_number = a_top_card.number
+	if b_top_card != null:
+		b_top_number = b_top_card.number
+	return min(a_top_number, b_top_number)
+	
+
+func _get_minimum_number_in_foundation(card_color: PlayingCard.CardColor) -> int:
+	if card_color == PlayingCard.CardColor.BLACK:
+		return _get_minimum_number(_get_foundation(PlayingCard.Suit.SPADE), _get_foundation(PlayingCard.Suit.CLUB))
+	elif card_color == PlayingCard.CardColor.RED:
+		return _get_minimum_number(_get_foundation(PlayingCard.Suit.HEART), _get_foundation(PlayingCard.Suit.DIAMOND))
+	else:
+		return -1
+
+func _check_auto_move(container):
+	if container._held_cards.is_empty():
+		return
+	var top_card = container._held_cards.back()
+	var suit = top_card.suit
+	var card_color = top_card.card_color
+	var opposite_color := PlayingCard.CardColor.NONE
+	if card_color == PlayingCard.CardColor.BLACK:
+		opposite_color = PlayingCard.CardColor.RED
+	elif card_color == PlayingCard.CardColor.RED:
+		opposite_color = PlayingCard.CardColor.BLACK
+	
+	var foundation = _get_foundation(suit)
+	var top_card_of_foundation = foundation.get_top_card()
+	
+	var result := false
+	if top_card_of_foundation == null:
+		if top_card.number == 1:
+			result = true
+	else:
+		var min_other_color_number = _get_minimum_number_in_foundation(opposite_color)
+		if top_card_of_foundation.is_next_number(top_card) and top_card.number <= min_other_color_number + 1:
+			result = true
+	
+	if result:
+		foundation.move_cards([top_card])
+		print("check_auto_move[%s]: %s" % [top_card.get_string(), result])
+			
