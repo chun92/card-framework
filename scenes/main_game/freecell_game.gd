@@ -9,59 +9,17 @@ var tableaus := []
 var card_factory: FreecellCardFactory
 # XXX: temp magin number
 var current_seed := 164
+var auto_move_timer: Timer
+var auto_move_target := {}
+
 
 @onready var card_manager = $CardManager
 @onready var game_generator = $GameGenerator
 
 func _ready() -> void:
-	for i in range(1, 5):
-		var freecell = card_manager.get_node("Freecell_%d" % i)
-		freecells.append(freecell)
-		freecell.freecell_game = self
-		
-	for suit in suits:
-		var foundation = card_manager.get_node("Foundation_%s" % suit)
-		foundations.append(foundation)
-		foundation.freecell_game = self
-		
-	for i in range(1, 9):
-		var tableau = card_manager.get_node("Tableau_%d" % i)
-		tableaus.append(tableau)
-		tableau.freecell_game = self
-
-	var button = $Button_new_game
-	button.connect("pressed", _new_game)
-
-func _new_game():
-	# reset all cards
-	for freecell in freecells:
-		freecell.clear_cards()
-	
-	for foundation in foundations:
-		foundation.clear_cards()
-	
-	for tableau in tableaus:
-		tableau.clear_cards()
-		
-	if card_factory == null:
-		card_factory = $CardManager/FreecellCardFactory
-
-	var deck = game_generator.deal(current_seed)
-	var cards_str = game_generator.generate_cards(deck)
-	
-	for tableau in tableaus:
-		tableau.is_initializing = true
-	
-	var current_index := 0
-	var offset := tableaus.size()
-	for card_name in cards_str:
-		var tableau = tableaus[current_index]
-		card_factory.create_card(card_name, tableau)
-		current_index = (current_index + 1) % offset
-		
-	for tableau in tableaus:
-		tableau.is_initializing = false
-		_update_cards_can_be_interactwith(tableau)
+	_set_containers()
+	_set_ui_buttons()
+	_set_auto_mover()
 
 
 func _count_remaining_freecell() -> int:
@@ -209,6 +167,75 @@ func _check_auto_move(container):
 			result = true
 	
 	if result:
-		foundation.move_cards([top_card])
-		print("check_auto_move[%s]: %s" % [top_card.get_string(), result])
-			
+		auto_move_target = {
+			"card": top_card,
+			"foundation": foundation
+		}
+		auto_move_timer.start(0.2)
+
+
+func _set_containers():
+	for i in range(1, 5):
+		var freecell = card_manager.get_node("Freecell_%d" % i)
+		freecells.append(freecell)
+		freecell.freecell_game = self
+		
+	for suit in suits:
+		var foundation = card_manager.get_node("Foundation_%s" % suit)
+		foundations.append(foundation)
+		foundation.freecell_game = self
+		
+	for i in range(1, 9):
+		var tableau = card_manager.get_node("Tableau_%d" % i)
+		tableaus.append(tableau)
+		tableau.freecell_game = self
+
+func _set_auto_mover():
+	auto_move_timer = Timer.new()
+	auto_move_timer.wait_time = 0.2
+	auto_move_timer.one_shot = true
+	auto_move_timer.timeout.connect(_on_timeout)
+	add_child(auto_move_timer)
+
+
+func _set_ui_buttons():
+	var button = $Button_new_game
+	button.connect("pressed", _new_game)
+
+
+func _on_timeout():
+	var target_card = auto_move_target["card"]
+	var target_foundation = auto_move_target["foundation"]
+	target_foundation.move_cards([target_card])
+
+
+func _new_game():
+	# reset all cards
+	for freecell in freecells:
+		freecell.clear_cards()
+	
+	for foundation in foundations:
+		foundation.clear_cards()
+	
+	for tableau in tableaus:
+		tableau.clear_cards()
+		
+	if card_factory == null:
+		card_factory = $CardManager/FreecellCardFactory
+
+	var deck = game_generator.deal(current_seed)
+	var cards_str = game_generator.generate_cards(deck)
+	
+	for tableau in tableaus:
+		tableau.is_initializing = true
+	
+	var current_index := 0
+	var offset := tableaus.size()
+	for card_name in cards_str:
+		var tableau = tableaus[current_index]
+		card_factory.create_card(card_name, tableau)
+		current_index = (current_index + 1) % offset
+		
+	for tableau in tableaus:
+		tableau.is_initializing = false
+		_update_cards_can_be_interactwith(tableau)
