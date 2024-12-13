@@ -100,11 +100,18 @@ func _move_cards(cards: Array):
 
 func move_cards(cards: Array, with_history: bool = true):
 	super.move_cards(cards, with_history)
+	freecell_game.move_count += 1
+	freecell_game.update_all_tableaus_cards_can_be_interactwith(true)
+
+
+func init_move_cards(cards: Array, with_history: bool = true):
+	super.move_cards(cards, with_history)
 	freecell_game.update_all_tableaus_cards_can_be_interactwith(true)
 
 
 func undo(cards: Array):
 	super.undo(cards)
+	freecell_game.undo_count += 1
 	freecell_game.update_all_tableaus_cards_can_be_interactwith(false)
 
 

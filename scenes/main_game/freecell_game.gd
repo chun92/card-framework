@@ -17,9 +17,12 @@ var current_seed := 164
 var auto_move_timer: Timer
 var auto_move_target := {}
 var auto_moving_map := {}
-
 var game_generating_timer: Timer
-
+var elapsed_Time := 0
+var game_timer: Timer
+var move_count := 0
+var undo_count := 0
+var score := 0
 
 @onready var card_manager = $CardManager
 @onready var game_generator = $GameGenerator
@@ -30,6 +33,7 @@ func _ready() -> void:
 	_set_ui_buttons()
 	_set_auto_mover()
 	_set_game_generating_timer()
+	_set_game_timer()
 
 
 func _count_remaining_freecell() -> int:
@@ -99,15 +103,16 @@ func update_all_tableaus_cards_can_be_interactwith(use_auto_move: bool = true):
 		if use_auto_move:
 			_check_auto_move(freecell)
 
+	_update_score()
 	var win_condition = _check_win_condition()
 	if win_condition:
 		print("You win!")
-		# XXX: show win dialog
+		_end_game()
 	
 	var lose_condition = _check_lose_condition()
 	if lose_condition:
 		print("You lose!")
-		# XXX: show lose dialog
+		_end_game()
 
 
 func _update_cards_can_be_interactwith(tableau: Tableau):
@@ -233,6 +238,39 @@ func _set_game_generating_timer():
 	add_child(game_generating_timer)
 
 
+func _set_game_timer():
+	if game_timer == null:
+		game_timer = Timer.new()
+		game_timer.wait_time = 1.0
+		game_timer.one_shot = false
+		game_timer.timeout.connect(_on_game_timer_timeout)
+		add_child(game_timer)
+	elapsed_Time = 0
+
+
+func _on_game_timer_timeout():
+	elapsed_Time += 1
+
+
+func _start_game():
+	move_count = 0
+	undo_count = 0
+	score = 0
+	elapsed_Time = 0
+	game_timer.start()
+
+
+func _end_game():
+	game_timer.stop()
+	print("move: %d, undo: %d, score: %d, time: %d" % [move_count, undo_count, score, elapsed_Time])
+
+
+func _update_score():
+	score = 0
+	for foundation in foundations:
+		score += foundation._held_cards.size()
+
+
 func _set_ui_buttons():
 	var button_new_game = $Button_new_game
 	button_new_game.connect("pressed", _new_game)
@@ -243,14 +281,13 @@ func _set_ui_buttons():
 func _on_timeout():
 	var target_card = auto_move_target["card"]
 	var target_foundation = auto_move_target["foundation"]
-	target_foundation.move_cards([target_card])
+	target_foundation.auto_move_cards([target_card])
 	auto_moving_map.erase(target_card)
 	if auto_moving_map.size() == 0:
 		_set_all_card_control(false)
 
 
-func _new_game():
-	# reset all cards
+func _reset_cards_in_game():
 	for freecell in freecells:
 		freecell.clear_cards()
 	for foundation in foundations:
@@ -261,10 +298,11 @@ func _new_game():
 	all_cards.clear()
 	auto_moving_map.clear()
 	card_manager.reset_history()
-		
+	
 	if card_factory == null:
 		card_factory = $CardManager/FreecellCardFactory
-
+		
+func _generate_cards():
 	var deck = game_generator.deal(current_seed)
 	var cards_str = game_generator.generate_cards(deck)
 	
@@ -281,7 +319,7 @@ func _new_game():
 	for i in range(start_position._held_cards.size() - 1, -1, -1):
 		var card = start_position._held_cards[i]
 		var tableau = tableaus[current_index]
-		tableau.move_cards([card], false)
+		tableau.init_move_cards([card], false)
 		current_index = (current_index + 1) % offset
 		game_generating_timer.start(game_generating_timer_waiting_time)
 		await game_generating_timer.timeout
@@ -289,7 +327,12 @@ func _new_game():
 	for tableau in tableaus:
 		tableau.is_initializing = false
 		_update_cards_can_be_interactwith(tableau)
-	
+
+func _new_game():
+	_reset_cards_in_game()
+	await _generate_cards()
+	_start_game()
+
 
 func _set_all_card_control(disable: bool):
 	for card in all_cards:
