@@ -9,6 +9,7 @@ var freecells := []
 var foundations := []
 var tableaus := []
 var all_cards := []
+
 var card_factory: FreecellCardFactory
 # XXX: temp magin number
 var current_seed := 164
@@ -238,15 +239,11 @@ func _new_game():
 	# reset all cards
 	for freecell in freecells:
 		freecell.clear_cards()
-	
 	for foundation in foundations:
 		foundation.clear_cards()
-	
 	for tableau in tableaus:
 		tableau.clear_cards()
-	
 	start_position.clear_cards()
-
 	all_cards.clear()
 	auto_moving_map.clear()
 		
