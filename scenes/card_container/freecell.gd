@@ -28,6 +28,17 @@ func get_string() -> String:
 	return "Freecell: %d, Top Card: %s" % [unique_id, card_info]
 
 
-func move_cards(cards: Array):
-	super.move_cards(cards)
-	freecell_game.update_all_tableaus_cards_can_be_interactwith()
+func _move_cards(cards: Array):
+	for i in range(cards.size() - 1, -1, -1):
+		var card = cards[i]
+		_move_to_card_container(card)
+
+
+func move_cards(cards: Array, with_history: bool = true):
+	super.move_cards(cards, with_history)
+	freecell_game.update_all_tableaus_cards_can_be_interactwith(true)
+
+
+func undo(cards: Array):
+	super.undo(cards)
+	freecell_game.update_all_tableaus_cards_can_be_interactwith(false)

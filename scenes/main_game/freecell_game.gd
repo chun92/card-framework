@@ -88,14 +88,16 @@ func hold_multiple_cards(card: Card, tableau: Tableau):
 			target_card.set_holding()
 	return
 
-func update_all_tableaus_cards_can_be_interactwith():
+func update_all_tableaus_cards_can_be_interactwith(use_auto_move: bool = true):
 	for tableau in tableaus:
 		if tableau.is_initializing:
 			continue
 		_update_cards_can_be_interactwith(tableau)
-		_check_auto_move(tableau)
+		if use_auto_move:
+			_check_auto_move(tableau)
 	for freecell in freecells:
-		_check_auto_move(freecell)
+		if use_auto_move:
+			_check_auto_move(freecell)
 
 
 func _update_cards_can_be_interactwith(tableau: Tableau):
@@ -222,8 +224,10 @@ func _set_game_generating_timer():
 
 
 func _set_ui_buttons():
-	var button = $Button_new_game
-	button.connect("pressed", _new_game)
+	var button_new_game = $Button_new_game
+	button_new_game.connect("pressed", _new_game)
+	var button_undo = $Button_undo
+	button_undo.connect("pressed", card_manager.undo)
 
 
 func _on_timeout():
@@ -246,6 +250,7 @@ func _new_game():
 	start_position.clear_cards()
 	all_cards.clear()
 	auto_moving_map.clear()
+	card_manager.reset_history()
 		
 	if card_factory == null:
 		card_factory = $CardManager/FreecellCardFactory
@@ -266,7 +271,7 @@ func _new_game():
 	for i in range(start_position._held_cards.size() - 1, -1, -1):
 		var card = start_position._held_cards[i]
 		var tableau = tableaus[current_index]
-		tableau.move_cards([card])
+		tableau.move_cards([card], false)
 		current_index = (current_index + 1) % offset
 		game_generating_timer.start(game_generating_timer_waiting_time)
 		await game_generating_timer.timeout
@@ -274,6 +279,7 @@ func _new_game():
 	for tableau in tableaus:
 		tableau.is_initializing = false
 		_update_cards_can_be_interactwith(tableau)
+	
 
 func _set_all_card_control(disable: bool):
 	for card in all_cards:
