@@ -20,6 +20,12 @@ func is_empty() -> bool:
 	return _held_cards.is_empty()
 
 
+func get_top_card() -> PlayingCard:
+	if _held_cards.size() == 0:
+		return null
+	return _held_cards[0] as PlayingCard
+
+
 func get_string() -> String:
 	var card_info := ""
 	if !_held_cards.is_empty():

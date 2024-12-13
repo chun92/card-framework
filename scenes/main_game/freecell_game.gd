@@ -99,6 +99,16 @@ func update_all_tableaus_cards_can_be_interactwith(use_auto_move: bool = true):
 		if use_auto_move:
 			_check_auto_move(freecell)
 
+	var win_condition = _check_win_condition()
+	if win_condition:
+		print("You win!")
+		# XXX: show win dialog
+	
+	var lose_condition = _check_lose_condition()
+	if lose_condition:
+		print("You lose!")
+		# XXX: show lose dialog
+
 
 func _update_cards_can_be_interactwith(tableau: Tableau):
 	var current_card: Card = null
@@ -284,3 +294,37 @@ func _new_game():
 func _set_all_card_control(disable: bool):
 	for card in all_cards:
 		card.is_stop_control = disable
+
+func _check_win_condition() -> bool:
+	for foundation in foundations:
+		if foundation._held_cards.size() != 13:
+			return false
+	return true
+
+func _check_card_can_be_anywhere(card: Card) -> bool:
+	for tableau in tableaus:
+		if tableau._card_can_be_added([card]):
+			return true
+	for freecell in freecells:
+		if freecell._card_can_be_added([card]):
+			return true
+	for foundation in foundations:
+		if foundation._card_can_be_added([card]):
+			return true
+	return false
+
+func _check_lose_condition() -> bool:
+	for tableau in tableaus:
+		var top_card = tableau.get_top_card()
+		if top_card == null:
+			return false
+		if _check_card_can_be_anywhere(top_card):
+			return false
+	
+	for freecell in freecells:
+		if freecell.is_empty():
+			return false
+		if _check_card_can_be_anywhere(freecell.get_top_card()):
+			return false
+	
+	return true
