@@ -14,6 +14,7 @@ var card_factory: FreecellCardFactory
 # XXX: temp magin number
 var current_seed := 164
 
+var is_creating_new_game := false
 var auto_move_timer: Timer
 var auto_move_target := {}
 var auto_moving_map := {}
@@ -329,9 +330,13 @@ func _generate_cards():
 		_update_cards_can_be_interactwith(tableau)
 
 func _new_game():
+	if is_creating_new_game:
+		return
+	is_creating_new_game = true
 	_reset_cards_in_game()
 	await _generate_cards()
 	_start_game()
+	is_creating_new_game = false
 
 
 func _set_all_card_control(disable: bool):
