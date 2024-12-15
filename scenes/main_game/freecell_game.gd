@@ -3,7 +3,7 @@ extends Node
 
 const suits = ["Heart", "Spade", "Diamond", "Club"]
 const auto_move_timer_wating_time = 0.2
-const game_generating_timer_waiting_time = 0.1
+const game_generating_timer_waiting_time = 0.05
 
 var freecells := []
 var foundations := []
