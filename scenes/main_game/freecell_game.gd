@@ -19,7 +19,7 @@ var auto_move_timer: Timer
 var auto_move_target := {}
 var auto_moving_map := {}
 var game_generating_timer: Timer
-var elapsed_Time := 0
+var elapsed_time := 0
 var game_timer: Timer
 var move_count := 0
 var undo_count := 0
@@ -28,6 +28,8 @@ var score := 0
 @onready var card_manager = $CardManager
 @onready var game_generator = $GameGenerator
 @onready var start_position = $CardManager/StartPosition
+@onready var time_display = $Time
+@onready var score_display = $Score
 
 func _ready() -> void:
 	_set_containers()
@@ -239,6 +241,11 @@ func _set_game_generating_timer():
 	add_child(game_generating_timer)
 
 
+func _set_elapsed_time(time):
+	elapsed_time = time
+	time_display.text = str(elapsed_time)
+
+
 func _set_game_timer():
 	if game_timer == null:
 		game_timer = Timer.new()
@@ -246,36 +253,37 @@ func _set_game_timer():
 		game_timer.one_shot = false
 		game_timer.timeout.connect(_on_game_timer_timeout)
 		add_child(game_timer)
-	elapsed_Time = 0
+	_set_elapsed_time(0)
 
 
 func _on_game_timer_timeout():
-	elapsed_Time += 1
+	_set_elapsed_time(elapsed_time + 1)
 
 
 func _start_game():
 	move_count = 0
 	undo_count = 0
 	score = 0
-	elapsed_Time = 0
+	_set_elapsed_time(0)
 	game_timer.start()
 
 
 func _end_game():
 	game_timer.stop()
-	print("move: %d, undo: %d, score: %d, time: %d" % [move_count, undo_count, score, elapsed_Time])
+	print("move: %d, undo: %d, score: %d, time: %d" % [move_count, undo_count, score, elapsed_time])
 
 
 func _update_score():
 	score = 0
 	for foundation in foundations:
 		score += foundation._held_cards.size()
+	score_display.text = str(score)
 
 
 func _set_ui_buttons():
-	var button_new_game = $Button_new_game
+	var button_new_game = $ButtonNewGame
 	button_new_game.connect("pressed", _new_game)
-	var button_undo = $Button_undo
+	var button_undo = $ButtonUndo
 	button_undo.connect("pressed", card_manager.undo)
 
 
@@ -302,7 +310,8 @@ func _reset_cards_in_game():
 	
 	if card_factory == null:
 		card_factory = $CardManager/FreecellCardFactory
-		
+
+
 func _generate_cards():
 	var deck = game_generator.deal(current_seed)
 	var cards_str = game_generator.generate_cards(deck)
@@ -329,10 +338,14 @@ func _generate_cards():
 		tableau.is_initializing = false
 		_update_cards_can_be_interactwith(tableau)
 
+
 func _new_game():
 	if is_creating_new_game:
 		return
 	is_creating_new_game = true
+	if game_timer != null:
+		game_timer.stop()
+	_set_elapsed_time(0)
 	_reset_cards_in_game()
 	await _generate_cards()
 	_start_game()
@@ -343,11 +356,13 @@ func _set_all_card_control(disable: bool):
 	for card in all_cards:
 		card.is_stop_control = disable
 
+
 func _check_win_condition() -> bool:
 	for foundation in foundations:
 		if foundation._held_cards.size() != 13:
 			return false
 	return true
+
 
 func _check_card_can_be_anywhere(card: Card) -> bool:
 	for tableau in tableaus:
@@ -360,6 +375,7 @@ func _check_card_can_be_anywhere(card: Card) -> bool:
 		if foundation._card_can_be_added([card]):
 			return true
 	return false
+
 
 func _check_lose_condition() -> bool:
 	for tableau in tableaus:

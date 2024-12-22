@@ -17,25 +17,62 @@
 [node name="FreecellGame" type="Node"]
 script = ExtResource("1_qroca")
 
-[node name="Button_new_game" type="Button" parent="."]
-offset_left = 905.0
-offset_top = 50.0
-offset_right = 1065.0
-offset_bottom = 110.0
-text = "New Game"
+[node name="TimeLiteral" type="RichTextLabel" parent="."]
+offset_left = 924.0
+offset_top = 34.0
+offset_right = 964.0
+offset_bottom = 74.0
+bbcode_enabled = true
+text = "[center]Time[/center]"
+scroll_active = false
 
-[node name="Button_undo" type="Button" parent="."]
+[node name="Time" type="Button" parent="."]
 offset_left = 905.0
-offset_top = 125.0
+offset_top = 58.0
+offset_right = 980.0
+offset_bottom = 98.0
+theme_override_font_sizes/font_size = 23
+button_mask = 0
+text = "0
+"
+
+[node name="ScoreLiteral" type="RichTextLabel" parent="."]
+offset_left = 1002.0
+offset_top = 34.0
+offset_right = 1052.0
+offset_bottom = 74.0
+bbcode_enabled = true
+text = "[center]Score[/center]"
+scroll_active = false
+
+[node name="Score" type="Button" parent="."]
+offset_left = 990.0
+offset_top = 58.0
 offset_right = 1065.0
-offset_bottom = 185.0
+offset_bottom = 98.0
+theme_override_font_sizes/font_size = 23
+button_mask = 0
+text = "0"
+
+[node name="ButtonNewGame" type="Button" parent="."]
+offset_left = 905.0
+offset_top = 107.0
+offset_right = 1065.0
+offset_bottom = 147.0
+text = "Restart"
+
+[node name="ButtonUndo" type="Button" parent="."]
+offset_left = 905.0
+offset_top = 164.0
+offset_right = 1065.0
+offset_bottom = 204.0
 text = "Undo"
 
-[node name="Button_menu" type="Button" parent="."]
+[node name="ButtonMenu" type="Button" parent="."]
 offset_left = 905.0
-offset_top = 200.0
+offset_top = 221.0
 offset_right = 1065.0
-offset_bottom = 260.0
+offset_bottom = 261.0
 text = "Menu"
 
 [node name="CardManager" parent="." instance=ExtResource("1_kh5ya")]
