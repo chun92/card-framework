@@ -276,7 +276,9 @@ func _end_game():
 func _update_score():
 	score = 0
 	for foundation in foundations:
-		score += foundation._held_cards.size()
+		score += foundation._held_cards.size() * 10
+	score -= move_count
+	score -= undo_count * 3
 	score_display.text = str(score)
 
 
