@@ -32,6 +32,9 @@ var menu_scene = load("res://freecell/scenes/menu/menu.tscn")
 @onready var time_display = $Time
 @onready var score_display = $Score
 
+@onready var restart_game_dialog = $RestartGameDialog
+@onready var go_to_menu_dialog = $GoToMenuDialog
+
 func _ready() -> void:
 	_set_containers()
 	_set_ui_buttons()
@@ -285,11 +288,13 @@ func _update_score():
 
 func _set_ui_buttons():
 	var button_restart_game = $ButtonRestartGame
-	button_restart_game.connect("pressed", new_game)
+	button_restart_game.connect("pressed", restart_game_dialog.popup_centered)
 	var button_undo = $ButtonUndo
 	button_undo.connect("pressed", card_manager.undo)
 	var button_menu = $ButtonMenu
-	button_menu.connect("pressed", _go_to_menu)
+	button_menu.connect("pressed", go_to_menu_dialog.popup_centered)
+	restart_game_dialog.connect("confirmed", new_game)
+	go_to_menu_dialog.connect("confirmed", _go_to_menu)
 
 
 func _on_timeout():

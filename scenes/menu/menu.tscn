@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cv6cjls2buk71"]
 
 [ext_resource type="Script" path="res://freecell/scenes/menu/menu.gd" id="1_l55ai"]
-[ext_resource type="PackedScene" uid="uid://cpdwcj3slpja" path="res://freecell/scenes/menu/seed_warning.tscn" id="2_a0gfy"]
+[ext_resource type="PackedScene" uid="uid://cpdwcj3slpja" path="res://freecell/scenes/dialog/seed_warning.tscn" id="2_a0gfy"]
 
 [node name="Menu" type="Node"]
 script = ExtResource("1_l55ai")
@@ -66,4 +66,3 @@ theme_override_font_sizes/font_size = 50
 text = "Exit"
 
 [node name="SeedWarning" parent="." instance=ExtResource("2_a0gfy")]
-visible = false
