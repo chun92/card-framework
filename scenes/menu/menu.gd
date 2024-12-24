@@ -38,13 +38,13 @@ func _get_seed():
 
 
 func _new_game():
-	var seed = _get_seed()
-	if seed == 0:
+	var game_seed = _get_seed()
+	if game_seed == 0:
 		seed_warning.popup_centered()
 		return
 	
 	var game_instance = game_scene.instantiate()
-	game_instance.game_seed = seed
+	game_instance.game_seed = game_seed
 	get_tree().root.add_child(game_instance)
 	game_instance.new_game()
 	get_node("/root/Menu").queue_free()

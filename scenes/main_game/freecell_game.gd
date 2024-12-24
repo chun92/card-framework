@@ -1,6 +1,7 @@
 class_name FreecellGame
 extends Node
 
+enum GameState {WIN = 1, LOSE = 2, PLAYING = 3}
 const suits = ["Heart", "Spade", "Diamond", "Club"]
 const auto_move_timer_wating_time = 0.2
 const game_generating_timer_waiting_time = 0.05
@@ -23,6 +24,7 @@ var game_timer: Timer
 var move_count := 0
 var undo_count := 0
 var score := 0
+var game_state := GameState.PLAYING
 
 var menu_scene = load("res://freecell/scenes/menu/menu.tscn")
 
@@ -34,6 +36,7 @@ var menu_scene = load("res://freecell/scenes/menu/menu.tscn")
 
 @onready var restart_game_dialog = $RestartGameDialog
 @onready var go_to_menu_dialog = $GoToMenuDialog
+@onready var information = $Information
 
 func _ready() -> void:
 	_set_containers()
@@ -41,6 +44,7 @@ func _ready() -> void:
 	_set_auto_mover()
 	_set_game_generating_timer()
 	_set_game_timer()
+	_update_information()
 
 
 func _count_remaining_freecell() -> int:
@@ -111,15 +115,30 @@ func update_all_tableaus_cards_can_be_interactwith(use_auto_move: bool = true):
 			_check_auto_move(freecell)
 
 	_update_score()
+	game_state = _get_game_state()
+	
+	match game_state:
+		GameState.WIN:
+			print("You win!")
+			_end_game()
+		GameState.LOSE:
+			print("You lose!")
+			_end_game()
+		GameState.PLAYING:
+			pass
+	_update_information()
+
+
+func _get_game_state() -> GameState:
 	var win_condition = _check_win_condition()
 	if win_condition:
-		print("You win!")
-		_end_game()
+		return GameState.WIN
 	
 	var lose_condition = _check_lose_condition()
 	if lose_condition:
-		print("You lose!")
-		_end_game()
+		return GameState.LOSE
+	
+	return GameState.PLAYING
 
 
 func _update_cards_can_be_interactwith(tableau: Tableau):
@@ -262,6 +281,7 @@ func _set_game_timer():
 
 func _on_game_timer_timeout():
 	_set_elapsed_time(elapsed_time + 1)
+	_update_information()
 
 
 func _start_game():
@@ -270,6 +290,7 @@ func _start_game():
 	score = 0
 	_set_elapsed_time(0)
 	game_timer.start()
+	_update_information()
 
 
 func _end_game():
@@ -284,6 +305,7 @@ func _update_score():
 	score -= move_count
 	score -= undo_count * 3
 	score_display.text = str(score)
+	_update_information()
 
 
 func _set_ui_buttons():
@@ -304,6 +326,7 @@ func _on_timeout():
 	auto_moving_map.erase(target_card)
 	if auto_moving_map.size() == 0:
 		_set_all_card_control(false)
+	_update_information()
 
 
 func _reset_cards_in_game():
@@ -408,3 +431,21 @@ func _check_lose_condition() -> bool:
 			return false
 	
 	return true
+
+
+func _update_information():
+	var text = "seed: " + str(game_seed) + \
+		",  move: " + str(move_count) + \
+		",  undo: " + str(undo_count) + \
+		",  time: " + str(elapsed_time) + \
+		",  score: " + str(score)
+	
+	match game_state:
+		GameState.WIN:
+			text += ",  state: win"
+		GameState.LOSE:
+			text += ",  state: lose"
+		GameState.PLAYING:
+			text += ",  state: playing"
+	
+	information.text = text
