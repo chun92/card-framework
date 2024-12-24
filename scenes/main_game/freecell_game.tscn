@@ -54,7 +54,7 @@ theme_override_font_sizes/font_size = 23
 button_mask = 0
 text = "0"
 
-[node name="ButtonNewGame" type="Button" parent="."]
+[node name="ButtonRestartGame" type="Button" parent="."]
 offset_left = 905.0
 offset_top = 107.0
 offset_right = 1065.0

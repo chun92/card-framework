@@ -11,8 +11,7 @@ var tableaus := []
 var all_cards := []
 
 var card_factory: FreecellCardFactory
-# XXX: temp magin number
-var current_seed := 164
+var game_seed := 0
 
 var is_creating_new_game := false
 var auto_move_timer: Timer
@@ -24,6 +23,8 @@ var game_timer: Timer
 var move_count := 0
 var undo_count := 0
 var score := 0
+
+var menu_scene = load("res://freecell/scenes/menu/menu.tscn")
 
 @onready var card_manager = $CardManager
 @onready var game_generator = $GameGenerator
@@ -283,10 +284,12 @@ func _update_score():
 
 
 func _set_ui_buttons():
-	var button_new_game = $ButtonNewGame
-	button_new_game.connect("pressed", _new_game)
+	var button_restart_game = $ButtonRestartGame
+	button_restart_game.connect("pressed", new_game)
 	var button_undo = $ButtonUndo
 	button_undo.connect("pressed", card_manager.undo)
+	var button_menu = $ButtonMenu
+	button_menu.connect("pressed", _go_to_menu)
 
 
 func _on_timeout():
@@ -315,7 +318,7 @@ func _reset_cards_in_game():
 
 
 func _generate_cards():
-	var deck = game_generator.deal(current_seed)
+	var deck = game_generator.deal(game_seed)
 	var cards_str = game_generator.generate_cards(deck)
 	
 	for tableau in tableaus:
@@ -341,7 +344,7 @@ func _generate_cards():
 		_update_cards_can_be_interactwith(tableau)
 
 
-func _new_game():
+func new_game():
 	if is_creating_new_game:
 		return
 	is_creating_new_game = true
@@ -353,6 +356,12 @@ func _new_game():
 	_start_game()
 	is_creating_new_game = false
 
+
+func _go_to_menu():
+	var menu_instance = menu_scene.instantiate()
+	get_tree().root.add_child(menu_instance)
+	get_node("/root/FreecellGame").queue_free()
+	
 
 func _set_all_card_control(disable: bool):
 	for card in all_cards:
