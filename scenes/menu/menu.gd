@@ -3,6 +3,7 @@ extends Node
 
 var game_scene = preload("res://freecell/scenes/main_game/freecell_game.tscn")
 @onready var seed_node = $NewGame/Seed
+@onready var seed_warning = $SeedWarning
 
 
 func _ready():
@@ -37,8 +38,13 @@ func _get_seed():
 
 
 func _new_game():
+	var seed = _get_seed()
+	if seed == 0:
+		seed_warning.popup_centered()
+		return
+	
 	var game_instance = game_scene.instantiate()
-	game_instance.game_seed = _get_seed()
+	game_instance.game_seed = seed
 	get_tree().root.add_child(game_instance)
 	game_instance.new_game()
 	get_node("/root/Menu").queue_free()
