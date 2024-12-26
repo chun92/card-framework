@@ -120,8 +120,10 @@ func update_all_tableaus_cards_can_be_interactwith(use_auto_move: bool = true):
 	
 	match game_state:
 		GameState.WIN:
+			_show_result_popup(true)
 			_end_game()
 		GameState.LOSE:
+			_show_result_popup(false)
 			_end_game()
 		GameState.PLAYING:
 			pass
@@ -477,3 +479,36 @@ func _update_information():
 			text += ",  state: playing"
 	
 	information.text = text
+
+
+func _show_result_popup(
+	is_win: bool
+) -> void:
+	var dialog = $ResultDialog  # The AcceptDialog node
+	var body_text = dialog.get_node("BodyText") as RichTextLabel
+	
+	if is_win:
+		dialog.title = "Congratulations!"
+	else:
+		dialog.title = "Game Over"
+
+	body_text.bbcode_enabled = true
+	body_text.clear()
+
+	var win_text = ""
+	if is_win:
+		win_text = "[color=green]Win[/color]"
+	else:
+		win_text = "[color=red]Lose[/color]"
+	
+	var text_body = ""
+	text_body += "Result:\t\t%s\n" % win_text
+	text_body += "Seed:\t\t\t%d\n" % game_seed
+	text_body += "Time:\t\t\t%d\n" % elapsed_time
+	text_body += "Score:\t\t\t%d\n" % score
+	text_body += "Move:\t\t\t%d\n" % move_count
+	text_body += "Undo:\t\t\t%d\n" % undo_count
+
+	body_text.bbcode_text = text_body
+
+	dialog.popup_centered()

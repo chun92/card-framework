@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://br04c2rylm2m1"]
+
+[node name="ResultDialog" type="AcceptDialog"]
+
+[node name="BodyText" type="RichTextLabel" parent="."]
+custom_minimum_size = Vector2(200, 0)
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 92.0
+offset_bottom = 51.0
+fit_content = true
+scroll_active = false

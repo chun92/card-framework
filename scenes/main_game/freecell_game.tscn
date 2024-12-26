@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://4sjnrl4pid6b"]
+[gd_scene load_steps=20 format=3 uid="uid://4sjnrl4pid6b"]
 
 [ext_resource type="PackedScene" uid="uid://c7u8hryloq7hy" path="res://card_framework/card_manager.tscn" id="1_kh5ya"]
 [ext_resource type="Script" path="res://freecell/scenes/main_game/freecell_game.gd" id="1_qroca"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://dk6rb7lhv1ef6" path="res://card_framework/pile.tscn" id="12_yh0vm"]
 [ext_resource type="PackedScene" uid="uid://cke08pyglaa48" path="res://freecell/scenes/dialog/restart_game_dialog.tscn" id="14_674kq"]
 [ext_resource type="PackedScene" uid="uid://ddx72jvfinglm" path="res://freecell/scenes/dialog/go_to_menu_dialog.tscn" id="15_2mski"]
+[ext_resource type="PackedScene" uid="uid://br04c2rylm2m1" path="res://freecell/scenes/dialog/result_dialog.tscn" id="16_k3qx6"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5g7xq"]
 
@@ -225,3 +226,5 @@ deselect_on_focus_loss_enabled = false
 drag_and_drop_selection_enabled = false
 virtual_keyboard_enabled = false
 middle_mouse_paste_enabled = false
+
+[node name="ResultDialog" parent="." instance=ExtResource("16_k3qx6")]
