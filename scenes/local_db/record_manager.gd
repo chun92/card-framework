@@ -1,4 +1,3 @@
-class_name RecrodTable
 extends Node
 
 const RECORDS_PATH = "user://record_table.json"
@@ -6,6 +5,7 @@ var record_table: Dictionary = {}
 
 func _ready():
 	load_table()
+	print("table: %s" % JSON.stringify(record_table, "  "))
 
 
 func load_table():

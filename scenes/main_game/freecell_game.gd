@@ -25,6 +25,7 @@ var move_count := 0
 var undo_count := 0
 var score := 0
 var game_state := GameState.PLAYING
+var is_game_running := false
 
 var menu_scene = load("res://freecell/scenes/menu/menu.tscn")
 
@@ -119,10 +120,8 @@ func update_all_tableaus_cards_can_be_interactwith(use_auto_move: bool = true):
 	
 	match game_state:
 		GameState.WIN:
-			print("You win!")
 			_end_game()
 		GameState.LOSE:
-			print("You lose!")
 			_end_game()
 		GameState.PLAYING:
 			pass
@@ -295,7 +294,9 @@ func _start_game():
 
 func _end_game():
 	game_timer.stop()
+	RecordManager.make_record(game_seed, move_count, undo_count, elapsed_time, score, game_state)
 	print("move: %d, undo: %d, score: %d, time: %d" % [move_count, undo_count, score, elapsed_time])
+	is_game_running = false
 
 
 func _update_score():
@@ -308,13 +309,33 @@ func _update_score():
 	_update_information()
 
 
+func _on_button_restart_game_pressed():
+	if is_game_running:
+		restart_game_dialog.popup_centered()
+	else:
+		new_game()
+
+
+func _on_button_undo_pressed():
+	if not is_game_running:
+		card_manager.undo()
+		
+
+
+func _on_button_menu_pressed():
+	if is_game_running:
+		go_to_menu_dialog.popup_centered()
+	else:
+		_go_to_menu()
+
+
 func _set_ui_buttons():
 	var button_restart_game = $ButtonRestartGame
-	button_restart_game.connect("pressed", restart_game_dialog.popup_centered)
+	button_restart_game.connect("pressed", _on_button_restart_game_pressed)
 	var button_undo = $ButtonUndo
-	button_undo.connect("pressed", card_manager.undo)
+	button_undo.connect("pressed", _on_button_undo_pressed)
 	var button_menu = $ButtonMenu
-	button_menu.connect("pressed", go_to_menu_dialog.popup_centered)
+	button_menu.connect("pressed", _on_button_menu_pressed)
 	restart_game_dialog.connect("confirmed", new_game)
 	go_to_menu_dialog.connect("confirmed", _go_to_menu)
 
@@ -373,6 +394,9 @@ func _generate_cards():
 
 
 func new_game():
+	if is_game_running:
+		game_state = GameState.LOSE
+		_end_game()
 	if is_creating_new_game:
 		return
 	is_creating_new_game = true
@@ -383,9 +407,13 @@ func new_game():
 	await _generate_cards()
 	_start_game()
 	is_creating_new_game = false
+	is_game_running = true
 
 
 func _go_to_menu():
+	if is_game_running:
+		game_state = GameState.LOSE
+		_end_game()
 	var menu_instance = menu_scene.instantiate()
 	get_tree().root.add_child(menu_instance)
 	get_node("/root/FreecellGame").queue_free()
