@@ -3,12 +3,12 @@ extends Node
 const RECORDS_PATH = "user://record_table.json"
 const CURRENT_GAME_INFO_PATH = "user://current_game_info.json"
 var record_table: Dictionary = {}
+var next_id := 0 
 var running_game: Dictionary = {}
 
 func _ready():
 	load_table()
 	check_running_game_info()
-	print("table: %s" % JSON.stringify(record_table, "  "))
 
 
 func load_table():
@@ -34,9 +34,16 @@ func save_table():
 
 
 func make_record(game_seed: int, move_count: int, undo_count: int, game_time: int, score: int, game_state: FreecellGame.GameState):
-	var record_id = generate_unique_id()
-	while record_table.has(record_id):
-		record_id = generate_unique_id()
+	var record_id = ""
+	while true:
+		var candidate_id = "%016d" % next_id
+		
+		if not record_table.has(candidate_id):
+			record_id = candidate_id
+			next_id += 1
+			break
+		else:
+			next_id += 1
 
 	var record = {
 		"game_date": Time.get_datetime_dict_from_system(),
@@ -48,19 +55,11 @@ func make_record(game_seed: int, move_count: int, undo_count: int, game_time: in
 		"game_state": game_state
 	}
 	
-	print("save_record[%s]: %s" % [record_id, JSON.stringify(record_table, "  ")])
+	print("save_record[%s]: %s" % [record_id, JSON.stringify(record, "  ")])
 
 	record_table[record_id] = record
 	save_table()
 	remove_running_game_info()
-
-
-func generate_unique_id() -> String:
-	var id = ""
-	var hex = "0123456789abcdef"
-	for i in range(10):
-		id += hex[randi() % 16]
-	return id
 
 
 func get_record(record_id: String) -> Dictionary:
@@ -86,7 +85,7 @@ func remove_all():
 
 
 func save_running_game_info(game_seed: int, move_count: int, undo_count: int, game_time: int, score: int, game_state: FreecellGame.GameState):
-	if game_state == FreecellGame.GameState.LOSE:
+	if game_state != FreecellGame.GameState.PLAYING:
 		return
 
 	var game_info = {

@@ -2,6 +2,7 @@ extends Node
 
 
 var game_scene = preload("res://freecell/scenes/main_game/freecell_game.tscn")
+var statistics_scene = preload("res://freecell/scenes/menu/statistics.tscn")
 @onready var seed_node = $NewGame/Seed
 @onready var seed_warning = $SeedWarning
 
@@ -51,7 +52,9 @@ func _new_game():
 
 
 func _go_to_statistics():
-	pass
+	var statistics_instance = statistics_scene.instantiate()
+	get_tree().root.add_child(statistics_instance)
+	get_node("/root/Menu").queue_free()
 	
 
 func _go_to_credits():
