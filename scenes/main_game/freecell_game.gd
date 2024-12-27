@@ -479,6 +479,7 @@ func _update_information():
 			text += ",  state: playing"
 	
 	information.text = text
+	RecordManager.save_running_game_info(game_seed, move_count, undo_count, elapsed_time, score, game_state)
 
 
 func _show_result_popup(
