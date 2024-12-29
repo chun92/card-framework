@@ -5,7 +5,7 @@ var game_scene = preload("res://freecell/scenes/main_game/freecell_game.tscn")
 var statistics_scene = preload("res://freecell/scenes/menu/statistics.tscn")
 @onready var seed_node = $NewGame/Seed
 @onready var seed_warning = $SeedWarning
-
+@onready var credits_node = $Credits2
 
 func _ready():
 	_set_ui_buttons()
@@ -17,7 +17,7 @@ func _set_ui_buttons():
 	var button_statistics = $Statistics
 	button_statistics.connect("pressed", _go_to_statistics)
 	var button_credits = $Credits
-	button_credits.connect("pressed", _go_to_credits)
+	button_credits.connect("pressed", _pop_credits)
 	var button_exit = $Exit
 	button_exit.connect("pressed", _exit)
 	
@@ -57,8 +57,8 @@ func _go_to_statistics():
 	get_node("/root/Menu").queue_free()
 	
 
-func _go_to_credits():
-	pass
+func _pop_credits():
+	credits_node.popup_centered()
 	
 
 func _exit():
