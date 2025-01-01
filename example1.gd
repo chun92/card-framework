@@ -62,32 +62,32 @@ func _on_shuffle_hand_button_pressed():
 
 
 func _on_discard_1_button_pressed():
-	var cards = hand.get_random_card(1)
+	var cards = hand.get_random_cards(1)
 	discard.move_cards(cards)
 
 
 func _on_discard_3_button_pressed():
-	var cards = hand.get_random_card(3)
+	var cards = hand.get_random_cards(3)
 	discard.move_cards(cards)
 
 
 func _on_move_to_pile_1_button_pressed():
-	var cards = hand.get_random_card(1)
+	var cards = hand.get_random_cards(1)
 	pile1.move_cards(cards)
 
 
 func _on_move_to_pile_2_button_pressed():
-	var cards = hand.get_random_card(1)
+	var cards = hand.get_random_cards(1)
 	pile2.move_cards(cards)
 
 
 func _on_move_to_pile_3_button_pressed():
-	var cards = hand.get_random_card(1)
+	var cards = hand.get_random_cards(1)
 	pile3.move_cards(cards)
 
 
 func _on_move_to_pile_4_button_pressed():
-	var cards = hand.get_random_card(1)
+	var cards = hand.get_random_cards(1)
 	pile4.move_cards(cards)
 
 
