@@ -139,6 +139,55 @@ offset_right = 1600.0
 offset_bottom = 800.0
 sensor_texture = ExtResource("11_5najx")
 
+[node name="Pile1Label" type="Label" parent="."]
+offset_left = 1055.0
+offset_top = 50.0
+offset_right = 1097.0
+offset_bottom = 73.0
+text = "Pile 1"
+
+[node name="Pile2Label" type="Label" parent="."]
+offset_left = 1255.0
+offset_top = 50.0
+offset_right = 1297.0
+offset_bottom = 73.0
+text = "Pile 2"
+
+[node name="Pile3Label" type="Label" parent="."]
+offset_left = 1455.0
+offset_top = 50.0
+offset_right = 1497.0
+offset_bottom = 73.0
+text = "Pile 3"
+
+[node name="Pile4Label" type="Label" parent="."]
+offset_left = 1655.0
+offset_top = 50.0
+offset_right = 1697.0
+offset_bottom = 73.0
+text = "Pile 4"
+
+[node name="HandLabel" type="Label" parent="."]
+offset_left = 1050.0
+offset_top = 700.0
+offset_right = 1092.0
+offset_bottom = 723.0
+text = "Hand"
+
+[node name="DeckLabel" type="Label" parent="."]
+offset_left = 355.0
+offset_top = 700.0
+offset_right = 395.0
+offset_bottom = 723.0
+text = "Deck"
+
+[node name="DiscardLabel" type="Label" parent="."]
+offset_left = 1655.0
+offset_top = 700.0
+offset_right = 1714.0
+offset_bottom = 723.0
+text = "Discard"
+
 [connection signal="pressed" from="ButtonContainer/ButtonColumnContainer1/Draw1Button" to="." method="_on_draw_1_button_pressed"]
 [connection signal="pressed" from="ButtonContainer/ButtonColumnContainer1/Draw3Button" to="." method="_on_draw_3_button_pressed"]
 [connection signal="pressed" from="ButtonContainer/ButtonColumnContainer1/ResetDeckButton" to="." method="_on_reset_deck_button_pressed"]
