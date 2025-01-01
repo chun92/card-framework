@@ -16,6 +16,7 @@ func _ready() -> void:
 	_set_records()
 	_set_ui()
 
+
 func _set_ui():
 	var button_menu = $ButtonMenu
 	button_menu.connect("pressed", _go_to_menu)
@@ -56,6 +57,7 @@ func _make_record(record: Dictionary):
 	record_instance.get_node("Move").text = move
 	record_instance.get_node("Undo").text = undo
 	records_node.add_child(record_instance)
+
 
 func _set_summary():
 	var game_count := 0

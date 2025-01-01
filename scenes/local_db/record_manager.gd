@@ -2,9 +2,12 @@ extends Node
 
 const RECORDS_PATH = "user://record_table.json"
 const CURRENT_GAME_INFO_PATH = "user://current_game_info.json"
+
+
 var record_table: Dictionary = {}
 var next_id := 0 
 var running_game: Dictionary = {}
+
 
 func _ready():
 	load_table()

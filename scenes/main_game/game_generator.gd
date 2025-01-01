@@ -1,21 +1,23 @@
 class_name GameGenerator
 extends Node
 
-func random_generator(_seed = 1, count = 1):
+
+func random_generator(game_seed = 1, count = 1):
 	var max_int32 = (1 << 31) - 1
-	_seed = _seed & max_int32
+	game_seed = game_seed & max_int32
 	var rnd_numbers = []
 	for i in range(count):
-		_seed = (_seed * 214013 + 2531011) & max_int32
-		rnd_numbers.append(_seed >> 16)
+		game_seed = (game_seed * 214013 + 2531011) & max_int32
+		rnd_numbers.append(game_seed >> 16)
 	return rnd_numbers
 
-func deal(_seed):
+
+func deal(game_seed):
 	var nc = 52
 	var cards = []
 	for i in range(nc - 1, -1, -1):
 		cards.append(i)
-	var rnd_numbers = random_generator(_seed, nc)
+	var rnd_numbers = random_generator(game_seed, nc)
 	for i in range(nc):
 		var r = rnd_numbers[i]
 		var j = (nc - 1) - r % (nc - i)
@@ -46,7 +48,6 @@ func print_log(cards):
 	for i in range(0, l.size(), 8):
 		var line = " ".join(l.slice(i, i + 8))
 		print(line)
-
 
 
 func _get_number(card: int) -> PlayingCard.Number:

@@ -1,19 +1,21 @@
 class_name FreecellGame
 extends Node
 
+
 enum GameState {WIN = 1, LOSE = 2, PLAYING = 3}
+
+
 const suits = ["Heart", "Spade", "Diamond", "Club"]
 const auto_move_timer_wating_time = 0.2
 const game_generating_timer_waiting_time = 0.05
+
 
 var freecells := []
 var foundations := []
 var tableaus := []
 var all_cards := []
-
 var card_factory: FreecellCardFactory
 var game_seed := 0
-
 var is_creating_new_game := false
 var auto_move_timer: Timer
 var auto_move_target := {}
@@ -26,18 +28,18 @@ var undo_count := 0
 var score := 0
 var game_state := GameState.PLAYING
 var is_game_running := false
-
 var menu_scene = load("res://freecell/scenes/menu/menu.tscn")
+
 
 @onready var card_manager = $CardManager
 @onready var game_generator = $GameGenerator
 @onready var start_position = $CardManager/StartPosition
 @onready var time_display = $Time
 @onready var score_display = $Score
-
 @onready var restart_game_dialog = $RestartGameDialog
 @onready var go_to_menu_dialog = $GoToMenuDialog
 @onready var information = $Information
+
 
 func _ready() -> void:
 	_set_containers()
@@ -46,22 +48,6 @@ func _ready() -> void:
 	_set_game_generating_timer()
 	_set_game_timer()
 	_update_information()
-
-
-func _count_remaining_freecell() -> int:
-	var count = 0
-	for freecell in freecells:
-		if freecell.is_empty():
-			count += 1
-	return count
-
-
-func _count_remaining_tableaus() -> int:
-	var count = 0
-	for tableau in tableaus:
-		if tableau.is_empty():
-			count += 1
-	return count
 
 
 func maximum_number_of_super_move(tableau: Tableau) -> int:
@@ -103,6 +89,7 @@ func hold_multiple_cards(card: Card, tableau: Tableau):
 			target_card.set_holding()
 	return
 
+
 func update_all_tableaus_cards_can_be_interactwith(use_auto_move: bool = true):
 	for tableau in tableaus:
 		if tableau.is_initializing:
@@ -127,6 +114,23 @@ func update_all_tableaus_cards_can_be_interactwith(use_auto_move: bool = true):
 		GameState.PLAYING:
 			pass
 	_update_information()
+
+
+func new_game():
+	if is_game_running:
+		game_state = GameState.LOSE
+		_end_game()
+	if is_creating_new_game:
+		return
+	is_creating_new_game = true
+	if game_timer != null:
+		game_timer.stop()
+	_set_elapsed_time(0)
+	_reset_cards_in_game()
+	await _generate_cards()
+	_start_game()
+	is_creating_new_game = false
+	is_game_running = true
 
 
 func _get_game_state() -> GameState:
@@ -164,6 +168,7 @@ func _update_cards_can_be_interactwith(tableau: Tableau):
 		if current_card.number == PlayingCard.Number._K:
 			return
 
+
 func _get_foundation(suit: PlayingCard.Suit) -> Foundation:
 	match suit:
 		PlayingCard.Suit.SPADE:
@@ -176,6 +181,7 @@ func _get_foundation(suit: PlayingCard.Suit) -> Foundation:
 			return foundations[3]
 		_:
 			return null
+
 
 func _get_minimum_number(a: Foundation, b: Foundation) -> int:
 	var a_top_card = a.get_top_card()
@@ -196,6 +202,7 @@ func _get_minimum_number_in_foundation(card_color: PlayingCard.CardColor) -> int
 		return _get_minimum_number(_get_foundation(PlayingCard.Suit.HEART), _get_foundation(PlayingCard.Suit.DIAMOND))
 	else:
 		return -1
+
 
 func _check_auto_move(container):
 	if container._held_cards.is_empty():
@@ -248,6 +255,7 @@ func _set_containers():
 		var tableau = card_manager.get_node("Tableau_%d" % i)
 		tableaus.append(tableau)
 		tableau.freecell_game = self
+
 
 func _set_auto_mover():
 	auto_move_timer = Timer.new()
@@ -367,6 +375,22 @@ func _reset_cards_in_game():
 		card_factory = $CardManager/FreecellCardFactory
 
 
+func _count_remaining_freecell() -> int:
+	var count = 0
+	for freecell in freecells:
+		if freecell.is_empty():
+			count += 1
+	return count
+
+
+func _count_remaining_tableaus() -> int:
+	var count = 0
+	for tableau in tableaus:
+		if tableau.is_empty():
+			count += 1
+	return count
+
+
 func _generate_cards():
 	var deck = game_generator.deal(game_seed)
 	var cards_str = game_generator.generate_cards(deck)
@@ -392,23 +416,6 @@ func _generate_cards():
 	for tableau in tableaus:
 		tableau.is_initializing = false
 		_update_cards_can_be_interactwith(tableau)
-
-
-func new_game():
-	if is_game_running:
-		game_state = GameState.LOSE
-		_end_game()
-	if is_creating_new_game:
-		return
-	is_creating_new_game = true
-	if game_timer != null:
-		game_timer.stop()
-	_set_elapsed_time(0)
-	_reset_cards_in_game()
-	await _generate_cards()
-	_start_game()
-	is_creating_new_game = false
-	is_game_running = true
 
 
 func _go_to_menu():

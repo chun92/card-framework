@@ -3,9 +3,12 @@ extends Node
 
 var game_scene = preload("res://freecell/scenes/main_game/freecell_game.tscn")
 var statistics_scene = preload("res://freecell/scenes/menu/statistics.tscn")
+
+
 @onready var seed_node = $NewGame/Seed
 @onready var seed_warning = $SeedWarning
 @onready var credits_node = $Credits2
+
 
 func _ready():
 	_set_ui_buttons()
@@ -21,7 +24,6 @@ func _set_ui_buttons():
 	var button_exit = $Exit
 	button_exit.connect("pressed", _exit)
 	
-
 
 func _get_seed():
 	var text = seed_node.text
