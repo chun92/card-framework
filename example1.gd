@@ -11,6 +11,7 @@ extends Node
 @onready var deck = $CardManager/Deck
 @onready var discard = $CardManager/Discard
 
+
 func _ready():
 	_reset_deck()
 	
