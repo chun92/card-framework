@@ -2,8 +2,8 @@ class_name Tableau
 extends Pile
 
 
-##Maximum length (in pixels) that the card stack can occupy. 
-#If not set or set to 0, the stack length is unlimited.
+## Maximum length (in pixels) that the card stack can occupy. 
+## If not set or set to 0, the stack length is unlimited.
 @export var max_stack_length: int
 
 var freecell_game: FreecellGame
