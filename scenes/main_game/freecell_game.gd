@@ -319,7 +319,7 @@ func _on_button_restart_game_pressed():
 
 
 func _on_button_undo_pressed():
-	if not is_game_running:
+	if is_game_running:
 		card_manager.undo()
 		
 
