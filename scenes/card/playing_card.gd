@@ -1,18 +1,18 @@
 class_name PlayingCard
 extends Card
 
+
 enum Suit {SPADE = 1, HEART = 2, DIAMOND = 3, CLUB = 4, NONE = 0}
 enum Number {_2 = 2, _3 = 3, _4 = 4, _5 = 5, _6 = 6, _7 = 7, _8 = 8, _9 = 9, _10 = 10, _J = 11, _Q = 12, _K = 13, _A = 1, _OTHER = 0}
 enum CardColor {BLACK = 1, RED = 2, NONE = 0}
 
+
 var suit: Suit :
 	get():
 		return _get_suit_from_string(card_info["suit"])
-
 var number: Number :
 	get():
 		return _get_number_from_string(card_info["value"])
-
 var card_color: CardColor :
 	get():
 		match suit:
@@ -26,8 +26,6 @@ var card_color: CardColor :
 				return CardColor.BLACK
 			_:
 				return CardColor.NONE
-
-
 var is_stop_control := false
 
 
@@ -140,7 +138,6 @@ func _get_number_from_string(_str: String) -> Number:
 		return Number._A
 	else:
 		return Number._OTHER
-
 
 
 func _on_mouse_enter():
