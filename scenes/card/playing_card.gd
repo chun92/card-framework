@@ -149,10 +149,10 @@ func _on_mouse_enter():
 	super._on_mouse_enter()
 
 
-func _on_mouse_exited():
+func _on_mouse_exit():
 	if is_stop_control:
 		return
-	super._on_mouse_exited()
+	super._on_mouse_exit()
 
 
 func _on_gui_input(event: InputEvent):
