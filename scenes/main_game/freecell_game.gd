@@ -77,26 +77,25 @@ func maximum_number_of_super_move(tableau: Tableau) -> int:
 func hold_multiple_cards(card: Card, tableau: Tableau):
 	var current_card: Card = null
 	var holding_card_list := []
-	if tableau.has_card(card):
-		var max_super_move = maximum_number_of_super_move(null)
-		for i in range(tableau._held_cards.size() - 1, -1, -1):
-			var target_card = tableau._held_cards[i]
-			if current_card == null:
-				current_card = target_card
-				holding_card_list.append(current_card)
-			elif holding_card_list.size() >= max_super_move:
-				holding_card_list.clear()
-				return 
-			elif current_card.is_next_number(target_card) and current_card.is_different_color(target_card):
-				current_card = target_card
-				holding_card_list.append(current_card)
-				if current_card == card:
-					break
-			else:
-				holding_card_list.clear()
-				return
+	var max_super_move = maximum_number_of_super_move(null)
+	for i in range(tableau._held_cards.size() - 1, -1, -1):
+		var target_card = tableau._held_cards[i]
+		if current_card == null:
+			current_card = target_card
+			holding_card_list.append(current_card)
+		elif holding_card_list.size() >= max_super_move:
+			holding_card_list.clear()
+			return 
+		elif current_card.is_next_number(target_card) and current_card.is_different_color(target_card):
+			current_card = target_card
+			holding_card_list.append(current_card)
 			if current_card == card:
 				break
+		else:
+			holding_card_list.clear()
+			return
+		if current_card == card:
+			break
 	
 	for target_card in holding_card_list:
 		if target_card != card:

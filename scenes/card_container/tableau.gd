@@ -12,7 +12,6 @@ var is_initializing := false
 func _ready():
 	super._ready()
 	restrict_to_top_card = false
-	CardFrameworkSignalBus.card_clicked.connect(_on_card_clicked)
 
 func _card_can_be_added(_cards: Array) -> bool:
 	if _cards.size() > freecell_game.maximum_number_of_super_move(self):
@@ -79,7 +78,7 @@ func is_empty() -> bool:
 	return _held_cards.is_empty()
 
 
-func _on_card_clicked(card: Card):
+func on_card_pressed(card: Card):
 	freecell_game.hold_multiple_cards(card, self)
 
 
