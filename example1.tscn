@@ -1,10 +1,10 @@
 [gd_scene load_steps=12 format=3 uid="uid://60bwveuu2rt"]
 
 [ext_resource type="Script" path="res://example1/example1.gd" id="1_2r7vq"]
-[ext_resource type="PackedScene" uid="uid://c7u8hryloq7hy" path="res://addon/card-framework/card_manager.tscn" id="1_rurpr"]
-[ext_resource type="PackedScene" uid="uid://dk6rb7lhv1ef6" path="res://addon/card-framework/pile.tscn" id="2_xkfcc"]
+[ext_resource type="PackedScene" uid="uid://c7u8hryloq7hy" path="res://addons/card-framework/card_manager.tscn" id="1_rurpr"]
+[ext_resource type="PackedScene" uid="uid://dk6rb7lhv1ef6" path="res://addons/card-framework/pile.tscn" id="2_xkfcc"]
 [ext_resource type="Texture2D" uid="uid://djoauv24lbkhc" path="res://example1/assets/images/cards/cardBack_blue1.png" id="3_gqkj7"]
-[ext_resource type="PackedScene" uid="uid://bkpjlq7ggckg6" path="res://addon/card-framework/hand.tscn" id="3_xp5g3"]
+[ext_resource type="PackedScene" uid="uid://bkpjlq7ggckg6" path="res://addons/card-framework/hand.tscn" id="3_xp5g3"]
 [ext_resource type="Texture2D" uid="uid://cv6ecvmkml3ok" path="res://example1/assets/images/cards/cardBack_green1.png" id="5_kl5wo"]
 [ext_resource type="Texture2D" uid="uid://dacwc4ros7wiv" path="res://example1/assets/images/cards/cardBack_green2.png" id="6_u8c1b"]
 [ext_resource type="Texture2D" uid="uid://c8mcrcwmgi0oc" path="res://example1/assets/images/cards/cardBack_green3.png" id="8_cv7sm"]
