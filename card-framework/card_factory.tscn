@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://7qcsutlss3oj"]
+
+[ext_resource type="Script" path="res://addons/card-framework/card_factory.gd" id="1_aaxsy"]
+[ext_resource type="PackedScene" uid="uid://brjlo8xing83p" path="res://addons/card-framework/card.tscn" id="2_htoec"]
+
+[node name="CardFactory" type="Node"]
+script = ExtResource("1_aaxsy")
+default_card_scene = ExtResource("2_htoec")
