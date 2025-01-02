@@ -1,3 +1,4 @@
+class_name RecordManager
 extends Node
 
 const RECORDS_PATH = "user://record_table.json"
@@ -9,12 +10,12 @@ var next_id := 0
 var running_game: Dictionary = {}
 
 
-func _ready():
+func _ready() -> void:
 	load_table()
 	check_running_game_info()
 
 
-func load_table():
+func load_table() -> void:
 	if FileAccess.file_exists(RECORDS_PATH):
 		var file = FileAccess.open(RECORDS_PATH, FileAccess.READ)
 		var content = file.get_as_text()
@@ -29,14 +30,14 @@ func load_table():
 		record_table = {}
 
 
-func save_table():
+func save_table() -> void:
 	var json_str = JSON.stringify(record_table)
 	var file = FileAccess.open(RECORDS_PATH, FileAccess.WRITE)
 	file.store_string(json_str)
 	file.close()
 
 
-func make_record(game_seed: int, move_count: int, undo_count: int, game_time: int, score: int, game_state: FreecellGame.GameState):
+func make_record(game_seed: int, move_count: int, undo_count: int, game_time: int, score: int, game_state: FreecellGame.GameState) -> void:
 	var record_id = ""
 	while true:
 		var candidate_id = "%016d" % next_id
@@ -87,7 +88,7 @@ func remove_all():
 	save_table()
 
 
-func save_running_game_info(game_seed: int, move_count: int, undo_count: int, game_time: int, score: int, game_state: FreecellGame.GameState):
+func save_running_game_info(game_seed: int, move_count: int, undo_count: int, game_time: int, score: int, game_state: FreecellGame.GameState) -> void:
 	if game_state != FreecellGame.GameState.PLAYING:
 		return
 
@@ -106,7 +107,7 @@ func save_running_game_info(game_seed: int, move_count: int, undo_count: int, ga
 	file.close()
 
 
-func check_running_game_info():
+func check_running_game_info() -> void:
 	if FileAccess.file_exists(CURRENT_GAME_INFO_PATH):
 		var file = FileAccess.open(CURRENT_GAME_INFO_PATH, FileAccess.READ)
 		var content = file.get_as_text()
@@ -126,7 +127,7 @@ func check_running_game_info():
 			push_error("Failed to parse JSON: %s" % parsed.error_string)
 
 
-func remove_running_game_info():
+func remove_running_game_info() -> void:
 	var game_info = {}
 	var json_str = JSON.stringify(game_info)
 	var file = FileAccess.open(CURRENT_GAME_INFO_PATH, FileAccess.WRITE)

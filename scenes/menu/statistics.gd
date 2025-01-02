@@ -2,7 +2,7 @@ class_name Statistics
 extends Control
 
 
-var record_table = RecordManager.get_all_records()
+var record_table := {}
 var menu_scene = load("res://freecell/scenes/menu/menu.tscn")
 var record_node = preload("res://freecell/scenes/menu/record.tscn")
 
@@ -12,17 +12,24 @@ var record_node = preload("res://freecell/scenes/menu/record.tscn")
 
 
 func _ready() -> void:
+	_get_record_table()
 	_set_summary()
 	_set_records()
 	_set_ui()
 
 
-func _set_ui():
+func _get_record_table() -> void:
+	var node = get_tree().root.get_node("RecordManager")
+	var record_manager = node as RecordManager
+	record_table = record_manager.get_all_records()
+
+
+func _set_ui() -> void:
 	var button_menu = $ButtonMenu
 	button_menu.connect("pressed", _go_to_menu)
 
 
-func _set_records():
+func _set_records() -> void:
 	var keys = record_table.keys()
 	for i in range(keys.size() - 1, -1, -1):
 		var record_id = keys[i]
@@ -30,7 +37,7 @@ func _set_records():
 		_make_record(record)
 
 
-func _make_record(record: Dictionary):
+func _make_record(record: Dictionary) -> void:
 	var date_info = record["game_date"]
 	var year = date_info["year"]
 	var month = date_info["month"]
@@ -59,7 +66,7 @@ func _make_record(record: Dictionary):
 	records_node.add_child(record_instance)
 
 
-func _set_summary():
+func _set_summary() -> void:
 	var game_count := 0
 	var win_count := 0
 	var lose_count := 0
@@ -87,7 +94,7 @@ func _set_summary():
 	win_rate_node.text = "Win Rate: %d%%" % win_rate
 
 
-func _go_to_menu():
+func _go_to_menu() -> void:
 	var menu_instance = menu_scene.instantiate()
 	get_tree().root.add_child(menu_instance)
 	get_node("/root/Statistics").queue_free()

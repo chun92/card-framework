@@ -28,6 +28,7 @@ var undo_count := 0
 var score := 0
 var game_state := GameState.PLAYING
 var is_game_running := false
+var record_manager: RecordManager
 var menu_scene = load("res://freecell/scenes/menu/menu.tscn")
 
 
@@ -42,6 +43,7 @@ var menu_scene = load("res://freecell/scenes/menu/menu.tscn")
 
 
 func _ready() -> void:
+	_set_record_manager()
 	_set_containers()
 	_set_ui_buttons()
 	_set_auto_mover()
@@ -60,7 +62,7 @@ func maximum_number_of_super_move(tableau: Tableau) -> int:
 	return result
 
 
-func hold_multiple_cards(card: Card, tableau: Tableau):
+func hold_multiple_cards(card: Card, tableau: Tableau) -> void:
 	var current_card: Card = null
 	var holding_card_list := []
 	var max_super_move = maximum_number_of_super_move(null)
@@ -90,7 +92,7 @@ func hold_multiple_cards(card: Card, tableau: Tableau):
 	return
 
 
-func update_all_tableaus_cards_can_be_interactwith(use_auto_move: bool = true):
+func update_all_tableaus_cards_can_be_interactwith(use_auto_move: bool = true) -> void:
 	for tableau in tableaus:
 		if tableau.is_initializing:
 			continue
@@ -116,7 +118,7 @@ func update_all_tableaus_cards_can_be_interactwith(use_auto_move: bool = true):
 	_update_information()
 
 
-func new_game():
+func new_game() -> void:
 	if is_game_running:
 		game_state = GameState.LOSE
 		_end_game()
@@ -145,7 +147,7 @@ func _get_game_state() -> GameState:
 	return GameState.PLAYING
 
 
-func _update_cards_can_be_interactwith(tableau: Tableau):
+func _update_cards_can_be_interactwith(tableau: Tableau) -> void:
 	var current_card: Card = null
 	var count := 0
 	var max_super_move = maximum_number_of_super_move(null)
@@ -204,7 +206,7 @@ func _get_minimum_number_in_foundation(card_color: PlayingCard.CardColor) -> int
 		return -1
 
 
-func _check_auto_move(container):
+func _check_auto_move(container) -> void:
 	if container._held_cards.is_empty():
 		return
 	var top_card = container._held_cards.back()
@@ -240,7 +242,7 @@ func _check_auto_move(container):
 		auto_move_timer.start(auto_move_timer_wating_time)
 
 
-func _set_containers():
+func _set_containers() -> void:
 	for i in range(1, 5):
 		var freecell = card_manager.get_node("Freecell_%d" % i)
 		freecells.append(freecell)
@@ -257,7 +259,7 @@ func _set_containers():
 		tableau.freecell_game = self
 
 
-func _set_auto_mover():
+func _set_auto_mover() -> void:
 	auto_move_timer = Timer.new()
 	auto_move_timer.wait_time = auto_move_timer_wating_time
 	auto_move_timer.one_shot = true
@@ -265,19 +267,19 @@ func _set_auto_mover():
 	add_child(auto_move_timer)
 
 
-func _set_game_generating_timer():
+func _set_game_generating_timer() -> void:
 	game_generating_timer = Timer.new()
 	game_generating_timer.wait_time = game_generating_timer_waiting_time
 	game_generating_timer.one_shot = true
 	add_child(game_generating_timer)
 
 
-func _set_elapsed_time(time):
+func _set_elapsed_time(time) -> void:
 	elapsed_time = time
 	time_display.text = str(elapsed_time)
 
 
-func _set_game_timer():
+func _set_game_timer() -> void:
 	if game_timer == null:
 		game_timer = Timer.new()
 		game_timer.wait_time = 1.0
@@ -287,12 +289,12 @@ func _set_game_timer():
 	_set_elapsed_time(0)
 
 
-func _on_game_timer_timeout():
+func _on_game_timer_timeout() -> void:
 	_set_elapsed_time(elapsed_time + 1)
 	_update_information()
 
 
-func _start_game():
+func _start_game() -> void:
 	move_count = 0
 	undo_count = 0
 	score = 0
@@ -301,14 +303,14 @@ func _start_game():
 	_update_information()
 
 
-func _end_game():
+func _end_game() -> void:
 	game_timer.stop()
-	RecordManager.make_record(game_seed, move_count, undo_count, elapsed_time, score, game_state)
+	record_manager.make_record(game_seed, move_count, undo_count, elapsed_time, score, game_state)
 	print("move: %d, undo: %d, score: %d, time: %d" % [move_count, undo_count, score, elapsed_time])
 	is_game_running = false
 
 
-func _update_score():
+func _update_score() -> void:
 	score = 0
 	for foundation in foundations:
 		score += foundation._held_cards.size() * 10
@@ -318,27 +320,31 @@ func _update_score():
 	_update_information()
 
 
-func _on_button_restart_game_pressed():
+func _set_record_manager() -> void:
+	var node = get_tree().root.get_node("RecordManager")
+	record_manager = node as RecordManager
+
+
+func _on_button_restart_game_pressed() -> void:
 	if is_game_running:
 		restart_game_dialog.popup_centered()
 	else:
 		new_game()
 
 
-func _on_button_undo_pressed():
+func _on_button_undo_pressed() -> void:
 	if is_game_running:
 		card_manager.undo()
-		
 
 
-func _on_button_menu_pressed():
+func _on_button_menu_pressed() -> void:
 	if is_game_running:
 		go_to_menu_dialog.popup_centered()
 	else:
 		_go_to_menu()
 
 
-func _set_ui_buttons():
+func _set_ui_buttons() -> void:
 	var button_restart_game = $ButtonRestartGame
 	button_restart_game.connect("pressed", _on_button_restart_game_pressed)
 	var button_undo = $ButtonUndo
@@ -349,7 +355,7 @@ func _set_ui_buttons():
 	go_to_menu_dialog.connect("confirmed", _go_to_menu)
 
 
-func _on_timeout():
+func _on_timeout() -> void:
 	var target_card = auto_move_target["card"]
 	var target_foundation = auto_move_target["foundation"]
 	target_foundation.auto_move_cards([target_card])
@@ -359,7 +365,7 @@ func _on_timeout():
 	_update_information()
 
 
-func _reset_cards_in_game():
+func _reset_cards_in_game() -> void:
 	for freecell in freecells:
 		freecell.clear_cards()
 	for foundation in foundations:
@@ -391,7 +397,7 @@ func _count_remaining_tableaus() -> int:
 	return count
 
 
-func _generate_cards():
+func _generate_cards() -> void:
 	var deck = game_generator.deal(game_seed)
 	var cards_str = game_generator.generate_cards(deck)
 	
@@ -418,7 +424,7 @@ func _generate_cards():
 		_update_cards_can_be_interactwith(tableau)
 
 
-func _go_to_menu():
+func _go_to_menu() -> void:
 	if is_game_running:
 		game_state = GameState.LOSE
 		_end_game()
@@ -427,7 +433,7 @@ func _go_to_menu():
 	get_node("/root/FreecellGame").queue_free()
 	
 
-func _set_all_card_control(disable: bool):
+func _set_all_card_control(disable: bool) -> void:
 	for card in all_cards:
 		card.is_stop_control = disable
 
@@ -469,7 +475,7 @@ func _check_lose_condition() -> bool:
 	return true
 
 
-func _update_information():
+func _update_information() -> void:
 	var text = "seed: " + str(game_seed) + \
 		",  move: " + str(move_count) + \
 		",  undo: " + str(undo_count) + \
@@ -485,12 +491,10 @@ func _update_information():
 			text += ",  state: playing"
 	
 	information.text = text
-	RecordManager.save_running_game_info(game_seed, move_count, undo_count, elapsed_time, score, game_state)
+	record_manager.save_running_game_info(game_seed, move_count, undo_count, elapsed_time, score, game_state)
 
 
-func _show_result_popup(
-	is_win: bool
-) -> void:
+func _show_result_popup(is_win: bool) -> void:
 	var dialog = $ResultDialog  # The AcceptDialog node
 	var body_text = dialog.get_node("BodyText") as RichTextLabel
 	

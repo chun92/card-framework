@@ -2,7 +2,7 @@ class_name GameGenerator
 extends Node
 
 
-func random_generator(game_seed = 1, count = 1):
+func random_generator(game_seed = 1, count = 1) -> Array:
 	var max_int32 = (1 << 31) - 1
 	game_seed = game_seed & max_int32
 	var rnd_numbers = []
@@ -12,7 +12,7 @@ func random_generator(game_seed = 1, count = 1):
 	return rnd_numbers
 
 
-func deal(game_seed):
+func deal(game_seed) -> Array:
 	var nc = 52
 	var cards = []
 	for i in range(nc - 1, -1, -1):
@@ -37,7 +37,7 @@ func generate_cards(cards) -> Array:
 	return results
 
 
-func print_log(cards):
+func print_log(cards) -> void:
 	var l = []
 	var numbers = "A23456789TJQK"
 	var suits = "CDHS"
