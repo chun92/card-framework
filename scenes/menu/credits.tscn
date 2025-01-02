@@ -13,7 +13,7 @@ offset_bottom = 330.0
 bbcode_enabled = true
 text = "[color=#87DBFF]Develped by[/color]: 
 	chunuiyu
-	https://github.com/chun92/freecell_godot
+	https://github.com/chun92/card-framework
 	chunuiyu@gmail.com
 
 [color=#87DBFF]Inspired by[/color]:

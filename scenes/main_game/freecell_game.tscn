@@ -1,6 +1,6 @@
 [gd_scene load_steps=20 format=3 uid="uid://4sjnrl4pid6b"]
 
-[ext_resource type="PackedScene" uid="uid://c7u8hryloq7hy" path="res://addon/card_framework/card_manager.tscn" id="1_kh5ya"]
+[ext_resource type="PackedScene" uid="uid://c7u8hryloq7hy" path="res://addon/card-framework/card_manager.tscn" id="1_kh5ya"]
 [ext_resource type="Script" path="res://freecell/scenes/main_game/freecell_game.gd" id="1_qroca"]
 [ext_resource type="PackedScene" uid="uid://dghhf8lu7oopx" path="res://freecell/scenes/card_container/freecell.tscn" id="2_3jyru"]
 [ext_resource type="Texture2D" uid="uid://bnx5n1lm62uhd" path="res://freecell/assets/images/cards/cardBack_blue1.png" id="2_6hvfq"]
@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://cl7jpb0rqwpjq" path="res://freecell/assets/images/spots/foundation_spade_spot.png" id="8_neli8"]
 [ext_resource type="Texture2D" uid="uid://cs060bvtns8hy" path="res://freecell/assets/images/spots/foundation_diamond_spot.png" id="9_mghkt"]
 [ext_resource type="Texture2D" uid="uid://c7x2lxmfwbnfc" path="res://freecell/assets/images/spots/foundation_club_spot.png" id="10_lka7w"]
-[ext_resource type="PackedScene" uid="uid://dk6rb7lhv1ef6" path="res://addon/card_framework/pile.tscn" id="12_yh0vm"]
+[ext_resource type="PackedScene" uid="uid://dk6rb7lhv1ef6" path="res://addon/card-framework/pile.tscn" id="12_yh0vm"]
 [ext_resource type="PackedScene" uid="uid://cke08pyglaa48" path="res://freecell/scenes/dialog/restart_game_dialog.tscn" id="14_674kq"]
 [ext_resource type="PackedScene" uid="uid://ddx72jvfinglm" path="res://freecell/scenes/dialog/go_to_menu_dialog.tscn" id="15_2mski"]
 [ext_resource type="PackedScene" uid="uid://br04c2rylm2m1" path="res://freecell/scenes/dialog/result_dialog.tscn" id="16_k3qx6"]
