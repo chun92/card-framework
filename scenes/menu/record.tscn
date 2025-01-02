@@ -43,6 +43,11 @@ custom_minimum_size = Vector2(70, 0)
 layout_mode = 2
 text = "Undo"
 
+[node name="Time" type="Label" parent="."]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+text = "Time"
+
 [node name="MarginContainer2" type="MarginContainer" parent="."]
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2

@@ -55,6 +55,7 @@ func _make_record(record: Dictionary) -> void:
 	var score = str(record["score"])
 	var move = str(record["move_count"])
 	var undo = str(record["undo_count"])
+	var game_time = str(record["game_time"])
 	
 	var record_instance = record_node.instantiate()
 	record_instance.get_node("Date").text = date
@@ -63,6 +64,7 @@ func _make_record(record: Dictionary) -> void:
 	record_instance.get_node("Score").text = score
 	record_instance.get_node("Move").text = move
 	record_instance.get_node("Undo").text = undo
+	record_instance.get_node("Time").text = game_time
 	records_node.add_child(record_instance)
 
 
