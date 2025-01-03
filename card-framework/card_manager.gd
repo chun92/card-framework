@@ -2,7 +2,7 @@
 class_name CardManager
 extends Control
 
-
+## size of the card
 @export var card_size := Vector2(150, 210)
 ## card image asset directory
 @export var card_asset_dir: String
@@ -38,15 +38,28 @@ func _ready() -> void:
 	card_factory.preload_card_data()
 
 
-func add_card_container(id: int, card_container: CardContainer):
+func undo() -> void:
+	if history.is_empty():
+		return
+	
+	var last = history.pop_back()
+	if last.from != null:
+		last.from.undo(last.cards)
+
+
+func reset_history() -> void:
+	history.clear()
+	
+
+func _add_card_container(id: int, card_container: CardContainer):
 	card_container_dict[id] = card_container
 
 
-func delete_card_container(id: int):
+func _delete_card_container(id: int):
 	card_container_dict.erase(id)
 
 
-func on_drag_dropped(cards: Array) -> void:
+func _on_drag_dropped(cards: Array) -> void:
 	if cards.is_empty():
 		return
 	
@@ -64,7 +77,7 @@ func on_drag_dropped(cards: Array) -> void:
 		card.return_card()
 
 
-func add_history(to: CardContainer, cards: Array) -> void:
+func _add_history(to: CardContainer, cards: Array) -> void:
 	var from = null
 	
 	for i in range(cards.size()):
@@ -82,19 +95,6 @@ func add_history(to: CardContainer, cards: Array) -> void:
 	history_element.to = to
 	history_element.cards = cards
 	history.append(history_element)
-
-
-func undo() -> void:
-	if history.is_empty():
-		return
-	
-	var last = history.pop_back()
-	if last.from != null:
-		last.from.undo(last.cards)
-
-
-func reset_history() -> void:
-	history.clear()
 
 
 func _is_valid_directory(path: String) -> bool:

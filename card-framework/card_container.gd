@@ -50,7 +50,7 @@ func _ready() -> void:
 		push_error("CardContainer should be under the CardManager")
 		return
 		
-	card_manager.add_card_container(unique_id, self)
+	card_manager._add_card_container(unique_id, self)
 	
 	if enable_drop_zone:
 		drop_zone = drop_zone_scene.instantiate()
@@ -64,7 +64,7 @@ func _ready() -> void:
 
 func _exit_tree() -> void:
 	if card_manager != null:
-		card_manager.delete_card_container(unique_id)
+		card_manager._delete_card_container(unique_id)
 
 
 func add_card(card: Card) -> void:
@@ -76,6 +76,8 @@ func remove_card(card: Card) -> bool:
 	var index = _held_cards.find(card)
 	if index != -1:
 		_held_cards.remove_at(index)
+	else:
+		return false
 	update_card_ui()
 	return true
 
@@ -108,12 +110,13 @@ func shuffle() -> void:
 	update_card_ui()
 
 
-func move_cards(cards: Array, with_history: bool = true) -> void:
+func move_cards(cards: Array, with_history: bool = true) -> bool:
 	if not _card_can_be_added(cards):
-		return
+		return false
 	if with_history:
-		card_manager.add_history(self, cards)
+		card_manager._add_history(self, cards)
 	_move_cards(cards)
+	return true
 
 
 func undo(cards: Array) -> void:
@@ -121,7 +124,8 @@ func undo(cards: Array) -> void:
 
 
 func hold_card(card: Card) -> void:
-	_holding_cards.append(card)
+	if _held_cards.has(card):
+		_holding_cards.append(card)
 
 
 func release_holding_cards():
@@ -131,7 +135,7 @@ func release_holding_cards():
 		card.set_releasing()
 	var copied_holding_cards = _holding_cards.duplicate()
 	if card_manager != null:
-		card_manager.on_drag_dropped(copied_holding_cards)
+		card_manager._on_drag_dropped(copied_holding_cards)
 	_holding_cards.clear()
 
 
