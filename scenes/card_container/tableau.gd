@@ -33,10 +33,12 @@ func get_string() -> String:
 	return "Tableau: %d, Top Card: %s, Size: %d" % [unique_id, card_info, held_card_size]
 
 
-func move_cards(cards: Array, with_history: bool = true) -> void:
-	super.move_cards(cards, with_history)
-	freecell_game.move_count += 1
-	freecell_game.update_all_tableaus_cards_can_be_interactwith(true)
+func move_cards(cards: Array, with_history: bool = true) -> bool:
+	var result = super.move_cards(cards, with_history)
+	if result:
+		freecell_game.move_count += 1
+		freecell_game.update_all_tableaus_cards_can_be_interactwith(true)
+	return result
 
 
 func init_move_cards(cards: Array, with_history: bool = true) -> void:
