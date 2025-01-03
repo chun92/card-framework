@@ -122,7 +122,7 @@ offset_right = 2000.0
 offset_bottom = 1300.0
 sensor_size = Vector2(500, 210)
 sensor_position = Vector2(-175, 0)
-sensor_texture = ExtResource("8_cv7sm")
+sensor_visibility = false
 
 [node name="Deck" parent="CardManager" instance=ExtResource("2_xkfcc")]
 offset_left = 300.0
