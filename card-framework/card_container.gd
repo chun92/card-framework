@@ -107,6 +107,16 @@ func check_card_can_be_dropped(cards: Array) -> bool:
 	return _card_can_be_added(cards)
 
 
+func get_partition_index() -> int:
+	var horizontal_index = drop_zone.get_horizontal_layers()
+	if horizontal_index != -1:
+		return horizontal_index
+	var vertical_index = drop_zone.get_vertical_layers()
+	if vertical_index != -1:
+		return vertical_index
+	return -1
+
+
 func shuffle() -> void:
 	_fisher_yates_shuffle(_held_cards)
 	for i in range(_held_cards.size()):

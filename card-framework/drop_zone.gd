@@ -19,6 +19,11 @@ var stored_sensor_position: Vector2
 var parent_card_container: CardContainer
 var sensor: Control
 
+## global vertical lines to divide the sensing partitions, left to right direction
+var horizontal_partition: Array
+## global vertical lines to divide the sensing partitions, up to down direction
+var vertical_partition: Array
+
 
 func check_mouse_is_in_drop_zone() -> bool:
 	var mouse_position = get_global_mouse_position()
@@ -54,3 +59,49 @@ func return_sensor_size():
 
 func change_sensor_position_with_offset(offset: Vector2):
 	sensor_position = stored_sensor_position + offset
+
+
+func set_horizontal_partitions(positions: Array):
+	horizontal_partition = positions
+
+
+func set_vertical_partitions(positions: Array):
+	vertical_partition = positions
+
+
+func get_horizontal_layers() -> int:
+	if not check_mouse_is_in_drop_zone():
+		return -1
+
+	if horizontal_partition == null or horizontal_partition.is_empty():
+		return -1
+
+	var mouse_position = get_global_mouse_position()
+	
+	var current_index := 0
+
+	for i in range(horizontal_partition.size()):
+		if mouse_position.x >= horizontal_partition[i]:
+			current_index += 1
+		else:
+			break
+	return current_index
+
+
+func get_vertical_layers() -> int:
+	if not check_mouse_is_in_drop_zone():
+		return -1
+
+	if vertical_partition == null or vertical_partition.is_empty():
+		return -1
+
+	var mouse_position = get_global_mouse_position()
+	
+	var current_index := 0
+
+	for i in range(vertical_partition.size()):
+		if mouse_position.y >= vertical_partition[i]:
+			current_index += 1
+		else:
+			break
+	return current_index
