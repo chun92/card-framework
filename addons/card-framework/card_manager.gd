@@ -70,7 +70,8 @@ func _on_drag_dropped(cards: Array) -> void:
 		var card_container = card_container_dict[key]
 		var result = card_container.check_card_can_be_dropped(cards)
 		if result:
-			card_container.move_cards(cards)
+			var index = card_container.get_partition_index()
+			card_container.move_cards(cards, index)
 			return
 	
 	for card in cards:

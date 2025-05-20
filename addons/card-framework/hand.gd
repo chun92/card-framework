@@ -55,6 +55,8 @@ func _update_target_positions():
 	var card_size = card_manager.card_size
 	var _w = card_size.x
 	var _h = card_size.y
+
+	var horizontal_partition = []
 	
 	for i in range(_held_cards.size()):
 		var card = _held_cards[i]
@@ -88,6 +90,8 @@ func _update_target_positions():
 		var current_x_max = max(_p1.x, _p2.x, _p3.x, _p4.x)
 		var current_y_min = min(_p1.y, _p2.y, _p3.y, _p4.y)
 		var current_y_max = max(_p1.y, _p2.y, _p3.y, _p4.y)
+		var current_x_mid = (current_x_min + current_x_max) / 2
+		horizontal_partition.append(current_x_mid)
 		
 		if i == 0:
 			x_min = current_x_min
@@ -111,3 +115,4 @@ func _update_target_positions():
 			var _size = Vector2(x_max - x_min, y_max - y_min)
 			var _position = Vector2(x_min, y_min) - position
 			drop_zone.set_sensor_size_flexibly(_size, _position)
+		drop_zone.set_horizontal_partitions(horizontal_partition)
