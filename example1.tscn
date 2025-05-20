@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://60bwveuu2rt"]
+[gd_scene load_steps=13 format=3 uid="uid://60bwveuu2rt"]
 
 [ext_resource type="Script" uid="uid://cf56ce8uvkmha" path="res://example1/example1.gd" id="1_2r7vq"]
 [ext_resource type="PackedScene" uid="uid://c7u8hryloq7hy" path="res://addons/card-framework/card_manager.tscn" id="1_rurpr"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dacwc4ros7wiv" path="res://example1/assets/images/cards/cardBack_green2.png" id="6_u8c1b"]
 [ext_resource type="Texture2D" uid="uid://c8mcrcwmgi0oc" path="res://example1/assets/images/cards/cardBack_green3.png" id="8_cv7sm"]
 [ext_resource type="Texture2D" uid="uid://cpkjxmuv1ho4b" path="res://example1/assets/images/cards/cardBack_red2.png" id="8_nwj6x"]
+[ext_resource type="Texture2D" uid="uid://db0vknmoookjl" path="res://example1/assets/images/cards/cardBack_blue5.png" id="10_l4bd6"]
 [ext_resource type="Texture2D" uid="uid://bdf2cukmms3nb" path="res://example1/assets/images/cards/cardBack_red3.png" id="10_tthv0"]
 [ext_resource type="Texture2D" uid="uid://b1jy1scbarbg5" path="res://example1/assets/images/cards/cardBack_red4.png" id="11_5najx"]
 
@@ -124,8 +125,8 @@ offset_left = 1000.0
 offset_top = 800.0
 offset_right = 1000.0
 offset_bottom = 800.0
-sensor_size = Vector2(500, 210)
-sensor_position = Vector2(-175, 0)
+sensor_texture = ExtResource("10_l4bd6")
+sensor_visibility = true
 
 [node name="Deck" parent="CardManager" instance=ExtResource("2_xkfcc")]
 offset_left = 300.0
