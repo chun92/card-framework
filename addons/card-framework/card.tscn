@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://brjlo8xing83p"]
 
-[ext_resource type="Script" path="res://addons/card-framework/card.gd" id="1_6ohl5"]
+[ext_resource type="Script" uid="uid://dtpomjc0u41g" path="res://addons/card-framework/card.gd" id="1_6ohl5"]
 
 [node name="Card" type="Control"]
 layout_mode = 3

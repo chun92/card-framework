@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dkmme1pig03ie"]
 
-[ext_resource type="Script" path="res://addons/card-framework/drop_zone.gd" id="1_w6usu"]
+[ext_resource type="Script" uid="uid://dhultt7pav0b" path="res://addons/card-framework/drop_zone.gd" id="1_w6usu"]
 
 [node name="DropZone" type="Control"]
 layout_mode = 3

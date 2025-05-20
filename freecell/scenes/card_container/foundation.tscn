@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://d134c8yu6d6qv"]
 
-[ext_resource type="Script" path="res://freecell/scenes/card_container/foundation.gd" id="1_wl684"]
+[ext_resource type="Script" uid="uid://5x07oaomyv20" path="res://freecell/scenes/card_container/foundation.gd" id="1_wl684"]
 
 [node name="Foundation" type="Control"]
 layout_mode = 3
