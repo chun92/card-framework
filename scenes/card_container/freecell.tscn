@@ -12,3 +12,4 @@ stack_display_gap = 0
 max_stack_display = 1
 align_drop_zone_with_top_card = false
 sensor_texture = ExtResource("2_2d4m1")
+sensor_visibility = true
