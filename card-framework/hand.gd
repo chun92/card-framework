@@ -1,9 +1,6 @@
 class_name Hand
 extends CardContainer
 
-## hand area size.
-@export var hand_area: Vector2
-
 @export_group("hand_meta_info")
 ## maximum number of cards that can be held.
 @export var max_hand_size := 10
@@ -25,7 +22,6 @@ extends CardContainer
 
 func _ready() -> void:
 	super._ready()
-	size = hand_area
 
 
 func get_random_cards(n: int) -> Array:
