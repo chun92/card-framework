@@ -232,7 +232,6 @@ A **CardContainer** implementation for a **player’s hand** of cards.
 #### Properties
 | Type      | Name                 | Default | Description                                                                                                                |
 | --------- | -------------------- | ------- | -------------------------------------------------------------------------------------------------------------------------- |
-| Vector2   | `hand_area`         | *(0,0)* | The area in which cards can be laid out for this hand.                                                                     |
 | int       | `max_hand_size`     | 10      | The maximum number of cards this hand can hold.                                                                            |
 | float     | `max_hand_spread`   | 700     | The maximum horizontal spread (in pixels) used when laying out cards in the hand.                                          |
 | bool      | `card_face_up`      | true    | Whether the hand displays cards face up (`true`) or face down (`false`).                                                  |
