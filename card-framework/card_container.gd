@@ -68,8 +68,11 @@ func _exit_tree() -> void:
 		card_manager._delete_card_container(unique_id)
 
 
-func add_card(card: Card) -> void:
-	_assign_card_to_container(card)
+func add_card(card: Card, index: int = -1) -> void:
+	if index == -1:
+		_assign_card_to_container(card)
+	else:
+		_insert_card_to_container(card, index)
 	_move_object(card, cards_node)
 
 
@@ -112,12 +115,12 @@ func shuffle() -> void:
 	update_card_ui()
 
 
-func move_cards(cards: Array, with_history: bool = true) -> bool:
+func move_cards(cards: Array, index: int = -1, with_history: bool = true) -> bool:
 	if not _card_can_be_added(cards):
 		return false
 	if with_history:
 		card_manager._add_history(self, cards)
-	_move_cards(cards)
+	_move_cards(cards, index)
 	return true
 
 
@@ -158,13 +161,24 @@ func _assign_card_to_container(card: Card) -> void:
 		card.card_container = self
 	if not _held_cards.has(card):
 		_held_cards.append(card)
-	update_card_ui()
+	update_card_ui()	
 
 
-func _move_to_card_container(_card: Card) -> void:
+func _insert_card_to_container(card: Card, index: int) -> void:
+	if card.card_container != self:
+		card.card_container = self
+	if not _held_cards.has(card):
+		if index < 0:
+			index = 0
+		elif index > _held_cards.size():
+			index = _held_cards.size()
+		_held_cards.insert(index, card)
+	update_card_ui()	
+
+func _move_to_card_container(_card: Card, index: int = -1) -> void:
 	if _card.card_container != null:
 		_card.card_container.remove_card(_card)
-	add_card(_card)
+	add_card(_card, index)
 	_card.target_container = self
 
 
@@ -176,10 +190,16 @@ func _fisher_yates_shuffle(array: Array) -> void:
 		array[j] = temp
 
 
-func _move_cards(cards: Array) -> void:
+func _move_cards(cards: Array, index: int = -1) -> void:
+	var cur_index = index
 	for i in range(cards.size() - 1, -1, -1):
 		var card = cards[i]
 		_move_to_card_container(card)
+		if cur_index == -1:
+			_move_to_card_container(card)
+		else:
+			_move_to_card_container(card, cur_index)
+			cur_index += 1
 
 
 func _card_can_be_added(_cards: Array) -> bool:
