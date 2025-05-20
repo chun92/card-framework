@@ -17,8 +17,8 @@ func get_string() -> String:
 	return "Foundation: %s, Top Card: %s" % [suit_str, card_info]
 
 
-func move_cards(cards: Array, with_history: bool = true) -> bool:
-	var result = super.move_cards(cards, with_history)
+func move_cards(cards: Array, index: int = -1, with_history: bool = true) -> bool:
+	var result = super.move_cards(cards, index, with_history)
 	if result:
 		freecell_game.move_count += 1
 		freecell_game.update_all_tableaus_cards_can_be_interactwith(true)
@@ -26,7 +26,7 @@ func move_cards(cards: Array, with_history: bool = true) -> bool:
 
 
 func auto_move_cards(cards: Array, with_history: bool = true) -> void:
-	super.move_cards(cards, with_history)
+	super.move_cards(cards, -1, with_history)
 	freecell_game.update_all_tableaus_cards_can_be_interactwith(true)
 
 
@@ -60,9 +60,3 @@ func _card_can_be_added(cards: Array) -> bool:
 		return true
 	else:
 		return false
-
-
-func _move_cards(cards: Array) -> void:
-	for i in range(cards.size() - 1, -1, -1):
-		var card = cards[i]
-		_move_to_card_container(card)
