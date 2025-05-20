@@ -181,13 +181,13 @@ Below is a reference for **CardContainer** methods you may **override** when imp
 
 | Method Signature                                      | Description                                                                                                        |
 | ------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
-| **func add_card(card: Card) -> void**                  | Adds a `card` to the container.                                                                                    |
+| **func add_card(card: Card, index: int = -1) -> void**                  | Adds a `card` to the container.                                                                                   |
 | **func remove_card(card: Card) -> bool**               | Removes `card` from the container. Returns `true` if successful, `false` if the card was not found.                |
 | **func has_card(card: Card) -> bool**                  | Checks if the container currently holds the given `card`.                                                          |
 | **func clear_cards() -> void**                         | Removes all cards from the container.                                                                              |
 | **func check_card_can_be_dropped(cards: Array) -> bool** | Determines if `cards` can be dropped onto this container (e.g., rules validation). Returns `true` if allowed.       |
 | **func shuffle() -> void**                             | Shuffles the order of cards in the container.                                                                      |
-| **func move_cards(cards: Array, with_history: bool = true) -> bool** | Moves the specified `cards` into this container, optionally recording the move in history if `with_history` is `true`. It returns `true` if move successes |
+| **func move_cards(cards: Array, index: int = -1, with_history: bool = true) -> bool** | Moves the specified `cards` into this container, optionally recording the move in history if `with_history` is `true`. It returns `true` if move successes |
 | **func undo(cards: Array) -> void**                    | Reverses a recorded move (undo) for the specified `cards`.                                                         |
 | **func hold_card(card: Card) -> void**                 | Holds the given `card` in this container (e.g., marking it as temporarily selected or locked).                      |
 | **func release_holding_cards() -> void**               | Releases all currently held cards in this container, returning them to normal state.                                |

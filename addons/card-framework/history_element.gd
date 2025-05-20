@@ -1,7 +1,7 @@
 class_name HistoryElement
 extends Object
 
-
+# XXX: It should consider the insertion with index case, not just addition case
 var from: CardContainer
 var to: CardContainer
 var cards: Array

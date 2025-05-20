@@ -33,8 +33,8 @@ func get_string() -> String:
 	return "Tableau: %d, Top Card: %s, Size: %d" % [unique_id, card_info, held_card_size]
 
 
-func move_cards(cards: Array, with_history: bool = true) -> bool:
-	var result = super.move_cards(cards, with_history)
+func move_cards(cards: Array, index: int = -1, with_history: bool = true) -> bool:
+	var result = super.move_cards(cards, index, with_history)
 	if result:
 		freecell_game.move_count += 1
 		freecell_game.update_all_tableaus_cards_can_be_interactwith(true)
@@ -42,7 +42,7 @@ func move_cards(cards: Array, with_history: bool = true) -> bool:
 
 
 func init_move_cards(cards: Array, with_history: bool = true) -> void:
-	super.move_cards(cards, with_history)
+	super.move_cards(cards, -1, with_history)
 	freecell_game.update_all_tableaus_cards_can_be_interactwith(true)
 
 
@@ -117,9 +117,3 @@ func _calculate_offset(index: int) -> Vector2:
 			offset.x -= offset_value
 
 	return offset
-
-
-func _move_cards(cards: Array) -> void:
-	for i in range(cards.size() - 1, -1, -1):
-		var card = cards[i]
-		_move_to_card_container(card)
