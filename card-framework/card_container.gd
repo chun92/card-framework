@@ -16,7 +16,8 @@ static var next_id = 0
 ## The texture used for the sensor.
 @export var sensor_texture: Texture
 ## Determines whether the sensor is visible or not.
-@export var sensor_visibility := true
+## Since the sensor can move following the status, please use it for debugging.
+@export var sensor_visibility := false
 
 
 var unique_id: int
