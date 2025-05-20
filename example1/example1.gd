@@ -50,6 +50,17 @@ func _on_draw_3_button_pressed() -> void:
 		current_draw_number -= 1
 
 
+
+func _on_draw_3_at_front_button_pressed() -> void:
+	var current_draw_number = 3
+	while current_draw_number > 0:
+		var result = hand.move_cards(deck.get_top_cards(current_draw_number), 0)
+		if result:
+			break
+		current_draw_number -= 1
+
+
+
 func _on_reset_deck_button_pressed():
 	_reset_deck()
 
