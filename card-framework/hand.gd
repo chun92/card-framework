@@ -19,6 +19,10 @@ extends CardContainer
 ## This works best as a 3-point ease in/out from 0 to X to 0
 @export var hand_vertical_curve : Curve
 
+@export_group("drop_zone")
+## Determines whether the drop zone size follows the hand size. (requires enable drop zone true)
+@export var align_drop_zone_size_with_current_hand_size := true
+
 
 func _ready() -> void:
 	super._ready()
@@ -44,6 +48,14 @@ func _update_target_z_index():
 
 
 func _update_target_positions():
+	var x_min: float
+	var x_max: float
+	var y_min: float
+	var y_max: float
+	var card_size = card_manager.card_size
+	var _w = card_size.x
+	var _h = card_size.y
+	
 	for i in range(_held_cards.size()):
 		var card = _held_cards[i]
 		var hand_ratio = 0.5
@@ -58,6 +70,44 @@ func _update_target_positions():
 		var target_rotation = 0
 		if hand_rotation_curve:
 			target_rotation = deg_to_rad(hand_rotation_curve.sample(hand_ratio))
+		
+		var _x = target_pos.x
+		var _y = target_pos.y
+			
+		var _t1 = atan2(_h, _w) + target_rotation
+		var _t2 = atan2(_h, -_w) + target_rotation
+		var _t3 = _t1 + PI + target_rotation
+		var _t4 = _t2 + PI + target_rotation
+		var _c = Vector2(_x + _w / 2, _y + _h / 2)
+		var _r = sqrt(pow(_w / 2, 2.0) + pow(_h / 2, 2.0))
+		var _p1 = Vector2(_r * cos(_t1), _r * sin(_t1)) + _c # right bottom
+		var _p2 = Vector2(_r * cos(_t2), _r * sin(_t2)) + _c # left bottom
+		var _p3 = Vector2(_r * cos(_t3), _r * sin(_t3)) + _c # left top
+		var _p4 = Vector2(_r * cos(_t4), _r * sin(_t4)) + _c # right top
+		var current_x_min = min(_p1.x, _p2.x, _p3.x, _p4.x)
+		var current_x_max = max(_p1.x, _p2.x, _p3.x, _p4.x)
+		var current_y_min = min(_p1.y, _p2.y, _p3.y, _p4.y)
+		var current_y_max = max(_p1.y, _p2.y, _p3.y, _p4.y)
+		
+		if i == 0:
+			x_min = current_x_min
+			x_max = current_x_max
+			y_min = current_y_min 
+			y_max = current_y_max
+		else:
+			x_min = minf(x_min, current_x_min)
+			x_max = maxf(x_max, current_x_max)
+			y_min = minf(y_min, current_y_min)
+			y_max = maxf(y_max, current_y_max)
+		
 		card.move(target_pos, target_rotation)
 		card.show_front = card_face_up
 		card.can_be_interacted_with = true
+		
+	if align_drop_zone_size_with_current_hand_size:
+		if _held_cards.size() == 0:
+			drop_zone.return_sensor_size()
+		else:
+			var _size = Vector2(x_max - x_min, y_max - y_min)
+			var _position = Vector2(x_min, y_min) - position
+			drop_zone.set_sensor_size_flexibly(_size, _position)

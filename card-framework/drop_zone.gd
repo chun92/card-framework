@@ -14,6 +14,7 @@ var sensor_texture : Texture:
 var sensor_visible := true:
 	set(value):
 		sensor.visible = value
+var stored_sensor_size: Vector2
 var stored_sensor_position: Vector2
 var parent_card_container: CardContainer
 var sensor: Control
@@ -35,9 +36,20 @@ func set_sensor(_size: Vector2, _position: Vector2, _texture: Texture, _visible:
 		
 	sensor_size = _size
 	sensor_position = _position
+	stored_sensor_size = _size
 	stored_sensor_position = _position
 	sensor_texture = _texture
 	sensor_visible = _visible
+
+
+func set_sensor_size_flexibly(_size: Vector2, _position: Vector2):
+	sensor_size = _size
+	sensor_position = _position
+
+
+func return_sensor_size():
+	sensor_size = stored_sensor_size
+	sensor_position = stored_sensor_position
 
 
 func change_sensor_position_with_offset(offset: Vector2):
