@@ -90,6 +90,7 @@ func clear_cards():
 	for card in _held_cards:
 		_remove_object(card)
 	_held_cards.clear()
+	update_card_ui()
 
 
 func check_card_can_be_dropped(cards: Array) -> bool:
