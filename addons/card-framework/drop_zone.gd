@@ -10,14 +10,13 @@ var sensor_position: Vector2:
 		sensor.position = value
 var sensor_texture : Texture:
 	set(value):
-		sensor_holder.texture = value
+		sensor.texture = value
 var sensor_visible := true:
 	set(value):
 		sensor.visible = value
 var stored_sensor_position: Vector2
 var parent_card_container: CardContainer
 var sensor: Control
-var sensor_holder: Control
 
 
 func check_mouse_is_in_drop_zone() -> bool:
@@ -34,20 +33,10 @@ func set_sensor(_size: Vector2, _position: Vector2, _texture: Texture, _visible:
 		sensor.z_index = -1000
 		add_child(sensor)
 		
-	if sensor_holder == null:
-		sensor_holder = TextureRect.new()
-		sensor_holder.name = "SensorHolder"
-		sensor_holder.mouse_filter = Control.MOUSE_FILTER_IGNORE
-		sensor_holder.z_index = -1000
-		add_child(sensor_holder)
-		sensor_holder.size = _size
-		sensor_holder.position = _position
-		sensor_holder.texture = _texture
-		sensor_holder.visible = _visible
-		
 	sensor_size = _size
 	sensor_position = _position
 	stored_sensor_position = _position
+	sensor_texture = _texture
 	sensor_visible = _visible
 
 
