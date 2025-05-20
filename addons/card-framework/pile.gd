@@ -53,6 +53,8 @@ func _update_target_z_index():
 
 func _update_target_positions():
 	var last_index = _held_cards.size() - 1
+	if last_index < 0:
+		last_index = 0
 	var last_offset = _calculate_offset(last_index)
 	if enable_drop_zone and align_drop_zone_with_top_card:
 		drop_zone.change_sensor_position_with_offset(last_offset)
