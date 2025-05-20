@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cv6cjls2buk71"]
 
-[ext_resource type="Script" path="res://freecell/scenes/menu/menu.gd" id="1_l55ai"]
+[ext_resource type="Script" uid="uid://bydqjju7q5xni" path="res://freecell/scenes/menu/menu.gd" id="1_l55ai"]
 [ext_resource type="PackedScene" uid="uid://cpdwcj3slpja" path="res://freecell/scenes/dialog/seed_warning.tscn" id="2_a0gfy"]
 [ext_resource type="PackedScene" uid="uid://1f6js1vkwrrb" path="res://freecell/scenes/menu/credits.tscn" id="3_imhvf"]
 
