@@ -118,8 +118,8 @@ sensor_texture = ExtResource("8_nwj6x")
 [node name="Hand" parent="CardManager" instance=ExtResource("3_xp5g3")]
 offset_left = 1000.0
 offset_top = 800.0
-offset_right = 2000.0
-offset_bottom = 1300.0
+offset_right = 1000.0
+offset_bottom = 800.0
 sensor_size = Vector2(500, 210)
 sensor_position = Vector2(-175, 0)
 sensor_visibility = false
