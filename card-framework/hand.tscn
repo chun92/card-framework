@@ -1,15 +1,14 @@
 [gd_scene load_steps=4 format=3 uid="uid://bkpjlq7ggckg6"]
 
-[ext_resource type="Script" path="res://addons/card-framework/hand.gd" id="1_hrxjc"]
+[ext_resource type="Script" uid="uid://dj46jo3lfbclo" path="res://addons/card-framework/hand.gd" id="1_hrxjc"]
 
 [sub_resource type="Curve" id="Curve_lsli3"]
-min_value = -15.0
-max_value = 15.0
+_limits = [-15.0, 15.0, 0.0, 1.0]
 _data = [Vector2(0, -15), 0.0, 30.0, 0, 1, Vector2(1, 15), 30.0, 0.0, 1, 0]
 point_count = 2
 
 [sub_resource type="Curve" id="Curve_8dbo5"]
-max_value = 50.0
+_limits = [0.0, 50.0, 0.0, 1.0]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.5, 40), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 3
 
