@@ -76,6 +76,10 @@ text = "move to pile4"
 layout_mode = 2
 text = "clear all"
 
+[node name="Draw3AtFront" type="Button" parent="ButtonContainer/ButtonColumnContainer2"]
+layout_mode = 2
+text = "draw 3 at front"
+
 [node name="CardManager" parent="." instance=ExtResource("1_rurpr")]
 card_asset_dir = "res://example1/assets/images/cards"
 card_info_dir = "res://example1/card_info"
@@ -204,3 +208,4 @@ text = "Discard"
 [connection signal="pressed" from="ButtonContainer/ButtonColumnContainer2/MoveToPile3Button" to="." method="_on_move_to_pile_3_button_pressed"]
 [connection signal="pressed" from="ButtonContainer/ButtonColumnContainer2/MoveToPile4Button" to="." method="_on_move_to_pile_4_button_pressed"]
 [connection signal="pressed" from="ButtonContainer/ButtonColumnContainer2/ClearAllButton" to="." method="_on_clear_all_button_pressed"]
+[connection signal="pressed" from="ButtonContainer/ButtonColumnContainer2/Draw3AtFront" to="." method="_on_draw_3_at_front_button_pressed"]
