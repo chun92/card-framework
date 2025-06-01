@@ -1,0 +1,107 @@
+[gd_scene load_steps=4 format=3 uid="uid://c5uhjuvagwwp1"]
+
+[ext_resource type="Script" uid="uid://yvbtum6uyl4c" path="res://freecell/scenes/menu/statistics.gd" id="1_a8nae"]
+[ext_resource type="PackedScene" uid="uid://bbvauwyj8ycxu" path="res://freecell/scenes/menu/record.tscn" id="1_xpa6v"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vgkw0"]
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+
+[node name="Statistics" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_a8nae")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_top = 20.0
+offset_right = 1920.0
+offset_bottom = 120.0
+theme_override_font_sizes/normal_font_size = 80
+bbcode_enabled = true
+text = "[center]Statistics[/center]"
+fit_content = true
+scroll_active = false
+
+[node name="Panel" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -366.0
+offset_top = -400.0
+offset_right = 366.0
+offset_bottom = 387.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_vgkw0")
+
+[node name="VBox" type="VBoxContainer" parent="Panel"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/VBox"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="Record" parent="Panel/VBox" instance=ExtResource("1_xpa6v")]
+layout_mode = 2
+
+[node name="HSeparator" type="HSeparator" parent="Panel/VBox"]
+layout_mode = 2
+
+[node name="Records" type="ScrollContainer" parent="Panel/VBox"]
+custom_minimum_size = Vector2(728, 680)
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/VBox/Records"]
+layout_mode = 2
+
+[node name="HSeparator2" type="HSeparator" parent="Panel/VBox"]
+layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="Panel/VBox"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 2
+
+[node name="Summary" type="HBoxContainer" parent="Panel/VBox"]
+layout_mode = 2
+alignment = 1
+
+[node name="GamePlayed" type="Label" parent="Panel/VBox/Summary"]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+text = "Games Played:"
+
+[node name="Wins" type="Label" parent="Panel/VBox/Summary"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+text = "Wins:"
+
+[node name="Loses" type="Label" parent="Panel/VBox/Summary"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "Loses:"
+
+[node name="WinRate" type="Label" parent="Panel/VBox/Summary"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+text = "Win Rate:"
+
+[node name="ButtonMenu" type="Button" parent="."]
+layout_mode = 0
+offset_left = 710.0
+offset_top = 960.0
+offset_right = 1210.0
+offset_bottom = 1050.0
+theme_override_font_sizes/font_size = 50
+text = "Home"

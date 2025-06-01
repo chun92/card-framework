@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=3 uid="uid://gyx3vifd5cc1"]
+
+[ext_resource type="Script" uid="uid://xdbumk8kyukv" path="res://freecell/scenes/card/playing_card.gd" id="1_jxw2m"]
+
+[node name="PlayingCard" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_jxw2m")
+
+[node name="FrontFace" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 1
+
+[node name="TextureRect" type="TextureRect" parent="FrontFace"]
+layout_mode = 1
+offset_right = 150.0
+offset_bottom = 210.0
+
+[node name="BackFace" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 1
+
+[node name="TextureRect" type="TextureRect" parent="BackFace"]
+layout_mode = 1
+offset_right = 150.0
+offset_bottom = 210.0

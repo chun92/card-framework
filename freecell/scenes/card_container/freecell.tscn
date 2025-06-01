@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dghhf8lu7oopx"]
+
+[ext_resource type="Script" uid="uid://db5lc3abpgbec" path="res://freecell/scenes/card_container/freecell.gd" id="1_thg1m"]
+[ext_resource type="Texture2D" uid="uid://dtflrea27nlrp" path="res://freecell/assets/images/spots/freecell_card_spot.png" id="2_2d4m1"]
+
+[node name="Freecell" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+mouse_filter = 1
+script = ExtResource("1_thg1m")
+stack_display_gap = 0
+max_stack_display = 1
+align_drop_zone_with_top_card = false
+sensor_texture = ExtResource("2_2d4m1")
+sensor_visibility = true

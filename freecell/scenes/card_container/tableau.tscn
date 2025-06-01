@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://bn72g6fewh8aq"]
+
+[ext_resource type="Script" uid="uid://xp5tdvpfqy55" path="res://freecell/scenes/card_container/tableau.gd" id="1_xk3i2"]
+[ext_resource type="Texture2D" uid="uid://ctvpmwgxp3kqq" path="res://freecell/assets/images/spots/tableau_card_spot.png" id="2_awkcb"]
+
+[node name="Tableau" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+mouse_filter = 1
+script = ExtResource("1_xk3i2")
+max_stack_length = 500
+stack_display_gap = 50
+max_stack_display = 52
+layout = 1
+sensor_visibility = false
+placement_visibility = false
+
+[node name="SpotImage" type="TextureRect" parent="."]
+z_index = -1000
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_awkcb")

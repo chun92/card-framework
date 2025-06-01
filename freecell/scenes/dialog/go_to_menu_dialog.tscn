@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://ddx72jvfinglm"]
+
+[node name="GoToMenuDialog" type="ConfirmationDialog"]
+title = "Go to menu?"
+ok_button_text = "Yes"
+dialog_text = "This will count as a loss.
+Are you sure you want to go to menu?"
+cancel_button_text = "No"

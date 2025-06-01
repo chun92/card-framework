@@ -1,0 +1,72 @@
+[gd_scene load_steps=4 format=3 uid="uid://cv6cjls2buk71"]
+
+[ext_resource type="Script" uid="uid://bydqjju7q5xni" path="res://freecell/scenes/menu/menu.gd" id="1_l55ai"]
+[ext_resource type="PackedScene" uid="uid://cpdwcj3slpja" path="res://freecell/scenes/dialog/seed_warning.tscn" id="2_a0gfy"]
+[ext_resource type="PackedScene" uid="uid://1f6js1vkwrrb" path="res://freecell/scenes/menu/credits.tscn" id="3_imhvf"]
+
+[node name="Menu" type="Node"]
+script = ExtResource("1_l55ai")
+
+[node name="Title" type="RichTextLabel" parent="."]
+offset_left = 560.0
+offset_top = -22.0
+offset_right = 1360.0
+offset_bottom = 293.0
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/normal_font_size = 130
+bbcode_enabled = true
+text = "[center]
+[color=#888888]FREE[/color][color=#CCCCCC]CELL[/color]
+[/center]"
+fit_content = true
+scroll_active = false
+
+[node name="NewGame" type="Button" parent="."]
+offset_left = 710.0
+offset_top = 352.0
+offset_right = 1210.0
+offset_bottom = 532.0
+theme_override_font_sizes/font_size = 50
+text = "New Game
+ "
+
+[node name="Seed" type="LineEdit" parent="NewGame"]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 100.0
+offset_right = 440.0
+offset_bottom = 170.0
+theme_override_font_sizes/font_size = 30
+placeholder_text = "-1"
+alignment = 1
+
+[node name="Statistics" type="Button" parent="."]
+offset_left = 710.0
+offset_top = 579.0
+offset_right = 1210.0
+offset_bottom = 699.0
+theme_override_font_sizes/font_size = 50
+text = "Statistics
+"
+
+[node name="Credits" type="Button" parent="."]
+offset_left = 710.0
+offset_top = 736.0
+offset_right = 1210.0
+offset_bottom = 856.0
+theme_override_font_sizes/font_size = 50
+text = "Credits
+"
+
+[node name="Exit" type="Button" parent="."]
+offset_left = 710.0
+offset_top = 893.0
+offset_right = 1210.0
+offset_bottom = 1013.0
+theme_override_font_sizes/font_size = 50
+text = "Exit"
+
+[node name="SeedWarning" parent="." instance=ExtResource("2_a0gfy")]
+
+[node name="Credits2" parent="." instance=ExtResource("3_imhvf")]
+visible = false

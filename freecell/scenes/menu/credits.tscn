@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://1f6js1vkwrrb"]
+
+[node name="Credits" type="AcceptDialog"]
+title = "FreeCell Godot - Credits"
+size = Vector2i(500, 379)
+visible = true
+
+[node name="Content" type="RichTextLabel" parent="."]
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 492.0
+offset_bottom = 330.0
+bbcode_enabled = true
+text = "[color=#87DBFF]Develped by[/color]: 
+	chunuiyu
+	https://github.com/chun92/card-framework
+	chunuiyu@gmail.com
+
+[color=#87DBFF]Inspired by[/color]:
+	Simple Card Pile UI
+	https://github.com/insideout-andrew/simple-card-pile-ui
+
+[color=#87DBFF]Card Images[/color]:
+	From Kenney.nl (CC0)
+
+[color=#87DBFF]Engine[/color]:
+	Made with the Godot Engine
+"
+fit_content = true

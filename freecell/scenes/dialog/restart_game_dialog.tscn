@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://cke08pyglaa48"]
+
+[node name="RestartGameDialog" type="ConfirmationDialog"]
+title = "Restart Game?"
+ok_button_text = "Yes"
+dialog_text = "This will count as a loss.
+Are you sure you want to restart?"
+cancel_button_text = "No"

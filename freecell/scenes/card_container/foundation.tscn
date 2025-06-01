@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://d134c8yu6d6qv"]
+
+[ext_resource type="Script" uid="uid://5x07oaomyv20" path="res://freecell/scenes/card_container/foundation.gd" id="1_wl684"]
+
+[node name="Foundation" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+mouse_filter = 1
+script = ExtResource("1_wl684")
+stack_display_gap = 0
+max_stack_display = 13
+allow_card_movement = false
+align_drop_zone_with_top_card = false
+sensor_visibility = true
