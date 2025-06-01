@@ -1,8 +1,0 @@
-[gd_scene format=3 uid="uid://cpdwcj3slpja"]
-
-[node name="SeedWarning" type="AcceptDialog"]
-title = "Seed Input Warning"
-size = Vector2i(332, 132)
-dialog_text = "Seed must be in the range [1 ~ 1,000,000]
-If no seed is entered or -1 is entered,
-a random game will be generated."
