@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7u8hryloq7hy"]
+
+[ext_resource type="Script" uid="uid://clqgq1n7v0ar" path="res://addons/card-framework/card_manager.gd" id="1_cp2xm"]
+[ext_resource type="PackedScene" uid="uid://7qcsutlss3oj" path="res://addons/card-framework/card_factory.tscn" id="2_57jpu"]
+
+[node name="CardManager" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_cp2xm")
+card_factory_scene = ExtResource("2_57jpu")

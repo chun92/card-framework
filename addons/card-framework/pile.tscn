@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dk6rb7lhv1ef6"]
+
+[ext_resource type="Script" uid="uid://6ams8uvg43gu" path="res://addons/card-framework/pile.gd" id="1_34nb1"]
+
+[node name="Pile" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+mouse_filter = 1
+script = ExtResource("1_34nb1")

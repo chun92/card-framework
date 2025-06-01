@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bkpjlq7ggckg6"]
+
+[ext_resource type="Script" uid="uid://dj46jo3lfbclo" path="res://addons/card-framework/hand.gd" id="1_hrxjc"]
+
+[sub_resource type="Curve" id="Curve_lsli3"]
+_limits = [-15.0, 15.0, 0.0, 1.0]
+_data = [Vector2(0, -15), 0.0, 30.0, 0, 1, Vector2(1, 15), 30.0, 0.0, 1, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_8dbo5"]
+_limits = [0.0, 50.0, 0.0, 1.0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.5, 40), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[node name="Hand" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+mouse_filter = 1
+script = ExtResource("1_hrxjc")
+hand_rotation_curve = SubResource("Curve_lsli3")
+hand_vertical_curve = SubResource("Curve_8dbo5")
