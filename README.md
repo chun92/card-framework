@@ -15,39 +15,42 @@
 * **Lightweight & Modular**: Include only the parts you need, so it won't bloat your project.
 
 ## Table of Contents
-- [Installation](#installation)
-- [Getting Started](#getting-started)
-- [Classes](#classes)
-  - [CardManager](#cardmanager)
-    - [Properties](#properties)
-    - [Methods](#methods)
-  - [Card](#card)
-    - [Properties](#properties-1)
-    - [Methods](#methods-1)
-  - [CardFactory](#cardfactory)
-    - [Properties](#properties-2)
-    - [Methods](#methods-2)
-  - [CardContainer](#cardcontainer)
-    - [Properties](#properties-3)
-    - [Methods](#methods-3)
-  - [Pile](#pile)
-    - [Properties](#properties-4)
-    - [Methods](#methods-4)
-  - [Hand](#hand)
-    - [Properties](#properties-5)
-    - [Methods](#methods-5)
-- [Creating Card Info JSON Files](#creating-card-info-json-files)
-  - [Example](#example)
-- [Sample Projects](#sample-projects)
-  - [Example1](#example1)
-  - [Freecell](#freecell)
-- [Contributing](#contributing)
-- [License / Credits](#license--credits)
-  - [Kenney.nl Card Assets](#kenneynl-card-assets)
-  - [ChatGPT-Generated Spot Images](#chatgpt-generated-spot-images)
-- [Thanks To](#thanks-to)
-- [Changelog](#changelog)
-  - [1.0.0 (2025-01-03)](#100-2025-01-03)
+- [Card Framework](#card-framework)
+  - [Features](#features)
+  - [Table of Contents](#table-of-contents)
+  - [Installation](#installation)
+  - [Getting Started](#getting-started)
+  - [Classes](#classes)
+    - [CardManager](#cardmanager)
+      - [Properties](#properties)
+      - [Methods](#methods)
+    - [Card](#card)
+      - [Properties](#properties-1)
+      - [Methods](#methods-1)
+    - [CardFactory](#cardfactory)
+      - [Methods](#methods-2)
+    - [CardContainer](#cardcontainer)
+      - [Properties](#properties-2)
+      - [Methods](#methods-3)
+    - [Pile](#pile)
+      - [Properties](#properties-3)
+      - [Methods](#methods-4)
+    - [Hand](#hand)
+      - [Properties](#properties-4)
+      - [Methods](#methods-5)
+  - [Creating Card Info JSON Files](#creating-card-info-json-files)
+    - [Example](#example)
+  - [Sample Projects](#sample-projects)
+    - [Example1](#example1)
+    - [Freecell](#freecell)
+  - [Contributing](#contributing)
+  - [License / Credits](#license--credits)
+    - [Kenney.nl Card Assets](#kenneynl-card-assets)
+    - [ChatGPT-Generated Spot Images](#chatgpt-generated-spot-images)
+  - [Thanks To](#thanks-to)
+  - [Changelog](#changelog)
+    - [1.0.0 (2025-01-03)](#100-2025-01-03)
+    - [1.1.0 (2025-06-02)](#110-2025-06-02)
 
 
 ## Installation
@@ -65,20 +68,27 @@
 ## Getting Started
 1. **Instantiate the Card Manager**
    * In any scene that needs card functionality, **instantiate** the scene at `card-framework/card_manager.tscn`.
-2. **Organize Card Images**
+2. **Assign a CardFactory**
+   * Under the `CardManager`, assign the `CardFactory` class to use for card creation.
+   * By default, the framework provides a **`JsonCardFactory`** that loads card data from JSON files (recommended for most use cases).
+   * If you need custom card creation logic (e.g., loading from a database, procedural generation, or supporting non-JSON formats), you can **create your own factory** by extending the base `CardFactory` class and assign it here.
+   * See the [CardFactory](#cardfactory) section for details on implementing a custom factory.
+> **Note:**  
+> Steps 3, 4, and 5 below apply **only if you are using `JsonCardFactory`**.
+3. **Organize Card Images**
    * Save the images for your card fronts (and other card-related art) inside the designated `card_asset_dir` folder.
-3. **Prepare Card Metadata**
+4. **Prepare Card Metadata**
    * Create JSON files that describe each card’s metadata (e.g., name, rank, suit, custom properties), and place them into the `card_info_dir` folder. [See example](#creating-card-info-json-files)
-4. **Set Up the CardManager**
+5. **Set Up the JsonCardFactory**
    * In the **Inspector** for your `CardManager` node, configure:
-     * `card_size`: The default width/height for each card.
+     * `default_card_scene`: The default card scene.
      * `card_asset_dir`: The folder containing your card images.
      * `card_info_dir`: The folder containing your JSON metadata.
      * `back_image`: The texture to use for the card’s backside.
-5. **Assign a CardFactory**
-   * Under the `CardManager`, choose the `CardFactory` class to use.
-   * You can use the default `CardFactory` or **create a custom factory** (by extending `CardFactory`) and set it here.
-6. **Add Card Containers**
+6. **Set Up the CardManager**
+   * In the **Inspector** for your `CardManager` node, configure:
+     * `card_size`: The default width/height for each card.
+7. **Add Card Containers**
    * Within `CardManager`, instantiate and arrange `Pile`, `Hand`, or any custom `CardContainer` nodes you’ve created.
    * Use these containers to organize the deck, discard piles, player hands, or any other card layout required by your game.
 
@@ -144,12 +154,7 @@ A **Node** representing a single playing card.
 ### CardFactory
 A **Class** responsible for creating cards.
 * Instanced by the `CardManager` to spawn `Card` nodes.
-
-#### Properties
-| Type         | Name                | Default | Description                            |
-| ------------ | ------------------- | ------- | -------------------------------------- |
-| **PackedScene** | `default_card_scene` | *null* | A base card scene to instantiate. **(Required)**      |
-
+  
 #### Methods
 | Method Signature                                              | Description                                                                                                                 |
 | ------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
@@ -341,3 +346,9 @@ Please ensure your code adheres to the existing style and includes relevant docu
 ### 1.0.0 (2025-01-03)
 
 * initial release
+
+### 1.1.0 (2025-06-02)
+
+* Improved drop zone handling logic.
+* Enhanced `Hand` functionality: you can now reorder cards in the hand by dropping.
+* Refactored `CardFactory`: separated `JsonCardFactory` and made `CardFactory` generic for custom implementations.
