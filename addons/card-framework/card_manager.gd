@@ -4,17 +4,10 @@ extends Control
 
 ## size of the card
 @export var card_size := Vector2(150, 210)
-## card image asset directory
-@export var card_asset_dir: String
-## card information json directory
-@export var card_info_dir: String
-## common back face image of cards
-@export var back_image: Texture2D
 ## card factory scene
 @export var card_factory_scene: PackedScene
 
-
-var card_factory: CardFactory
+var card_factory: JsonCardFactory
 var card_container_dict := {}
 var history := []
 
@@ -32,9 +25,6 @@ func _ready() -> void:
 		return
 	
 	card_factory.card_size = card_size
-	card_factory.card_asset_dir = card_asset_dir
-	card_factory.card_info_dir = card_info_dir
-	card_factory.back_image = back_image
 	card_factory.preload_card_data()
 
 
@@ -104,17 +94,6 @@ func _is_valid_directory(path: String) -> bool:
 
 
 func _pre_process_exported_variables() -> bool:
-	if not _is_valid_directory(card_asset_dir):
-		push_error("CardManager has invalid card_asset_dir")
-		return false
-		
-	if not _is_valid_directory(card_info_dir):
-		push_error("CardManager has invalid card_info_dir")
-		return false
-		
-	if back_image == null:
-		push_error("CardManager has no backface image assigned")
-		
 	if card_factory_scene == null:
 		push_error("CardFactory is not assigned! Please set it in the CardManager Inspector.")
 		return false

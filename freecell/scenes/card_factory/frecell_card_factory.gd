@@ -1,6 +1,6 @@
 @tool
 class_name FreecellCardFactory
-extends CardFactory
+extends JsonCardFactory
 
 
 func _ready() -> void:

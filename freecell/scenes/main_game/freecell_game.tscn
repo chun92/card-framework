@@ -1,9 +1,8 @@
-[gd_scene load_steps=20 format=3 uid="uid://4sjnrl4pid6b"]
+[gd_scene load_steps=19 format=3 uid="uid://4sjnrl4pid6b"]
 
 [ext_resource type="PackedScene" uid="uid://c7u8hryloq7hy" path="res://addons/card-framework/card_manager.tscn" id="1_kh5ya"]
 [ext_resource type="Script" uid="uid://dfipwybqb13ee" path="res://freecell/scenes/main_game/freecell_game.gd" id="1_qroca"]
 [ext_resource type="PackedScene" uid="uid://dghhf8lu7oopx" path="res://freecell/scenes/card_container/freecell.tscn" id="2_3jyru"]
-[ext_resource type="Texture2D" uid="uid://bnx5n1lm62uhd" path="res://freecell/assets/images/cards/cardBack_blue1.png" id="2_6hvfq"]
 [ext_resource type="PackedScene" uid="uid://c644xfredmjoj" path="res://freecell/scenes/card_factory/frecell_card_factory.tscn" id="4_hp8si"]
 [ext_resource type="PackedScene" uid="uid://d134c8yu6d6qv" path="res://freecell/scenes/card_container/foundation.tscn" id="4_ivlr5"]
 [ext_resource type="Texture2D" uid="uid://ciq4unq0c1ema" path="res://freecell/assets/images/spots/foundation_heart_spot.png" id="7_epxn1"]
@@ -85,9 +84,6 @@ offset_bottom = 261.0
 text = "Menu"
 
 [node name="CardManager" parent="." instance=ExtResource("1_kh5ya")]
-card_asset_dir = "res://freecell/assets/images/cards"
-card_info_dir = "res://freecell/card_info"
-back_image = ExtResource("2_6hvfq")
 card_factory_scene = ExtResource("4_hp8si")
 
 [node name="Freecell_1" parent="CardManager" instance=ExtResource("2_3jyru")]

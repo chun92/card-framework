@@ -1,8 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://c644xfredmjoj"]
+[gd_scene load_steps=4 format=3 uid="uid://c644xfredmjoj"]
 
 [ext_resource type="Script" uid="uid://cq2rdxdo3yiex" path="res://freecell/scenes/card_factory/frecell_card_factory.gd" id="1_oppd4"]
 [ext_resource type="PackedScene" uid="uid://gyx3vifd5cc1" path="res://freecell/scenes/card/playing_card.tscn" id="2_ydiob"]
+[ext_resource type="Texture2D" uid="uid://djoauv24lbkhc" path="res://example1/assets/images/cards/cardBack_blue1.png" id="3_22kar"]
 
 [node name="FreecellCardFactory" type="Node"]
 script = ExtResource("1_oppd4")
 default_card_scene = ExtResource("2_ydiob")
+card_asset_dir = "res://freecell/assets/images/cards"
+card_info_dir = "res://freecell/card_info"
+back_image = ExtResource("3_22kar")

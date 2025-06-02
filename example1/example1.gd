@@ -2,7 +2,7 @@ extends Node
 
 
 @onready var card_manager = $CardManager
-@onready var card_factory = $CardManager/CardFactory
+@onready var card_factory = $CardManager/MyCardFactory
 @onready var hand = $CardManager/Hand
 @onready var pile1 = $CardManager/Pile1
 @onready var pile2 = $CardManager/Pile2

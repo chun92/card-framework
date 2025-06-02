@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://cf56ce8uvkmha" path="res://example1/example1.gd" id="1_2r7vq"]
 [ext_resource type="PackedScene" uid="uid://c7u8hryloq7hy" path="res://addons/card-framework/card_manager.tscn" id="1_rurpr"]
 [ext_resource type="PackedScene" uid="uid://dk6rb7lhv1ef6" path="res://addons/card-framework/pile.tscn" id="2_xkfcc"]
-[ext_resource type="Texture2D" uid="uid://djoauv24lbkhc" path="res://example1/assets/images/cards/cardBack_blue1.png" id="3_gqkj7"]
+[ext_resource type="PackedScene" uid="uid://diap3gdfbqvjv" path="res://example1/my_card_factory.tscn" id="3_l4bd6"]
 [ext_resource type="PackedScene" uid="uid://bkpjlq7ggckg6" path="res://addons/card-framework/hand.tscn" id="3_xp5g3"]
 [ext_resource type="Texture2D" uid="uid://cv6ecvmkml3ok" path="res://example1/assets/images/cards/cardBack_green1.png" id="5_kl5wo"]
 [ext_resource type="Texture2D" uid="uid://dacwc4ros7wiv" path="res://example1/assets/images/cards/cardBack_green2.png" id="6_u8c1b"]
@@ -81,9 +81,7 @@ layout_mode = 2
 text = "draw 3 at front"
 
 [node name="CardManager" parent="." instance=ExtResource("1_rurpr")]
-card_asset_dir = "res://example1/assets/images/cards"
-card_info_dir = "res://example1/card_info"
-back_image = ExtResource("3_gqkj7")
+card_factory_scene = ExtResource("3_l4bd6")
 
 [node name="Pile1" parent="CardManager" instance=ExtResource("2_xkfcc")]
 offset_left = 1000.0
