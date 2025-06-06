@@ -7,7 +7,7 @@ extends Control
 ## card factory scene
 @export var card_factory_scene: PackedScene
 
-var card_factory: JsonCardFactory
+var card_factory: CardFactory
 var card_container_dict := {}
 var history := []
 
