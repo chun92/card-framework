@@ -51,6 +51,7 @@
   - [Changelog](#changelog)
     - [1.0.0 (2025-01-03)](#100-2025-01-03)
     - [1.1.0 (2025-06-02)](#110-2025-06-02)
+    - [1.1.1 (2025-06-06)](#111-2025-06-06)
 
 
 ## Installation
@@ -352,3 +353,7 @@ Please ensure your code adheres to the existing style and includes relevant docu
 * Improved drop zone handling logic.
 * Enhanced `Hand` functionality: you can now reorder cards in the hand by dropping.
 * Refactored `CardFactory`: separated `JsonCardFactory` and made `CardFactory` generic for custom implementations.
+  
+### 1.1.1 (2025-06-06)
+
+* fix a bug that `card_size` doesn't work.
