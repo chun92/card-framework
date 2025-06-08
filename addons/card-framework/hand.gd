@@ -37,6 +37,15 @@ func get_random_cards(n: int) -> Array:
 
 
 func _card_can_be_added(_cards: Array) -> bool:
+	var is_all_cards_contained = true
+	for i in range(_cards.size()):
+		var card = _cards[i]
+		if !_held_cards.has(card):
+			is_all_cards_contained = false
+	
+	if is_all_cards_contained:
+		return true
+			
 	var card_size = _cards.size()
 	return _held_cards.size() + card_size <= max_hand_size
 

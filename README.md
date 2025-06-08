@@ -52,6 +52,7 @@
     - [1.0.0 (2025-01-03)](#100-2025-01-03)
     - [1.1.0 (2025-06-02)](#110-2025-06-02)
     - [1.1.1 (2025-06-06)](#111-2025-06-06)
+    - [1.1.2 (2025-06-08)](#112-2025-06-08)
 
 
 ## Installation
@@ -357,3 +358,7 @@ Please ensure your code adheres to the existing style and includes relevant docu
 ### 1.1.1 (2025-06-06)
 
 * fix a bug that `card_size` doesn't work.
+
+### 1.1.2 (2025-06-08)
+
+* Fixed a bug where cards in a full `Hand` could not be reordered.
