@@ -14,15 +14,33 @@ var sensor_texture : Texture:
 var sensor_visible := true:
 	set(value):
 		sensor.visible = value
+var accept_types: Array = []
 var stored_sensor_size: Vector2
 var stored_sensor_position: Vector2
-var parent_card_container: CardContainer
+var parent: Node
 var sensor: Control
 
 ## global vertical lines to divide the sensing partitions, left to right direction
 var horizontal_partition: Array
 ## global vertical lines to divide the sensing partitions, up to down direction
 var vertical_partition: Array
+
+
+func init(_parent: Node, accept_types: Array =[]):
+	parent = _parent
+	self.accept_types = accept_types
+
+	if sensor == null:
+		sensor = TextureRect.new()
+		sensor.name = "Sensor"
+		sensor.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		sensor.z_index = -1000
+		add_child(sensor)
+
+	stored_sensor_size = Vector2(0, 0)
+	stored_sensor_position = Vector2(0, 0)
+	horizontal_partition = []
+	vertical_partition = []
 
 
 func check_mouse_is_in_drop_zone() -> bool:
@@ -32,13 +50,6 @@ func check_mouse_is_in_drop_zone() -> bool:
 
 
 func set_sensor(_size: Vector2, _position: Vector2, _texture: Texture, _visible: bool):
-	if sensor == null:
-		sensor = TextureRect.new()
-		sensor.name = "Sensor"
-		sensor.mouse_filter = Control.MOUSE_FILTER_IGNORE
-		sensor.z_index = -1000
-		add_child(sensor)
-		
 	sensor_size = _size
 	sensor_position = _position
 	stored_sensor_size = _size

@@ -2,10 +2,15 @@
 class_name CardManager
 extends Control
 
+
+const CARD_ACCEPT_TYPE = "card"
+
+
 ## size of the card
 @export var card_size := Vector2(150, 210)
 ## card factory scene
 @export var card_factory_scene: PackedScene
+
 
 var card_factory: CardFactory
 var card_container_dict := {}

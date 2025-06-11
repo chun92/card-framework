@@ -56,7 +56,7 @@ func _ready() -> void:
 	if enable_drop_zone:
 		drop_zone = drop_zone_scene.instantiate()
 		add_child(drop_zone)
-		drop_zone.parent_card_container = self
+		drop_zone.init(self, [CardManager.CARD_ACCEPT_TYPE])
 		# If sensor_size is not set, they will follow the card size.
 		if sensor_size == Vector2(0, 0):
 			sensor_size = card_manager.card_size
