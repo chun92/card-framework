@@ -100,6 +100,9 @@ func clear_cards():
 func check_card_can_be_dropped(cards: Array) -> bool:
 	if drop_zone == null:
 		return false
+
+	if drop_zone.accept_types.has(CardManager.CARD_ACCEPT_TYPE) == false:
+		return false
 		
 	if not drop_zone.check_mouse_is_in_drop_zone():
 		return false
