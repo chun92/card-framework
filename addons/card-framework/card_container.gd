@@ -100,6 +100,9 @@ func clear_cards():
 func check_card_can_be_dropped(cards: Array) -> bool:
 	if drop_zone == null:
 		return false
+
+	if drop_zone.accept_types.has(CardManager.CARD_ACCEPT_TYPE) == false:
+		return false
 		
 	if not drop_zone.check_mouse_is_in_drop_zone():
 		return false
@@ -185,11 +188,11 @@ func _insert_card_to_container(card: Card, index: int) -> void:
 		_held_cards.insert(index, card)
 	update_card_ui()	
 
+
 func _move_to_card_container(_card: Card, index: int = -1) -> void:
 	if _card.card_container != null:
 		_card.card_container.remove_card(_card)
 	add_card(_card, index)
-	_card.target_container = self
 
 
 func _fisher_yates_shuffle(array: Array) -> void:
