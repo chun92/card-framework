@@ -188,11 +188,11 @@ func _insert_card_to_container(card: Card, index: int) -> void:
 		_held_cards.insert(index, card)
 	update_card_ui()	
 
+
 func _move_to_card_container(_card: Card, index: int = -1) -> void:
 	if _card.card_container != null:
 		_card.card_container.remove_card(_card)
 	add_card(_card, index)
-	_card.target_container = self
 
 
 func _fisher_yates_shuffle(array: Array) -> void:

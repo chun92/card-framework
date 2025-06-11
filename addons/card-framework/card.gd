@@ -48,7 +48,6 @@ var current_holding_mouse_position: Vector2
 var destination: Vector2
 var destination_as_local: Vector2
 var destination_degree: float
-var target_container: CardContainer
 
 
 @onready var front_face_texture: TextureRect = $FrontFace/TextureRect
@@ -91,7 +90,6 @@ func _process(delta: float) -> void:
 			rotation = destination_degree
 			mouse_filter = Control.MOUSE_FILTER_STOP
 			card_container.on_card_move_done(self)
-			target_container = null
 		else:
 			position = new_position
 
