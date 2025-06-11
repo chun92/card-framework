@@ -52,7 +52,7 @@
     - [1.0.0 (2025-01-03)](#100-2025-01-03)
     - [1.1.0 (2025-06-02)](#110-2025-06-02)
     - [1.1.1 (2025-06-06)](#111-2025-06-06)
-    - [1.1.2 (2025-06-08)](#112-2025-06-08)
+    - [1.1.2 (2025-06-11)](#112-2025-06-11)
 
 
 ## Installation
@@ -245,6 +245,7 @@ A **CardContainer** implementation for a **player’s hand** of cards.
 | int       | `card_hover_distance` | 30     | The distance (in pixels) that a card **hovers** above the hand when interacted with.                                         |
 | Curve     | `hand_rotation_curve` | *null* | Used to adjust the **rotation** of each card in the hand; works best as a 2-point linear curve (left to right). **(Required)**            |
 | Curve     | `hand_vertical_curve` | *null* | Used to adjust the **vertical positioning** of each card in the hand; works best as a 3-point ease in/out curve (0→X→0). **(Required)**     |
+| bool      | `align_drop_zone_size_with_current_hand_size` | true | Determines whether the drop zone size follows the hand size. (requires enable drop zone true)
 
 #### Methods
 | Method Signature                      | Description                                                                                  |
@@ -359,6 +360,8 @@ Please ensure your code adheres to the existing style and includes relevant docu
 
 * fix a bug that `card_size` doesn't work.
 
-### 1.1.2 (2025-06-08)
+### 1.1.2 (2025-06-11)
 
 * Fixed a bug where cards in a full `Hand` could not be reordered.
+* Refactored: Drag and Drop functionality previously in `Card` has been separated into `DraggableObject`, allowing not only `Card` but any object to inherit and use drag-and-drop features.
+* Added `accept_type` to `DropZone`, making it usable beyond just `CardContainer` for broader compatibility.
