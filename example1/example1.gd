@@ -111,3 +111,7 @@ func _on_clear_all_button_pressed():
 	pile3.clear_cards()
 	pile4.clear_cards()
 	discard.clear_cards()
+
+
+func _on_toggle_discard_button_pressed() -> void:
+	discard.enable_drop_zone = not discard.enable_drop_zone

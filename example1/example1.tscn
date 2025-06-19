@@ -79,6 +79,10 @@ text = "clear all"
 layout_mode = 2
 text = "draw 3 at front"
 
+[node name="ToggleDiscardButton" type="Button" parent="ButtonContainer/ButtonColumnContainer2"]
+layout_mode = 2
+text = "toggle discard"
+
 [node name="CardManager" parent="." instance=ExtResource("1_rurpr")]
 card_factory_scene = ExtResource("3_l4bd6")
 
@@ -204,3 +208,4 @@ text = "Discard"
 [connection signal="pressed" from="ButtonContainer/ButtonColumnContainer2/MoveToPile4Button" to="." method="_on_move_to_pile_4_button_pressed"]
 [connection signal="pressed" from="ButtonContainer/ButtonColumnContainer2/ClearAllButton" to="." method="_on_clear_all_button_pressed"]
 [connection signal="pressed" from="ButtonContainer/ButtonColumnContainer2/Draw3AtFront" to="." method="_on_draw_3_at_front_button_pressed"]
+[connection signal="pressed" from="ButtonContainer/ButtonColumnContainer2/ToggleDiscardButton" to="." method="_on_toggle_discard_button_pressed"]
