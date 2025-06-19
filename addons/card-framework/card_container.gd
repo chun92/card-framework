@@ -98,6 +98,9 @@ func clear_cards():
 
 
 func check_card_can_be_dropped(cards: Array) -> bool:
+	if not enable_drop_zone:
+		return false
+
 	if drop_zone == null:
 		return false
 

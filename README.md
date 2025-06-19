@@ -52,7 +52,7 @@
     - [1.0.0 (2025-01-03)](#100-2025-01-03)
     - [1.1.0 (2025-06-02)](#110-2025-06-02)
     - [1.1.1 (2025-06-06)](#111-2025-06-06)
-    - [1.1.2 (2025-06-11)](#112-2025-06-11)
+    - [1.1.2 (2025-06-20)](#112-2025-06-20)
 
 
 ## Installation
@@ -360,8 +360,9 @@ Please ensure your code adheres to the existing style and includes relevant docu
 
 * fix a bug that `card_size` doesn't work.
 
-### 1.1.2 (2025-06-11)
+### 1.1.2 (2025-06-20)
 
 * Fixed a bug where cards in a full `Hand` could not be reordered.
 * Refactored: Drag and Drop functionality previously in `Card` has been separated into `DraggableObject`, allowing not only `Card` but any object to inherit and use drag-and-drop features.
 * Added `accept_type` to `DropZone`, making it usable beyond just `CardContainer` for broader compatibility.
+* The `enable_drop_zone` property in `CardContainer` now controls not only the creation of the drop zone, but also allows you to enable or disable the drop zone dynamically at runtime.
