@@ -24,6 +24,10 @@ extends CardContainer
 @export var align_drop_zone_size_with_current_hand_size := true
 
 
+var horizontal_partitions_from_outside = []
+var horizontal_partitions_from_inside = []
+
+
 func _ready() -> void:
 	super._ready()
 
@@ -65,7 +69,7 @@ func _update_target_positions():
 	var _w = card_size.x
 	var _h = card_size.y
 
-	var horizontal_partition = []
+	horizontal_partitions_from_outside.clear()
 	
 	for i in range(_held_cards.size()):
 		var card = _held_cards[i]
@@ -100,7 +104,7 @@ func _update_target_positions():
 		var current_y_min = min(_p1.y, _p2.y, _p3.y, _p4.y)
 		var current_y_max = max(_p1.y, _p2.y, _p3.y, _p4.y)
 		var current_x_mid = (current_x_min + current_x_max) / 2
-		horizontal_partition.append(current_x_mid)
+		horizontal_partitions_from_outside.append(current_x_mid)
 		
 		if i == 0:
 			x_min = current_x_min
@@ -116,6 +120,13 @@ func _update_target_positions():
 		card.move(target_pos, target_rotation)
 		card.show_front = card_face_up
 		card.can_be_interacted_with = true
+
+	# Calculate midpoints between consecutive values in horizontal_partitions_from_outside
+	horizontal_partitions_from_inside.clear()
+	if horizontal_partitions_from_outside.size() > 1:
+		for j in range(horizontal_partitions_from_outside.size() - 1):
+			var mid = (horizontal_partitions_from_outside[j] + horizontal_partitions_from_outside[j + 1]) / 2.0
+			horizontal_partitions_from_inside.append(mid)
 		
 	if align_drop_zone_size_with_current_hand_size:
 		if _held_cards.size() == 0:
@@ -124,4 +135,10 @@ func _update_target_positions():
 			var _size = Vector2(x_max - x_min, y_max - y_min)
 			var _position = Vector2(x_min, y_min) - position
 			drop_zone.set_sensor_size_flexibly(_size, _position)
-		drop_zone.set_horizontal_partitions(horizontal_partition)
+		drop_zone.set_horizontal_partitions(horizontal_partitions_from_outside)
+
+
+func hold_card(card: Card) -> void:
+	if _held_cards.has(card):
+		drop_zone.set_horizontal_partitions(horizontal_partitions_from_inside)
+	super.hold_card(card)
