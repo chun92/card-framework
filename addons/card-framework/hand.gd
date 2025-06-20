@@ -22,6 +22,8 @@ extends CardContainer
 @export_group("drop_zone")
 ## Determines whether the drop zone size follows the hand size. (requires enable drop zone true)
 @export var align_drop_zone_size_with_current_hand_size := true
+## If true, only swap the positions of two cards when reordering (a <-> b), otherwise shift the range (default behavior).
+@export var swap_only_on_reorder := false
 
 
 var vertical_partitions_from_outside = []
@@ -136,6 +138,24 @@ func _update_target_positions():
 			var _position = Vector2(x_min, y_min) - position
 			drop_zone.set_sensor_size_flexibly(_size, _position)
 		drop_zone.set_vertical_partitions(vertical_partitions_from_outside)
+
+
+func move_cards(cards: Array, index: int = -1, with_history: bool = true) -> bool:
+	if swap_only_on_reorder and cards.size() == 1 and _held_cards.has(cards[0]) and index >= 0 and index < _held_cards.size():
+		swap_card(cards[0], index)
+		return true
+
+	return super.move_cards(cards, index, with_history)
+
+
+func swap_card(card: Card, index: int) -> void:
+	var current_index = _held_cards.find(card)
+	if current_index == index:
+		return
+	var temp = _held_cards[current_index]
+	_held_cards[current_index] = _held_cards[index]
+	_held_cards[index] = temp
+	update_card_ui()
 
 
 func hold_card(card: Card) -> void:
