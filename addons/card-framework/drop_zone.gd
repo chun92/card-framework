@@ -25,6 +25,8 @@ var sensor_visible := true:
 var sensor_outline_visible := false:
 	set(value):
 		sensor_outline.visible = value
+		for outline in sensor_partition_outlines:
+			outline.visible = value
 
 var accept_types: Array = []
 var stored_sensor_size: Vector2
@@ -111,6 +113,7 @@ func set_vertical_partitions(positions: Array):
 		outline.size = Vector2(1, sensor.size.y)
 		var local_x = vertical_partition[i] - global_position.x
 		outline.position = Vector2(local_x, sensor.position.y)
+		outline.visible = sensor_outline.visible
 		add_child(outline)
 		sensor_partition_outlines.append(outline)
 
@@ -131,6 +134,7 @@ func set_horizontal_partitions(positions: Array):
 		outline.size = Vector2(sensor.size.x, 1)
 		var local_y = horizontal_partition[i] - global_position.y
 		outline.position = Vector2(sensor.position.x, local_y)
+		outline.visible = sensor_outline.visible
 		add_child(outline)
 		sensor_partition_outlines.append(outline)
 
