@@ -119,12 +119,12 @@ func check_card_can_be_dropped(cards: Array) -> bool:
 
 
 func get_partition_index() -> int:
-	var horizontal_index = drop_zone.get_horizontal_layers()
-	if horizontal_index != -1:
-		return horizontal_index
 	var vertical_index = drop_zone.get_vertical_layers()
 	if vertical_index != -1:
 		return vertical_index
+	var horizontal_index = drop_zone.get_horizontal_layers()
+	if horizontal_index != -1:
+		return horizontal_index
 	return -1
 
 
