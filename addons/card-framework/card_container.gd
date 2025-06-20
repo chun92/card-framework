@@ -27,6 +27,7 @@ var _held_cards := []
 var _holding_cards := []
 var cards_node: Control
 var card_manager: CardManager
+var debug_mode := false
 
 
 func _init():
@@ -61,6 +62,10 @@ func _ready() -> void:
 		if sensor_size == Vector2(0, 0):
 			sensor_size = card_manager.card_size
 		drop_zone.set_sensor(sensor_size, sensor_position, sensor_texture, sensor_visibility)
+		if debug_mode:
+			drop_zone.sensor_outline.visible = true
+		else:
+			drop_zone.sensor_outline.visible = false
 
 
 func _exit_tree() -> void:
