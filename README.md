@@ -244,11 +244,14 @@ A **CardContainer** implementation for a **player’s hand** of cards.
 | Curve     | `hand_rotation_curve` | *null* | Used to adjust the **rotation** of each card in the hand; works best as a 2-point linear curve (left to right). **(Required)**            |
 | Curve     | `hand_vertical_curve` | *null* | Used to adjust the **vertical positioning** of each card in the hand; works best as a 3-point ease in/out curve (0→X→0). **(Required)**     |
 | bool      | `align_drop_zone_size_with_current_hand_size` | true | Determines whether the drop zone size follows the hand size. (requires enable drop zone true)
+| bool      | `swap_only_on_reorder` | false | If true, only swap the positions of two cards when reordering (a <-> b), otherwise shift the range (default behavior). |
+
 
 #### Methods
 | Method Signature                      | Description                                                                                  |
 | ------------------------------------ | -------------------------------------------------------------------------------------------- |
 | **func get_random_cards(n: int) -> Array** | Returns an array of up to `n` randomly chosen cards from the hand.                          |
+| **swap_card(card: Card, index: int)** | Swap a card in the hand with the card on index. |
 
 [⬆ Back to Top](#hand)
 
@@ -369,3 +372,7 @@ Please ensure your code adheres to the existing style and includes relevant docu
 
 * Added a reference guide that matches the size of the Sensor's Drop Zone for debugging purposes. You can enable or disable this using the `debug_mode` flag in `CardManager`.
 * Derecated: `sensor_visibility`, `sensor_texture` in `CardConatiner`
+* Added the `swap_only_on_reorder` flag to `Hand`.  
+  - When enabled, dragging a card within the Hand will **swap** its position with the card at the drop location, instead of shifting all cards as before.
+  - The default behavior remains shifting; use this option if you prefer swap-style reordering.
+* Fixed: moves that occur within the same `CardContainer` are no longer recorded in the history.
