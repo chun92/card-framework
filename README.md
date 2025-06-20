@@ -105,10 +105,8 @@ The **Root Node** for the Card Framework.
 | Type         | Name               | Default       | Description                                                 |
 | ------------ | ------------------ | ------------- | ----------------------------------------------------------- |
 | **Vector2**  | `card_size`       | (150, 210)    | The default size (width × height) for each card.            |
-| **String**   | `card_asset_dir`  | *null*     | Directory containing the card image assets. **(Required)**                 |
-| **String**   | `card_info_dir`   | *null*     | Directory containing JSON files for card information. **(Required)**      |
-| **Texture2D**| `back_image`      | *null*      | The texture used for the backside of all cards. **(Required)**            |
 | **PackedScene** | `card_factory_scene` | *null*  | The scene responsible for spawning new card objects. **(Required)**       |
+| **bool** | `debug_mode` | *false* | This is a debugging option that provides the reference rect of the sensor in the `card_container`. |
 
 #### Methods
 | Method Signature        | Description                                        |
@@ -180,8 +178,8 @@ A **Node** that holds one or more `Card` nodes.
 | **bool**      | `enable_drop_zone`  | true    | Enables or disables the drop zone functionality.                                  |
 | **Vector2**   | `sensor_size`       | *null*  | The size of the sensor. If not set, it follows the size of the card.              |
 | **Vector2**   | `sensor_position`   | *null*  | The position of the sensor.                                                       |
-| **Texture**   | `sensor_texture`    | *null*  | The texture used for the sensor.                                                  |
-| **bool**      | `sensor_visibility` | true    | Determines whether the sensor is visible or not.                                  |
+| **Texture**   | `sensor_texture` **(Deprecated)** | *null*  | The texture used for the sensor.                                                  |
+| **bool**      | `sensor_visibility` **(Deprecated)** | true    | Determines whether the sensor is visible or not.                                  |
 
 #### Methods
 Below is a reference for **CardContainer** methods you may **override** when implementing a custom card container. Override these in your subclass to tailor card behavior to your specific game mechanics:
@@ -358,7 +356,7 @@ Please ensure your code adheres to the existing style and includes relevant docu
   
 ### 1.1.1 (2025-06-06)
 
-* fix a bug that `card_size` doesn't work.
+* Fixed a bug that `card_size` doesn't work.
 
 ### 1.1.2 (2025-06-20)
 
@@ -366,3 +364,8 @@ Please ensure your code adheres to the existing style and includes relevant docu
 * Refactored: Drag and Drop functionality previously in `Card` has been separated into `DraggableObject`, allowing not only `Card` but any object to inherit and use drag-and-drop features.
 * Added `accept_type` to `DropZone`, making it usable beyond just `CardContainer` for broader compatibility.
 * The `enable_drop_zone` property in `CardContainer` now controls not only the creation of the drop zone, but also allows you to enable or disable the drop zone dynamically at runtime.
+
+### 1.1.3
+
+* Added a reference guide that matches the size of the Sensor's Drop Zone for debugging purposes. You can enable or disable this using the `debug_mode` flag in `CardManager`.
+* Derecated: `sensor_visibility`, `sensor_texture` in `CardConatiner`

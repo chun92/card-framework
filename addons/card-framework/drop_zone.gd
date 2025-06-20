@@ -14,9 +14,11 @@ var sensor_position: Vector2:
 	set(value):
 		sensor.position = value
 		sensor_outline.position = value
+## @deprecated: Since it was designed to debug the sensor, please use sensor_outline_visible instead.
 var sensor_texture : Texture:
 	set(value):
 		sensor.texture = value
+## @deprecated: Since it was designed to debug the sensor, please use sensor_outline_visible instead.
 var sensor_visible := true:
 	set(value):
 		sensor.visible = value
@@ -54,7 +56,7 @@ func init(_parent: Node, accept_types: Array =[]):
 		sensor_outline.editor_only = false
 		sensor_outline.name = "SensorOutline"
 		sensor_outline.mouse_filter = Control.MOUSE_FILTER_IGNORE
-		sensor_outline.color = SENSOR_OUTLINE_COLOR
+		sensor_outline.border_color = SENSOR_OUTLINE_COLOR
 		sensor_outline.z_index = SENSOR_OUTLINE_Z_INDEX
 		add_child(sensor_outline)
 
@@ -104,7 +106,7 @@ func set_horizontal_partitions(positions: Array):
 		outline.editor_only = false
 		outline.name = "HorizontalPartition" + str(i)
 		outline.z_index = SENSOR_OUTLINE_Z_INDEX
-		outline.color = SENSOR_OUTLINE_COLOR
+		outline.border_color = SENSOR_OUTLINE_COLOR
 		outline.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		outline.size = Vector2(1, sensor.size.y)
 		var local_x = horizontal_partition[i] - global_position.x
@@ -124,7 +126,7 @@ func set_vertical_partitions(positions: Array):
 		outline.editor_only = false
 		outline.name = "VerticalPartition" + str(i)
 		outline.z_index = SENSOR_OUTLINE_Z_INDEX
-		outline.color = SENSOR_OUTLINE_COLOR
+		outline.border_color = SENSOR_OUTLINE_COLOR
 		outline.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		outline.size = Vector2(sensor.size.x, 1)
 		var local_y = vertical_partition[i] - global_position.y
