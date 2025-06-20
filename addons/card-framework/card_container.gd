@@ -139,7 +139,8 @@ func shuffle() -> void:
 func move_cards(cards: Array, index: int = -1, with_history: bool = true) -> bool:
 	if not _card_can_be_added(cards):
 		return false
-	if with_history:
+	# XXX: If the card is already in the container, we don't add it into the history.
+	if not cards.all(func(card): return _held_cards.has(card)) and with_history:
 		card_manager._add_history(self, cards)
 	_move_cards(cards, index)
 	return true
@@ -182,7 +183,7 @@ func _assign_card_to_container(card: Card) -> void:
 		card.card_container = self
 	if not _held_cards.has(card):
 		_held_cards.append(card)
-	update_card_ui()	
+	update_card_ui()
 
 
 func _insert_card_to_container(card: Card, index: int) -> void:
