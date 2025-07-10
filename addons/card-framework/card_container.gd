@@ -27,6 +27,7 @@ var _held_cards := []
 var _holding_cards := []
 var cards_node: Control
 var card_manager: CardManager
+var debug_mode := false
 
 
 func _init():
@@ -41,7 +42,7 @@ func _ready() -> void:
 	else:
 		cards_node = Control.new()
 		cards_node.name = "Cards"
-		cards_node.mouse_filter = Control.MOUSE_FILTER_STOP
+		cards_node.mouse_filter = Control.MOUSE_FILTER_PASS
 		add_child(cards_node)
 	
 	var parent = get_parent()
@@ -61,6 +62,10 @@ func _ready() -> void:
 		if sensor_size == Vector2(0, 0):
 			sensor_size = card_manager.card_size
 		drop_zone.set_sensor(sensor_size, sensor_position, sensor_texture, sensor_visibility)
+		if debug_mode:
+			drop_zone.sensor_outline.visible = true
+		else:
+			drop_zone.sensor_outline.visible = false
 
 
 func _exit_tree() -> void:
@@ -73,7 +78,7 @@ func add_card(card: Card, index: int = -1) -> void:
 		_assign_card_to_container(card)
 	else:
 		_insert_card_to_container(card, index)
-	_move_object(card, cards_node)
+	_move_object(card, cards_node, index)
 
 
 func remove_card(card: Card) -> bool:
@@ -114,12 +119,12 @@ func check_card_can_be_dropped(cards: Array) -> bool:
 
 
 func get_partition_index() -> int:
-	var horizontal_index = drop_zone.get_horizontal_layers()
-	if horizontal_index != -1:
-		return horizontal_index
 	var vertical_index = drop_zone.get_vertical_layers()
 	if vertical_index != -1:
 		return vertical_index
+	var horizontal_index = drop_zone.get_horizontal_layers()
+	if horizontal_index != -1:
+		return horizontal_index
 	return -1
 
 
@@ -134,7 +139,8 @@ func shuffle() -> void:
 func move_cards(cards: Array, index: int = -1, with_history: bool = true) -> bool:
 	if not _card_can_be_added(cards):
 		return false
-	if with_history:
+	# XXX: If the card is already in the container, we don't add it into the history.
+	if not cards.all(func(card): return _held_cards.has(card)) and with_history:
 		card_manager._add_history(self, cards)
 	_move_cards(cards, index)
 	return true
@@ -177,7 +183,7 @@ func _assign_card_to_container(card: Card) -> void:
 		card.card_container = self
 	if not _held_cards.has(card):
 		_held_cards.append(card)
-	update_card_ui()	
+	update_card_ui()
 
 
 func _insert_card_to_container(card: Card, index: int) -> void:
@@ -235,14 +241,25 @@ func _update_target_positions():
 	pass
 
 
-func _move_object(target: Node, to: Node):
+func _move_object(target: Node, to: Node, index: int = -1):
+	if target.get_parent() == to:
+		# 이미 같은 부모라면 move_child로 순서만 변경
+		if index != -1:
+			to.move_child(target, index)
+		else:
+			# index가 -1이면 맨 뒤로 이동
+			to.move_child(target, to.get_child_count() - 1)
+		return
+
+	var global_pos = target.global_position
 	if target.get_parent() != null:
-		var global_pos = target.global_position
 		target.get_parent().remove_child(target)
+	if index != -1:
 		to.add_child(target)
-		target.global_position = global_pos
+		to.move_child(target, index)
 	else:
 		to.add_child(target)
+	target.global_position = global_pos
 
 
 func _remove_object(target: Node):

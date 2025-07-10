@@ -85,6 +85,7 @@ text = "toggle discard"
 
 [node name="CardManager" parent="." instance=ExtResource("1_rurpr")]
 card_factory_scene = ExtResource("3_l4bd6")
+debug_mode = true
 
 [node name="Pile1" parent="CardManager" instance=ExtResource("2_xkfcc")]
 offset_left = 1000.0

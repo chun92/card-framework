@@ -10,6 +10,8 @@ const CARD_ACCEPT_TYPE = "card"
 @export var card_size := Vector2(150, 210)
 ## card factory scene
 @export var card_factory_scene: PackedScene
+## debug mode
+@export var debug_mode := false
 
 
 var card_factory: CardFactory
@@ -48,6 +50,7 @@ func reset_history() -> void:
 
 func _add_card_container(id: int, card_container: CardContainer):
 	card_container_dict[id] = card_container
+	card_container.debug_mode = debug_mode
 
 
 func _delete_card_container(id: int):

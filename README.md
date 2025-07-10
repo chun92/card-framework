@@ -53,6 +53,7 @@
     - [1.1.0 (2025-06-02)](#110-2025-06-02)
     - [1.1.1 (2025-06-06)](#111-2025-06-06)
     - [1.1.2 (2025-06-20)](#112-2025-06-20)
+    - [1.1.3 (2025-07-10)](#113-2025-07-10)
 
 
 ## Installation
@@ -105,10 +106,8 @@ The **Root Node** for the Card Framework.
 | Type         | Name               | Default       | Description                                                 |
 | ------------ | ------------------ | ------------- | ----------------------------------------------------------- |
 | **Vector2**  | `card_size`       | (150, 210)    | The default size (width × height) for each card.            |
-| **String**   | `card_asset_dir`  | *null*     | Directory containing the card image assets. **(Required)**                 |
-| **String**   | `card_info_dir`   | *null*     | Directory containing JSON files for card information. **(Required)**      |
-| **Texture2D**| `back_image`      | *null*      | The texture used for the backside of all cards. **(Required)**            |
 | **PackedScene** | `card_factory_scene` | *null*  | The scene responsible for spawning new card objects. **(Required)**       |
+| **bool** | `debug_mode` | *false* | This is a debugging option that provides the reference rect of the sensor in the `card_container`. |
 
 #### Methods
 | Method Signature        | Description                                        |
@@ -180,8 +179,8 @@ A **Node** that holds one or more `Card` nodes.
 | **bool**      | `enable_drop_zone`  | true    | Enables or disables the drop zone functionality.                                  |
 | **Vector2**   | `sensor_size`       | *null*  | The size of the sensor. If not set, it follows the size of the card.              |
 | **Vector2**   | `sensor_position`   | *null*  | The position of the sensor.                                                       |
-| **Texture**   | `sensor_texture`    | *null*  | The texture used for the sensor.                                                  |
-| **bool**      | `sensor_visibility` | true    | Determines whether the sensor is visible or not.                                  |
+| **Texture**   | `sensor_texture` **(Deprecated)** | *null*  | The texture used for the sensor.                                                  |
+| **bool**      | `sensor_visibility` **(Deprecated)** | true    | Determines whether the sensor is visible or not.                                  |
 
 #### Methods
 Below is a reference for **CardContainer** methods you may **override** when implementing a custom card container. Override these in your subclass to tailor card behavior to your specific game mechanics:
@@ -246,11 +245,14 @@ A **CardContainer** implementation for a **player’s hand** of cards.
 | Curve     | `hand_rotation_curve` | *null* | Used to adjust the **rotation** of each card in the hand; works best as a 2-point linear curve (left to right). **(Required)**            |
 | Curve     | `hand_vertical_curve` | *null* | Used to adjust the **vertical positioning** of each card in the hand; works best as a 3-point ease in/out curve (0→X→0). **(Required)**     |
 | bool      | `align_drop_zone_size_with_current_hand_size` | true | Determines whether the drop zone size follows the hand size. (requires enable drop zone true)
+| bool      | `swap_only_on_reorder` | false | If true, only swap the positions of two cards when reordering (a <-> b), otherwise shift the range (default behavior). |
+
 
 #### Methods
 | Method Signature                      | Description                                                                                  |
 | ------------------------------------ | -------------------------------------------------------------------------------------------- |
 | **func get_random_cards(n: int) -> Array** | Returns an array of up to `n` randomly chosen cards from the hand.                          |
+| **swap_card(card: Card, index: int)** | Swap a card in the hand with the card on index. |
 
 [⬆ Back to Top](#hand)
 
@@ -358,7 +360,7 @@ Please ensure your code adheres to the existing style and includes relevant docu
   
 ### 1.1.1 (2025-06-06)
 
-* fix a bug that `card_size` doesn't work.
+* Fixed a bug that `card_size` doesn't work.
 
 ### 1.1.2 (2025-06-20)
 
@@ -366,3 +368,13 @@ Please ensure your code adheres to the existing style and includes relevant docu
 * Refactored: Drag and Drop functionality previously in `Card` has been separated into `DraggableObject`, allowing not only `Card` but any object to inherit and use drag-and-drop features.
 * Added `accept_type` to `DropZone`, making it usable beyond just `CardContainer` for broader compatibility.
 * The `enable_drop_zone` property in `CardContainer` now controls not only the creation of the drop zone, but also allows you to enable or disable the drop zone dynamically at runtime.
+
+### 1.1.3 (2025-07-10)
+
+* Added a reference guide that matches the size of the Sensor's Drop Zone for debugging purposes. You can enable or disable this using the `debug_mode` flag in `CardManager`.
+* Deprecated: `sensor_visibility`, `sensor_texture` in `CardContainer`.
+* Added the `swap_only_on_reorder` flag to `Hand`.  
+  - When enabled, dragging a card within the Hand will **swap** its position with the card at the drop location, instead of shifting all cards as before.
+  - The default behavior remains shifting; use this option if you prefer swap-style reordering.
+* Fixed: moves that occur within the same `CardContainer` are no longer recorded in the history.
+* Fixed: Resolved an issue where mouse control could become inconsistent when adding a card to a `CardContainer` at a specific index.
