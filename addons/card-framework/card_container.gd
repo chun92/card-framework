@@ -42,7 +42,7 @@ func _ready() -> void:
 	else:
 		cards_node = Control.new()
 		cards_node.name = "Cards"
-		cards_node.mouse_filter = Control.MOUSE_FILTER_STOP
+		cards_node.mouse_filter = Control.MOUSE_FILTER_PASS
 		add_child(cards_node)
 	
 	var parent = get_parent()
@@ -78,7 +78,7 @@ func add_card(card: Card, index: int = -1) -> void:
 		_assign_card_to_container(card)
 	else:
 		_insert_card_to_container(card, index)
-	_move_object(card, cards_node)
+	_move_object(card, cards_node, index)
 
 
 func remove_card(card: Card) -> bool:
@@ -241,14 +241,25 @@ func _update_target_positions():
 	pass
 
 
-func _move_object(target: Node, to: Node):
+func _move_object(target: Node, to: Node, index: int = -1):
+	if target.get_parent() == to:
+		# 이미 같은 부모라면 move_child로 순서만 변경
+		if index != -1:
+			to.move_child(target, index)
+		else:
+			# index가 -1이면 맨 뒤로 이동
+			to.move_child(target, to.get_child_count() - 1)
+		return
+
+	var global_pos = target.global_position
 	if target.get_parent() != null:
-		var global_pos = target.global_position
 		target.get_parent().remove_child(target)
+	if index != -1:
 		to.add_child(target)
-		target.global_position = global_pos
+		to.move_child(target, index)
 	else:
 		to.add_child(target)
+	target.global_position = global_pos
 
 
 func _remove_object(target: Node):
