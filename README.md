@@ -53,6 +53,7 @@
     - [1.1.0 (2025-06-02)](#110-2025-06-02)
     - [1.1.1 (2025-06-06)](#111-2025-06-06)
     - [1.1.2 (2025-06-20)](#112-2025-06-20)
+    - [1.1.3 (2025-07-10)](#113-2025-07-10)
 
 
 ## Installation
@@ -368,11 +369,12 @@ Please ensure your code adheres to the existing style and includes relevant docu
 * Added `accept_type` to `DropZone`, making it usable beyond just `CardContainer` for broader compatibility.
 * The `enable_drop_zone` property in `CardContainer` now controls not only the creation of the drop zone, but also allows you to enable or disable the drop zone dynamically at runtime.
 
-### 1.1.3
+### 1.1.3 (2025-07-10)
 
 * Added a reference guide that matches the size of the Sensor's Drop Zone for debugging purposes. You can enable or disable this using the `debug_mode` flag in `CardManager`.
-* Derecated: `sensor_visibility`, `sensor_texture` in `CardConatiner`
+* Deprecated: `sensor_visibility`, `sensor_texture` in `CardContainer`.
 * Added the `swap_only_on_reorder` flag to `Hand`.  
   - When enabled, dragging a card within the Hand will **swap** its position with the card at the drop location, instead of shifting all cards as before.
   - The default behavior remains shifting; use this option if you prefer swap-style reordering.
 * Fixed: moves that occur within the same `CardContainer` are no longer recorded in the history.
+* Fixed: Resolved an issue where mouse control could become inconsistent when adding a card to a `CardContainer` at a specific index.
