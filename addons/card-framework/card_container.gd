@@ -242,14 +242,14 @@ func _update_target_positions():
 
 
 func _move_object(target: Node, to: Node, index: int = -1):
-	if target.get_parent() == to:
-		# 이미 같은 부모라면 move_child로 순서만 변경
-		if index != -1:
-			to.move_child(target, index)
-		else:
-			# index가 -1이면 맨 뒤로 이동
-			to.move_child(target, to.get_child_count() - 1)
-		return
+    if target.get_parent() == to:
+        # If already the same parent, just change the order with move_child
+        if index != -1:
+            to.move_child(target, index)
+        else:
+            # If index is -1, move to the last position
+            to.move_child(target, to.get_child_count() - 1)
+        return
 
 	var global_pos = target.global_position
 	if target.get_parent() != null:
