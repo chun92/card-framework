@@ -6,15 +6,18 @@ static var next_id = 0
 
 
 @export_group("drop_zone")
+
 ## Enables or disables the drop zone functionality.
 @export var enable_drop_zone := true
 @export_subgroup("Sensor")
+
 ## The size of the sensor. If not set, it will follow the size of the card.
 @export var sensor_size: Vector2
-## The position of the sensor.
+
 @export var sensor_position: Vector2
-## The texture used for the sensor.
+
 @export var sensor_texture: Texture
+
 ## Determines whether the sensor is visible or not.
 ## Since the sensor can move following the status, please use it for debugging.
 @export var sensor_visibility := false
@@ -27,6 +30,8 @@ var _held_cards := []
 var _holding_cards := []
 var cards_node: Control
 var card_manager: CardManager
+
+## Debug Mode shows outlines for card drop zones.
 var debug_mode := false
 
 
@@ -72,7 +77,7 @@ func _exit_tree() -> void:
 	if card_manager != null:
 		card_manager._delete_card_container(unique_id)
 
-
+## Adds a card to this container
 func add_card(card: Card, index: int = -1) -> void:
 	if index == -1:
 		_assign_card_to_container(card)
@@ -80,7 +85,8 @@ func add_card(card: Card, index: int = -1) -> void:
 		_insert_card_to_container(card, index)
 	_move_object(card, cards_node, index)
 
-
+## Finds and removes a card from this container.[br]
+## Returns [code]true[/code] if the operation is successful, [code]false[/code] if it isn't.
 func remove_card(card: Card) -> bool:
 	var index = _held_cards.find(card)
 	if index != -1:
@@ -90,11 +96,11 @@ func remove_card(card: Card) -> bool:
 	update_card_ui()
 	return true
 
-
+## Returns [code]true[/code] if this container contains [param card], [code]false[/code] if it doesn't.
 func has_card(card: Card) -> bool:
 	return _held_cards.has(card)
 
-
+## Removes all cards from this container.
 func clear_cards():
 	for card in _held_cards:
 		_remove_object(card)
@@ -127,7 +133,7 @@ func get_partition_index() -> int:
 		return horizontal_index
 	return -1
 
-
+## Shuffle the order of cards in this container.
 func shuffle() -> void:
 	_fisher_yates_shuffle(_held_cards)
 	for i in range(_held_cards.size()):
@@ -203,7 +209,7 @@ func _move_to_card_container(_card: Card, index: int = -1) -> void:
 		_card.card_container.remove_card(_card)
 	add_card(_card, index)
 
-
+## [url]https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle[/url]
 func _fisher_yates_shuffle(array: Array) -> void:
 	for i in range(array.size() - 1, 0, -1):
 		var j = randi() % (i + 1)

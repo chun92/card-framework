@@ -1,13 +1,25 @@
 @tool
 class_name JsonCardFactory
 extends CardFactory
+## Loads cards from JSON files in a specified directory and makes Card instances.
+##
+## This is an example card factory importing from JSON files
+## and makes cards sharing the same backside texture.
+## Card data is loaded from [member card_info_dir] and
+## their frontside images from [member card_asset_dir].
+##
+## You may extend it further or make a copy to load from another file type.
+
 
 ## a base card scene to instantiate.
 @export var default_card_scene: PackedScene
+
 ## card image asset directory
 @export var card_asset_dir: String
+
 ## card information json directory
 @export var card_info_dir: String
+
 ## common back face image of cards
 @export var back_image: Texture2D
 
@@ -23,7 +35,8 @@ func _ready() -> void:
 		default_card_scene = null
 	temp_instance.queue_free()
 
-
+## [param target]: The CardContainer where the card will be added.[br]
+## Returns the created Card instance.[br]
 func create_card(card_name: String, target: CardContainer) -> Card:
 	# check card info is cached
 	if preloaded_cards.has(card_name):
@@ -45,6 +58,8 @@ func create_card(card_name: String, target: CardContainer) -> Card:
 			push_error("Card image not found: %s" % front_image_path)
 			return null
 
+		# TODO: add to cache as we know the card isn't in there, 
+		# maybe make a function like preload_card_data but for an individual card
 		return _create_card_node(card_info.name, front_image, target, card_info)
 
 

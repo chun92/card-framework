@@ -15,20 +15,27 @@ const PILE_Z_INDEX := 3000
 
 ## The distance between each card in the pile.
 @export var stack_display_gap := 8
+
 ## The maximum number of cards to display in the pile.
 @export var max_stack_display := 6
+
 ## Determines whether the cards in the pile are face up.
 @export var card_face_up := true
+
 ## The direction in which the cards are stacked.
 @export var layout := PileDirection.UP
+
 ## Determines whether any card in the pile can be moved.
 @export var allow_card_movement: bool = true
-## Restricts movement to only the top card of the pile. (requires allow_card_movement to be true)
+
+## Restricts movement to only the top card of the pile. (requires [member allow_card_movement] to be true)
 @export var restrict_to_top_card: bool = true
-## Determines whether the drop zone follows the top card. (requires allow_card_movement to be true)
+
+## Determines whether the drop zone follows the top card. (requires [member allow_card_movement] to be true)
 @export var align_drop_zone_with_top_card := true
 
-
+## Get a list of the top [param n] cards in this pile.
+## The top-most cards on a pile are the bottom-most on the scene tree.
 func get_top_cards(n: int) -> Array:
 	var arr_size = _held_cards.size()
 	if n > arr_size:

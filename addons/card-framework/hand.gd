@@ -2,26 +2,34 @@ class_name Hand
 extends CardContainer
 
 @export_group("hand_meta_info")
-## maximum number of cards that can be held.
+
+## Maximum number of cards that can be held.
 @export var max_hand_size := 10
-## maximum spread of the hand.
+
+## Maximum spread of the hand.
 @export var max_hand_spread := 700
-## whether the card is face up.
+
+## Whether the cards in hand are shown face up or face down.
 @export var card_face_up := true
-## distance the card hovers when interacted with.
+
+## Distance the card hovers when interacted with.
 @export var card_hover_distance := 30
 
 @export_group("hand_shape")
-## rotation curve of the hand.
+
+## Rotation curve of the hand.
 ## This works best as a 2-point linear rise from -X to +X.
 @export var hand_rotation_curve : Curve
-## vertical curve of the hand.
+
+## Vertical curve of the hand.
 ## This works best as a 3-point ease in/out from 0 to X to 0
 @export var hand_vertical_curve : Curve
 
 @export_group("drop_zone")
-## Determines whether the drop zone size follows the hand size. (requires enable drop zone true)
+
+## Determines whether the drop zone size follows the hand size. (Requires enable drop zone true)
 @export var align_drop_zone_size_with_current_hand_size := true
+
 ## If true, only swap the positions of two cards when reordering (a <-> b), otherwise shift the range (default behavior).
 @export var swap_only_on_reorder := false
 
