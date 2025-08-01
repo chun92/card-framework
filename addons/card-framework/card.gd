@@ -7,12 +7,16 @@ static var hovering_card_count: int = 0
 
 ## The name of the card.
 @export var card_name: String
+
 ## The size of the card.
 @export var card_size: Vector2 = Vector2(150, 210)
+
 ## The texture for the front face of the card.
 @export var front_image: Texture2D
+
 ## The texture for the back face of the card.
 @export var back_image: Texture2D
+
 ## Whether the front face of the card is shown.
 ## If true, the front face is visible; otherwise, the back face is visible.
 @export var show_front: bool = true:

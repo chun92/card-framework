@@ -7,8 +7,10 @@ const Z_INDEX_OFFSET_WHEN_HOLDING = 1000
 
 ## The speed at which the objects moves.
 @export var moving_speed: int = 2000
+
 ## Whether the object can be interacted with.
 @export var can_be_interacted_with: bool = true
+
 ## The distance the object hovers when interacted with.
 @export var hover_distance: int = 10
 

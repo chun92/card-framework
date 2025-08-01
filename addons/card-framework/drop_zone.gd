@@ -14,11 +14,11 @@ var sensor_position: Vector2:
 	set(value):
 		sensor.position = value
 		sensor_outline.position = value
-## @deprecated: Since it was designed to debug the sensor, please use sensor_outline_visible instead.
+## @deprecated: Since it was designed to debug the sensor, please use [member sensor_outline_visible] instead.
 var sensor_texture : Texture:
 	set(value):
 		sensor.texture = value
-## @deprecated: Since it was designed to debug the sensor, please use sensor_outline_visible instead.
+## @deprecated: Since it was designed to debug the sensor, please use [member sensor_outline_visible] instead.
 var sensor_visible := true:
 	set(value):
 		sensor.visible = value
