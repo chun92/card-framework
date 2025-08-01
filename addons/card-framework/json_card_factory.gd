@@ -37,32 +37,29 @@ func _ready() -> void:
 
 ## [param target]: The CardContainer where the card will be added.[br]
 ## Returns the created Card instance.[br]
+## [br]
+## Gets card data from [member preloaded_cards] if they were preloaded,
+## otherwise loads and caches data there for future use.
 func create_card(card_name: String, target: CardContainer) -> Card:
 	# check card info is cached
 	if preloaded_cards.has(card_name):
 		var card_info = preloaded_cards[card_name]["info"]
 		var front_image = preloaded_cards[card_name]["texture"]
 		return _create_card_node(card_info.name, front_image, target, card_info)
-	else:
-		var card_info = _load_card_info(card_name)
-		if card_info == null or card_info == {}:
-			push_error("Card info not found for card: %s" % card_name)
+	else: 
+		# remove all this if cards not preloaded shouldn't try loading in real time
+		var card_data = load_card_full_data(card_name)
+		if card_data == null: 
 			return null
-
-		if not card_info.has("front_image"):
-			push_error("Card info does not contain 'front_image' key for card: %s" % card_name)
-			return null
-		var front_image_path = card_asset_dir + "/" + card_info["front_image"]
-		var front_image = _load_image(front_image_path)
-		if front_image == null:
-			push_error("Card image not found: %s" % front_image_path)
-			return null
-
-		# TODO: add to cache as we know the card isn't in there, 
-		# maybe make a function like preload_card_data but for an individual card
+		# add to cache as we know the card isn't in there
+		preloaded_cards[card_name] = card_data
+		var card_info = preloaded_cards[card_name]["info"]
+		var front_image = preloaded_cards[card_name]["texture"]
 		return _create_card_node(card_info.name, front_image, target, card_info)
 
 
+## Preloads card data into the [member preloaded_cards] dictionary.
+## This function should be called to initialize card data before creating cards.
 func preload_card_data() -> void:
 	var dir = DirAccess.open(card_info_dir)
 	if dir == null:
@@ -77,24 +74,39 @@ func preload_card_data() -> void:
 			continue
 
 		var card_name = file_name.get_basename()
-		var card_info = _load_card_info(card_name)
-		if card_info == null:
-			push_error("Failed to load card info for %s" % card_name)
+		var card_data = load_card_full_data(card_name)
+		if card_data == null:
 			continue
 
-		var front_image_path = card_asset_dir + "/" + card_info.get("front_image", "")
-		var front_image_texture = _load_image(front_image_path)
-		if front_image_texture == null:
-			push_error("Failed to load card image: %s" % front_image_path)
-			continue
-
-		preloaded_cards[card_name] = {
-			"info": card_info,
-			"texture": front_image_texture
-		}
+		preloaded_cards[card_name] = card_data
 		print("Preloaded card data:", preloaded_cards[card_name])
 		
 		file_name = dir.get_next()
+
+
+## Returns a Dictionary with all the data this factory needs to build 
+## a Card instance, or null if an error ocurred.[br]
+## The format of the data itself is arbitrary and you should change it 
+## to better fit your needs.
+func load_card_full_data(card_name):
+	var card_info = _load_card_info(card_name)
+	if card_info == null or card_info == {}:
+		push_error("Card info not found for card: %s" % card_name)
+		return null
+
+	if not card_info.has("front_image"):
+		push_error("Card info does not contain 'front_image' key for card: %s" % card_name)
+		return null
+	var front_image_path = card_asset_dir + "/" + card_info["front_image"]
+	var front_image = _load_image(front_image_path)
+	if front_image == null:
+		push_error("Card image not found: %s" % front_image_path)
+		return null
+	
+	return {
+		"info": card_info,
+		"texture": front_image
+	}
 
 
 func _load_card_info(card_name: String) -> Dictionary:
