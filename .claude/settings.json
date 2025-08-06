@@ -1,0 +1,29 @@
+{
+  "allowedTools": [
+    "Read",
+    "Write", 
+    "Edit",
+    "MultiEdit",
+    "Bash",
+    "Grep",
+    "Glob",
+    "LS",
+    "TodoWrite",
+    "Task",
+    "WebSearch",
+    "WebFetch",
+    "mcp__task-master-ai__*"
+  ],
+  "rules": [
+    "Always follow GDScript syntax and Godot 4.x conventions when working on Godot projects",
+    "Maintain the existing Card Framework architecture and naming conventions", 
+    "Ensure compatibility with JsonCardFactory when modifying JSON card data structures",
+    "Inherit from the base CardContainer class when implementing new CardContainer types",
+    "Be careful with node structure and signal connections when modifying scene (.tscn) files"
+  ],
+  "contextFiles": [
+    "README.md",
+    "addons/card-framework/**/*.gd",
+    "project.godot"
+  ]
+}
