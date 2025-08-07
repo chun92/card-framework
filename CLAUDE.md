@@ -230,3 +230,7 @@ See `.taskmaster/CLAUDE.md` for detailed Task Master workflows.
 ---
 
 *This project demonstrates professional Godot addon development with comprehensive documentation, clean architecture, and production-ready examples. It serves as an excellent foundation for 2D card game development.*
+
+## Task Master AI Instructions
+**Import Task Master's development workflow commands and guidelines, treat as if import is in the main CLAUDE.md file.**
+@./.taskmaster/CLAUDE.md

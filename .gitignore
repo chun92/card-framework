@@ -45,6 +45,8 @@ node_modules/
 .taskmaster/config.json
 .taskmaster/state.json
 .taskmaster/tasks/
+.taskmaster/docs/
+.taskmaster/notion-sync.json
 .claude/settings.local.json
 
 # Task files
