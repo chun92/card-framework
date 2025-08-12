@@ -3,6 +3,7 @@ extends DraggableObject
 
 
 static var hovering_card_count: int = 0
+static var holding_card_count: int = 0
 
 
 ## The name of the card.
@@ -48,9 +49,6 @@ func _on_move_done() -> void:
 	card_container.on_card_move_done(self)
 
 
-func _on_mouse_enter() -> void:
-	if hovering_card_count == 0:
-		super._on_mouse_enter()
 
 
 func set_faces(front_face: Texture2D, back_face: Texture2D) -> void:
@@ -65,26 +63,41 @@ func return_card() -> void:
 	move(original_destination, original_rotation)
 
 
-func start_hovering() -> void:
-	if not is_hovering:
-		hovering_card_count += 1
-		super.start_hovering()
+# Override state entry to add card-specific logic
+func _enter_state(state: DraggableState, from_state: DraggableState) -> void:
+	super._enter_state(state, from_state)
+	
+	match state:
+		DraggableState.HOVERING:
+			hovering_card_count += 1
+		DraggableState.HOLDING:
+			holding_card_count += 1
+			if card_container:
+				card_container.hold_card(self)
 
-
-func end_hovering(restore_object_position: bool) -> void:
-	if is_hovering:
-		hovering_card_count -= 1
-		super.end_hovering(restore_object_position)
-
+# Override state exit to add card-specific logic
+func _exit_state(state: DraggableState) -> void:
+	match state:
+		DraggableState.HOVERING:
+			hovering_card_count -= 1
+		DraggableState.HOLDING:
+			holding_card_count -= 1
+	
+	super._exit_state(state)
 
 func set_holding() -> void:
-	super.set_holding()
+	# Kept for compatibility - actual logic handled by State Machine
 	if card_container:
 		card_container.hold_card(self)
 
 
 func get_string() -> String:
 	return card_name
+
+
+# Check hover conditions - prevent if any card is hovering or holding
+func _can_start_hovering() -> bool:
+	return hovering_card_count == 0 and holding_card_count == 0
 
 
 func _handle_mouse_pressed() -> void:

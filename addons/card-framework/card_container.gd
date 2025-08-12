@@ -159,7 +159,8 @@ func release_holding_cards():
 	if _holding_cards.is_empty():
 		return
 	for card in _holding_cards:
-		card.set_releasing()
+		# Transition from HOLDING to IDLE state
+		card.change_state(DraggableObject.DraggableState.IDLE)
 	var copied_holding_cards = _holding_cards.duplicate()
 	if card_manager != null:
 		card_manager._on_drag_dropped(copied_holding_cards)

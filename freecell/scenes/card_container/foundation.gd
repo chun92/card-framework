@@ -60,3 +60,9 @@ func _card_can_be_added(cards: Array) -> bool:
 		return true
 	else:
 		return false
+
+
+func _update_target_z_index():
+	for i in range(_held_cards.size()):
+		var card = _held_cards[i]
+		card.stored_z_index = PILE_Z_INDEX + i

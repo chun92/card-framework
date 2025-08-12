@@ -87,8 +87,8 @@ func hold_multiple_cards(card: Card, tableau: Tableau) -> void:
 	
 	for target_card in holding_card_list:
 		if target_card != card:
-			target_card.start_hovering()
-			target_card.set_holding()
+			# Transition to HOLDING state via State Machine
+			target_card.change_state(DraggableObject.DraggableState.HOLDING)
 	return
 
 
