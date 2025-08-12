@@ -118,7 +118,7 @@ func _update_target_positions():
 			x_max = maxf(x_max, current_x_max)
 			y_min = minf(y_min, current_y_min)
 			y_max = maxf(y_max, current_y_max)
-		
+
 		card.move(target_pos, target_rotation)
 		card.show_front = card_face_up
 		card.can_be_interacted_with = true

@@ -22,9 +22,13 @@ var stored_z_index: int:
 		stored_z_index = value
 var is_moving_to_destination: bool = false
 var current_holding_mouse_position: Vector2
-var destination: Vector2
-var destination_as_local: Vector2
+var move_tween: Tween
 var destination_degree: float
+var target_destination: Vector2  # Target position passed to move() function
+var target_rotation: float       # Target rotation passed to move() function
+var original_destination: Vector2
+var original_rotation: float
+var is_returning_to_original: bool = false
 
 
 func _ready():
@@ -33,7 +37,8 @@ func _ready():
 	connect("mouse_exited", _on_mouse_exit)
 	connect("gui_input", _on_gui_input)
 	
-	destination = global_position
+	original_destination = global_position
+	original_rotation = rotation
 	stored_z_index = z_index
 
 
@@ -41,23 +46,26 @@ func _process(delta: float) -> void:
 	if is_holding:
 		start_hovering()
 		global_position = get_global_mouse_position() - current_holding_mouse_position
-		
-	if is_moving_to_destination:
-		_set_destination()
 
-		var new_position = position.move_toward(destination_as_local, moving_speed * delta)
 
-		# object move done
-		if position.distance_to(new_position) < 0.01 or position.distance_to(destination_as_local) < 0.01:
-			position = destination_as_local
-			is_moving_to_destination = false
-			end_hovering(false)
-			z_index = stored_z_index
-			rotation = destination_degree
-			mouse_filter = Control.MOUSE_FILTER_STOP
-			_on_move_done()
-		else:
-			position = new_position
+func _finish_move() -> void:
+	# Complete movement processing
+	is_moving_to_destination = false
+	z_index = stored_z_index
+	rotation = destination_degree
+	mouse_filter = Control.MOUSE_FILTER_STOP
+	
+	# Update original position and rotation only when not returning to original
+	# Important: Use original target values from move() instead of global_position
+	if not is_returning_to_original:
+		original_destination = target_destination
+		original_rotation = target_rotation
+	
+	# Reset return flag
+	is_returning_to_original = false
+	
+	# Call inherited class callback
+	_on_move_done()
 
 
 func _on_move_done() -> void:
@@ -85,10 +93,35 @@ func _on_gui_input(event: InputEvent) -> void:
 
 
 func move(target_destination: Vector2, degree: float) -> void:
+	# Skip if current position and rotation match target
+	if global_position == target_destination and rotation == degree:
+		return
+
+	# Stop existing movement
+	if move_tween and move_tween.is_valid():
+		move_tween.kill()
+	
+	# End hover state immediately to prevent state conflicts
+	end_hovering(false)
+	
+	# Store target position and rotation for original value preservation
+	self.target_destination = target_destination
+	self.target_rotation = degree
+	
+	# Initial setup
 	rotation = 0
 	destination_degree = degree
 	is_moving_to_destination = true
-	self.destination = target_destination
+	z_index = stored_z_index + Z_INDEX_OFFSET_WHEN_HOLDING
+	mouse_filter = Control.MOUSE_FILTER_IGNORE
+	
+	# Smooth Tween-based movement with dynamic duration based on moving_speed
+	var distance = global_position.distance_to(target_destination)
+	var duration = distance / moving_speed
+	
+	move_tween = create_tween()
+	move_tween.tween_property(self, "global_position", target_destination, duration)
+	move_tween.tween_callback(_finish_move)
 
 
 func start_hovering() -> void:
@@ -138,10 +171,3 @@ func _handle_mouse_pressed() -> void:
 
 func _handle_mouse_released() -> void:
 	is_pressed = false
-
-
-func _set_destination() -> void:
-	var t = get_global_transform().affine_inverse()
-	var local_position = (t.x * destination.x) + (t.y * destination.y) + t.origin
-	destination_as_local = local_position + position
-	z_index = stored_z_index + Z_INDEX_OFFSET_WHEN_HOLDING

@@ -59,8 +59,10 @@ func set_faces(front_face: Texture2D, back_face: Texture2D) -> void:
 
 
 func return_card() -> void:
-	rotation = 0
-	is_moving_to_destination = true
+	# Set flag to indicate returning to original position
+	is_returning_to_original = true
+	# Move to original position and rotation using Tween-based movement
+	move(original_destination, original_rotation)
 
 
 func start_hovering() -> void:
