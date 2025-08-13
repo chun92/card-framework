@@ -141,10 +141,28 @@ func _update_target_positions():
 
 
 func move_cards(cards: Array, index: int = -1, with_history: bool = true) -> bool:
-	if swap_only_on_reorder and cards.size() == 1 and _held_cards.has(cards[0]) and index >= 0 and index < _held_cards.size():
-		swap_card(cards[0], index)
+	# Handle single card reordering within same Hand container
+	if cards.size() == 1 and _held_cards.has(cards[0]) and index >= 0 and index < _held_cards.size():
+		var current_index = _held_cards.find(cards[0])
+		
+		# Swap-only mode: exchange two cards directly
+		if swap_only_on_reorder:
+			swap_card(cards[0], index)
+			return true
+		
+		# Same position optimization
+		if current_index == index:
+			# Same card, same position - ensure consistent state
+			update_card_ui()
+			_restore_mouse_interaction(cards)
+			return true
+		
+		# Different position: use efficient internal reordering
+		_reorder_card_in_hand(cards[0], current_index, index, with_history)
+		_restore_mouse_interaction(cards)
 		return true
 
+	# Fall back to parent implementation for other cases
 	return super.move_cards(cards, index, with_history)
 
 
@@ -155,6 +173,26 @@ func swap_card(card: Card, index: int) -> void:
 	var temp = _held_cards[current_index]
 	_held_cards[current_index] = _held_cards[index]
 	_held_cards[index] = temp
+	update_card_ui()
+
+
+func _restore_mouse_interaction(cards: Array) -> void:
+	# Restore mouse interaction for cards after drag & drop completion.
+	for card in cards:
+		card.mouse_filter = Control.MOUSE_FILTER_STOP
+
+
+func _reorder_card_in_hand(card: Card, from_index: int, to_index: int, with_history: bool) -> void:
+	# Efficiently reorder card within Hand without intermediate UI updates.
+	# Add to history if needed (before making changes)
+	if with_history:
+		card_manager._add_history(self, [card])
+	
+	# Efficient array reordering without intermediate states
+	_held_cards.remove_at(from_index)
+	_held_cards.insert(to_index, card)
+	
+	# Single UI update after array change
 	update_card_ui()
 
 

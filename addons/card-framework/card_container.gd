@@ -217,7 +217,6 @@ func _move_cards(cards: Array, index: int = -1) -> void:
 	var cur_index = index
 	for i in range(cards.size() - 1, -1, -1):
 		var card = cards[i]
-		_move_to_card_container(card)
 		if cur_index == -1:
 			_move_to_card_container(card)
 		else:
