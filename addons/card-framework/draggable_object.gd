@@ -201,7 +201,10 @@ func _start_hover_animation() -> void:
 	# Stop any existing hover animation
 	if hover_tween and hover_tween.is_valid():
 		hover_tween.kill()
-	
+		position = original_position  # Reset position to original before starting new hover
+		scale = original_scale
+		rotation = original_hover_rotation
+
 	# Update original position to current position (important for correct return)
 	original_position = position
 	original_scale = scale
