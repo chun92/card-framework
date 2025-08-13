@@ -146,8 +146,43 @@ func move_cards(cards: Array, index: int = -1, with_history: bool = true) -> boo
 	return true
 
 
-func undo(cards: Array) -> void:
-	_move_cards(cards)
+func undo(cards: Array, from_indices: Array = []) -> void:
+	# Validate input parameters
+	if not from_indices.is_empty() and cards.size() != from_indices.size():
+		push_error("Mismatched cards and indices arrays in undo operation!")
+		# Fallback to basic undo
+		_move_cards(cards)
+		return
+	
+	# Fallback: add to end if no index info available
+	if from_indices.is_empty():
+		_move_cards(cards)
+		return
+	
+	# Validate all indices are valid
+	for i in range(from_indices.size()):
+		if from_indices[i] < 0:
+			push_error("Invalid index found during undo: %d" % from_indices[i])
+			# Fallback to basic undo
+			_move_cards(cards)
+			return
+	
+	# Sort cards by their original indices (highest first) to avoid index shifting
+	var card_index_pairs = []
+	for i in range(cards.size()):
+		card_index_pairs.append({"card": cards[i], "index": from_indices[i], "original_order": i})
+	
+	# Sort by index descending, then by original order ascending for stable sorting
+	card_index_pairs.sort_custom(func(a, b): 
+		if a.index == b.index:
+			return a.original_order < b.original_order
+		return a.index > b.index
+	)
+	
+	# Restore each card to its original index
+	for pair in card_index_pairs:
+		var target_index = min(pair.index, _held_cards.size())  # Clamp to valid range
+		_move_cards([pair.card], target_index)
 
 
 func hold_card(card: Card) -> void:

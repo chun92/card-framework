@@ -41,7 +41,7 @@ func undo() -> void:
 	
 	var last = history.pop_back()
 	if last.from != null:
-		last.from.undo(last.cards)
+		last.from.undo(last.cards, last.from_indices)
 
 
 func reset_history() -> void:
@@ -78,7 +78,9 @@ func _on_drag_dropped(cards: Array) -> void:
 
 func _add_history(to: CardContainer, cards: Array) -> void:
 	var from = null
+	var from_indices = []
 	
+	# Record indices FIRST, before any movement operations
 	for i in range(cards.size()):
 		var c = cards[i]
 		var current = c.card_container
@@ -88,11 +90,20 @@ func _add_history(to: CardContainer, cards: Array) -> void:
 			if from != current:
 				push_error("All cards must be from the same container!")
 				return
+		
+		# Record index immediately to avoid race conditions
+		if from != null:
+			var original_index = from._held_cards.find(c)
+			if original_index == -1:
+				push_error("Card not found in source container during history recording!")
+				return
+			from_indices.append(original_index)
 	
 	var history_element = HistoryElement.new()
 	history_element.from = from
 	history_element.to = to
 	history_element.cards = cards
+	history_element.from_indices = from_indices
 	history.append(history_element)
 
 

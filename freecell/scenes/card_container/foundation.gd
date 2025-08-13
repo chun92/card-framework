@@ -30,8 +30,8 @@ func auto_move_cards(cards: Array, with_history: bool = true) -> void:
 	freecell_game.update_all_tableaus_cards_can_be_interactwith(true)
 
 
-func undo(cards: Array) -> void:
-	super.undo(cards)
+func undo(cards: Array, from_indices: Array = []) -> void:
+	super.undo(cards, from_indices)
 	freecell_game.undo_count += 1
 	freecell_game.update_all_tableaus_cards_can_be_interactwith(false)
 
