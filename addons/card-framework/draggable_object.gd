@@ -135,6 +135,7 @@ func _enter_state(state: DraggableState, from_state: DraggableState) -> void:
 			# Stop hover animations and ignore input during programmatic movement
 			if hover_tween and hover_tween.is_valid():
 				hover_tween.kill()
+				hover_tween = null
 			z_index = stored_z_index + Z_INDEX_OFFSET_WHEN_HOLDING
 			mouse_filter = Control.MOUSE_FILTER_IGNORE
 
@@ -193,6 +194,7 @@ func _start_hover_animation() -> void:
 	# Stop any existing hover animation
 	if hover_tween and hover_tween.is_valid():
 		hover_tween.kill()
+		hover_tween = null
 		position = original_position  # Reset position to original before starting new hover
 		scale = original_scale
 		rotation = original_hover_rotation
@@ -228,6 +230,7 @@ func _stop_hover_animation() -> void:
 	# Stop any existing hover animation
 	if hover_tween and hover_tween.is_valid():
 		hover_tween.kill()
+		hover_tween = null
 	
 	# Create new tween to return to original state
 	hover_tween = create_tween()
@@ -256,6 +259,7 @@ func _preserve_hover_position() -> void:
 	# Stop hover animation and preserve current position
 	if hover_tween and hover_tween.is_valid():
 		hover_tween.kill()
+		hover_tween = null
 	
 	# Explicitly set position to current hover position
 	# This ensures smooth transition from hover animation to holding
@@ -299,6 +303,7 @@ func move(target_destination: Vector2, degree: float) -> void:
 	# Stop existing movement
 	if move_tween and move_tween.is_valid():
 		move_tween.kill()
+		move_tween = null
 	
 	# Store target position and rotation for original value preservation
 	self.target_destination = target_destination
