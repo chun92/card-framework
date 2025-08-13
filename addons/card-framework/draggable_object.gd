@@ -40,6 +40,9 @@ var stored_z_index: int:
 # State Machine
 var current_state: DraggableState = DraggableState.IDLE
 
+# Mouse tracking
+var is_mouse_inside: bool = false
+
 # Movement state tracking
 var is_moving_to_destination: bool = false
 var is_returning_to_original: bool = false
@@ -174,8 +177,18 @@ func _finish_move() -> void:
 	# End MOVING state - return to IDLE
 	change_state(DraggableState.IDLE)
 	
+	# Check mouse position on the next frame to ensure position is fully updated
+	call_deferred("_check_mouse_after_move")
+	
 	# Call inherited class callback
 	_on_move_done()
+
+
+func _check_mouse_after_move() -> void:
+	# Check if mouse is still over the card after movement completes
+	# Use the reliable is_mouse_inside flag set by mouse_entered/mouse_exited signals
+	if is_mouse_inside and can_be_interacted_with and _can_start_hovering():
+		change_state(DraggableState.HOVERING)
 
 
 func _on_move_done() -> void:
@@ -260,11 +273,13 @@ func _can_start_hovering() -> bool:
 
 
 func _on_mouse_enter() -> void:
+	is_mouse_inside = true
 	if can_be_interacted_with and _can_start_hovering():
 		change_state(DraggableState.HOVERING)
 
 
 func _on_mouse_exit() -> void:
+	is_mouse_inside = false
 	match current_state:
 		DraggableState.HOVERING:
 			change_state(DraggableState.IDLE)
