@@ -85,6 +85,11 @@ static func get_card_name(_suit: Suit, _number: Number) -> String:
 	return suit_str + "_" + number_str
 
 
+func _init():
+	hover_scale = 1.0
+	hover_rotation = 0.0
+
+
 func is_next_number(target_card: PlayingCard) -> bool:
 	var current_number = int(number)
 	var target_number = int(target_card.number)

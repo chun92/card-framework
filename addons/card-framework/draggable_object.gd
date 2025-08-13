@@ -1,6 +1,11 @@
+## A draggable object that supports mouse interaction with state-based animation system.
+##
+## This class provides a robust state machine for handling mouse interactions including
+## hover effects, drag operations, and programmatic movement using Tween animations.
 class_name DraggableObject
 extends Control
 
+## Enumeration of possible interaction states for the draggable object.
 enum DraggableState {
 	IDLE,       # Default state - no interaction
 	HOVERING,   # Mouse over state - visual feedback
@@ -17,24 +22,45 @@ const Z_INDEX_OFFSET_WHEN_HOLDING = 1000
 @export var can_be_interacted_with: bool = true
 ## The distance the object hovers when interacted with.
 @export var hover_distance: int = 10
+## The scale multiplier when hovering.
+@export var hover_scale: float = 1.1
+## The rotation in degrees when hovering.
+@export var hover_rotation: float = 0.0
+## The duration for hover animations.
+@export var hover_duration: float = 0.10
 
 
+# Legacy variables - kept for compatibility but no longer used in state machine
 var is_pressed: bool = false
 var is_holding: bool = false
 var stored_z_index: int:
 	set(value):
 		z_index = value
 		stored_z_index = value
+# State Machine
+var current_state: DraggableState = DraggableState.IDLE
+
+# Movement state tracking
 var is_moving_to_destination: bool = false
+var is_returning_to_original: bool = false
+
+# Position and animation tracking
 var current_holding_mouse_position: Vector2
-var move_tween: Tween
-var destination_degree: float
+var original_position: Vector2
+var original_scale: Vector2
+var original_hover_rotation: float
+var current_hover_position: Vector2  # Track position during hover animation
+
+# Move operation tracking
 var target_destination: Vector2  # Target position passed to move() function
 var target_rotation: float       # Target rotation passed to move() function
 var original_destination: Vector2
 var original_rotation: float
-var is_returning_to_original: bool = false
-var current_state: DraggableState = DraggableState.IDLE
+var destination_degree: float
+
+# Tween objects
+var move_tween: Tween
+var hover_tween: Tween
 
 # State transition rules
 var allowed_transitions = {
@@ -53,6 +79,9 @@ func _ready():
 	
 	original_destination = global_position
 	original_rotation = rotation
+	original_position = position
+	original_scale = scale
+	original_hover_rotation = rotation
 	stored_z_index = z_index
 
 
@@ -85,16 +114,22 @@ func _enter_state(state: DraggableState, from_state: DraggableState) -> void:
 			
 		DraggableState.HOVERING:
 			z_index = stored_z_index + Z_INDEX_OFFSET_WHEN_HOLDING
-			position.y -= hover_distance
+			_start_hover_animation()
 			
 		DraggableState.HOLDING:
+			# Preserve hover position if transitioning from HOVERING state
+			if from_state == DraggableState.HOVERING:
+				_preserve_hover_position()
+			# For IDLE → HOLDING transitions, current position is maintained
+			
 			current_holding_mouse_position = get_local_mouse_position()
 			z_index = stored_z_index + Z_INDEX_OFFSET_WHEN_HOLDING
 			rotation = 0
-			position.y -= hover_distance  # Maintain hover effect while holding
 			
 		DraggableState.MOVING:
-			# Always ensure high z_index for moving cards (auto move and manual move)
+			# Stop hover animations and ignore input during programmatic movement
+			if hover_tween and hover_tween.is_valid():
+				hover_tween.kill()
 			z_index = stored_z_index + Z_INDEX_OFFSET_WHEN_HOLDING
 			mouse_filter = Control.MOUSE_FILTER_IGNORE
 
@@ -104,11 +139,13 @@ func _exit_state(state: DraggableState) -> void:
 	match state:
 		DraggableState.HOVERING:
 			z_index = stored_z_index
-			position.y += hover_distance
+			_stop_hover_animation()
 			
 		DraggableState.HOLDING:
 			z_index = stored_z_index
-			position.y += hover_distance
+			# Reset visual effects but preserve position for return_card() animation
+			scale = original_scale
+			rotation = original_hover_rotation
 			
 		DraggableState.MOVING:
 			mouse_filter = Control.MOUSE_FILTER_STOP
@@ -144,6 +181,77 @@ func _finish_move() -> void:
 func _on_move_done() -> void:
 	# This function can be overridden by subclasses to handle when the move is done.
 	pass
+
+
+# Start hover animation with tween
+func _start_hover_animation() -> void:
+	# Stop any existing hover animation
+	if hover_tween and hover_tween.is_valid():
+		hover_tween.kill()
+	
+	# Update original position to current position (important for correct return)
+	original_position = position
+	original_scale = scale
+	original_hover_rotation = rotation
+	
+	# Store current position before animation
+	current_hover_position = position
+	
+	# Create new hover tween
+	hover_tween = create_tween()
+	hover_tween.set_parallel(true)  # Allow multiple properties to animate simultaneously
+	
+	# Animate position (hover up)
+	var target_position = Vector2(position.x, position.y - hover_distance)
+	hover_tween.tween_property(self, "position", target_position, hover_duration)
+	
+	# Animate scale
+	hover_tween.tween_property(self, "scale", original_scale * hover_scale, hover_duration)
+	
+	# Animate rotation
+	hover_tween.tween_property(self, "rotation", deg_to_rad(hover_rotation), hover_duration)
+	
+	# Update current hover position tracking
+	hover_tween.tween_method(_update_hover_position, position, target_position, hover_duration)
+
+
+# Stop hover animation and return to original state
+func _stop_hover_animation() -> void:
+	# Stop any existing hover animation
+	if hover_tween and hover_tween.is_valid():
+		hover_tween.kill()
+	
+	# Create new tween to return to original state
+	hover_tween = create_tween()
+	hover_tween.set_parallel(true)
+	
+	# Animate back to original position
+	hover_tween.tween_property(self, "position", original_position, hover_duration)
+	
+	# Animate back to original scale
+	hover_tween.tween_property(self, "scale", original_scale, hover_duration)
+	
+	# Animate back to original rotation
+	hover_tween.tween_property(self, "rotation", original_hover_rotation, hover_duration)
+	
+	# Update current hover position tracking
+	hover_tween.tween_method(_update_hover_position, position, original_position, hover_duration)
+
+
+# Track current position during hover animation for smooth HOLDING transition
+func _update_hover_position(pos: Vector2) -> void:
+	current_hover_position = pos
+
+
+# Preserve current hover position when transitioning to HOLDING
+func _preserve_hover_position() -> void:
+	# Stop hover animation and preserve current position
+	if hover_tween and hover_tween.is_valid():
+		hover_tween.kill()
+	
+	# Explicitly set position to current hover position
+	# This ensures smooth transition from hover animation to holding
+	position = current_hover_position
 
 
 # Check if hovering can start (can be overridden by subclasses)
@@ -198,10 +306,6 @@ func move(target_destination: Vector2, degree: float) -> void:
 	move_tween = create_tween()
 	move_tween.tween_property(self, "global_position", target_destination, duration)
 	move_tween.tween_callback(_finish_move)
-
-
-
-
 
 
 func _handle_mouse_button(mouse_event: InputEventMouseButton) -> void:
