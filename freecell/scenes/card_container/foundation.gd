@@ -42,6 +42,10 @@ func get_top_card() -> PlayingCard:
 	return _held_cards.back() as PlayingCard
 
 
+func on_card_move_done(_card: Card):
+	_update_target_z_index()
+
+
 func _card_can_be_added(cards: Array) -> bool:
 	if cards.size() != 1:
 		return false
@@ -65,4 +69,9 @@ func _card_can_be_added(cards: Array) -> bool:
 func _update_target_z_index():
 	for i in range(_held_cards.size()):
 		var card = _held_cards[i]
-		card.stored_z_index = PILE_Z_INDEX + i
+		# Only apply high z-index for MOVING state cards (auto move)
+		if card.current_state == DraggableObject.DraggableState.MOVING:
+			card.stored_z_index = PILE_Z_INDEX + i
+		else:
+			# For IDLE/HOVERING/HOLDING cards, use normal z-index
+			card.stored_z_index = i
