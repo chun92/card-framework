@@ -5,6 +5,7 @@
 class_name DraggableObject
 extends Control
 
+
 ## Enumeration of possible interaction states for the draggable object.
 enum DraggableState {
 	IDLE,       # Default state - no interaction
@@ -12,6 +13,7 @@ enum DraggableState {
 	HOLDING,    # Dragging state - follows mouse
 	MOVING      # Programmatic move state - ignores input
 }
+
 
 const Z_INDEX_OFFSET_WHEN_HOLDING = 1000
 
@@ -177,18 +179,8 @@ func _finish_move() -> void:
 	# End MOVING state - return to IDLE
 	change_state(DraggableState.IDLE)
 	
-	# Check mouse position on the next frame to ensure position is fully updated
-	call_deferred("_check_mouse_after_move")
-	
 	# Call inherited class callback
 	_on_move_done()
-
-
-func _check_mouse_after_move() -> void:
-	# Check if mouse is still over the card after movement completes
-	# Use the reliable is_mouse_inside flag set by mouse_entered/mouse_exited signals
-	if is_mouse_inside and can_be_interacted_with and _can_start_hovering():
-		change_state(DraggableState.HOVERING)
 
 
 func _on_move_done() -> void:
@@ -346,6 +338,9 @@ func _handle_mouse_pressed() -> void:
 	match current_state:
 		DraggableState.HOVERING:
 			change_state(DraggableState.HOLDING)
+		DraggableState.IDLE:
+			if is_mouse_inside and can_be_interacted_with and _can_start_hovering():
+				change_state(DraggableState.HOLDING)
 
 
 func _handle_mouse_released() -> void:
