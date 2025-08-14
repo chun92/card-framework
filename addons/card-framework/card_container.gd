@@ -217,22 +217,48 @@ func undo(cards: Array, from_indices: Array = []) -> void:
 			_move_cards(cards)
 			return
 	
-	# Sort cards by their original indices (highest first) to avoid index shifting
-	var card_index_pairs = []
-	for i in range(cards.size()):
-		card_index_pairs.append({"card": cards[i], "index": from_indices[i], "original_order": i})
+	# Check if indices are consecutive (bulk move scenario)
+	var sorted_indices = from_indices.duplicate()
+	sorted_indices.sort()
+	var is_consecutive = true
+	for i in range(1, sorted_indices.size()):
+		if sorted_indices[i] != sorted_indices[i-1] + 1:
+			is_consecutive = false
+			break
 	
-	# Sort by index descending, then by original order ascending for stable sorting
-	card_index_pairs.sort_custom(func(a, b): 
-		if a.index == b.index:
-			return a.original_order < b.original_order
-		return a.index > b.index
-	)
-	
-	# Restore each card to its original index
-	for pair in card_index_pairs:
-		var target_index = min(pair.index, _held_cards.size())  # Clamp to valid range
-		_move_cards([pair.card], target_index)
+	if is_consecutive and sorted_indices.size() > 1:
+		# Bulk consecutive restore: maintain original relative order
+		var lowest_index = sorted_indices[0]
+		
+		# Sort cards by their original indices to maintain proper order
+		var card_index_pairs = []
+		for i in range(cards.size()):
+			card_index_pairs.append({"card": cards[i], "index": from_indices[i]})
+		
+		# Sort by index ascending to maintain original order
+		card_index_pairs.sort_custom(func(a, b): return a.index < b.index)
+		
+		# Insert all cards starting from the lowest index
+		for i in range(card_index_pairs.size()):
+			var target_index = min(lowest_index + i, _held_cards.size())
+			_move_cards([card_index_pairs[i].card], target_index)
+	else:
+		# Non-consecutive indices: restore individually (original logic)
+		var card_index_pairs = []
+		for i in range(cards.size()):
+			card_index_pairs.append({"card": cards[i], "index": from_indices[i], "original_order": i})
+		
+		# Sort by index descending, then by original order ascending for stable sorting
+		card_index_pairs.sort_custom(func(a, b): 
+			if a.index == b.index:
+				return a.original_order < b.original_order
+			return a.index > b.index
+		)
+		
+		# Restore each card to its original index
+		for pair in card_index_pairs:
+			var target_index = min(pair.index, _held_cards.size())  # Clamp to valid range
+			_move_cards([pair.card], target_index)
 
 
 func hold_card(card: Card) -> void:
