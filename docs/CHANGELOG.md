@@ -4,6 +4,35 @@ All notable changes to Card Framework will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.2.0] - 2025-08-14
+
+### Added
+- **CardFrameworkSettings**: Centralized configuration constants for all framework values
+- **State Machine System**: Complete rewrite of DraggableObject with robust state management
+- **Tween Animation System**: Smooth, interruptible animations replacing _process-based movement
+- **Precise Undo System**: Index-based undo with adaptive algorithm for correct card ordering
+- **Comprehensive Documentation**: Full GDScript style guide compliance with detailed API docs
+
+### Changed  
+- **BREAKING**: `CardContainer.undo()` method signature now includes optional `from_indices` parameter
+- **Magic Numbers**: All hardcoded values replaced with `CardFrameworkSettings` constants
+- **Animation System**: All movement and hover effects now use Tween-based animations
+- **State Management**: Drag-and-drop interactions now use validated state machine transitions
+- **Memory Management**: Improved Tween resource cleanup preventing memory leaks
+
+### Fixed
+- **Multi-Card Undo Ordering**: Resolved card sequence corruption when undoing consecutive multi-card moves
+- **Tween Memory Leaks**: Proper cleanup of animation resources in DraggableObject
+- **Mouse Interaction**: Resolved various mouse control issues after card movements
+- **Hover Animation**: Fixed scale accumulation bug preventing proper hover reset
+- **Z-Index Management**: Foundation cards maintain proper z-index after auto-move completion
+- **Hand Reordering**: Optimized internal reordering to prevent card position drift
+
+### Developer Experience
+- **MCP Integration**: Added Claude Code and TaskMaster AI integration for development workflow
+- **Documentation Tools**: Custom Claude commands for automated documentation sync
+- **Code Quality**: Applied comprehensive GDScript style guide with detailed method documentation
+
 ## [1.1.3] - 2025-07-10
 
 ### Added

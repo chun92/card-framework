@@ -4,6 +4,8 @@ Complete API reference for the Godot 4.x Card Framework addon. This framework pr
 
 ## Table of Contents
 
+- [Configuration](#configuration)
+  - [CardFrameworkSettings](#cardframeworksettings)
 - [Core Classes](#core-classes)
   - [CardManager](#cardmanager)
   - [Card](#card)  
@@ -17,6 +19,68 @@ Complete API reference for the Godot 4.x Card Framework addon. This framework pr
   - [DraggableObject](#draggableobject)
   - [DropZone](#dropzone)
   - [HistoryElement](#historyelement)
+
+---
+
+## Configuration
+
+### CardFrameworkSettings
+
+**Extends:** `RefCounted`
+
+Centralized configuration constants for all Card Framework components. This class provides consistent default values without requiring Autoload, allowing components to reference framework-wide constants directly.
+
+#### Animation Constants
+
+| Constant | Type | Value | Description |
+|----------|------|-------|-------------|
+| `ANIMATION_MOVE_SPEED` | `float` | `2000.0` | Speed of card movement animations in pixels per second |
+| `ANIMATION_HOVER_DURATION` | `float` | `0.10` | Duration of hover animations in seconds |
+| `ANIMATION_HOVER_SCALE` | `float` | `1.1` | Scale multiplier applied during hover effects |
+| `ANIMATION_HOVER_ROTATION` | `float` | `0.0` | Rotation in degrees applied during hover effects |
+
+#### Physics Constants
+
+| Constant | Type | Value | Description |
+|----------|------|-------|-------------|
+| `PHYSICS_HOVER_DISTANCE` | `float` | `10.0` | Distance threshold for hover detection in pixels |
+| `PHYSICS_CARD_HOVER_DISTANCE` | `float` | `30.0` | Distance cards move up during hover in pixels |
+
+#### Visual Layout Constants
+
+| Constant | Type | Value | Description |
+|----------|------|-------|-------------|
+| `VISUAL_DRAG_Z_OFFSET` | `int` | `1000` | Z-index offset applied to cards during drag operations |
+| `VISUAL_PILE_Z_INDEX` | `int` | `3000` | Z-index for pile cards to ensure proper layering |
+| `VISUAL_SENSOR_Z_INDEX` | `int` | `-1000` | Z-index for drop zone sensors (below everything) |
+| `VISUAL_OUTLINE_Z_INDEX` | `int` | `1200` | Z-index for debug outlines (above UI) |
+
+#### Container Layout Constants
+
+| Constant | Type | Value | Description |
+|----------|------|-------|-------------|
+| `LAYOUT_DEFAULT_CARD_SIZE` | `Vector2` | `Vector2(150, 210)` | Default card size used throughout the framework |
+| `LAYOUT_STACK_GAP` | `int` | `8` | Distance between stacked cards in piles |
+| `LAYOUT_MAX_STACK_DISPLAY` | `int` | `6` | Maximum cards to display in stack before hiding |
+| `LAYOUT_MAX_HAND_SIZE` | `int` | `10` | Maximum number of cards in hand containers |
+| `LAYOUT_MAX_HAND_SPREAD` | `int` | `700` | Maximum pixel spread for hand arrangements |
+
+#### Debug Constants
+
+| Constant | Type | Value | Description |
+|----------|------|-------|-------------|
+| `DEBUG_OUTLINE_COLOR` | `Color` | `Color(1, 0, 0, 1)` | Color used for sensor outlines and debug indicators |
+
+#### Usage
+
+```gdscript
+# Reference constants directly in component @export variables
+@export var moving_speed: int = CardFrameworkSettings.ANIMATION_MOVE_SPEED
+@export var hover_distance: int = CardFrameworkSettings.PHYSICS_HOVER_DISTANCE
+
+# Or use in code
+z_index = stored_z_index + CardFrameworkSettings.VISUAL_DRAG_Z_OFFSET
+```
 
 ---
 
@@ -202,6 +266,29 @@ Randomly shuffles all cards in the container using Fisher-Yates algorithm.
 
 ```gdscript
 deck_container.shuffle()
+```
+
+##### undo(cards: Array, from_indices: Array = []) -> void
+Restores cards to their original positions with index precision. Supports both simple restoration and precise index-based positioning for complex undo scenarios.
+
+**Parameters:**
+- `cards`: Array of cards to restore to this container
+- `from_indices`: Optional array of original indices for precise positioning (since v1.1.4)
+
+**Features:**
+- **Adaptive Algorithm**: Automatically detects consecutive vs non-consecutive card groups
+- **Order Preservation**: Maintains correct card order for bulk consecutive moves
+- **Fallback Safety**: Gracefully handles missing or invalid index data
+
+```gdscript
+# Simple undo (backward compatible)
+source_container.undo([card1, card2])
+
+# Precise index-based undo (new in v1.1.4)
+source_container.undo([card1, card2, card3], [0, 1, 2])
+
+# Handles complex scenarios automatically
+hand_container.undo(moved_cards, original_indices)
 ```
 
 #### Drop Zone Methods
@@ -485,7 +572,19 @@ func _ready():
 
 **Extends:** `Control`
 
-Base class providing drag-and-drop functionality. Card extends this class to inherit dragging behavior.
+State machine-based drag-and-drop system with Tween animations. Provides robust interaction handling with safe state transitions and smooth visual feedback.
+
+#### Enums
+
+##### DraggableState
+Defines possible interaction states with controlled transitions.
+
+| State | Description |
+|-------|-------------|
+| `IDLE` | Default state - ready for interaction |
+| `HOVERING` | Mouse over with visual feedback |
+| `HOLDING` | Active drag state following mouse |
+| `MOVING` | Programmatic movement ignoring input |
 
 #### Properties
 
@@ -493,48 +592,74 @@ Base class providing drag-and-drop functionality. Card extends this class to inh
 |----------|------|---------|-------------|
 | `moving_speed` | `int` | `2000` | Speed of programmatic movement (pixels/second) |
 | `can_be_interacted_with` | `bool` | `true` | Whether object responds to input |
-| `hover_distance` | `int` | `10` | Pixels to raise when hovering |
+| `hover_distance` | `int` | `10` | Distance to hover when interacted with |
+| `hover_scale` | `float` | `1.1` | Scale multiplier when hovering |
+| `hover_rotation` | `float` | `0.0` | Rotation in degrees when hovering |
+| `hover_duration` | `float` | `0.10` | Duration for hover animations |
 
-#### State Variables
+#### State Management
 
 | Variable | Type | Description |
 |----------|------|-------------|
-| `is_hovering` | `bool` | Currently hovering |
-| `is_pressed` | `bool` | Currently pressed |
-| `is_holding` | `bool` | Currently being dragged |
-| `is_moving_to_destination` | `bool` | Animating to destination |
+| `current_state` | `DraggableState` | Current interaction state |
+| `is_pressed` | `bool` | Legacy compatibility - mouse pressed |
+| `is_holding` | `bool` | Legacy compatibility - being dragged |
 | `stored_z_index` | `int` | Original Z-index before interactions |
 
 #### Methods
 
 ##### move(target_destination: Vector2, degree: float) -> void
-Smoothly moves object to target position with specified rotation.
+Moves object to target position with optional rotation using smooth Tween animation. Automatically transitions to MOVING state.
 
 ```gdscript
 draggable.move(new_position, deg_to_rad(45))  # Move with 45° rotation
+draggable.move(Vector2(100, 200), 0)         # Move without rotation
 ```
 
-##### start_hovering() -> void
-Begins hover effect, raising object and adjusting Z-index.
+##### change_state(new_state: DraggableState) -> bool
+Safely transitions between interaction states using predefined rules. Returns true if transition was successful.
 
-##### end_hovering(restore_object_position: bool) -> void
-Ends hover effect with optional position restoration.
+```gdscript
+# Manual state transitions
+if draggable.change_state(DraggableObject.DraggableState.HOVERING):
+    print("Now hovering")
 
-##### set_holding() -> void
-Enters dragging state, following mouse cursor.
+# State machine prevents invalid transitions
+draggable.change_state(DraggableObject.DraggableState.MOVING)  # Force to MOVING
+```
 
-##### set_releasing() -> void
-Exits dragging state.
+**State Transition Rules:**
+- `IDLE` → `HOVERING`, `HOLDING`, `MOVING`
+- `HOVERING` → `IDLE`, `HOLDING`, `MOVING`  
+- `HOLDING` → `IDLE`, `MOVING`
+- `MOVING` → `IDLE`
 
 #### Virtual Methods
 
 ##### _on_move_done() -> void
-Called when movement animation completes. Override in subclasses.
+Called when movement animation completes. Override in subclasses for custom behavior.
 
 ```gdscript
 func _on_move_done():
     print("Movement finished")
+    # Custom post-movement logic
 ```
+
+##### _can_start_hovering() -> bool
+Virtual method to determine if hovering animation can start. Override for custom conditions.
+
+```gdscript
+func _can_start_hovering() -> bool:
+    return not is_card_locked  # Example: prevent hover if locked
+```
+
+#### Animation System
+
+The new Tween-based animation system provides:
+- **Smooth Transitions**: All state changes use smooth animations
+- **Memory Management**: Proper cleanup of animation resources
+- **Interrupt Handling**: Safe animation interruption and cleanup
+- **Performance**: Optimized for multiple simultaneous animations
 
 ---
 
