@@ -1,8 +1,34 @@
+## Abstract base class for all card containers in the card framework.
+##
+## CardContainer provides the foundational functionality for managing collections of cards,
+## including drag-and-drop operations, position management, and container interactions.
+## All specialized containers (Hand, Pile, etc.) extend this class.
+##
+## Key Features:
+## - Card collection management with position tracking
+## - Drag-and-drop integration with DropZone system
+## - History tracking for undo/redo operations
+## - Extensible layout system through virtual methods
+## - Visual debugging support for development
+##
+## Virtual Methods to Override:
+## - _card_can_be_added(): Define container-specific rules
+## - _update_target_positions(): Implement container layout logic
+## - on_card_move_done(): Handle post-movement processing
+##
+## Usage:
+## [codeblock]
+## class_name MyContainer
+## extends CardContainer
+##
+## func _card_can_be_added(cards: Array) -> bool:
+##     return cards.size() == 1  # Only allow single cards
+## [/codeblock]
 class_name CardContainer
 extends Control
 
-
-static var next_id = 0
+# Static counter for unique container identification
+static var next_id: int = 0
 
 
 @export_group("drop_zone")
@@ -20,17 +46,22 @@ static var next_id = 0
 @export var sensor_visibility := false
 
 
+# Container identification and management
 var unique_id: int
 var drop_zone_scene = preload("drop_zone.tscn")
-var drop_zone = null
-var _held_cards := []
-var _holding_cards := []
+var drop_zone: DropZone = null
+
+# Card collection and state
+var _held_cards: Array[Card] = []
+var _holding_cards: Array[Card] = []
+
+# Scene references
 var cards_node: Control
 var card_manager: CardManager
 var debug_mode := false
 
 
-func _init():
+func _init() -> void:
 	unique_id = next_id
 	next_id += 1
 
@@ -73,6 +104,9 @@ func _exit_tree() -> void:
 		card_manager._delete_card_container(unique_id)
 
 
+## Adds a card to this container at the specified index.
+## @param card: The card to add
+## @param index: Position to insert (-1 for end)
 func add_card(card: Card, index: int = -1) -> void:
 	if index == -1:
 		_assign_card_to_container(card)
@@ -81,6 +115,9 @@ func add_card(card: Card, index: int = -1) -> void:
 	_move_object(card, cards_node, index)
 
 
+## Removes a card from this container.
+## @param card: The card to remove
+## @returns: True if card was removed, false if not found
 func remove_card(card: Card) -> bool:
 	var index = _held_cards.find(card)
 	if index != -1:
@@ -91,17 +128,21 @@ func remove_card(card: Card) -> bool:
 	return true
 
 
+## Checks if this container contains the specified card.
 func has_card(card: Card) -> bool:
 	return _held_cards.has(card)
 
 
-func clear_cards():
+## Removes all cards from this container.
+func clear_cards() -> void:
 	for card in _held_cards:
 		_remove_object(card)
 	_held_cards.clear()
 	update_card_ui()
 
 
+## Checks if the specified cards can be dropped into this container.
+## Override _card_can_be_added() in subclasses for custom rules.
 func check_card_can_be_dropped(cards: Array) -> bool:
 	if not enable_drop_zone:
 		return false
@@ -128,6 +169,7 @@ func get_partition_index() -> int:
 	return -1
 
 
+## Shuffles the cards in this container using Fisher-Yates algorithm.
 func shuffle() -> void:
 	_fisher_yates_shuffle(_held_cards)
 	for i in range(_held_cards.size()):
@@ -136,6 +178,11 @@ func shuffle() -> void:
 	update_card_ui()
 
 
+## Moves cards to this container with optional history tracking.
+## @param cards: Array of cards to move
+## @param index: Target position (-1 for end)
+## @param with_history: Whether to record for undo
+## @returns: True if move was successful
 func move_cards(cards: Array, index: int = -1, with_history: bool = true) -> bool:
 	if not _card_can_be_added(cards):
 		return false
@@ -146,6 +193,9 @@ func move_cards(cards: Array, index: int = -1, with_history: bool = true) -> boo
 	return true
 
 
+## Restores cards to their original positions with index precision.
+## @param cards: Cards to restore
+## @param from_indices: Original indices for precise positioning
 func undo(cards: Array, from_indices: Array = []) -> void:
 	# Validate input parameters
 	if not from_indices.is_empty() and cards.size() != from_indices.size():
@@ -263,20 +313,22 @@ func _card_can_be_added(_cards: Array) -> bool:
 	return true
 
 
-func update_card_ui():
+## Updates the visual positions of all cards in this container.
+## Call this after modifying card positions or container properties.
+func update_card_ui() -> void:
 	_update_target_z_index()
 	_update_target_positions()
 
 
-func _update_target_z_index():
+func _update_target_z_index() -> void:
 	pass
 
 
-func _update_target_positions():
+func _update_target_positions() -> void:
 	pass
 
 
-func _move_object(target: Node, to: Node, index: int = -1):
+func _move_object(target: Node, to: Node, index: int = -1) -> void:
 	if target.get_parent() == to:
 		# If already the same parent, just change the order with move_child
 		if index != -1:
@@ -297,7 +349,7 @@ func _move_object(target: Node, to: Node, index: int = -1):
 	target.global_position = global_pos
 
 
-func _remove_object(target: Node):
+func _remove_object(target: Node) -> void:
 	var parent = target.get_parent()
 	if parent != null:
 		parent.remove_child(target)

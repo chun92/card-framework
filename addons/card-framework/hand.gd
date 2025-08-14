@@ -1,3 +1,27 @@
+## A fan-shaped card container that arranges cards in an arc formation.
+##
+## Hand provides sophisticated card layout using mathematical curves to create
+## natural-looking card arrangements. Cards are positioned in a fan pattern
+## with configurable spread, rotation, and vertical displacement.
+##
+## Key Features:
+## - Fan-shaped card arrangement with customizable curves
+## - Smooth card reordering with optional swap-only mode  
+## - Dynamic drop zone sizing to match hand spread
+## - Configurable card limits and hover distances
+## - Mathematical positioning using Curve resources
+##
+## Curve Configuration:
+## - hand_rotation_curve: Controls card rotation (linear -X to +X recommended)
+## - hand_vertical_curve: Controls vertical offset (3-point ease 0-X-0 recommended)
+##
+## Usage:
+## [codeblock]
+## @onready var hand = $Hand
+## hand.max_hand_size = 7
+## hand.max_hand_spread = 600
+## hand.card_face_up = true
+## [/codeblock]
 class_name Hand
 extends CardContainer
 
@@ -34,6 +58,9 @@ func _ready() -> void:
 	super._ready()
 
 
+## Returns a random selection of cards from this hand.
+## @param n: Number of cards to select
+## @returns: Array of randomly selected cards
 func get_random_cards(n: int) -> Array:
 	var deck = _held_cards.duplicate()
 	deck.shuffle()
@@ -56,13 +83,15 @@ func _card_can_be_added(_cards: Array) -> bool:
 	return _held_cards.size() + card_size <= max_hand_size
 
 
-func _update_target_z_index():
+func _update_target_z_index() -> void:
 	for i in range(_held_cards.size()):
 		var card = _held_cards[i]
 		card.stored_z_index = i
 
 
-func _update_target_positions():
+## Calculates target positions for all cards using mathematical curves.
+## Implements sophisticated fan-shaped arrangement with rotation and vertical displacement.
+func _update_target_positions() -> void:
 	var x_min: float
 	var x_max: float
 	var y_min: float
@@ -73,34 +102,52 @@ func _update_target_positions():
 
 	vertical_partitions_from_outside.clear()
 	
+	# Calculate position and rotation for each card in the fan arrangement
 	for i in range(_held_cards.size()):
 		var card = _held_cards[i]
-		var hand_ratio = 0.5
+		
+		# Calculate normalized position ratio (0.0 to 1.0) for curve sampling
+		var hand_ratio = 0.5  # Single card centered
 		if _held_cards.size() > 1:
 			hand_ratio = float(i) / float(_held_cards.size() - 1)
+		
+		# Calculate base horizontal position with even spacing
 		var target_pos = global_position
 		@warning_ignore("integer_division")
 		var card_spacing = max_hand_spread / (_held_cards.size() + 1)
 		target_pos.x += (i + 1) * card_spacing - max_hand_spread / 2.0
+		
+		# Apply vertical curve displacement for fan shape
 		if hand_vertical_curve:
 			target_pos.y -= hand_vertical_curve.sample(hand_ratio)
+		
+		# Apply rotation curve for realistic card fanning
 		var target_rotation = 0
 		if hand_rotation_curve:
 			target_rotation = deg_to_rad(hand_rotation_curve.sample(hand_ratio))
 		
+		# Calculate rotated card bounding box for drop zone partitioning
+		# This complex math determines the actual screen space occupied by each rotated card
 		var _x = target_pos.x
 		var _y = target_pos.y
-			
-		var _t1 = atan2(_h, _w) + target_rotation
-		var _t2 = atan2(_h, -_w) + target_rotation
-		var _t3 = _t1 + PI + target_rotation
-		var _t4 = _t2 + PI + target_rotation
-		var _c = Vector2(_x + _w / 2, _y + _h / 2)
-		var _r = sqrt(pow(_w / 2, 2.0) + pow(_h / 2, 2.0))
+		
+		# Calculate angles to card corners after rotation
+		var _t1 = atan2(_h, _w) + target_rotation      # bottom-right corner
+		var _t2 = atan2(_h, -_w) + target_rotation     # bottom-left corner  
+		var _t3 = _t1 + PI + target_rotation           # top-left corner
+		var _t4 = _t2 + PI + target_rotation           # top-right corner
+		
+		# Card center and radius for corner calculation
+		var _c = Vector2(_x + _w / 2, _y + _h / 2)     # card center
+		var _r = sqrt(pow(_w / 2, 2.0) + pow(_h / 2, 2.0))  # diagonal radius
+		
+		# Calculate actual corner positions after rotation
 		var _p1 = Vector2(_r * cos(_t1), _r * sin(_t1)) + _c # right bottom
 		var _p2 = Vector2(_r * cos(_t2), _r * sin(_t2)) + _c # left bottom
 		var _p3 = Vector2(_r * cos(_t3), _r * sin(_t3)) + _c # left top
 		var _p4 = Vector2(_r * cos(_t4), _r * sin(_t4)) + _c # right top
+		
+		# Find bounding box of rotated card
 		var current_x_min = min(_p1.x, _p2.x, _p3.x, _p4.x)
 		var current_x_max = max(_p1.x, _p2.x, _p3.x, _p4.x)
 		var current_y_min = min(_p1.y, _p2.y, _p3.y, _p4.y)
@@ -176,12 +223,15 @@ func swap_card(card: Card, index: int) -> void:
 	update_card_ui()
 
 
+## Restore mouse interaction for cards after drag & drop completion.
 func _restore_mouse_interaction(cards: Array) -> void:
 	# Restore mouse interaction for cards after drag & drop completion.
 	for card in cards:
 		card.mouse_filter = Control.MOUSE_FILTER_STOP
 
 
+## Efficiently reorder card within Hand without intermediate UI updates.
+## Prevents position calculation errors during same-container moves.
 func _reorder_card_in_hand(card: Card, from_index: int, to_index: int, with_history: bool) -> void:
 	# Efficiently reorder card within Hand without intermediate UI updates.
 	# Add to history if needed (before making changes)

@@ -1,22 +1,49 @@
 @tool
+## Central orchestrator for the card framework system.
+##
+## CardManager coordinates all card-related operations including drag-and-drop,
+## history management, and container registration. It serves as the root node
+## for card game scenes and manages the lifecycle of cards and containers.
+##
+## Key Responsibilities:
+## - Card factory management and initialization
+## - Container registration and coordination
+## - Drag-and-drop event handling and routing
+## - History tracking for undo/redo operations
+## - Debug mode and visual debugging support
+##
+## Setup Requirements:
+## - Must be the parent of all CardContainer instances
+## - Requires card_factory_scene to be assigned in inspector
+## - Configure card_size to match your card assets
+##
+## Usage:
+## [codeblock]
+## # In scene setup
+## CardManager (root)
+## ├── Hand (CardContainer)
+## ├── Foundation (CardContainer)
+## └── Deck (CardContainer)
+## [/codeblock]
 class_name CardManager
 extends Control
 
-
+# Constants
 const CARD_ACCEPT_TYPE = "card"
 
 
-## size of the card
+## Default size for all cards in the game
 @export var card_size := Vector2(150, 210)
-## card factory scene
+## Scene containing the card factory implementation
 @export var card_factory_scene: PackedScene
-## debug mode
+## Enables visual debugging for drop zones and interactions
 @export var debug_mode := false
 
 
+# Core system components
 var card_factory: CardFactory
-var card_container_dict := {}
-var history := []
+var card_container_dict: Dictionary = {}
+var history: Array[HistoryElement] = []
 
 
 func _init() -> void:
@@ -35,6 +62,8 @@ func _ready() -> void:
 	card_factory.preload_card_data()
 
 
+## Undoes the last card movement operation.
+## Restores cards to their previous positions using stored history.
 func undo() -> void:
 	if history.is_empty():
 		return
@@ -44,26 +73,30 @@ func undo() -> void:
 		last.from.undo(last.cards, last.from_indices)
 
 
+## Clears all history entries, preventing further undo operations.
 func reset_history() -> void:
 	history.clear()
 	
 
-func _add_card_container(id: int, card_container: CardContainer):
+func _add_card_container(id: int, card_container: CardContainer) -> void:
 	card_container_dict[id] = card_container
 	card_container.debug_mode = debug_mode
 
 
-func _delete_card_container(id: int):
+func _delete_card_container(id: int) -> void:
 	card_container_dict.erase(id)
 
 
+# Handles dropped cards by finding suitable container
 func _on_drag_dropped(cards: Array) -> void:
 	if cards.is_empty():
 		return
 	
+	# Temporarily disable mouse input during drop processing
 	for card in cards:
 		card.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		
+	# Find first container that accepts the cards
 	for key in card_container_dict.keys():
 		var card_container = card_container_dict[key]
 		var result = card_container.check_card_can_be_dropped(cards)

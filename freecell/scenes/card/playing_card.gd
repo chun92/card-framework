@@ -85,7 +85,7 @@ static func get_card_name(_suit: Suit, _number: Number) -> String:
 	return suit_str + "_" + number_str
 
 
-func _init():
+func _init() -> void:
 	hover_scale = 1.0
 	hover_rotation = 0.0
 
@@ -145,19 +145,19 @@ func _get_number_from_string(_str: String) -> Number:
 		return Number._OTHER
 
 
-func _on_mouse_enter():
+func _on_mouse_enter() -> void:
 	if is_stop_control:
 		return
 	super._on_mouse_enter()
 
 
-func _on_mouse_exit():
+func _on_mouse_exit() -> void:
 	if is_stop_control:
 		return
 	super._on_mouse_exit()
 
 
-func _on_gui_input(event: InputEvent):
+func _on_gui_input(event: InputEvent) -> void:
 	if is_stop_control:
 		return
 	super._on_gui_input(event)

@@ -2,19 +2,44 @@
 ##
 ## This class provides a robust state machine for handling mouse interactions including
 ## hover effects, drag operations, and programmatic movement using Tween animations.
+## All interactive cards and objects extend this base class to inherit consistent
+## drag-and-drop behavior.
+##
+## Key Features:
+## - State machine with safe transitions (IDLE → HOVERING → HOLDING → MOVING)
+## - Tween-based animations for smooth hover effects and movement
+## - Mouse interaction handling with proper event management
+## - Z-index management for visual layering during interactions
+## - Extensible design with virtual methods for customization
+##
+## State Transitions:
+## - IDLE: Default state, ready for interaction
+## - HOVERING: Mouse over with visual feedback (scale, rotation, position)
+## - HOLDING: Active drag state following mouse movement
+## - MOVING: Programmatic movement ignoring user input
+##
+## Usage:
+## [codeblock]
+## class_name MyDraggable
+## extends DraggableObject
+##
+## func _can_start_hovering() -> bool:
+##     return my_custom_condition
+## [/codeblock]
 class_name DraggableObject
 extends Control
 
-
+# Enums
 ## Enumeration of possible interaction states for the draggable object.
 enum DraggableState {
-	IDLE,       # Default state - no interaction
-	HOVERING,   # Mouse over state - visual feedback
-	HOLDING,    # Dragging state - follows mouse
-	MOVING      # Programmatic move state - ignores input
+	IDLE,       ## Default state - no interaction
+	HOVERING,   ## Mouse over state - visual feedback
+	HOLDING,    ## Dragging state - follows mouse
+	MOVING      ## Programmatic move state - ignores input
 }
 
-
+# Constants
+## Z-index offset applied during holding/moving states to ensure visual priority
 const Z_INDEX_OFFSET_WHEN_HOLDING = 1000
 
 
@@ -76,7 +101,7 @@ var allowed_transitions = {
 }
 
 
-func _ready():
+func _ready() -> void:
 	mouse_filter = Control.MOUSE_FILTER_STOP
 	connect("mouse_entered", _on_mouse_enter)
 	connect("mouse_exited", _on_mouse_exit)
@@ -90,11 +115,15 @@ func _ready():
 	stored_z_index = z_index
 
 
-# Safe state transition function
+## Safely transitions between interaction states using predefined rules.
+## Validates transitions and handles state cleanup/initialization automatically.
+## @param new_state: Target state to transition to
+## @returns: True if transition was successful, false if invalid/blocked
 func change_state(new_state: DraggableState) -> bool:
 	if new_state == current_state:
 		return true
 	
+	# Validate transition is allowed by state machine rules
 	if not new_state in allowed_transitions[current_state]:
 		return false
 	
@@ -266,7 +295,9 @@ func _preserve_hover_position() -> void:
 	position = current_hover_position
 
 
-# Check if hovering can start (can be overridden by subclasses)
+## Virtual method to determine if hovering animation can start.
+## Override in subclasses to implement custom hovering conditions.
+## @returns: True if hovering is allowed, false otherwise
 func _can_start_hovering() -> bool:
 	return true
 
@@ -292,6 +323,10 @@ func _on_gui_input(event: InputEvent) -> void:
 		_handle_mouse_button(event as InputEventMouseButton)
 
 
+## Moves the object to target position with optional rotation using smooth animation.
+## Automatically transitions to MOVING state and handles animation timing based on distance.
+## @param target_destination: Global position to move to
+## @param degree: Target rotation in radians
 func move(target_destination: Vector2, degree: float) -> void:
 	# Skip if current position and rotation match target
 	if global_position == target_destination and rotation == degree:

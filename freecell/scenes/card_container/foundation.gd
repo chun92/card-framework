@@ -66,7 +66,7 @@ func _card_can_be_added(cards: Array) -> bool:
 		return false
 
 
-func _update_target_z_index():
+func _update_target_z_index() -> void:
 	for i in range(_held_cards.size()):
 		var card = _held_cards[i]
 		# Only apply high z-index for MOVING state cards (auto move)

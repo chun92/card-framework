@@ -11,7 +11,7 @@ var freecell_game: FreecellGame
 var is_initializing := false
 
 
-func _ready():
+func _ready() -> void:
 	super._ready()
 	restrict_to_top_card = false
 
