@@ -26,11 +26,6 @@
 class_name DropZone
 extends Control
 
-# Constants
-## Z-index for visual debugging outlines to ensure they appear above other UI
-const SENSOR_OUTLINE_Z_INDEX := 1200
-## Color for debugging outlines and partition indicators  
-const SENSOR_OUTLINE_COLOR := Color(1, 0, 0, 1)
 
 
 # Dynamic sensor properties with automatic UI synchronization
@@ -101,7 +96,7 @@ func init(_parent: Node, accept_types: Array =[]):
 		sensor = TextureRect.new()
 		sensor.name = "Sensor"
 		sensor.mouse_filter = Control.MOUSE_FILTER_IGNORE
-		sensor.z_index = -1000  # Behind everything else
+		sensor.z_index = CardFrameworkSettings.VISUAL_SENSOR_Z_INDEX  # Behind everything else
 		add_child(sensor)
 
 	# Create debugging outline (initially hidden)
@@ -110,8 +105,8 @@ func init(_parent: Node, accept_types: Array =[]):
 		sensor_outline.editor_only = false
 		sensor_outline.name = "SensorOutline"
 		sensor_outline.mouse_filter = Control.MOUSE_FILTER_IGNORE
-		sensor_outline.border_color = SENSOR_OUTLINE_COLOR
-		sensor_outline.z_index = SENSOR_OUTLINE_Z_INDEX
+		sensor_outline.border_color = CardFrameworkSettings.DEBUG_OUTLINE_COLOR
+		sensor_outline.z_index = CardFrameworkSettings.VISUAL_OUTLINE_Z_INDEX
 		add_child(sensor_outline)
 
 	# Initialize default values
@@ -182,8 +177,8 @@ func set_vertical_partitions(positions: Array):
 		var outline = ReferenceRect.new()
 		outline.editor_only = false
 		outline.name = "VerticalPartition" + str(i)
-		outline.z_index = SENSOR_OUTLINE_Z_INDEX
-		outline.border_color = SENSOR_OUTLINE_COLOR
+		outline.z_index = CardFrameworkSettings.VISUAL_OUTLINE_Z_INDEX
+		outline.border_color = CardFrameworkSettings.DEBUG_OUTLINE_COLOR
 		outline.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		outline.size = Vector2(1, sensor.size.y)  # Vertical line full height
 		
@@ -205,8 +200,8 @@ func set_horizontal_partitions(positions: Array):
 		var outline = ReferenceRect.new()
 		outline.editor_only = false
 		outline.name = "HorizontalPartition" + str(i)
-		outline.z_index = SENSOR_OUTLINE_Z_INDEX
-		outline.border_color = SENSOR_OUTLINE_COLOR
+		outline.z_index = CardFrameworkSettings.VISUAL_OUTLINE_Z_INDEX
+		outline.border_color = CardFrameworkSettings.DEBUG_OUTLINE_COLOR
 		outline.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		outline.size = Vector2(sensor.size.x, 1)
 		var local_y = horizontal_partition[i] - global_position.y

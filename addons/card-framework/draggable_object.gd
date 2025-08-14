@@ -38,23 +38,18 @@ enum DraggableState {
 	MOVING      ## Programmatic move state - ignores input
 }
 
-# Constants
-## Z-index offset applied during holding/moving states to ensure visual priority
-const Z_INDEX_OFFSET_WHEN_HOLDING = 1000
-
-
 ## The speed at which the objects moves.
-@export var moving_speed: int = 2000
+@export var moving_speed: int = CardFrameworkSettings.ANIMATION_MOVE_SPEED
 ## Whether the object can be interacted with.
 @export var can_be_interacted_with: bool = true
 ## The distance the object hovers when interacted with.
-@export var hover_distance: int = 10
+@export var hover_distance: int = CardFrameworkSettings.PHYSICS_HOVER_DISTANCE
 ## The scale multiplier when hovering.
-@export var hover_scale: float = 1.1
+@export var hover_scale: float = CardFrameworkSettings.ANIMATION_HOVER_SCALE
 ## The rotation in degrees when hovering.
-@export var hover_rotation: float = 0.0
+@export var hover_rotation: float = CardFrameworkSettings.ANIMATION_HOVER_ROTATION
 ## The duration for hover animations.
-@export var hover_duration: float = 0.10
+@export var hover_duration: float = CardFrameworkSettings.ANIMATION_HOVER_DURATION
 
 
 # Legacy variables - kept for compatibility but no longer used in state machine
@@ -147,7 +142,7 @@ func _enter_state(state: DraggableState, from_state: DraggableState) -> void:
 			mouse_filter = Control.MOUSE_FILTER_STOP
 			
 		DraggableState.HOVERING:
-			z_index = stored_z_index + Z_INDEX_OFFSET_WHEN_HOLDING
+			z_index = stored_z_index + CardFrameworkSettings.VISUAL_DRAG_Z_OFFSET
 			_start_hover_animation()
 			
 		DraggableState.HOLDING:
@@ -157,7 +152,7 @@ func _enter_state(state: DraggableState, from_state: DraggableState) -> void:
 			# For IDLE → HOLDING transitions, current position is maintained
 			
 			current_holding_mouse_position = get_local_mouse_position()
-			z_index = stored_z_index + Z_INDEX_OFFSET_WHEN_HOLDING
+			z_index = stored_z_index + CardFrameworkSettings.VISUAL_DRAG_Z_OFFSET
 			rotation = 0
 			
 		DraggableState.MOVING:
@@ -165,7 +160,7 @@ func _enter_state(state: DraggableState, from_state: DraggableState) -> void:
 			if hover_tween and hover_tween.is_valid():
 				hover_tween.kill()
 				hover_tween = null
-			z_index = stored_z_index + Z_INDEX_OFFSET_WHEN_HOLDING
+			z_index = stored_z_index + CardFrameworkSettings.VISUAL_DRAG_Z_OFFSET
 			mouse_filter = Control.MOUSE_FILTER_IGNORE
 
 

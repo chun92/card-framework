@@ -71,7 +71,7 @@ func _update_target_z_index() -> void:
 		var card = _held_cards[i]
 		# Only apply high z-index for MOVING state cards (auto move)
 		if card.current_state == DraggableObject.DraggableState.MOVING:
-			card.stored_z_index = PILE_Z_INDEX + i
+			card.stored_z_index = CardFrameworkSettings.VISUAL_PILE_Z_INDEX + i
 		else:
 			# For IDLE/HOVERING/HOLDING cards, use normal z-index
 			card.stored_z_index = i

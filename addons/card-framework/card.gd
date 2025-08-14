@@ -27,7 +27,7 @@ static var holding_card_count: int = 0
 ## The name of the card.
 @export var card_name: String
 ## The size of the card.
-@export var card_size: Vector2 = Vector2(150, 210)
+@export var card_size: Vector2 = CardFrameworkSettings.LAYOUT_DEFAULT_CARD_SIZE
 ## The texture for the front face of the card.
 @export var front_image: Texture2D
 ## The texture for the back face of the card.

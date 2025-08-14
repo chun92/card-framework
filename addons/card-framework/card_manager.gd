@@ -33,7 +33,7 @@ const CARD_ACCEPT_TYPE = "card"
 
 
 ## Default size for all cards in the game
-@export var card_size := Vector2(150, 210)
+@export var card_size := CardFrameworkSettings.LAYOUT_DEFAULT_CARD_SIZE
 ## Scene containing the card factory implementation
 @export var card_factory_scene: PackedScene
 ## Enables visual debugging for drop zones and interactions

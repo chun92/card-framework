@@ -27,13 +27,13 @@ extends CardContainer
 
 @export_group("hand_meta_info")
 ## maximum number of cards that can be held.
-@export var max_hand_size := 10
+@export var max_hand_size := CardFrameworkSettings.LAYOUT_MAX_HAND_SIZE
 ## maximum spread of the hand.
-@export var max_hand_spread := 700
+@export var max_hand_spread := CardFrameworkSettings.LAYOUT_MAX_HAND_SPREAD
 ## whether the card is face up.
 @export var card_face_up := true
 ## distance the card hovers when interacted with.
-@export var card_hover_distance := 30
+@export var card_hover_distance := CardFrameworkSettings.PHYSICS_CARD_HOVER_DISTANCE
 
 @export_group("hand_shape")
 ## rotation curve of the hand.

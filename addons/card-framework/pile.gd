@@ -36,16 +36,12 @@ enum PileDirection {
 	RIGHT  ## Cards stack rightward (positive X direction)
 }
 
-# Constants  
-## Z-index base value for pressed cards to ensure they appear above the pile
-const PILE_Z_INDEX := 3000
-
 @export_group("pile_layout")
 ## Distance between each card in the stack display
-@export var stack_display_gap := 8
+@export var stack_display_gap := CardFrameworkSettings.LAYOUT_STACK_GAP
 ## Maximum number of cards to visually display in the pile
 ## Cards beyond this limit will be hidden under the visible stack
-@export var max_stack_display := 6
+@export var max_stack_display := CardFrameworkSettings.LAYOUT_MAX_STACK_DISPLAY
 ## Whether cards in the pile show their front face (true) or back face (false)
 @export var card_face_up := true
 ## Direction in which cards are stacked from the pile's base position
@@ -83,7 +79,7 @@ func _update_target_z_index() -> void:
 	for i in range(_held_cards.size()):
 		var card = _held_cards[i]
 		if card.is_pressed:
-			card.stored_z_index = PILE_Z_INDEX + i
+			card.stored_z_index = CardFrameworkSettings.VISUAL_PILE_Z_INDEX + i
 		else:
 			card.stored_z_index = i
 
