@@ -79,8 +79,7 @@ func set_faces(front_face: Texture2D, back_face: Texture2D) -> void:
 
 ## Returns the card to its original position with smooth animation.
 func return_card() -> void:
-	is_returning_to_original = true
-	move(original_destination, original_rotation)
+	super.return_to_original()
 
 
 # Override state entry to add card-specific logic

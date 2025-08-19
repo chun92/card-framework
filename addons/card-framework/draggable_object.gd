@@ -368,6 +368,12 @@ func _handle_mouse_button(mouse_event: InputEventMouseButton) -> void:
 		_handle_mouse_released()
 
 
+## Returns the object to its original position with smooth animation.
+func return_to_original() -> void:
+	is_returning_to_original = true
+	move(original_destination, original_rotation)
+
+
 func _handle_mouse_pressed() -> void:
 	is_pressed = true
 	match current_state:
