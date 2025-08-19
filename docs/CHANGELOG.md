@@ -4,6 +4,12 @@ All notable changes to Card Framework will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.2.1] - 2025-08-19
+
+### Refactored
+- **DraggableObject API Enhancement**: Added `return_to_original()` method to base class for improved code reusability
+- **Card API Simplification**: `Card.return_card()` now uses inherited `return_to_original()` wrapper pattern for better maintainability
+
 ## [1.2.0] - 2025-08-14
 
 ### Added

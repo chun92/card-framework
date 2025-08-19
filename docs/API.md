@@ -616,6 +616,13 @@ draggable.move(new_position, deg_to_rad(45))  # Move with 45° rotation
 draggable.move(Vector2(100, 200), 0)         # Move without rotation
 ```
 
+##### return_to_original() -> void
+Returns the object to its original position with smooth animation. Sets internal tracking flag for proper position management.
+
+```gdscript
+draggable.return_to_original()  # Return to original position and rotation
+```
+
 ##### change_state(new_state: DraggableState) -> bool
 Safely transitions between interaction states using predefined rules. Returns true if transition was successful.
 
