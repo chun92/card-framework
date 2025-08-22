@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://7qcsutlss3oj"]
+[gd_scene load_steps=3 format=3 uid="uid://7qcsutlss3oj"]
 
-[ext_resource type="Script" uid="uid://3lsrv6tjfdc5" path="res://addons/card-framework/card_factory.gd" id="1_dcoud"]
+[ext_resource type="Script" uid="uid://8n36yadkvxai" path="res://addons/card-framework/json_card_factory.gd" id="1_jlwb4"]
+[ext_resource type="PackedScene" uid="uid://brjlo8xing83p" path="res://addons/card-framework/card.tscn" id="2_1mca4"]
 
 [node name="CardFactory" type="Node"]
-script = ExtResource("1_dcoud")
+script = ExtResource("1_jlwb4")
+default_card_scene = ExtResource("2_1mca4")

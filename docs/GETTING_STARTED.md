@@ -182,8 +182,8 @@ func create_standard_deck():
 func deal_cards_to_hand(count: int):
     for i in count:
         if deck.get_card_count() > 0:
-            var card = deck.get_top_card()
-            player_hand.move_cards([card])
+            var card = deck.get_top_cards(1).front()
+		    player_hand.move_cards([card])
 ```
 
 ## Testing Your Setup

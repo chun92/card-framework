@@ -127,6 +127,9 @@ func remove_card(card: Card) -> bool:
 	update_card_ui()
 	return true
 
+## Returns the number of contained cards
+func get_card_count() -> int:
+	return _held_cards.size()
 
 ## Checks if this container contains the specified card.
 func has_card(card: Card) -> bool:
@@ -288,7 +291,6 @@ func on_card_move_done(_card: Card):
 
 func on_card_pressed(_card: Card):
 	pass
-
 
 func _assign_card_to_container(card: Card) -> void:
 	if card.card_container != self:
