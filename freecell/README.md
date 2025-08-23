@@ -63,7 +63,7 @@ func check_card_can_be_dropped(cards: Array) -> bool:
         return card.number == PlayingCard.Number._A
     
     # Must match suit and be next number
-    var top_card = get_top_card() as PlayingCard
+    var top_card = get_top_cards(1)[0] as PlayingCard
     return top_card.suit == card.suit and top_card.is_next_number(card)
 ```
 
@@ -78,7 +78,7 @@ func check_card_can_be_dropped(cards: Array) -> bool:
     if _held_cards.is_empty(): return true
     
     # Must be different color and descending order
-    var top_card = get_top_card() as PlayingCard
+    var top_card = get_top_cards(1)[0] as PlayingCard
     var bottom_card = cards[0] as PlayingCard
     return top_card.is_next_number(bottom_card) and top_card.is_different_color(bottom_card)
 
@@ -151,7 +151,7 @@ func _check_auto_move() -> void:
     for tableau in _tableaus:
         if tableau.get_card_count() == 0: continue
         
-        var top_card = tableau.get_top_card() as PlayingCard
+        var top_card = tableau.get_top_cards(1)[0] as PlayingCard
         var foundation = _get_foundation_for_suit(top_card.suit)
         
         if _is_safe_to_auto_move(top_card):

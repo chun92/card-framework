@@ -181,6 +181,13 @@ card.end_hovering(true)  # Restore position
 card.end_hovering(false) # Keep current position
 ```
 
+##### set_holding() -> void
+*[Deprecated]* Legacy method for setting holding state. Use state machine transitions instead.
+
+```gdscript
+card.set_holding()  # Put card into holding state
+```
+
 ##### get_string() -> String
 Returns string representation of the card for debugging.
 
@@ -244,6 +251,14 @@ Checks if container holds the specified card.
 ```gdscript
 if container.has_card(my_card):
     print("Card is in this container")
+```
+
+##### get_card_count() -> int
+Returns the number of cards currently in the container.
+
+```gdscript
+var count = container.get_card_count()
+print("Container has %d cards" % count)
 ```
 
 ##### clear_cards() -> void
@@ -327,6 +342,13 @@ func on_card_pressed(card: Card):
 ```
 
 #### Utility Methods
+
+##### hold_card(card: Card) -> void
+Puts a card into holding state, preparing it for drag operations.
+
+```gdscript
+container.hold_card(my_card)  # Put card into holding state
+```
 
 ##### get_string() -> String
 Returns string representation for debugging.
@@ -536,6 +558,20 @@ Returns N random cards from the hand without removing them.
 
 ```gdscript
 var random_cards = hand.get_random_cards(3)
+```
+
+##### move_cards(cards: Array, index: int = -1, with_history: bool = true) -> bool
+Enhanced version of CardContainer.move_cards() with hand-specific optimizations:
+- **Single Card Reordering**: Optimized reordering when moving cards within same hand
+- **Swap Mode**: Uses swap_card() when `swap_only_on_reorder` is enabled
+- **Fallback**: Uses parent implementation for external card moves
+
+```gdscript
+# Move card to specific position in hand
+hand.move_cards([my_card], 2)  # Move to index 2
+
+# External card move (uses parent implementation)
+hand.move_cards([external_card], -1)  # Add external card to end
 ```
 
 ##### swap_card(card: Card, index: int) -> void
