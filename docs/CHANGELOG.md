@@ -4,6 +4,22 @@ All notable changes to Card Framework will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.2.2] - 2025-08-23
+
+### Added
+- **CardContainer API**: Added `get_card_count()` method to return the number of cards in a container
+
+### Fixed
+- **CardFactory Configuration**: Set proper JsonCardFactory defaults in `card_factory.tscn`
+
+### Improved
+- **Documentation**: Enhanced API reference with missing methods and corrected code examples
+- **Getting Started**: Fixed code formatting and updated examples to use current API patterns
+- **Code Examples**: Standardized API usage across all documentation and README files
+
+### Contributors
+- **Community**: Documentation improvements by @psin09
+
 ## [1.2.1] - 2025-08-19
 
 ### Refactored
