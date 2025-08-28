@@ -50,9 +50,18 @@ Main (Node2D)
    Debug Mode: false              # Enable for development
    ```
 
-3. **Assign Card Factory**
-   - Set `card_factory_scene` to `res://addons/card-framework/card_factory.tscn`
-   - This uses the default `JsonCardFactory` implementation
+3. **Create Your Card Factory**
+   Instead of using the card factory directly, create your own:
+   
+   **Option A: Inherit from JsonCardFactory (Recommended)**
+   - **Create New Scene** → **Add Node** → **JsonCardFactory**
+   - **Save** as `res://scenes/my_card_factory.tscn`
+   - **Set** `card_factory_scene` to `res://scenes/my_card_factory.tscn`
+   
+   **Option B: Create Custom Factory**
+   - **Create New Scene** → **Add Node** → **CardFactory**
+   - **Attach Script** and implement `create_card()` method
+   - **Save** as `res://scenes/my_card_factory.tscn`
 
 ### Step 3: Directory Structure Setup
 
@@ -95,16 +104,22 @@ Create JSON files in `res://cards/data/` for each card:
 **Optional Fields**:
 - Add any custom properties needed for your game logic
 
-### Step 5: JsonCardFactory Configuration
+### Step 5: Card Factory Configuration
 
-Select the **CardManager** node and configure:
+**If using JsonCardFactory (Option A from Step 2):**
+
+Open your `my_card_factory.tscn` scene and configure the JsonCardFactory node:
 
 ```
 Card Asset Dir: "res://cards/images/"
 Card Info Dir: "res://cards/data/"
 Back Image: [Assign a card back texture]
-Default Card Scene: [Leave as default or assign custom]
+Default Card Scene: [Assign custom card scene or leave empty for framework default]
 ```
+
+**If using Custom Factory (Option B):**
+- Implement your own card creation logic in the attached script
+- No additional configuration needed here
 
 ### Step 6: Container Setup
 
@@ -116,6 +131,11 @@ Add container nodes as children of CardManager:
 2. **Add Child** → Choose container type:
    - `Pile` for stacked cards (decks, discard piles)
    - `Hand` for fanned card layouts (player hands)
+3. **Position Containers**
+   - Select each container in the Scene dock
+   - In **Inspector** → **Transform** → **Position**, set appropriate coordinates:
+     - Example: Deck at (100, 300), PlayerHand at (400, 500), DiscardPile at (700, 300)
+   - Adjust positions based on your game screen size and layout needs
 
 #### 6.2 Pile Configuration
 
