@@ -114,7 +114,7 @@ Open your `my_card_factory.tscn` scene and configure the JsonCardFactory node:
 Card Asset Dir: "res://cards/images/"
 Card Info Dir: "res://cards/data/"
 Back Image: [Assign a card back texture]
-Default Card Scene: [Assign custom card scene or leave empty for framework default]
+Default Card Scene: [Assign custom card scene - required field]
 ```
 
 **If using Custom Factory (Option B):**
