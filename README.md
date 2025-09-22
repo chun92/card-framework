@@ -1,6 +1,6 @@
 # Card Framework
 
-[![Version](https://img.shields.io/badge/version-1.2.2-blue.svg)](https://github.com/hyunjoon/card-framework)
+[![Version](https://img.shields.io/badge/version-1.2.3-blue.svg)](https://github.com/hyunjoon/card-framework)
 [![Godot](https://img.shields.io/badge/Godot-4.4+-green.svg)](https://godotengine.org/)
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE.md)
 [![Platform](https://img.shields.io/badge/platform-cross--platform-lightgrey.svg)]()
