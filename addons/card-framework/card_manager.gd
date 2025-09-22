@@ -92,8 +92,10 @@ func _on_drag_dropped(cards: Array) -> void:
 	if cards.is_empty():
 		return
 	
-	# Temporarily disable mouse input during drop processing
+	# Store original mouse_filter states and temporarily disable input during drop processing
+	var original_mouse_filters = {}
 	for card in cards:
+		original_mouse_filters[card] = card.mouse_filter
 		card.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		
 	# Find first container that accepts the cards
@@ -102,10 +104,15 @@ func _on_drag_dropped(cards: Array) -> void:
 		var result = card_container.check_card_can_be_dropped(cards)
 		if result:
 			var index = card_container.get_partition_index()
+			# Restore mouse_filter before move_cards (DraggableObject will manage it from here)
+			for card in cards:
+				card.mouse_filter = original_mouse_filters[card]
 			card_container.move_cards(cards, index)
 			return
 	
 	for card in cards:
+		# Restore mouse_filter before return_card (DraggableObject will manage it from here)
+		card.mouse_filter = original_mouse_filters[card]
 		card.return_card()
 
 
