@@ -115,7 +115,8 @@ func _update_target_positions() -> void:
 				card.can_be_interacted_with = true
 			else:
 				card.can_be_interacted_with = false
-
+		else:
+			card.can_be_interacted_with = true
 
 ## Calculates the visual offset for a card at the given index in the stack.
 ## Respects max_stack_display limit to prevent excessive visual spreading.
