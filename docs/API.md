@@ -142,6 +142,23 @@ Represents an individual playing card with front/back faces and interaction capa
 | `front_image` | `Texture2D` | - | Texture for card front face |
 | `back_image` | `Texture2D` | - | Texture for card back face |
 | `show_front` | `bool` | `true` | Whether front face is visible |
+| `front_face_texture` | `TextureRect` | - | TextureRect node for front face display (with fallback) |
+| `back_face_texture` | `TextureRect` | - | TextureRect node for back face display (with fallback) |
+
+**TextureRect Node Configuration:**
+- **Automatic Fallback**: If not assigned in Inspector, automatically uses `$FrontFace/TextureRect` and `$BackFace/TextureRect`
+- **Custom Scene Support**: Assign custom TextureRect nodes for non-standard card scene structures
+- **Backward Compatibility**: Existing cards using hardcoded paths continue working without modification
+
+```gdscript
+# Option 1: Use default scene structure (automatic)
+# No assignment needed - uses $FrontFace/TextureRect automatically
+
+# Option 2: Assign custom nodes (flexible)
+@export var my_card: Card
+my_card.front_face_texture = $CustomFront/MyTexture
+my_card.back_face_texture = $CustomBack/MyTexture
+```
 
 #### Variables
 

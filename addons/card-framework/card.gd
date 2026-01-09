@@ -40,20 +40,18 @@ static var holding_card_count: int = 0
 		_update_face_visibility()
 	get:
 		return _show_front
-
-
-# Card data and container reference
-var card_info: Dictionary
-var card_container: CardContainer
-var _show_front: bool = true
-
-
 ## The TextureRect node for displaying the front face of the card.
 ## If not assigned, will fallback to $FrontFace/TextureRect for backward compatibility.
 @export var front_face_texture: TextureRect
 ## The TextureRect node for displaying the back face of the card.
 ## If not assigned, will fallback to $BackFace/TextureRect for backward compatibility.
 @export var back_face_texture: TextureRect
+
+
+# Card data and container reference
+var card_info: Dictionary
+var card_container: CardContainer
+var _show_front: bool = true
 
 
 func _ready() -> void:

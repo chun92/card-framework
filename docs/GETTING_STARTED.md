@@ -137,9 +137,100 @@ Default Card Scene: [Assign custom card scene or leave empty for framework defau
 - Implement your own card creation logic in the attached script
 - No additional configuration needed here
 
-### Step 6: Container Setup
+### Step 6: Custom Card Scene (Optional)
 
-#### 6.1 Adding Containers
+The Card Framework uses a flexible TextureRect assignment system that supports both default and custom card scene structures. This step is optional for basic usage but provides powerful customization options.
+
+#### 6.1 Understanding Card Scene Structure
+
+**Default Card Scene Structure:**
+```
+Card (Card)
+├── FrontFace (Control)
+│   └── TextureRect
+└── BackFace (Control)
+    └── TextureRect
+```
+
+The framework automatically finds these nodes using the fallback pattern:
+- `front_face_texture` → `$FrontFace/TextureRect`
+- `back_face_texture` → `$BackFace/TextureRect`
+
+#### 6.2 Using Default Structure (Recommended for Beginners)
+
+**No action needed!** The framework handles everything automatically:
+
+1. JsonCardFactory creates cards using the default scene structure
+2. TextureRect nodes are found automatically via fallback paths
+3. Cards work immediately without any additional setup
+
+#### 6.3 Creating Custom Card Scenes
+
+For advanced customization, create your own card scene structure:
+
+**Step 1: Create Custom Card Scene**
+1. **Scene** → **New Scene** → **Create Card Node**
+2. **Add your custom structure:**
+   ```
+   MyCustomCard (Card)
+   ├── UI (Control)
+   │   ├── FrontDisplay (TextureRect)  # Custom front node
+   │   └── BackDisplay (TextureRect)   # Custom back node
+   └── Effects (Node2D)  # Additional custom nodes
+   ```
+3. **Save** as `res://scenes/custom_card.tscn`
+
+**Step 2: Configure JsonCardFactory**
+1. Open your `my_card_factory.tscn` scene
+2. Set **Default Card Scene** to `res://scenes/custom_card.tscn`
+
+**Step 3: Assign Custom TextureRect Nodes**
+
+**Option A: In Scene (Inspector)**
+1. Open your custom card scene
+2. Select the Card node
+3. In **Inspector**, assign:
+   - **Front Face Texture** → `FrontDisplay` node
+   - **Back Face Texture** → `BackDisplay` node
+
+**Option B: In Script (Programmatic)**
+```gdscript
+# In your card factory or setup code
+func setup_custom_card(card: Card):
+    card.front_face_texture = card.get_node("UI/FrontDisplay")
+    card.back_face_texture = card.get_node("UI/BackDisplay")
+```
+
+#### 6.4 Advanced Customization Examples
+
+**Example 1: Animated Card**
+```
+AnimatedCard (Card)
+├── AnimationPlayer
+├── FrontSide (Control)
+│   ├── TextureRect        # Still uses fallback!
+│   └── ParticleSystem2D
+└── BackSide (Control)
+    ├── TextureRect        # Still uses fallback!
+    └── GlowEffect
+```
+
+**Example 2: 3D-Style Card**
+```
+Card3D (Card)
+├── FrontFace (Control)
+│   ├── TextureRect
+│   └── ShadowEffect
+├── BackFace (Control)
+│   ├── TextureRect
+│   └── ReflectionEffect
+└── Transform3D (Node2D)
+```
+
+
+### Step 7: Container Setup
+
+#### 7.1 Adding Containers
 
 Add container nodes to your scene. They can be direct children of CardManager or placed anywhere in your UI hierarchy (as shown in Step 1):
 
@@ -161,7 +252,7 @@ Add container nodes to your scene. They can be direct children of CardManager or
      - Example: Deck at (100, 300), PlayerHand at (400, 500), DiscardPile at (700, 300)
    - Adjust positions based on your game screen size and layout needs
 
-#### 6.2 Pile Configuration
+#### 7.2 Pile Configuration
 
 **Basic Properties**:
 ```
@@ -178,7 +269,7 @@ Stack Display Gap: 8            # Pixel spacing between cards
 Max Stack Display: 6           # Maximum visible cards
 ```
 
-#### 6.3 Hand Configuration
+#### 7.3 Hand Configuration
 
 **Layout Properties**:
 ```
@@ -192,7 +283,7 @@ Card Hover Distance: 30        # Hover effect height
 - `Hand Rotation Curve`: 2-point linear curve for card rotation
 - `Hand Vertical Curve`: 3-point curve for arc shape (0→1→0)
 
-### Step 7: Basic Scripting
+### Step 8: Basic Scripting
 
 Add this script to your main scene to start using cards:
 
@@ -267,6 +358,10 @@ func deal_cards_to_hand(count: int):
 - Ensure CardManager is positioned higher in scene tree than CardContainers
 - Check console for helpful error messages about CardManager positioning
 - Verify CardContainers are properly instantiated in the scene
+
+**Custom Card Scene Issues**:
+- **Cards not displaying textures**: Verify TextureRect nodes are assigned in Inspector, check fallback paths `$FrontFace/TextureRect` and `$BackFace/TextureRect`, ensure custom nodes are properly structured
+- **Console Error "Card requires front_face_texture and back_face_texture"**: The framework couldn't find TextureRect nodes - either assign them manually in Inspector or use standard fallback structure, check node names and paths are correct
 
 ## Next Steps
 
