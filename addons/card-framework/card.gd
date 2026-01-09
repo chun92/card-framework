@@ -48,12 +48,28 @@ var card_container: CardContainer
 var _show_front: bool = true
 
 
-@onready var front_face_texture: TextureRect = $FrontFace/TextureRect
-@onready var back_face_texture: TextureRect = $BackFace/TextureRect
+## The TextureRect node for displaying the front face of the card.
+## If not assigned, will fallback to $FrontFace/TextureRect for backward compatibility.
+@export var front_face_texture: TextureRect
+## The TextureRect node for displaying the back face of the card.
+## If not assigned, will fallback to $BackFace/TextureRect for backward compatibility.
+@export var back_face_texture: TextureRect
 
 
 func _ready() -> void:
 	super._ready()
+
+	# Fallback to hardcoded paths if not assigned (backward compatibility)
+	if front_face_texture == null:
+		front_face_texture = $FrontFace/TextureRect if has_node("FrontFace/TextureRect") else null
+	if back_face_texture == null:
+		back_face_texture = $BackFace/TextureRect if has_node("BackFace/TextureRect") else null
+
+	# Verify required nodes are available
+	if front_face_texture == null or back_face_texture == null:
+		push_error("Card requires front_face_texture and back_face_texture to be assigned or FrontFace/TextureRect and BackFace/TextureRect nodes to exist")
+		return
+
 	front_face_texture.size = card_size
 	back_face_texture.size = card_size
 	if front_image:
