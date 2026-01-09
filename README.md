@@ -24,7 +24,7 @@
 
 ## Quick Start
 
-1. **Add CardManager** - Instance `card-framework/card_manager.tscn` in your scene
+1. **Add CardManager** - Instance `card-framework/card_manager.tscn` at the top of your scene tree
 2. **Configure Factory** - Assign `JsonCardFactory` to `card_factory_scene`  
 3. **Set Directories** - Point `card_asset_dir` to images, `card_info_dir` to JSON files
 4. **Add Containers** - Create `Pile` or `Hand` nodes as children of CardManager
