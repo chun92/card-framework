@@ -36,17 +36,16 @@ static var holding_card_count: int = 0
 ## If true, the front face is visible; otherwise, the back face is visible.
 @export var show_front: bool = true:
 	set(value):
-		if value:
-			front_face_texture.visible = true
-			back_face_texture.visible = false
-		else:
-			front_face_texture.visible = false
-			back_face_texture.visible = true
+		_show_front = value
+		_update_face_visibility()
+	get:
+		return _show_front
 
 
 # Card data and container reference
 var card_info: Dictionary
 var card_container: CardContainer
+var _show_front: bool = true
 
 
 @onready var front_face_texture: TextureRect = $FrontFace/TextureRect
@@ -62,6 +61,22 @@ func _ready() -> void:
 	if back_image:
 		back_face_texture.texture = back_image
 	pivot_offset = card_size / 2
+
+	# Apply deferred face visibility update
+	_update_face_visibility()
+
+
+## Updates the visibility of front and back face textures based on show_front value.
+## Safe to call before @onready variables are initialized.
+func _update_face_visibility() -> void:
+	# Only apply if texture nodes are ready
+	if front_face_texture != null and back_face_texture != null:
+		if _show_front:
+			front_face_texture.visible = true
+			back_face_texture.visible = false
+		else:
+			front_face_texture.visible = false
+			back_face_texture.visible = true
 
 
 func _on_move_done() -> void:
