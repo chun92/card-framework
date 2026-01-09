@@ -76,27 +76,8 @@ func _ready() -> void:
 		cards_node.mouse_filter = Control.MOUSE_FILTER_PASS
 		add_child(cards_node)
 	
-	var parent = get_parent()
-	if parent is CardManager:
-		card_manager = parent
-	else:
-		push_error("CardContainer should be under the CardManager")
-		return
-		
-	card_manager._add_card_container(unique_id, self)
-	
-	if enable_drop_zone:
-		drop_zone = drop_zone_scene.instantiate()
-		add_child(drop_zone)
-		drop_zone.init(self, [CardManager.CARD_ACCEPT_TYPE])
-		# If sensor_size is not set, they will follow the card size.
-		if sensor_size == Vector2(0, 0):
-			sensor_size = card_manager.card_size
-		drop_zone.set_sensor(sensor_size, sensor_position, sensor_texture, sensor_visibility)
-		if debug_mode:
-			drop_zone.sensor_outline.visible = true
-		else:
-			drop_zone.sensor_outline.visible = false
+	# Find and register with CardManager (requires CardManager to be positioned above CardContainers in scene tree)
+	_find_and_register_card_manager()
 
 
 func _exit_tree() -> void:
@@ -375,6 +356,68 @@ func _move_object(target: Node, to: Node, index: int = -1) -> void:
 	else:
 		to.add_child(target)
 	target.global_position = global_pos
+
+
+## Finds and registers with CardManager using tree-order based discovery.
+## Relies on Godot's natural initialization order where CardManager must be positioned
+## above CardContainers in the scene tree hierarchy.
+func _find_and_register_card_manager() -> void:
+	# Skip if already found and registered
+	if card_manager != null:
+		return
+
+	# Try scene root meta registration first (most flexible)
+	var scene_root = get_tree().current_scene
+	if scene_root and scene_root.has_meta("card_manager"):
+		card_manager = scene_root.get_meta("card_manager")
+		if debug_mode:
+			print("CardContainer found CardManager via scene root meta: ", name)
+	else:
+		# Fallback to parent traversal for backward compatibility
+		card_manager = _find_card_manager_in_parents()
+		if card_manager and debug_mode:
+			print("CardContainer found CardManager via parent traversal: ", name)
+
+	# CardManager must be found for proper functionality
+	if card_manager == null:
+		push_error("CardContainer '%s' could not find CardManager.\n" % name +
+			"SOLUTION: Ensure CardManager is positioned ABOVE CardContainers in scene tree:\n" +
+			"✅ Correct:   Scene → CardManager → UI → CardContainer\n" +
+			"❌ Incorrect: Scene → UI → CardContainer → CardManager")
+		return
+
+	# Register with found CardManager
+	card_manager._add_card_container(unique_id, self)
+
+	# Initialize drop zone now that we have CardManager
+	_initialize_drop_zone()
+
+
+## Traverses parent nodes to find CardManager (fallback method).
+## @returns: CardManager instance or null if not found
+func _find_card_manager_in_parents() -> CardManager:
+	var parent = get_parent()
+	while parent != null:
+		if parent is CardManager:
+			return parent
+		parent = parent.get_parent()
+	return null
+
+
+## Initializes drop zone after CardManager is found.
+func _initialize_drop_zone() -> void:
+	if enable_drop_zone:
+		drop_zone = drop_zone_scene.instantiate()
+		add_child(drop_zone)
+		drop_zone.init(self, [CardManager.CARD_ACCEPT_TYPE])
+		# If sensor_size is not set, they will follow the card size.
+		if sensor_size == Vector2(0, 0):
+			sensor_size = card_manager.card_size
+		drop_zone.set_sensor(sensor_size, sensor_position, sensor_texture, sensor_visibility)
+		if debug_mode:
+			drop_zone.sensor_outline.visible = true
+		else:
+			drop_zone.sensor_outline.visible = false
 
 
 func _remove_object(target: Node) -> void:
