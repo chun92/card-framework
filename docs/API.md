@@ -92,6 +92,33 @@ z_index = stored_z_index + CardFrameworkSettings.VISUAL_DRAG_Z_OFFSET
 
 The central orchestrator for all card game operations. Manages card containers, handles drag-and-drop operations, and maintains game history for undo functionality.
 
+#### Scene Hierarchy Requirements (v1.3.0+)
+
+**Flexible Layout System**: CardManager supports complex UI hierarchies without requiring direct parent-child relationships with CardContainers.
+
+**Requirements:**
+- CardManager must be positioned **above** all CardContainers in scene tree hierarchy
+- CardContainers can be nested anywhere within complex UI structures
+- Automatic discovery system finds all CardContainers regardless of depth
+
+**Valid Layouts:**
+```gdscript
+# Traditional: Direct children (still supported)
+Main → CardManager → Hand
+
+# Flexible: Complex UI (v1.3.0+)
+Main → CardManager
+Main → UI → VBoxContainer → Hand ✅
+
+# Invalid: CardManager below containers
+Main → UI → CardManager → Hand ❌
+```
+
+**Implementation Details:**
+- Uses scene root meta registration for discovery
+- Backward compatible with existing direct parent-child setups
+- No deferred initialization required
+
 #### Properties
 
 | Property | Type | Default | Description |
@@ -829,10 +856,12 @@ var history_info = history_element.get_string()
 
 ### Basic Setup
 
+**Traditional Layout (Direct Children):**
+
 ```gdscript
 # Scene structure:
 # CardManager (CardManager)
-# ├── DeckPile (Pile)  
+# ├── DeckPile (Pile)
 # ├── PlayerHand (Hand)
 # └── DiscardPile (Pile)
 
@@ -842,6 +871,30 @@ var history_info = history_element.get_string()
 
 func _ready():
     # Cards are automatically managed by CardManager
+    deal_initial_cards()
+
+func deal_initial_cards():
+    var cards_to_deal = deck.get_top_cards(7)
+    hand.move_cards(cards_to_deal)
+```
+
+**Flexible Layout (v1.3.0+):**
+
+```gdscript
+# Scene structure:
+# Main (Node2D)
+# ├── CardManager (CardManager)
+# ├── TopPanel (HBoxContainer)
+# │   └── DeckPile (Pile)
+# └── BottomPanel (VBoxContainer)
+#     └── PlayerHand (Hand)
+
+@onready var card_manager: CardManager = $CardManager
+@onready var deck: Pile = $TopPanel/DeckPile  # No longer requires CardManager parent
+@onready var hand: Hand = $BottomPanel/PlayerHand
+
+func _ready():
+    # CardContainers automatically discover CardManager
     deal_initial_cards()
 
 func deal_initial_cards():

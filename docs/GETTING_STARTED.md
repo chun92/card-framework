@@ -4,7 +4,7 @@ Complete step-by-step guide to set up and use the Card Framework in your Godot 4
 
 ## Prerequisites
 
-- **Godot Engine 4.4+** installed
+- **Godot Engine 4.5+** installed
 - Basic knowledge of Godot scenes and nodes
 - Understanding of GDScript fundamentals
 
@@ -371,8 +371,8 @@ func deal_cards_to_hand(count: int):
 
 ### Advanced Customization
 - [API Reference](API.md) - Complete class documentation
-- [Creating Custom Containers](API.md#extending-cardcontainer)
-- [Custom Card Properties](API.md#extending-card)
+- [Creating Custom Containers](API.md#cardcontainer)
+- [Custom Card Properties](API.md#card)
 
 ### Performance Optimization
 - Use `preload_card_data()` for better loading performance

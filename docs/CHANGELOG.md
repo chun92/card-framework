@@ -4,6 +4,25 @@ All notable changes to Card Framework will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.3.0] - 2025-01-10
+
+### Added
+- **Flexible CardContainer Layout System**: CardContainers can now be placed anywhere in scene tree hierarchy without requiring direct parent-child relationship with CardManager ([#25](https://github.com/chun92/card-framework/issues/25))
+- **Custom Card Scene Support**: Flexible TextureRect assignment with `@export` variables for custom card scene structures
+- **Scene Root Meta Registration**: Automatic CardManager discovery using tree traversal for complex UI hierarchies
+
+### Changed
+- **BREAKING**: CardManager must now be positioned **above** all CardContainers in scene tree hierarchy (no longer requires direct parent relationship)
+- **Godot Version Requirement**: Minimum version updated from 4.4 to 4.5
+- **Card TextureRect Properties**: `front_face_texture` and `back_face_texture` changed from `@onready` to `@export` with automatic fallback to hardcoded paths
+
+### Fixed
+- **Card Initialization**: Resolved `@export` setter null reference issue when instantiating card scenes with custom node structures ([#26](https://github.com/chun92/card-framework/issues/26))
+- **FreeCell Game**: Prevented card dragging during game initialization by adding dual-layer protection against premature user interaction
+
+### Improved
+- **Documentation**: Comprehensive updates to README, GETTING_STARTED, and API documentation reflecting flexible layout system
+
 ## [1.2.3] - 2025-09-23
 
 ### Fixed
@@ -137,12 +156,39 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Version Support
 
-| Version | Godot Support | Status | EOL Date |
-|---------|---------------|--------|----------|
-| 1.1.x   | 4.4+         | Active | -        |
-| 1.0.x   | 4.0-4.3      | Legacy | 2025-12-31 |
+| Version | Godot Support | Status |
+|---------|---------------|--------|
+| 1.3.x   | 4.5+         | Active |
+| 1.1.x   | 4.4+         | Legacy |
+| 1.0.x   | 4.0-4.3      | Legacy |
 
 ## Upgrade Guide
+
+### 1.2.x → 1.3.0
+
+**Scene Hierarchy Changes:**
+- Ensure CardManager is positioned above all CardContainers in scene tree
+- No code changes required - existing direct parent-child setups remain fully compatible
+- Optional: Reorganize CardContainers into complex UI structures as needed
+
+**Custom Card Scenes:**
+- Existing card scenes work without modification (automatic fallback)
+- Optional: Assign custom TextureRect nodes via Inspector for non-standard structures
+
+**Example Migration:**
+```gdscript
+# Old (still works)
+Main → CardManager → Hand
+
+# New (also works)
+Main → CardManager
+Main → UI → VBoxContainer → Hand ✅
+```
+
+**Invalid Layout (will not work):**
+```gdscript
+Main → VBoxContainer → CardManager → Hand ❌
+```
 
 ### 1.1.2 → 1.1.3
 - **Optional**: Enable `debug_mode` in `CardManager` for development
