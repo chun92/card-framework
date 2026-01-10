@@ -36,25 +36,38 @@ static var holding_card_count: int = 0
 ## If true, the front face is visible; otherwise, the back face is visible.
 @export var show_front: bool = true:
 	set(value):
-		if value:
-			front_face_texture.visible = true
-			back_face_texture.visible = false
-		else:
-			front_face_texture.visible = false
-			back_face_texture.visible = true
+		_show_front = value
+		_update_face_visibility()
+	get:
+		return _show_front
+## The TextureRect node for displaying the front face of the card.
+## If not assigned, will fallback to $FrontFace/TextureRect for backward compatibility.
+@export var front_face_texture: TextureRect
+## The TextureRect node for displaying the back face of the card.
+## If not assigned, will fallback to $BackFace/TextureRect for backward compatibility.
+@export var back_face_texture: TextureRect
 
 
 # Card data and container reference
 var card_info: Dictionary
 var card_container: CardContainer
-
-
-@onready var front_face_texture: TextureRect = $FrontFace/TextureRect
-@onready var back_face_texture: TextureRect = $BackFace/TextureRect
+var _show_front: bool = true
 
 
 func _ready() -> void:
 	super._ready()
+
+	# Fallback to hardcoded paths if not assigned (backward compatibility)
+	if front_face_texture == null:
+		front_face_texture = $FrontFace/TextureRect if has_node("FrontFace/TextureRect") else null
+	if back_face_texture == null:
+		back_face_texture = $BackFace/TextureRect if has_node("BackFace/TextureRect") else null
+
+	# Verify required nodes are available
+	if front_face_texture == null or back_face_texture == null:
+		push_error("Card requires front_face_texture and back_face_texture to be assigned or FrontFace/TextureRect and BackFace/TextureRect nodes to exist")
+		return
+
 	front_face_texture.size = card_size
 	back_face_texture.size = card_size
 	if front_image:
@@ -62,6 +75,22 @@ func _ready() -> void:
 	if back_image:
 		back_face_texture.texture = back_image
 	pivot_offset = card_size / 2
+
+	# Apply deferred face visibility update
+	_update_face_visibility()
+
+
+## Updates the visibility of front and back face textures based on show_front value.
+## Safe to call before @onready variables are initialized.
+func _update_face_visibility() -> void:
+	# Only apply if texture nodes are ready
+	if front_face_texture != null and back_face_texture != null:
+		if _show_front:
+			front_face_texture.visible = true
+			back_face_texture.visible = false
+		else:
+			front_face_texture.visible = false
+			back_face_texture.visible = true
 
 
 func _on_move_done() -> void:

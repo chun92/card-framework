@@ -1,7 +1,7 @@
 # Card Framework
 
-[![Version](https://img.shields.io/badge/version-1.2.3-blue.svg)](https://github.com/hyunjoon/card-framework)
-[![Godot](https://img.shields.io/badge/Godot-4.4+-green.svg)](https://godotengine.org/)
+[![Version](https://img.shields.io/badge/version-1.3.0-blue.svg)](https://github.com/hyunjoon/card-framework)
+[![Godot](https://img.shields.io/badge/Godot-4.5+-green.svg)](https://godotengine.org/)
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE.md)
 [![Platform](https://img.shields.io/badge/platform-cross--platform-lightgrey.svg)]()
 
@@ -24,7 +24,7 @@
 
 ## Quick Start
 
-1. **Add CardManager** - Instance `card-framework/card_manager.tscn` in your scene
+1. **Add CardManager** - Instance `card-framework/card_manager.tscn` above all CardContainers in scene hierarchy
 2. **Configure Factory** - Assign `JsonCardFactory` to `card_factory_scene`  
 3. **Set Directories** - Point `card_asset_dir` to images, `card_info_dir` to JSON files
 4. **Add Containers** - Create `Pile` or `Hand` nodes as children of CardManager
@@ -77,6 +77,6 @@ Run: `res://example1/example1.tscn` or `res://freecell/scenes/menu/menu.tscn`
 
 **Framework**: Open source  
 **Card Assets**: [Kenney.nl](https://kenney.nl/assets/boardgame-pack) (CC0 License)  
-**Version**: 1.2.3 (Godot 4.4+ compatible)
+**Version**: 1.3.0 (Godot 4.5+ compatible)
 
 **Thanks to:** [Kenney.nl](https://kenney.nl/assets/boardgame-pack), [InsideOut-Andrew](https://github.com/insideout-andrew/simple-card-pile-ui), [Rosetta Code FreeCell](https://rosettacode.org/wiki/Deal_cards_for_FreeCell)

@@ -13,17 +13,27 @@
 ## - Debug mode and visual debugging support
 ##
 ## Setup Requirements:
-## - Must be the parent of all CardContainer instances
+## - Must be positioned ABOVE CardContainers in scene tree hierarchy
 ## - Requires card_factory_scene to be assigned in inspector
 ## - Configure card_size to match your card assets
 ##
-## Usage:
+## Flexible Layout Examples:
 ## [codeblock]
-## # In scene setup
-## CardManager (root)
+## # Traditional (Direct Children):
+## CardManager
 ## ├── Hand (CardContainer)
 ## ├── Foundation (CardContainer)
 ## └── Deck (CardContainer)
+##
+## # Modern Flexible Layout:
+## MainScene
+## ├── CardManager
+## ├── VBoxContainer
+## │   ├── PlayerHand (CardContainer) ✅
+## │   └── TableArea
+## │       └── Foundation (CardContainer) ✅
+## └── UI
+##     └── DeckPile (CardContainer) ✅
 ## [/codeblock]
 class_name CardManager
 extends Control
@@ -54,10 +64,17 @@ func _init() -> void:
 func _ready() -> void:
 	if not _pre_process_exported_variables():
 		return
-	
+
 	if Engine.is_editor_hint():
 		return
-	
+
+	# Register CardManager to scene root for flexible CardContainer discovery
+	var scene_root = get_tree().current_scene
+	if scene_root:
+		scene_root.set_meta("card_manager", self)
+		if debug_mode:
+			print("CardManager registered to scene root: ", scene_root.name)
+
 	card_factory.card_size = card_size
 	card_factory.preload_card_data()
 
@@ -76,6 +93,15 @@ func undo() -> void:
 ## Clears all history entries, preventing further undo operations.
 func reset_history() -> void:
 	history.clear()
+
+
+func _exit_tree() -> void:
+	# Unregister CardManager from scene root
+	var scene_root = get_tree().current_scene
+	if scene_root and scene_root.has_meta("card_manager"):
+		scene_root.remove_meta("card_manager")
+		if debug_mode:
+			print("CardManager unregistered from scene root")
 	
 
 func _add_card_container(id: int, card_container: CardContainer) -> void:

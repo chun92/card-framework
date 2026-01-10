@@ -238,7 +238,7 @@ func _check_auto_move(container) -> void:
 		if auto_moving_map.find_key(top_card):
 			return
 		auto_moving_map[top_card] = foundation
-		_set_all_card_control(true)
+		_set_all_cards_interaction_disabled(true)
 		auto_move_timer.start(auto_move_timer_wating_time)
 
 
@@ -361,7 +361,7 @@ func _on_timeout() -> void:
 	target_foundation.auto_move_cards([target_card])
 	auto_moving_map.erase(target_card)
 	if auto_moving_map.size() == 0:
-		_set_all_card_control(false)
+		_set_all_cards_interaction_disabled(false)
 	_update_information()
 
 
@@ -400,14 +400,19 @@ func _count_remaining_tableaus() -> int:
 func _generate_cards() -> void:
 	var deck = game_generator.deal(game_seed)
 	var cards_str = game_generator.generate_cards(deck)
-	
+
 	for tableau in tableaus:
 		tableau.is_initializing = true
-	
+
 	for i in range(cards_str.size() - 1, -1, -1):
 		var card_name = cards_str[i]
 		var card = card_factory.create_card(card_name, start_position)
+		# Immediately disable interaction on newly created cards
+		card.can_be_interacted_with = false
 		all_cards.append(card)
+
+	# Start initialization with all controls disabled for safety
+	_set_all_cards_interaction_disabled(true)
 
 	var current_index := 0
 	var offset := tableaus.size()
@@ -418,10 +423,15 @@ func _generate_cards() -> void:
 		current_index = (current_index + 1) % offset
 		game_generating_timer.start(game_generating_timer_waiting_time)
 		await game_generating_timer.timeout
-		
+
 	for tableau in tableaus:
 		tableau.is_initializing = false
 		_update_cards_can_be_interactwith(tableau)
+
+	# Re-enable all card interactions after initialization is complete
+	# for card in all_cards:
+	# 	card.can_be_interacted_with = true
+	_set_all_cards_interaction_disabled(false)
 
 
 func _go_to_menu() -> void:
@@ -433,9 +443,9 @@ func _go_to_menu() -> void:
 	get_node("/root/FreecellGame").queue_free()
 	
 
-func _set_all_card_control(disable: bool) -> void:
+func _set_all_cards_interaction_disabled(disabled: bool) -> void:
 	for card in all_cards:
-		card.is_stop_control = disable
+		card.is_stop_control = disabled
 
 
 func _check_win_condition() -> bool:

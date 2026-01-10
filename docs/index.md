@@ -24,4 +24,4 @@
 
 ---
 
-**Version**: 1.2.3 | **Godot**: 4.4+ | **License**: Open Source
+**Version**: 1.3.0 | **Godot**: 4.5+ | **License**: Open Source
