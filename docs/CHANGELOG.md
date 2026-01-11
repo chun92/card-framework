@@ -4,6 +4,17 @@ All notable changes to Card Framework will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.3.1] - 2025-01-11
+
+### Added
+- **Asset Library Optimization**: Configured `.gitattributes` to distribute addon only (~90% size reduction) ([#27](https://github.com/chun92/card-framework/issues/27))
+- **Addon Documentation**: Added LICENSE and README.md in addon folder per Godot guidelines
+- **Release Scripts**: Automated full project archive creation (`scripts/create-release.sh` and `.ps1`)
+
+### Changed
+- Asset Library downloads now include only `addons/` folder; full project available via GitHub Releases
+- Added `.gdignore` to prevent Godot importing screenshots
+
 ## [1.3.0] - 2025-01-10
 
 ### Added

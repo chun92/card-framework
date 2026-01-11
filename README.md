@@ -1,6 +1,6 @@
 # Card Framework
 
-[![Version](https://img.shields.io/badge/version-1.3.0-blue.svg)](https://github.com/hyunjoon/card-framework)
+[![Version](https://img.shields.io/badge/version-1.3.1-blue.svg)](https://github.com/hyunjoon/card-framework)
 [![Godot](https://img.shields.io/badge/Godot-4.5+-green.svg)](https://godotengine.org/)
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE.md)
 [![Platform](https://img.shields.io/badge/platform-cross--platform-lightgrey.svg)]()
@@ -77,6 +77,6 @@ Run: `res://example1/example1.tscn` or `res://freecell/scenes/menu/menu.tscn`
 
 **Framework**: Open source  
 **Card Assets**: [Kenney.nl](https://kenney.nl/assets/boardgame-pack) (CC0 License)  
-**Version**: 1.3.0 (Godot 4.5+ compatible)
+**Version**: 1.3.1 (Godot 4.5+ compatible)
 
 **Thanks to:** [Kenney.nl](https://kenney.nl/assets/boardgame-pack), [InsideOut-Andrew](https://github.com/insideout-andrew/simple-card-pile-ui), [Rosetta Code FreeCell](https://rosettacode.org/wiki/Deal_cards_for_FreeCell)

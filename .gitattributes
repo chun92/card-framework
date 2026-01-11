@@ -1,2 +1,10 @@
-# Normalize EOL for all files that Git considers text files.
+# Normalize line endings for all files that Git considers text files
 * text=auto eol=lf
+
+# Asset Library: Only include the addons folder when downloading
+/** export-ignore
+/addons !export-ignore
+/addons/** !export-ignore
+
+# Exclude screenshots from Asset Library downloads
+/addons/card-framework/screenshots/** export-ignore

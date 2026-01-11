@@ -48,7 +48,14 @@ node_modules/
 .taskmaster/docs/
 .taskmaster/notion-sync.json
 .claude/settings.local.json
+.claude/history/
 
 # Task files
 # tasks.json
-# tasks/ 
+# tasks/
+
+# Release artifacts
+releases/
+*.zip
+*.tar.gz
+test-extract/ 
