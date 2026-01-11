@@ -28,7 +28,7 @@ Build Solitaire, TCG, or deck-building roguelikes with:
 
 ## Version
 
-1.3.0 - Godot 4.5+ compatible
+1.3.1 - Godot 4.5+ compatible
 
 ## License
 
