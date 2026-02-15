@@ -11,8 +11,7 @@
     "TodoWrite",
     "Task",
     "WebSearch",
-    "WebFetch",
-    "mcp__task-master-ai__*"
+    "WebFetch"
   ],
   "rules": [
     "Always follow GDScript syntax and Godot 4.x conventions when working on Godot projects",
