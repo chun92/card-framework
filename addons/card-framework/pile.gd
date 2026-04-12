@@ -101,7 +101,7 @@ func _update_target_positions() -> void:
 	for i in range(_held_cards.size()):
 		var card = _held_cards[i]
 		var offset = _calculate_offset(i)
-		var target_pos = position + offset
+		var target_pos = global_position + offset
 		
 		# Set card appearance and position
 		card.show_front = card_face_up
