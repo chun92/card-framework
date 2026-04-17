@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://60bwveuu2rt"]
+[gd_scene format=3 uid="uid://60bwveuu2rt"]
 
 [ext_resource type="Script" uid="uid://cf56ce8uvkmha" path="res://example1/example1.gd" id="1_2r7vq"]
 [ext_resource type="PackedScene" uid="uid://c7u8hryloq7hy" path="res://addons/card-framework/card_manager.tscn" id="1_rurpr"]
@@ -12,189 +12,205 @@
 [ext_resource type="Texture2D" uid="uid://bdf2cukmms3nb" path="res://example1/assets/images/cards/cardBack_red3.png" id="10_tthv0"]
 [ext_resource type="Texture2D" uid="uid://b1jy1scbarbg5" path="res://example1/assets/images/cards/cardBack_red4.png" id="11_5najx"]
 
-[node name="Example1" type="Node"]
+[node name="Example1" type="Node" unique_id=1569967553]
 script = ExtResource("1_2r7vq")
 
-[node name="ButtonContainer" type="HBoxContainer" parent="."]
+[node name="ButtonContainer" type="HBoxContainer" parent="." unique_id=1927084781]
 offset_left = 100.0
 offset_top = 100.0
 offset_right = 200.0
 offset_bottom = 140.0
 
-[node name="ButtonColumnContainer1" type="VBoxContainer" parent="ButtonContainer"]
+[node name="ButtonColumnContainer1" type="VBoxContainer" parent="ButtonContainer" unique_id=1308135364]
 layout_mode = 2
 
-[node name="Draw1Button" type="Button" parent="ButtonContainer/ButtonColumnContainer1"]
+[node name="Draw1Button" type="Button" parent="ButtonContainer/ButtonColumnContainer1" unique_id=1677182011]
 layout_mode = 2
 text = "draw 1"
 
-[node name="Draw3Button" type="Button" parent="ButtonContainer/ButtonColumnContainer1"]
+[node name="Draw3Button" type="Button" parent="ButtonContainer/ButtonColumnContainer1" unique_id=728178842]
 layout_mode = 2
 text = "draw 3"
 
-[node name="ResetDeckButton" type="Button" parent="ButtonContainer/ButtonColumnContainer1"]
+[node name="ResetDeckButton" type="Button" parent="ButtonContainer/ButtonColumnContainer1" unique_id=1448777195]
 layout_mode = 2
 text = "reset deck"
 
-[node name="UndoButton" type="Button" parent="ButtonContainer/ButtonColumnContainer1"]
+[node name="UndoButton" type="Button" parent="ButtonContainer/ButtonColumnContainer1" unique_id=1275751862]
 layout_mode = 2
 text = "undo"
 
-[node name="ShuffleHandButton" type="Button" parent="ButtonContainer/ButtonColumnContainer1"]
+[node name="ShuffleHandButton" type="Button" parent="ButtonContainer/ButtonColumnContainer1" unique_id=446920750]
 layout_mode = 2
 text = "shuffle hand"
 
-[node name="Discard1Button" type="Button" parent="ButtonContainer/ButtonColumnContainer1"]
+[node name="Discard1Button" type="Button" parent="ButtonContainer/ButtonColumnContainer1" unique_id=1890475283]
 layout_mode = 2
 text = "discard 1"
 
-[node name="Discard3Button" type="Button" parent="ButtonContainer/ButtonColumnContainer1"]
+[node name="Discard3Button" type="Button" parent="ButtonContainer/ButtonColumnContainer1" unique_id=295218037]
 layout_mode = 2
 text = "discard 3"
 
-[node name="ButtonColumnContainer2" type="VBoxContainer" parent="ButtonContainer"]
+[node name="ButtonColumnContainer2" type="VBoxContainer" parent="ButtonContainer" unique_id=411709943]
 layout_mode = 2
 
-[node name="MoveToPile1Button" type="Button" parent="ButtonContainer/ButtonColumnContainer2"]
+[node name="MoveToPile1Button" type="Button" parent="ButtonContainer/ButtonColumnContainer2" unique_id=1312644170]
 layout_mode = 2
 text = "move to pile1"
 
-[node name="MoveToPile2Button" type="Button" parent="ButtonContainer/ButtonColumnContainer2"]
+[node name="MoveToPile2Button" type="Button" parent="ButtonContainer/ButtonColumnContainer2" unique_id=968627896]
 layout_mode = 2
 text = "move to pile2"
 
-[node name="MoveToPile3Button" type="Button" parent="ButtonContainer/ButtonColumnContainer2"]
+[node name="MoveToPile3Button" type="Button" parent="ButtonContainer/ButtonColumnContainer2" unique_id=1287325915]
 layout_mode = 2
 text = "move to pile3"
 
-[node name="MoveToPile4Button" type="Button" parent="ButtonContainer/ButtonColumnContainer2"]
+[node name="MoveToPile4Button" type="Button" parent="ButtonContainer/ButtonColumnContainer2" unique_id=1390266097]
 layout_mode = 2
 text = "move to pile4"
 
-[node name="ClearAllButton" type="Button" parent="ButtonContainer/ButtonColumnContainer2"]
+[node name="ClearAllButton" type="Button" parent="ButtonContainer/ButtonColumnContainer2" unique_id=1452249170]
 layout_mode = 2
 text = "clear all"
 
-[node name="Draw3AtFront" type="Button" parent="ButtonContainer/ButtonColumnContainer2"]
+[node name="Draw3AtFront" type="Button" parent="ButtonContainer/ButtonColumnContainer2" unique_id=848722752]
 layout_mode = 2
 text = "draw 3 at front"
 
-[node name="ToggleDiscardButton" type="Button" parent="ButtonContainer/ButtonColumnContainer2"]
+[node name="ToggleDiscardButton" type="Button" parent="ButtonContainer/ButtonColumnContainer2" unique_id=1189248615]
 layout_mode = 2
 text = "toggle discard"
 
-[node name="CardManager" parent="." instance=ExtResource("1_rurpr")]
+[node name="CardManager" parent="." unique_id=721658746 instance=ExtResource("1_rurpr")]
 card_factory_scene = ExtResource("3_l4bd6")
 debug_mode = true
 
-[node name="Pile1" parent="CardManager" instance=ExtResource("2_xkfcc")]
+[node name="UpperContainer" type="HBoxContainer" parent="." unique_id=1259436558]
 offset_left = 1000.0
-offset_top = 100.0
-offset_right = 1000.0
-offset_bottom = 100.0
+offset_top = 50.0
+offset_right = 1800.0
+offset_bottom = 310.0
+theme_override_constants/separation = 50
+
+[node name="Pile1Container" type="VBoxContainer" parent="UpperContainer" unique_id=2018664586]
+layout_mode = 2
+theme_override_constants/separation = 27
+
+[node name="Pile1Label" type="Label" parent="UpperContainer/Pile1Container" unique_id=1480936783]
+layout_mode = 2
+text = "Pile 1"
+horizontal_alignment = 1
+
+[node name="Pile1" parent="UpperContainer/Pile1Container" unique_id=113309923 instance=ExtResource("2_xkfcc")]
+custom_minimum_size = Vector2(150, 210)
+layout_mode = 2
 sensor_texture = ExtResource("5_kl5wo")
 sensor_visibility = true
 
-[node name="Pile2" parent="CardManager" instance=ExtResource("2_xkfcc")]
-offset_left = 1200.0
-offset_top = 100.0
-offset_right = 1200.0
-offset_bottom = 100.0
+[node name="Pile2Container" type="VBoxContainer" parent="UpperContainer" unique_id=2004145892]
+layout_mode = 2
+theme_override_constants/separation = 27
+
+[node name="Pile2Label" type="Label" parent="UpperContainer/Pile2Container" unique_id=233042575]
+layout_mode = 2
+text = "Pile 2"
+horizontal_alignment = 1
+
+[node name="Pile2" parent="UpperContainer/Pile2Container" unique_id=1870354756 instance=ExtResource("2_xkfcc")]
+custom_minimum_size = Vector2(150, 210)
+layout_mode = 2
 card_face_up = false
 layout = 3
 sensor_texture = ExtResource("6_u8c1b")
 sensor_visibility = true
 
-[node name="Pile3" parent="CardManager" instance=ExtResource("2_xkfcc")]
-offset_left = 1400.0
-offset_top = 100.0
-offset_right = 1400.0
-offset_bottom = 100.0
+[node name="Pile3Container" type="VBoxContainer" parent="UpperContainer" unique_id=14678709]
+layout_mode = 2
+theme_override_constants/separation = 27
+
+[node name="Pile3Label" type="Label" parent="UpperContainer/Pile3Container" unique_id=314386024]
+layout_mode = 2
+text = "Pile 3"
+horizontal_alignment = 1
+
+[node name="Pile3" parent="UpperContainer/Pile3Container" unique_id=86962773 instance=ExtResource("2_xkfcc")]
+custom_minimum_size = Vector2(150, 210)
+layout_mode = 2
 stack_display_gap = 40
 layout = 1
 restrict_to_top_card = false
 sensor_texture = ExtResource("8_cv7sm")
 sensor_visibility = true
 
-[node name="Pile4" parent="CardManager" instance=ExtResource("2_xkfcc")]
-offset_left = 1600.0
-offset_top = 100.0
-offset_right = 1600.0
-offset_bottom = 100.0
+[node name="Pile4Container" type="VBoxContainer" parent="UpperContainer" unique_id=1101626688]
+layout_mode = 2
+theme_override_constants/separation = 27
+
+[node name="Pile4Label" type="Label" parent="UpperContainer/Pile4Container" unique_id=1988867509]
+layout_mode = 2
+text = "Pile 4"
+horizontal_alignment = 1
+
+[node name="Pile4" parent="UpperContainer/Pile4Container" unique_id=1741008101 instance=ExtResource("2_xkfcc")]
+custom_minimum_size = Vector2(150, 210)
+layout_mode = 2
 layout = 2
 allow_card_movement = false
 sensor_texture = ExtResource("8_nwj6x")
 sensor_visibility = true
 
-[node name="Hand" parent="CardManager" instance=ExtResource("3_xp5g3")]
-offset_left = 1000.0
-offset_top = 800.0
-offset_right = 1000.0
-offset_bottom = 800.0
-
-[node name="Deck" parent="CardManager" instance=ExtResource("2_xkfcc")]
+[node name="LowerContainer" type="HBoxContainer" parent="." unique_id=596892457]
 offset_left = 300.0
-offset_top = 800.0
-offset_right = 300.0
-offset_bottom = 800.0
+offset_top = 700.0
+offset_right = 1000.0
+offset_bottom = 1010.0
+theme_override_constants/separation = 150
+
+[node name="DeckContainer" type="VBoxContainer" parent="LowerContainer" unique_id=2105703247]
+custom_minimum_size = Vector2(150, 310)
+layout_mode = 2
+
+[node name="DeckLabel" type="Label" parent="LowerContainer/DeckContainer" unique_id=1347219386]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+text = "Deck"
+horizontal_alignment = 1
+
+[node name="Deck" parent="LowerContainer/DeckContainer" unique_id=1273156144 instance=ExtResource("2_xkfcc")]
+custom_minimum_size = Vector2(150, 210)
+layout_mode = 2
 card_face_up = false
 sensor_texture = ExtResource("10_tthv0")
 
-[node name="Discard" parent="CardManager" instance=ExtResource("2_xkfcc")]
-offset_left = 1600.0
-offset_top = 800.0
-offset_right = 1600.0
-offset_bottom = 800.0
-sensor_texture = ExtResource("11_5najx")
+[node name="HandContainer" type="VBoxContainer" parent="LowerContainer" unique_id=1127137767]
+custom_minimum_size = Vector2(850, 0)
+layout_mode = 2
 
-[node name="Pile1Label" type="Label" parent="."]
-offset_left = 1055.0
-offset_top = 50.0
-offset_right = 1097.0
-offset_bottom = 73.0
-text = "Pile 1"
-
-[node name="Pile2Label" type="Label" parent="."]
-offset_left = 1255.0
-offset_top = 50.0
-offset_right = 1297.0
-offset_bottom = 73.0
-text = "Pile 2"
-
-[node name="Pile3Label" type="Label" parent="."]
-offset_left = 1455.0
-offset_top = 50.0
-offset_right = 1497.0
-offset_bottom = 73.0
-text = "Pile 3"
-
-[node name="Pile4Label" type="Label" parent="."]
-offset_left = 1655.0
-offset_top = 50.0
-offset_right = 1697.0
-offset_bottom = 73.0
-text = "Pile 4"
-
-[node name="HandLabel" type="Label" parent="."]
-offset_left = 1050.0
-offset_top = 700.0
-offset_right = 1092.0
-offset_bottom = 723.0
+[node name="HandLabel" type="Label" parent="LowerContainer/HandContainer" unique_id=1397543790]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
 text = "Hand"
+horizontal_alignment = 1
 
-[node name="DeckLabel" type="Label" parent="."]
-offset_left = 355.0
-offset_top = 700.0
-offset_right = 395.0
-offset_bottom = 723.0
-text = "Deck"
+[node name="Hand" parent="LowerContainer/HandContainer" unique_id=144496139 instance=ExtResource("3_xp5g3")]
+layout_mode = 2
+hand_anchor = 1
 
-[node name="DiscardLabel" type="Label" parent="."]
-offset_left = 1655.0
-offset_top = 700.0
-offset_right = 1714.0
-offset_bottom = 723.0
+[node name="DiscardContainer" type="VBoxContainer" parent="LowerContainer" unique_id=2076762792]
+layout_mode = 2
+
+[node name="DiscardLabel" type="Label" parent="LowerContainer/DiscardContainer" unique_id=379307589]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
 text = "Discard"
+horizontal_alignment = 1
+
+[node name="Discard" parent="LowerContainer/DiscardContainer" unique_id=2126383248 instance=ExtResource("2_xkfcc")]
+custom_minimum_size = Vector2(150, 210)
+layout_mode = 2
+sensor_texture = ExtResource("11_5najx")
 
 [connection signal="pressed" from="ButtonContainer/ButtonColumnContainer1/Draw1Button" to="." method="_on_draw_1_button_pressed"]
 [connection signal="pressed" from="ButtonContainer/ButtonColumnContainer1/Draw3Button" to="." method="_on_draw_3_button_pressed"]
