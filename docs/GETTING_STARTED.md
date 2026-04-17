@@ -4,7 +4,7 @@ Complete step-by-step guide to set up and use the Card Framework in your Godot 4
 
 ## Prerequisites
 
-- **Godot Engine 4.5+** installed
+- **Godot Engine 4.6+** installed
 - Basic knowledge of Godot scenes and nodes
 - Understanding of GDScript fundamentals
 
