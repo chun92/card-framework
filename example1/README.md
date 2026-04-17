@@ -14,7 +14,7 @@ This beginner-friendly example demonstrates the core concepts of the Card Framew
 
 ## Quick Start (5 Minutes)
 
-1. **Open the Project**: Launch Godot 4.4+ and open this card-framework project
+1. **Open the Project**: Launch Godot 4.6+ and open this card-framework project
 2. **Navigate to Example**: Go to `example1/example1.tscn` in the FileSystem dock
 3. **Run the Scene**: Press F6 or click "Play Scene" in the toolbar
 4. **Start Experimenting**: Click buttons and drag cards to explore!
@@ -45,10 +45,10 @@ The example provides several buttons to help you understand card operations:
 
 ```gdscript
 # Key references in example1.gd
-@onready var card_manager = $CardManager      # Central orchestrator
-@onready var card_factory = $CardManager/MyCardFactory  # Card creator
-@onready var hand = $CardManager/Hand         # Player's hand container
-@onready var deck = $CardManager/Deck         # Draw pile
+@onready var card_manager = $CardManager                        # Central orchestrator
+@onready var card_factory = $CardManager/MyCardFactory          # Card creator
+@onready var hand = $LowerContainer/HandContainer/Hand          # Player's hand container
+@onready var deck = $LowerContainer/DeckContainer/Deck          # Draw pile
 ```
 
 ### Card Creation Process
@@ -104,10 +104,12 @@ example1/
 Try these safe experiments:
 
 ```gdscript
-# Change hand layout (in scene editor)
-hand.max_cards_per_row = 7  # Cards per row in hand display
+# Change hand layout (in scene editor or Inspector)
+hand.max_hand_size = 7          # Maximum cards the hand can hold
+hand.max_hand_spread = 500      # Pixel range of the fan spread
+hand.hand_anchor = Hand.HandAnchor.LEFT  # Anchor: CENTER, LEFT, or RIGHT
 
-# Modify pile behavior  
+# Modify pile behavior
 pile1.enable_drop_zone = false  # Disable drag-and-drop
 pile1.max_stack_display = 3     # Show only top 3 cards
 ```

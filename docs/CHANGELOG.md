@@ -4,6 +4,27 @@ All notable changes to Card Framework will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.3.3] - 2026-04-18
+
+### Added
+- **Editor Preview for CardContainers**: `Pile` and `Hand` now display preview rectangles in the Godot editor without running the scene ([#28](https://github.com/chun92/card-framework/issues/28))
+  - Preview updates live when `card_size` (CardManager), `max_hand_spread`, or `hand_anchor` is changed in the Inspector
+  - `Hand` preview reflects the full expected hand area based on `max_hand_spread` and `hand_anchor`
+- **HandAnchor Enum**: New `hand_anchor` property on `Hand` container for flexible layout alignment
+  - `CENTER` (default): node position is the center of the hand spread
+  - `LEFT`: node position is the left edge of the hand spread
+  - `RIGHT`: node position is the right edge of the hand spread
+- **`DEBUG_PREVIEW_COLOR` Constant**: Added to `CardFrameworkSettings` for consistent editor preview styling
+
+### Fixed
+- **Card Size Not Applying in Godot 4.6**: `TextureRect.expand_mode` now explicitly set to `EXPAND_IGNORE_SIZE`, resolving an issue where cards could not shrink below the asset's natural dimensions ([#9](https://github.com/chun92/card-framework/issues/9))
+- **Card Position Offset with Container Nodes**: `update_card_ui` is now deferred in `_ready()` so positions are calculated after Godot Container nodes finalize their layout 
+- **Wrong Card Positions Outside CardManager Hierarchy**: `Hand` drop zone sensor now uses `global_position` instead of local `position`, fixing incorrect calculations when `Hand` is nested in Container nodes ([#29](https://github.com/chun92/card-framework/pull/29))
+
+### Changed
+- **`max_hand_spread` Clarification**: Property description updated to clarify it defines the position range between leftmost and rightmost card top-left corners; actual visual width is wider by approximately one card width
+- **example1 Scene**: Reorganized to use `HBoxContainer`/`VBoxContainer` hierarchy, demonstrating flexible layout with CardContainers outside the CardManager tree
+
 ## [1.3.2] - 2026-02-15
 
 ### Changed
