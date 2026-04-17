@@ -25,10 +25,21 @@
 class_name Hand
 extends CardContainer
 
+## Determines the anchor point of the hand layout.
+## CENTER: global_position is the center of the hand spread (default)
+## LEFT: global_position is the left edge of the hand spread
+## RIGHT: global_position is the right edge of the hand spread
+enum HandAnchor {
+	CENTER,
+	LEFT,
+	RIGHT,
+}
+
 @export_group("hand_meta_info")
 ## maximum number of cards that can be held.
 @export var max_hand_size := CardFrameworkSettings.LAYOUT_MAX_HAND_SIZE
-## maximum spread of the hand.
+## Maximum spread of the hand, defined as the range between the leftmost and rightmost card positions (top-left corners).
+## The actual visual width is wider by approximately one card width, since each card extends beyond its position.
 @export var max_hand_spread := CardFrameworkSettings.LAYOUT_MAX_HAND_SPREAD
 ## whether the card is face up.
 @export var card_face_up := true
@@ -42,6 +53,10 @@ extends CardContainer
 ## vertical curve of the hand.
 ## This works best as a 3-point ease in/out from 0 to X to 0
 @export var hand_vertical_curve : Curve
+
+@export_group("hand_anchor")
+## Anchor point of the hand layout.
+@export var hand_anchor := HandAnchor.CENTER
 
 @export_group("drop_zone")
 ## Determines whether the drop zone size follows the hand size. (requires enable drop zone true)
@@ -101,7 +116,17 @@ func _update_target_positions() -> void:
 	var _h = card_size.y
 
 	vertical_partitions_from_outside.clear()
+
+	# Calculate anchor offset based on hand_anchor setting to determine how the fan is positioned relative to global_position
+	var anchor_offset = 0.0
+	match hand_anchor:
+		HandAnchor.CENTER: anchor_offset = max_hand_spread / 2.0
+		HandAnchor.LEFT:   anchor_offset = 0.0
+		HandAnchor.RIGHT:  anchor_offset = max_hand_spread
 	
+	@warning_ignore("integer_division")
+	var card_spacing = max_hand_spread / (_held_cards.size() + 1)
+
 	# Calculate position and rotation for each card in the fan arrangement
 	for i in range(_held_cards.size()):
 		var card = _held_cards[i]
@@ -113,9 +138,7 @@ func _update_target_positions() -> void:
 		
 		# Calculate base horizontal position with even spacing
 		var target_pos = global_position
-		@warning_ignore("integer_division")
-		var card_spacing = max_hand_spread / (_held_cards.size() + 1)
-		target_pos.x += (i + 1) * card_spacing - max_hand_spread / 2.0
+		target_pos.x += (i + 1) * card_spacing - anchor_offset
 		
 		# Apply vertical curve displacement for fan shape
 		if hand_vertical_curve:
@@ -179,7 +202,11 @@ func _update_target_positions() -> void:
 		
 	if align_drop_zone_size_with_current_hand_size:
 		if _held_cards.size() == 0:
-			drop_zone.return_sensor_size()
+			var center_x = max_hand_spread / 2.0 - anchor_offset
+			drop_zone.set_sensor_size_flexibly(
+				drop_zone.stored_sensor_size,
+				Vector2(center_x, drop_zone.stored_sensor_position.y)
+			)
 		else:
 			var _size = Vector2(x_max - x_min, y_max - y_min)
 			var _position = Vector2(x_min, y_min) - global_position
