@@ -182,7 +182,7 @@ func _update_target_positions() -> void:
 			drop_zone.return_sensor_size()
 		else:
 			var _size = Vector2(x_max - x_min, y_max - y_min)
-			var _position = Vector2(x_min, y_min) - position
+			var _position = Vector2(x_min, y_min) - global_position
 			drop_zone.set_sensor_size_flexibly(_size, _position)
 		drop_zone.set_vertical_partitions(vertical_partitions_from_outside)
 
