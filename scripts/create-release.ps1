@@ -81,7 +81,7 @@ $compressionLevel = [System.IO.Compression.CompressionLevel]::Optimal
 $zip = [System.IO.Compression.ZipFile]::Open($outputFile, 'Create')
 
 foreach ($file in $files) {
-    $relativePath = $file.FullName.Substring($PWD.Path.Length + 1)
+    $relativePath = $file.FullName.Substring($PWD.Path.Length + 1).Replace('\', '/')
     [System.IO.Compression.ZipFileExtensions]::CreateEntryFromFile($zip, $file.FullName, $relativePath, $compressionLevel) | Out-Null
 }
 
