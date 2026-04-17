@@ -97,6 +97,7 @@ func init(_parent: Node, accept_types: Array =[]):
 		sensor.name = "Sensor"
 		sensor.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		sensor.z_index = CardFrameworkSettings.VISUAL_SENSOR_Z_INDEX  # Behind everything else
+		sensor.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 		add_child(sensor)
 
 	# Create debugging outline (initially hidden)

@@ -27,7 +27,12 @@ static var holding_card_count: int = 0
 ## The name of the card.
 @export var card_name: String
 ## The size of the card.
-@export var card_size: Vector2 = CardFrameworkSettings.LAYOUT_DEFAULT_CARD_SIZE
+@export var card_size: Vector2 = CardFrameworkSettings.LAYOUT_DEFAULT_CARD_SIZE:
+	set(value):
+		_card_size = value
+		_update_card_size(_card_size)
+	get:
+		return _card_size
 ## The texture for the front face of the card.
 @export var front_image: Texture2D
 ## The texture for the back face of the card.
@@ -51,33 +56,40 @@ static var holding_card_count: int = 0
 # Card data and container reference
 var card_info: Dictionary
 var card_container: CardContainer
+var _card_size: Vector2
 var _show_front: bool = true
 
 
 func _ready() -> void:
 	super._ready()
-
-	# Fallback to hardcoded paths if not assigned (backward compatibility)
-	if front_face_texture == null:
-		front_face_texture = $FrontFace/TextureRect if has_node("FrontFace/TextureRect") else null
-	if back_face_texture == null:
-		back_face_texture = $BackFace/TextureRect if has_node("BackFace/TextureRect") else null
+	# Initialize textures from exported properties
+	check_and_set_textures()
 
 	# Verify required nodes are available
 	if front_face_texture == null or back_face_texture == null:
 		push_error("Card requires front_face_texture and back_face_texture to be assigned or FrontFace/TextureRect and BackFace/TextureRect nodes to exist")
 		return
 
-	front_face_texture.size = card_size
-	back_face_texture.size = card_size
-	if front_image:
-		front_face_texture.texture = front_image
-	if back_image:
-		back_face_texture.texture = back_image
-	pivot_offset = card_size / 2
-
 	# Apply deferred face visibility update
 	_update_face_visibility()
+
+func check_and_set_textures() -> void:
+	# Fallback to hardcoded paths if not assigned (backward compatibility)
+	if front_face_texture == null:
+		front_face_texture = $FrontFace/TextureRect if has_node("FrontFace/TextureRect") else null
+	if back_face_texture == null:
+		back_face_texture = $BackFace/TextureRect if has_node("BackFace/TextureRect") else null
+
+
+func _update_card_size(new_size: Vector2) -> void:
+	check_and_set_textures()
+	if front_face_texture:
+		front_face_texture.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+		front_face_texture.size = new_size
+	if back_face_texture:
+		back_face_texture.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+		back_face_texture.size = new_size
+	pivot_offset = new_size / 2
 
 
 ## Updates the visibility of front and back face textures based on show_front value.

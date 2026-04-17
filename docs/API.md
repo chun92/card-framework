@@ -70,6 +70,7 @@ Centralized configuration constants for all Card Framework components. This clas
 | Constant | Type | Value | Description |
 |----------|------|-------|-------------|
 | `DEBUG_OUTLINE_COLOR` | `Color` | `Color(1, 0, 0, 1)` | Color used for sensor outlines and debug indicators |
+| `DEBUG_PREVIEW_COLOR` | `Color` | `Color(0.2, 0.6, 1.0, 0.3)` | Color used for card container preview rectangles in the editor |
 
 #### Usage
 
@@ -249,9 +250,14 @@ var card_info = card.get_string()  # Returns card_name
 
 ### CardContainer
 
-**Extends:** `Control`
+**Extends:** `Control`  
+**Tool:** `@tool` (editor preview enabled)
 
 Abstract base class for all card containers. Provides core functionality for holding, managing, and organizing cards with drag-and-drop support.
+
+#### Editor Preview
+
+CardContainer and its subclasses display a preview rectangle in the Godot editor without running the scene. The preview updates live when `card_size` is changed in the CardManager Inspector.
 
 #### Drop Zone Properties
 
@@ -511,7 +517,8 @@ Cards are defined using JSON files with the following structure:
 
 ### Pile
 
-**Extends:** `CardContainer`
+**Extends:** `CardContainer`  
+**Tool:** `@tool` (editor preview enabled)
 
 A container that stacks cards in a pile formation with configurable direction and display options.
 
@@ -568,18 +575,30 @@ func _ready():
 
 ### Hand
 
-**Extends:** `CardContainer`
+**Extends:** `CardContainer`  
+**Tool:** `@tool` (editor preview enabled)
 
 A container that displays cards in a fan-like hand formation with curves and spacing.
+
+#### Enums
+
+```gdscript
+enum HandAnchor {
+    CENTER,  # global_position is the center of the hand spread (default)
+    LEFT,    # global_position is the left edge of the hand spread
+    RIGHT,   # global_position is the right edge of the hand spread
+}
+```
 
 #### Properties
 
 | Property | Type | Default | Description |
 |----------|------|---------|-------------|
 | `max_hand_size` | `int` | `10` | Maximum cards that can be held |
-| `max_hand_spread` | `int` | `700` | Maximum pixel spread of hand |
+| `max_hand_spread` | `int` | `700` | Position range between leftmost and rightmost card top-left corners. Actual visual width is wider by approximately one card width. |
 | `card_face_up` | `bool` | `true` | Whether cards show front face |
 | `card_hover_distance` | `int` | `30` | Distance cards hover when interacted with |
+| `hand_anchor` | `HandAnchor` | `CENTER` | Anchor point that determines how the hand spread is positioned relative to the node's position |
 
 #### Curve Properties
 
@@ -594,6 +613,15 @@ A container that displays cards in a fan-like hand formation with curves and spa
 |----------|------|---------|-------------|
 | `align_drop_zone_size_with_current_hand_size` | `bool` | `true` | Drop zone adapts to hand size |
 | `swap_only_on_reorder` | `bool` | `false` | Reordering swaps positions instead of shifting |
+
+#### Editor Preview
+
+The Hand editor preview shows the maximum expected hand area based on `max_hand_spread` and `card_size`. The preview position reflects `hand_anchor`:
+- **CENTER**: spreads equally left and right from the node position
+- **LEFT**: extends rightward from the node position
+- **RIGHT**: extends leftward from the node position
+
+The preview updates live when `max_hand_spread`, `hand_anchor`, or CardManager's `card_size` is changed in the Inspector.
 
 #### Methods
 

@@ -1,6 +1,6 @@
 # Card Framework
 
-[![Version](https://img.shields.io/badge/version-1.3.2-blue.svg)](https://github.com/hyunjoon/card-framework)
+[![Version](https://img.shields.io/badge/version-1.3.3-blue.svg)](https://github.com/hyunjoon/card-framework)
 [![Godot](https://img.shields.io/badge/Godot-4.6+-green.svg)](https://godotengine.org/)
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE.md)
 [![Platform](https://img.shields.io/badge/platform-cross--platform-lightgrey.svg)]()
@@ -12,8 +12,9 @@
 ## Key Features
 
 • **Drag & Drop System** - Intuitive card interactions with built-in validation  
-• **Flexible Containers** - `Pile` (stacks), `Hand` (fanned layouts), custom containers  
+• **Flexible Containers** - `Pile` (stacks), `Hand` (fanned layouts with `HandAnchor`), custom containers  
 • **JSON Card Data** - Define cards with metadata, images, and custom properties  
+• **Editor Preview** - Visual container previews in the Godot editor with live Inspector updates  
 • **Production Ready** - Complete FreeCell implementation included  
 • **Extensible Architecture** - Factory patterns, inheritance hierarchy, event system
 
@@ -77,6 +78,6 @@ Run: `res://example1/example1.tscn` or `res://freecell/scenes/menu/menu.tscn`
 
 **Framework**: Open source
 **Card Assets**: [Kenney.nl](https://kenney.nl/assets/boardgame-pack) (CC0 License)
-**Version**: 1.3.2 (Godot 4.6+ compatible)
+**Version**: 1.3.3 (Godot 4.6+ compatible)
 
 **Thanks to:** [Kenney.nl](https://kenney.nl/assets/boardgame-pack), [InsideOut-Andrew](https://github.com/insideout-andrew/simple-card-pile-ui), [Rosetta Code FreeCell](https://rosettacode.org/wiki/Deal_cards_for_FreeCell)

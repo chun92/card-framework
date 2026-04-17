@@ -54,3 +54,5 @@ const LAYOUT_MAX_HAND_SPREAD: int = 700
 # Color Constants for Debugging
 ## Color used for sensor outlines and debug indicators
 const DEBUG_OUTLINE_COLOR: Color = Color(1, 0, 0, 1)
+## Color used for card preview rectangles in the editor
+const DEBUG_PREVIEW_COLOR: Color = Color(0.2, 0.6, 1.0, 0.3)

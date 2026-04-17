@@ -1,3 +1,4 @@
+@tool
 ## A fan-shaped card container that arranges cards in an arc formation.
 ##
 ## Hand provides sophisticated card layout using mathematical curves to create
@@ -25,11 +26,26 @@
 class_name Hand
 extends CardContainer
 
+## Determines the anchor point of the hand layout.
+## CENTER: global_position is the center of the hand spread (default)
+## LEFT: global_position is the left edge of the hand spread
+## RIGHT: global_position is the right edge of the hand spread
+enum HandAnchor {
+	CENTER,
+	LEFT,
+	RIGHT,
+}
+
 @export_group("hand_meta_info")
 ## maximum number of cards that can be held.
 @export var max_hand_size := CardFrameworkSettings.LAYOUT_MAX_HAND_SIZE
-## maximum spread of the hand.
-@export var max_hand_spread := CardFrameworkSettings.LAYOUT_MAX_HAND_SPREAD
+## Maximum spread of the hand, defined as the range between the leftmost and rightmost card positions (top-left corners).
+## The actual visual width is wider by approximately one card width, since each card extends beyond its position.
+@export var max_hand_spread := CardFrameworkSettings.LAYOUT_MAX_HAND_SPREAD:
+	set(value):
+		max_hand_spread = value
+		if Engine.is_editor_hint():
+			queue_redraw()
 ## whether the card is face up.
 @export var card_face_up := true
 ## distance the card hovers when interacted with.
@@ -42,6 +58,14 @@ extends CardContainer
 ## vertical curve of the hand.
 ## This works best as a 3-point ease in/out from 0 to X to 0
 @export var hand_vertical_curve : Curve
+
+@export_group("hand_anchor")
+## Anchor point of the hand layout.
+@export var hand_anchor := HandAnchor.CENTER:
+	set(value):
+		hand_anchor = value
+		if Engine.is_editor_hint():
+			queue_redraw()
 
 @export_group("drop_zone")
 ## Determines whether the drop zone size follows the hand size. (requires enable drop zone true)
@@ -56,6 +80,25 @@ var vertical_partitions_from_inside = []
 
 func _ready() -> void:
 	super._ready()
+
+
+func _draw() -> void:
+	if not Engine.is_editor_hint():
+		return
+	_find_editor_card_manager()
+	var _card_size = card_manager.card_size if card_manager else CardFrameworkSettings.LAYOUT_DEFAULT_CARD_SIZE
+
+	# Total visual width = spread range + one card width
+	var total_width = max_hand_spread + _card_size.x
+
+	# X offset depends on anchor: where the hand starts relative to this node's position
+	var offset_x: float
+	match hand_anchor:
+		HandAnchor.CENTER: offset_x = -max_hand_spread / 2.0
+		HandAnchor.LEFT:   offset_x = 0.0
+		HandAnchor.RIGHT:  offset_x = -max_hand_spread
+
+	draw_rect(Rect2(Vector2(offset_x, 0), Vector2(total_width, _card_size.y)), CardFrameworkSettings.DEBUG_PREVIEW_COLOR)
 
 
 ## Returns a random selection of cards from this hand.
@@ -101,7 +144,17 @@ func _update_target_positions() -> void:
 	var _h = card_size.y
 
 	vertical_partitions_from_outside.clear()
+
+	# Calculate anchor offset based on hand_anchor setting to determine how the fan is positioned relative to global_position
+	var anchor_offset = 0.0
+	match hand_anchor:
+		HandAnchor.CENTER: anchor_offset = max_hand_spread / 2.0
+		HandAnchor.LEFT:   anchor_offset = 0.0
+		HandAnchor.RIGHT:  anchor_offset = max_hand_spread
 	
+	@warning_ignore("integer_division")
+	var card_spacing = max_hand_spread / (_held_cards.size() + 1)
+
 	# Calculate position and rotation for each card in the fan arrangement
 	for i in range(_held_cards.size()):
 		var card = _held_cards[i]
@@ -113,9 +166,7 @@ func _update_target_positions() -> void:
 		
 		# Calculate base horizontal position with even spacing
 		var target_pos = global_position
-		@warning_ignore("integer_division")
-		var card_spacing = max_hand_spread / (_held_cards.size() + 1)
-		target_pos.x += (i + 1) * card_spacing - max_hand_spread / 2.0
+		target_pos.x += (i + 1) * card_spacing - anchor_offset
 		
 		# Apply vertical curve displacement for fan shape
 		if hand_vertical_curve:
@@ -179,10 +230,14 @@ func _update_target_positions() -> void:
 		
 	if align_drop_zone_size_with_current_hand_size:
 		if _held_cards.size() == 0:
-			drop_zone.return_sensor_size()
+			var center_x = max_hand_spread / 2.0 - anchor_offset
+			drop_zone.set_sensor_size_flexibly(
+				drop_zone.stored_sensor_size,
+				Vector2(center_x, drop_zone.stored_sensor_position.y)
+			)
 		else:
 			var _size = Vector2(x_max - x_min, y_max - y_min)
-			var _position = Vector2(x_min, y_min) - position
+			var _position = Vector2(x_min, y_min) - global_position
 			drop_zone.set_sensor_size_flexibly(_size, _position)
 		drop_zone.set_vertical_partitions(vertical_partitions_from_outside)
 

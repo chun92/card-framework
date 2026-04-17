@@ -3,13 +3,13 @@ extends Node
 
 @onready var card_manager = $CardManager
 @onready var card_factory = $CardManager/MyCardFactory
-@onready var hand = $CardManager/Hand
-@onready var pile1 = $CardManager/Pile1
-@onready var pile2 = $CardManager/Pile2
-@onready var pile3 = $CardManager/Pile3
-@onready var pile4 = $CardManager/Pile4
-@onready var deck = $CardManager/Deck
-@onready var discard = $CardManager/Discard
+@onready var pile1 = $UpperContainer/Pile1Container/Pile1
+@onready var pile2 = $UpperContainer/Pile2Container/Pile2
+@onready var pile3 = $UpperContainer/Pile3Container/Pile3
+@onready var pile4 = $UpperContainer/Pile4Container/Pile4
+@onready var hand = $LowerContainer/HandContainer/Hand
+@onready var deck = $LowerContainer/DeckContainer/Deck
+@onready var discard = $LowerContainer/DiscardContainer/Discard
 
 
 func _ready():

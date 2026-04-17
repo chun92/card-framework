@@ -1,3 +1,4 @@
+@tool
 ## A stacked card container with directional positioning and interaction controls.
 ##
 ## Pile provides a traditional card stack implementation where cards are arranged
@@ -56,6 +57,10 @@ enum PileDirection {
 @export var align_drop_zone_with_top_card := true
 
 
+func _draw() -> void:
+	super._draw()
+
+
 ## Returns the top n cards from the pile without removing them.
 ## Cards are returned in top-to-bottom order (most recent first).
 ## @param n: Number of cards to retrieve from the top
@@ -101,7 +106,7 @@ func _update_target_positions() -> void:
 	for i in range(_held_cards.size()):
 		var card = _held_cards[i]
 		var offset = _calculate_offset(i)
-		var target_pos = position + offset
+		var target_pos = global_position + offset
 		
 		# Set card appearance and position
 		card.show_front = card_face_up
