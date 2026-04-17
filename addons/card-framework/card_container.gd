@@ -1,3 +1,5 @@
+@tool
+
 ## Abstract base class for all card containers in the card framework.
 ##
 ## CardContainer provides the foundational functionality for managing collections of cards,
@@ -67,6 +69,12 @@ func _init() -> void:
 
 
 func _ready() -> void:
+	if Engine.is_editor_hint():
+		card_manager = _find_card_manager_in_parents()
+		add_to_group("card_containers")
+		queue_redraw()
+		return
+
 	# Check if 'Cards' node already exists
 	if has_node("Cards"):
 		cards_node = $Cards
@@ -75,7 +83,7 @@ func _ready() -> void:
 		cards_node.name = "Cards"
 		cards_node.mouse_filter = Control.MOUSE_FILTER_PASS
 		add_child(cards_node)
-	
+
 	# Find and register with CardManager (requires CardManager to be positioned above CardContainers in scene tree)
 	_find_and_register_card_manager()
 	update_card_ui.call_deferred()
@@ -84,6 +92,21 @@ func _ready() -> void:
 func _exit_tree() -> void:
 	if card_manager != null:
 		card_manager._delete_card_container(unique_id)
+
+
+func _draw() -> void:
+	if not Engine.is_editor_hint():
+		return
+	_find_editor_card_manager()
+	var preview_size = card_manager.card_size if card_manager else CardFrameworkSettings.LAYOUT_DEFAULT_CARD_SIZE
+	draw_rect(Rect2(Vector2.ZERO, preview_size), CardFrameworkSettings.DEBUG_PREVIEW_COLOR)
+
+
+func _find_editor_card_manager() -> void:
+	if card_manager == null and is_inside_tree():
+		var managers = get_tree().get_nodes_in_group("card_managers")
+		if not managers.is_empty():
+			card_manager = managers[0]
 
 
 ## Adds a card to this container at the specified index.

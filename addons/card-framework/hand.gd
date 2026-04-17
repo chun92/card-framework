@@ -1,3 +1,4 @@
+@tool
 ## A fan-shaped card container that arranges cards in an arc formation.
 ##
 ## Hand provides sophisticated card layout using mathematical curves to create
@@ -40,7 +41,11 @@ enum HandAnchor {
 @export var max_hand_size := CardFrameworkSettings.LAYOUT_MAX_HAND_SIZE
 ## Maximum spread of the hand, defined as the range between the leftmost and rightmost card positions (top-left corners).
 ## The actual visual width is wider by approximately one card width, since each card extends beyond its position.
-@export var max_hand_spread := CardFrameworkSettings.LAYOUT_MAX_HAND_SPREAD
+@export var max_hand_spread := CardFrameworkSettings.LAYOUT_MAX_HAND_SPREAD:
+	set(value):
+		max_hand_spread = value
+		if Engine.is_editor_hint():
+			queue_redraw()
 ## whether the card is face up.
 @export var card_face_up := true
 ## distance the card hovers when interacted with.
@@ -56,7 +61,11 @@ enum HandAnchor {
 
 @export_group("hand_anchor")
 ## Anchor point of the hand layout.
-@export var hand_anchor := HandAnchor.CENTER
+@export var hand_anchor := HandAnchor.CENTER:
+	set(value):
+		hand_anchor = value
+		if Engine.is_editor_hint():
+			queue_redraw()
 
 @export_group("drop_zone")
 ## Determines whether the drop zone size follows the hand size. (requires enable drop zone true)
@@ -71,6 +80,25 @@ var vertical_partitions_from_inside = []
 
 func _ready() -> void:
 	super._ready()
+
+
+func _draw() -> void:
+	if not Engine.is_editor_hint():
+		return
+	_find_editor_card_manager()
+	var _card_size = card_manager.card_size if card_manager else CardFrameworkSettings.LAYOUT_DEFAULT_CARD_SIZE
+
+	# Total visual width = spread range + one card width
+	var total_width = max_hand_spread + _card_size.x
+
+	# X offset depends on anchor: where the hand starts relative to this node's position
+	var offset_x: float
+	match hand_anchor:
+		HandAnchor.CENTER: offset_x = -max_hand_spread / 2.0
+		HandAnchor.LEFT:   offset_x = 0.0
+		HandAnchor.RIGHT:  offset_x = -max_hand_spread
+
+	draw_rect(Rect2(Vector2(offset_x, 0), Vector2(total_width, _card_size.y)), CardFrameworkSettings.DEBUG_PREVIEW_COLOR)
 
 
 ## Returns a random selection of cards from this hand.

@@ -1,3 +1,4 @@
+@tool
 ## A stacked card container with directional positioning and interaction controls.
 ##
 ## Pile provides a traditional card stack implementation where cards are arranged
@@ -54,6 +55,10 @@ enum PileDirection {
 @export var restrict_to_top_card: bool = true
 ## Whether drop zone follows the top card position (requires allow_card_movement = true)
 @export var align_drop_zone_with_top_card := true
+
+
+func _draw() -> void:
+	super._draw()
 
 
 ## Returns the top n cards from the pile without removing them.

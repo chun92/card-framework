@@ -43,7 +43,12 @@ const CARD_ACCEPT_TYPE = "card"
 
 
 ## Default size for all cards in the game
-@export var card_size := CardFrameworkSettings.LAYOUT_DEFAULT_CARD_SIZE
+@export var card_size := CardFrameworkSettings.LAYOUT_DEFAULT_CARD_SIZE:
+	set(value):
+		card_size = value
+		if Engine.is_editor_hint() and is_inside_tree():
+			for container in get_tree().get_nodes_in_group("card_containers"):
+				container.queue_redraw()
 ## Scene containing the card factory implementation
 @export var card_factory_scene: PackedScene
 ## Enables visual debugging for drop zones and interactions
@@ -62,10 +67,11 @@ func _init() -> void:
 	
 
 func _ready() -> void:
-	if not _pre_process_exported_variables():
+	if Engine.is_editor_hint():
+		add_to_group("card_managers")
 		return
 
-	if Engine.is_editor_hint():
+	if not _pre_process_exported_variables():
 		return
 
 	# Register CardManager to scene root for flexible CardContainer discovery
