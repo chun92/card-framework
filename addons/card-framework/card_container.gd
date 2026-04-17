@@ -78,6 +78,7 @@ func _ready() -> void:
 	
 	# Find and register with CardManager (requires CardManager to be positioned above CardContainers in scene tree)
 	_find_and_register_card_manager()
+	update_card_ui.call_deferred()
 
 
 func _exit_tree() -> void:
