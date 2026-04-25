@@ -246,21 +246,21 @@ func move_cards(cards: Array, index: int = -1, with_history: bool = true) -> boo
 	# Handle single card reordering within same Hand container
 	if cards.size() == 1 and _held_cards.has(cards[0]) and index >= 0 and index < _held_cards.size():
 		var current_index = _held_cards.find(cards[0])
-		
+
 		# Swap-only mode: exchange two cards directly
 		if swap_only_on_reorder:
 			swap_card(cards[0], index)
 			return true
-		
+
 		# Same position optimization
-		if current_index == index:
+		if current_index == index or current_index == index - 1:
 			# Same card, same position - ensure consistent state
 			update_card_ui()
 			_restore_mouse_interaction(cards)
 			return true
-		
+
 		# Different position: use efficient internal reordering
-		_reorder_card_in_hand(cards[0], current_index, index, with_history)
+		_reorder_card_in_hand(cards[0], current_index, (index if index <= current_index else index - 1), with_history)
 		_restore_mouse_interaction(cards)
 		return true
 
@@ -302,6 +302,6 @@ func _reorder_card_in_hand(card: Card, from_index: int, to_index: int, with_hist
 
 
 func hold_card(card: Card) -> void:
-	if _held_cards.has(card):
+	if swap_only_on_reorder and _held_cards.has(card):
 		drop_zone.set_vertical_partitions(vertical_partitions_from_inside)
 	super.hold_card(card)
