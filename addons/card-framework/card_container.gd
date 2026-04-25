@@ -113,11 +113,11 @@ func _find_editor_card_manager() -> void:
 ## @param card: The card to add
 ## @param index: Position to insert (-1 for end)
 func add_card(card: Card, index: int = -1) -> void:
+	_move_object(card, cards_node, index)
 	if index == -1:
 		_assign_card_to_container(card)
 	else:
 		_insert_card_to_container(card, index)
-	_move_object(card, cards_node, index)
 
 
 ## Removes a card from this container.
@@ -349,10 +349,16 @@ func _card_can_be_added(_cards: Array) -> bool:
 ## Updates the visual positions of all cards in this container.
 ## Call this after modifying card positions or container properties.
 func update_card_ui() -> void:
+	_reorder_card_nodes()
 	_update_target_z_index()
 	_update_target_positions()
 
 
+func _reorder_card_nodes():
+	for i in _held_cards.size():
+		cards_node.move_child(_held_cards[i],i)
+
+		
 func _update_target_z_index() -> void:
 	pass
 
