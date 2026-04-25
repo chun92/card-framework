@@ -271,6 +271,7 @@ func move_cards(cards: Array, index: int = -1, with_history: bool = true) -> boo
 func swap_card(card: Card, index: int) -> void:
 	var current_index = _held_cards.find(card)
 	if current_index == index:
+		update_card_ui()
 		return
 	var temp = _held_cards[current_index]
 	_held_cards[current_index] = _held_cards[index]
