@@ -166,7 +166,7 @@ func _update_target_positions() -> void:
 		
 		# Calculate base horizontal position with even spacing
 		var target_pos = global_position
-		target_pos.x += (i + 1) * card_spacing - anchor_offset
+		target_pos.x += i * card_spacing - anchor_offset
 		
 		# Apply vertical curve displacement for fan shape
 		if hand_vertical_curve:
