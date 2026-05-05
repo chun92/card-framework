@@ -2,235 +2,140 @@
 
 ## Project Overview
 
-**Card Framework** is a professional-grade Godot 4.x addon for creating 2D card games. This lightweight, extensible toolkit supports various card game genres from classic Solitaire to complex TCGs and deck-building roguelikes.
+**Card Framework** is a Godot 4.x addon for building 2D card games (Solitaire, TCGs, deck-builders, etc.). Lightweight, extensible, with drag-and-drop, JSON-driven card data, and editor previews.
 
-### Key Characteristics
-- **Target Engine**: Godot 4.4.1
-- **Architecture**: Modular addon with factory patterns and inheritance hierarchy
-- **License**: Open source with CC0 assets
-- **Status**: Production-ready (v1.1.3) with comprehensive examples
+- **Engine**: Godot 4.6+
+- **License**: MIT
+- **Status**: Production-ready, current version tracked in `README.md`
 
-## Architecture Overview
+For user-facing setup, install steps, and feature highlights, see `README.md`. This file is the contributor/Claude context guide.
+
+## Architecture
 
 ### Core Components
 ```
-CardManager (Root orchestrator)
-├── CardFactory (Abstract) → JsonCardFactory (Concrete)
-├── CardContainer (Abstract) → Pile/Hand (Specialized containers)
+CardManager (root orchestrator, move history)
+├── CardFactory (abstract) → JsonCardFactory (concrete)
+├── CardContainer (abstract) → Pile | Hand
 ├── Card (extends DraggableObject)
-└── DropZone (Interaction handling)
+└── DropZone (interaction sensor)
 ```
 
-### Design Patterns in Use
-- **Factory Pattern**: Flexible card creation via CardFactory/JsonCardFactory
-- **Template Method**: CardContainer with overridable methods for game-specific logic
-- **Observer Pattern**: Event-driven card movement and interaction callbacks
-- **Strategy Pattern**: Pluggable drag-and-drop via DraggableObject inheritance
+### Design Patterns
+- **Factory** — `CardFactory` / `JsonCardFactory` for card creation
+- **Template Method** — `CardContainer` exposes virtual hooks (`check_card_can_be_dropped`, etc.)
+- **Observer** — signal-driven movement and interaction callbacks
+- **Strategy** — drag-and-drop pluggability via `DraggableObject`
 
-### File Structure
-- `addons/card-framework/` - Core framework code
-- `example1/` - Basic demonstration project
-- `freecell/` - Complete FreeCell game implementation
-- `project.godot` - Godot 4.4+ project configuration
+### Repo Layout
+- `addons/card-framework/` — framework source (the addon itself)
+- `example1/` — minimal demo
+- `freecell/` — full FreeCell implementation
+- `docs/` — `GETTING_STARTED.md`, `API.md`, `CHANGELOG.md`, `index.md`
+- `scripts/` — release automation (`create-release.ps1` / `.sh`)
 
-## Development Guidelines
+## Code Standards
 
-### Code Standards
-1. **GDScript Best Practices**
-   - Use strong typing: `func create_card(name: String) -> Card`
-   - Follow naming conventions: `card_container`, `front_face_texture`
-   - Document public APIs with `##` comments
-   - Use `@export` for designer-configurable properties
+### GDScript
+- Strong typing on signatures: `func create_card(name: String) -> Card`
+- `snake_case` for vars/funcs, `PascalCase` for classes
+- `##` doc comments on public APIs
+- `@export` for designer-tunable properties
+- `@tool` blocks must guard editor-only logic (the framework supports in-editor preview)
 
-2. **Godot 4.x Compliance**
-   - Use `class_name` declarations for reusable classes
-   - Prefer `@onready` for node references
-   - Use signals for decoupled communication
-   - Leverage Resource system for configuration (Curve resources)
+### Godot 4.x
+- `class_name` for reusable types
+- `@onready` for node references
+- Signals over direct coupling
+- `Curve` / `Resource` types for tunable configuration
 
-3. **Framework Architecture Rules**
-   - Inherit from CardContainer for new container types
-   - Extend CardFactory for custom card creation logic
-   - Use CardManager as the central orchestrator
-   - Maintain JSON compatibility for card data when using JsonCardFactory
+### Framework Rules
+- Extend, don't modify: subclass `CardContainer`, `Card`, or `CardFactory` rather than editing core
+- Maintain JSON schema compatibility when extending card data
+- `CardManager` stays the central orchestrator — containers and factories register through it
 
-### Extension Patterns
+## Extension Patterns
 
-#### Creating Custom Card Containers
+### Custom Container
 ```gdscript
-class_name MyCustomContainer
+class_name MyContainer
 extends CardContainer
 
 func check_card_can_be_dropped(cards: Array) -> bool:
-    # Implement game-specific rules
-    return true
+    return true  # game-specific rules
 
-func add_card(card: Card, index: int = -1) -> void:
-    # Custom card placement logic
-    super.add_card(card, index)
+func on_card_move_done(card: Card) -> void:
+    # post-movement hook (scoring, win check, etc.)
+    pass
 ```
 
-#### Extending Card Properties
+### Custom Card
 ```gdscript
 class_name GameCard
 extends Card
 
 @export var power: int
 @export var cost: int
-@export var effect: String
 
 func _ready():
     super._ready()
-    # Initialize custom properties from card_info
+    # initialize from card_info
 ```
 
-## Claude Code Usage Patterns
+## Key Configuration
 
-### Quick Commands for Development
+### CardManager
+- `card_size` — default card dimensions
+- `card_factory_scene` — assigned factory
+- `debug_mode` — visualizes drop-zone sensors
 
-#### Analysis and Exploration
-```bash
-# Analyze specific components
-/godot-analyze Card
-/godot-analyze CardContainer
-/godot-analyze "drag and drop system"
+### JsonCardFactory
+- `card_asset_dir` — card image directory
+- `card_info_dir` — JSON card definitions
+- `back_image` — default card back
 
-# Review architecture
-/analyze addons/card-framework/ --focus architecture
-```
-
-#### Implementation Tasks
-```bash
-# Add new features
-/godot-implement "deck shuffling animation"
-/godot-implement "card effect system" 
-
-# Create custom containers
-/godot-implement "discard pile with auto-organize"
-```
-
-#### Testing and Validation
-```bash
-# Create tests
-/godot-test unit Card
-/godot-test integration "hand reordering"
-/godot-test performance "large deck handling"
-```
-
-### Development Workflow
-
-#### 1. Understanding Existing Code
-- Start with `/godot-analyze [component]` to understand structure
-- Use `/analyze` for deeper architectural investigation
-- Read example implementations in `freecell/` for complex patterns
-
-#### 2. Planning New Features
-- Create task breakdown using TodoWrite
-- Consider compatibility with existing CardContainer interface
-- Plan JSON schema changes if extending card properties
-
-#### 3. Implementation Best Practices
-- Always extend base classes rather than modifying core framework
-- Test with both `example1` and `freecell` projects
-- Maintain backwards compatibility with existing JSON card data
-
-#### 4. Quality Assurance
-- Run both example scenes to verify functionality
-- Check performance with large card collections
-- Validate proper cleanup and memory management
-
-## Key Configuration Areas
-
-### CardManager Setup
-- `card_size`: Default dimensions for all cards
-- `card_factory_scene`: Factory responsible for card creation
-- `debug_mode`: Enable visual debugging for drop zones
-
-### CardFactory Configuration  
-- `card_asset_dir`: Location of card image assets
-- `card_info_dir`: Directory containing JSON card definitions
-- `back_image`: Default card back texture
+### Hand
+- `hand_anchor` — `HandAnchor` enum controls fan alignment
 
 ### JSON Card Schema
 ```json
 {
-    "name": "card_identifier",
-    "front_image": "texture_filename.png",
-    "suit": "optional_game_data",
-    "value": "additional_properties"
+    "name": "club_2",
+    "front_image": "cardClubs2.png",
+    "suit": "club",
+    "value": "2"
 }
 ```
 
-## Common Implementation Patterns
+## Common Patterns
 
-### Card Movement and Animation
-- Use `card.move(target_position, rotation)` for programmatic movement
-- Leverage `moving_speed` property for consistent animation timing
-- Handle movement completion via `on_card_move_done()` callbacks
+- **Movement**: `card.move(target_position, rotation_degrees)`; `moving_speed` controls animation; completion via `on_card_move_done()`
+- **Undo/redo**: `move_cards()` records to `CardManager` history
+- **Performance**: `factory.preload_card_data()`, `Pile.max_stack_display` for large stacks
+- **Editor preview**: framework uses `@tool` across containers and factories — layout/preview updates live from the Inspector
+- **Container parents**: `Pile`/`Hand` work as children of Godot `Container` nodes (use `global_position` for sensor math)
 
-### Game Rules Implementation
-- Override `check_card_can_be_dropped()` in custom containers
-- Use `move_cards()` with history tracking for undo/redo support
-- Implement game state validation in container logic
+## Troubleshooting
 
-### Performance Optimization
-- Preload card data using `factory.preload_card_data()`
-- Limit visual card display with `max_stack_display` in Pile containers
-- Use `debug_mode` to identify performance bottlenecks
+- **Cards not appearing** — check `card_asset_dir` and image filenames match JSON `front_image`
+- **JSON errors** — validate syntax and required fields (`name`, `front_image`)
+- **Drag-and-drop dead** — confirm `enable_drop_zone = true` on the container
+- **Sensor misalignment** — likely a `position` vs `global_position` issue when nested in a `Container`
+- **Slow with large decks** — toggle `debug_mode`, then preload data and cap `max_stack_display`
 
-## Integration Points
+## Validation Before Marking Work Done
 
-### Asset Pipeline
-- Card images in `card_asset_dir` (typically PNG format)
-- JSON metadata in `card_info_dir` matching image filenames
-- Support for Kenney.nl asset packs (included in examples)
+- Run both `example1/example1.tscn` and `freecell/scenes/menu/menu.tscn`
+- Check the Godot editor for `@tool` errors (preview must not crash the editor)
+- Confirm JSON-driven cards still load from `card_info_dir`
 
-### Scene Structure
-- CardManager as root node in card-enabled scenes
-- CardContainers as children of CardManager
-- Cards instantiated dynamically via factory pattern
+## Release Process
 
-### Extensibility Hooks
-- Virtual methods in CardContainer for custom behavior
-- Card property extensions via inheritance
-- Factory pattern for alternative card creation strategies
+Full procedure in `scripts/README.md`. Quick reference:
 
-## Task Master AI Integration
-
-This project includes Task Master AI for advanced project management:
-
-```bash
-# Initialize task tracking
-task-master init
-
-# Create tasks from project requirements
-task-master parse-prd .taskmaster/docs/prd.txt
-
-# Track development progress
-task-master next    # Get next task
-task-master show <id>    # View task details
-task-master set-status --id=<id> --status=done
-```
-
-See `.taskmaster/CLAUDE.md` for detailed Task Master workflows.
-
-## Troubleshooting Guide
-
-### Common Issues
-- **Cards not appearing**: Check `card_asset_dir` path and file naming
-- **JSON loading errors**: Verify JSON syntax and required fields
-- **Drag-and-drop issues**: Ensure CardContainer has `enable_drop_zone = true`
-- **Performance problems**: Use `debug_mode` to visualize sensor areas
-
-### Debug Tools
-- Enable `debug_mode` in CardManager for visual debugging
-- Use Godot's remote inspector for runtime state examination
-- Check console output for framework-specific error messages
-
----
-
-*This project demonstrates professional Godot addon development with comprehensive documentation, clean architecture, and production-ready examples. It serves as an excellent foundation for 2D card game development.*
-
-## Task Master AI Instructions
-**Import Task Master's development workflow commands and guidelines, treat as if import is in the main CLAUDE.md file.**
-@./.taskmaster/CLAUDE.md
+1. Bump version in `README.md`, `addons/card-framework/README.md`, and add a `docs/CHANGELOG.md` entry
+2. Build archive: `./scripts/create-release.sh X.Y.Z` (or `.\scripts\create-release.ps1 X.Y.Z`) → outputs `releases/card-framework-vX.Y.Z-full.zip`
+3. Smoke test the archive in Godot (both example scenes)
+4. Tag and push: `git tag -a vX.Y.Z -m "Release vX.Y.Z" && git push origin vX.Y.Z`
+5. Create GitHub Release, upload the `-full.zip`
+6. Update the Asset Library entry if it's a new major/minor

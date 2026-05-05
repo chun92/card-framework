@@ -580,13 +580,29 @@ func _ready():
 
 A container that displays cards in a fan-like hand formation with curves and spacing.
 
+#### Layout Contract
+
+Cards in a Hand are always distributed evenly inside a fixed **layout box** whose
+width is `max_hand_spread + card_w` (so the box extends one card width past the
+rightmost card position). The card distribution inside the box is independent of
+the card count — when cards are added or removed, they redistribute symmetrically
+about the box's center.
+
+`hand_anchor` only chooses where this box sits relative to the node's
+`global_position`. It does **not** change how cards are arranged inside the box,
+which means LEFT and RIGHT modes produce the same fan as CENTER, just shifted.
+
+> Note: with strongly asymmetric `hand_rotation_curve` / `hand_vertical_curve`,
+> the post-rotation bounding box can drift slightly from the layout box. The
+> anchor refers to the layout box, not the post-rotation bbox.
+
 #### Enums
 
 ```gdscript
 enum HandAnchor {
-    CENTER,  # global_position is the center of the hand spread (default)
-    LEFT,    # global_position is the left edge of the hand spread
-    RIGHT,   # global_position is the right edge of the hand spread
+    CENTER,  # global_position aligns with the layout box's visual center (default)
+    LEFT,    # global_position aligns with the layout box's left edge
+    RIGHT,   # global_position aligns with the layout box's right edge
 }
 ```
 
@@ -595,10 +611,10 @@ enum HandAnchor {
 | Property | Type | Default | Description |
 |----------|------|---------|-------------|
 | `max_hand_size` | `int` | `10` | Maximum cards that can be held |
-| `max_hand_spread` | `int` | `700` | Position range between leftmost and rightmost card top-left corners. Actual visual width is wider by approximately one card width. |
+| `max_hand_spread` | `int` | `700` | Position range between leftmost and rightmost card top-left corners. The full layout box width is `max_hand_spread + card_w`. |
 | `card_face_up` | `bool` | `true` | Whether cards show front face |
 | `card_hover_distance` | `int` | `30` | Distance cards hover when interacted with |
-| `hand_anchor` | `HandAnchor` | `CENTER` | Anchor point that determines how the hand spread is positioned relative to the node's position |
+| `hand_anchor` | `HandAnchor` | `CENTER` | Where the layout box is anchored relative to `global_position`. Card distribution inside the box is unchanged across values. |
 
 #### Curve Properties
 
@@ -616,12 +632,12 @@ enum HandAnchor {
 
 #### Editor Preview
 
-The Hand editor preview shows the maximum expected hand area based on `max_hand_spread` and `card_size`. The preview position reflects `hand_anchor`:
-- **CENTER**: spreads equally left and right from the node position
-- **LEFT**: extends rightward from the node position
-- **RIGHT**: extends leftward from the node position
+The Hand editor preview shows the layout box (`max_hand_spread + card_w`) and reflects `hand_anchor`:
+- **CENTER**: box is centered on the node position (extends half-width to each side)
+- **LEFT**: box's left edge sits on the node position (extends rightward)
+- **RIGHT**: box's right edge sits on the node position (extends leftward)
 
-The preview updates live when `max_hand_spread`, `hand_anchor`, or CardManager's `card_size` is changed in the Inspector.
+The preview is a rotation-free approximation; the actual runtime layout reflects the rotation/vertical curves but the box itself remains the anchor reference. The preview updates live when `max_hand_spread`, `hand_anchor`, or CardManager's `card_size` is changed in the Inspector.
 
 #### Methods
 

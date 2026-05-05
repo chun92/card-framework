@@ -4,6 +4,21 @@ All notable changes to Card Framework will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.3.4] - 2026-05-06
+
+### Fixed
+- **Hand Anchor Offset**: `hand_anchor` modes (CENTER/LEFT/RIGHT) now correctly align the layout box to `global_position` ([#31](https://github.com/chun92/card-framework/issues/31))
+  - The fan is laid out inside a fixed layout box of width `max_hand_spread + card_w`; `hand_anchor` only chooses where this box sits relative to `global_position`. Card distribution inside the box is identical across modes, so cards always grow symmetrically about the box's center as the hand count changes.
+- **Empty Hand Drop Zone**: Drop zone sensor for an empty hand now matches the full layout box, so the sensor area no longer jumps when the first card is added.
+- **Card Position Not Reset on Self-Swap**: `Hand.swap_card()` now calls `update_card_ui()` before the early return when a card is dropped on its own slot, so the card animates back to its original position instead of staying where the cursor released it ([#32](https://github.com/chun92/card-framework/issues/32))
+- **Drop Zones When Reordering Without Swap**: `Hand` now uses insert-slot partitions (between cards) when `swap_only_on_reorder` is `false`, and swap-target partitions (on each card) only when `true`. `move_cards()` adjusts the target index for the post-removal insertion so cards land where the user expects, and the rightmost insert slot (index == N) is no longer dropped ([#33](https://github.com/chun92/card-framework/issues/33))
+- **Card Not Selectable After Reordering**: `cards_node` child order is now kept in sync with `_held_cards` via a new `_reorder_card_nodes()` helper called from `update_card_ui()`. Sibling order now matches visual order, so cards are always pickable regardless of reorder history ([#30](https://github.com/chun92/card-framework/issues/30))
+  - Community contribution by [@tarnung](https://github.com/tarnung)
+
+### Changed
+- **`hand_anchor` Documentation**: Clarified the layout-box anchor contract in API docs and inline doc-comments. Anchor refers to the layout box, not to the post-rotation bbox; with strongly asymmetric rotation/vertical curves the post-rotation bbox can drift slightly from the box.
+- **CLAUDE.md**: Streamlined contributor guide and aligned content with the current framework state.
+
 ## [1.3.3] - 2026-04-18
 
 ### Added
