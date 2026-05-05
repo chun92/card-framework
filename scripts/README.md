@@ -7,12 +7,12 @@ Scripts for creating Card Framework releases.
 ### Linux / Mac / Git Bash (Windows)
 ```bash
 chmod +x scripts/create-release.sh
-./scripts/create-release.sh 1.3.1
+./scripts/create-release.sh 1.3.4
 ```
 
 ### Windows PowerShell
 ```powershell
-.\scripts\create-release.ps1 1.3.1
+.\scripts\create-release.ps1 1.3.4
 ```
 
 ## What the Script Does
@@ -43,25 +43,26 @@ chmod +x scripts/create-release.sh
 ### 1. Update Version Numbers
 
 Before running the script, update version in:
-- `addons/card-framework/README.md` (line 27)
-- `README.md` (line 3 and 80)
-- `docs/CHANGELOG.md` (add new entry)
+- `addons/card-framework/README.md` — Version section
+- `README.md` — version badge and Version line
+- `docs/index.md` — Version footer
+- `docs/CHANGELOG.md` — add a new release entry
 
 ### 2. Run Release Script
 
 ```bash
 # Bash
-./scripts/create-release.sh 1.3.1
+./scripts/create-release.sh 1.3.4
 
 # PowerShell
-.\scripts\create-release.ps1 1.3.1
+.\scripts\create-release.ps1 1.3.4
 ```
 
 ### 3. Test the Archive
 
 ```bash
 # Extract to test folder
-unzip releases/card-framework-v1.3.1-full.zip -d test-extract/
+unzip releases/card-framework-v1.3.4-full.zip -d test-extract/
 
 # Open in Godot
 cd test-extract
@@ -75,20 +76,20 @@ godot project.godot
 ### 4. Create Git Tag
 
 ```bash
-git tag -a v1.3.1 -m "Release v1.3.1"
-git push origin v1.3.1
+git tag -a v1.3.4 -m "Release v1.3.4"
+git push origin v1.3.4
 ```
 
 ### 5. Create GitHub Release
 
 1. Go to https://github.com/chun92/card-framework/releases/new
-2. Select tag: `v1.3.1`
-3. Release title: `Card Framework v1.3.1`
-4. Upload `releases/card-framework-v1.3.1-full.zip`
+2. Select tag: `v1.3.4`
+3. Release title: `Card Framework v1.3.4`
+4. Upload `releases/card-framework-v1.3.4-full.zip`
 5. Add release notes:
 
 ```markdown
-## What's New in v1.3.1
+## What's New in v1.3.4
 
 ### Features
 - New feature description
@@ -102,7 +103,7 @@ git push origin v1.3.1
 ## Downloads
 
 - **For Asset Library users:** "Source code (zip)" - Addon only
-- **For learning/development:** "card-framework-v1.3.1-full.zip" - Includes examples and documentation
+- **For learning/development:** "card-framework-v1.3.4-full.zip" - Includes examples and documentation
 
 ## Installation
 
@@ -148,7 +149,7 @@ Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
 ### "Must run from project root" error
 ```bash
 cd /path/to/card-framework
-./scripts/create-release.sh 1.3.1
+./scripts/create-release.sh 1.3.4
 ```
 
 ## Notes
