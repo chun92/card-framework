@@ -275,26 +275,31 @@ func _update_target_positions() -> void:
 
 
 func move_cards(cards: Array, index: int = -1, with_history: bool = true) -> bool:
-	# Handle single card reordering within same Hand container
-	if cards.size() == 1 and _held_cards.has(cards[0]) and index >= 0 and index < _held_cards.size():
-		var current_index = _held_cards.find(cards[0])
+	# Handle single card reordering within same Hand container.
+	# Index range differs by reorder mode:
+	#   swap_only_on_reorder=true  → drop zones map to each card (0..N-1, swap target)
+	#   swap_only_on_reorder=false → drop zones map between cards (0..N, insert slot)
+	if cards.size() == 1 and _held_cards.has(cards[0]) and index >= 0:
+		var max_index = _held_cards.size() - 1 if swap_only_on_reorder else _held_cards.size()
+		if index <= max_index:
+			var current_index = _held_cards.find(cards[0])
 
-		# Swap-only mode: exchange two cards directly
-		if swap_only_on_reorder:
-			swap_card(cards[0], index)
-			return true
+			# Swap-only mode: exchange two cards directly
+			if swap_only_on_reorder:
+				swap_card(cards[0], index)
+				return true
 
-		# Same position optimization
-		if current_index == index or current_index == index - 1:
-			# Same card, same position - ensure consistent state
-			update_card_ui()
+			# Same position optimization (insert slot on either side of own card is no-op)
+			if current_index == index or current_index == index - 1:
+				# Same card, same position - ensure consistent state
+				update_card_ui()
+				_restore_mouse_interaction(cards)
+				return true
+
+			# Different position: use efficient internal reordering
+			_reorder_card_in_hand(cards[0], current_index, (index if index <= current_index else index - 1), with_history)
 			_restore_mouse_interaction(cards)
 			return true
-
-		# Different position: use efficient internal reordering
-		_reorder_card_in_hand(cards[0], current_index, (index if index <= current_index else index - 1), with_history)
-		_restore_mouse_interaction(cards)
-		return true
 
 	# Fall back to parent implementation for other cases
 	return super.move_cards(cards, index, with_history)
