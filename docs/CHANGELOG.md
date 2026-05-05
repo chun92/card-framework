@@ -4,6 +4,16 @@ All notable changes to Card Framework will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Fixed
+- **Hand Anchor Offset**: `hand_anchor` modes (CENTER/LEFT/RIGHT) now correctly align the layout box to `global_position` ([#31](https://github.com/chun92/card-framework/issues/31))
+  - The fan is laid out inside a fixed layout box of width `max_hand_spread + card_w`; `hand_anchor` only chooses where this box sits relative to `global_position`. Card distribution inside the box is identical across modes, so cards always grow symmetrically about the box's center as the hand count changes.
+- **Empty Hand Drop Zone**: Drop zone sensor for an empty hand now matches the full layout box, so the sensor area no longer jumps when the first card is added.
+
+### Changed
+- **`hand_anchor` Documentation**: Clarified the layout-box anchor contract in API docs and inline doc-comments. Anchor refers to the layout box, not to the post-rotation bbox; with strongly asymmetric rotation/vertical curves the post-rotation bbox can drift slightly from the box.
+
 ## [1.3.3] - 2026-04-18
 
 ### Added
