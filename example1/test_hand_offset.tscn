@@ -1,0 +1,133 @@
+[gd_scene format=3 uid="uid://brp7o0j3ysf1p"]
+
+[ext_resource type="Script" uid="uid://unaielegcq43" path="res://example1/test_hand_offset.gd" id="1_script"]
+[ext_resource type="PackedScene" uid="uid://c7u8hryloq7hy" path="res://addons/card-framework/card_manager.tscn" id="2_cm"]
+[ext_resource type="PackedScene" uid="uid://bkpjlq7ggckg6" path="res://addons/card-framework/hand.tscn" id="3_hand"]
+[ext_resource type="PackedScene" uid="uid://diap3gdfbqvjv" path="res://example1/my_card_factory.tscn" id="4_fact"]
+
+[node name="TestHandOffset" type="Control" unique_id=2076096429]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -25.0
+offset_top = 202.0
+offset_right = -25.0
+offset_bottom = 202.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_script")
+
+[node name="CardManager" parent="." unique_id=809314055 instance=ExtResource("2_cm")]
+layout_mode = 0
+card_factory_scene = ExtResource("4_fact")
+debug_mode = true
+
+[node name="Hand" parent="." unique_id=102841684 instance=ExtResource("3_hand")]
+layout_mode = 0
+offset_left = 960.0
+offset_top = 540.0
+offset_right = 960.0
+offset_bottom = 540.0
+sensor_visibility = true
+
+[node name="UI" type="VBoxContainer" parent="." unique_id=1993306701]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 40.0
+offset_right = 760.0
+offset_bottom = 480.0
+theme_override_constants/separation = 6
+
+[node name="InfoLabel" type="Label" parent="UI" unique_id=55120018]
+layout_mode = 2
+text = "..."
+
+[node name="LegendLabel" type="Label" parent="UI" unique_id=808375343]
+layout_mode = 2
+text = "RED  = hand.global_position (framework anchor)
+GREEN = visual center of held cards
+bias_x = GREEN - RED  (target: 0 for CENTER mode)"
+
+[node name="CountLabel" type="Label" parent="UI" unique_id=652739521]
+layout_mode = 2
+text = "Card count:"
+
+[node name="CountRow" type="HBoxContainer" parent="UI" unique_id=64716455]
+layout_mode = 2
+
+[node name="C1" type="Button" parent="UI/CountRow" unique_id=1255980946]
+layout_mode = 2
+text = "1"
+
+[node name="C2" type="Button" parent="UI/CountRow" unique_id=195606984]
+layout_mode = 2
+text = "2"
+
+[node name="C5" type="Button" parent="UI/CountRow" unique_id=1510394275]
+layout_mode = 2
+text = "5"
+
+[node name="C10" type="Button" parent="UI/CountRow" unique_id=683141912]
+layout_mode = 2
+text = "10"
+
+[node name="C12" type="Button" parent="UI/CountRow" unique_id=1035991877]
+layout_mode = 2
+text = "12"
+
+[node name="AnchorLabel" type="Label" parent="UI" unique_id=1144284936]
+layout_mode = 2
+text = "Anchor mode:"
+
+[node name="AnchorRow" type="HBoxContainer" parent="UI" unique_id=318632498]
+layout_mode = 2
+
+[node name="ACenter" type="Button" parent="UI/AnchorRow" unique_id=1579999841]
+layout_mode = 2
+text = "CENTER"
+
+[node name="ALeft" type="Button" parent="UI/AnchorRow" unique_id=1744224833]
+layout_mode = 2
+text = "LEFT"
+
+[node name="ARight" type="Button" parent="UI/AnchorRow" unique_id=981241080]
+layout_mode = 2
+text = "RIGHT"
+
+[node name="SpreadLabel" type="Label" parent="UI" unique_id=1844562158]
+layout_mode = 2
+text = "max_hand_spread:"
+
+[node name="SpreadRow" type="HBoxContainer" parent="UI" unique_id=94045809]
+layout_mode = 2
+
+[node name="S300" type="Button" parent="UI/SpreadRow" unique_id=1752610279]
+layout_mode = 2
+text = "300"
+
+[node name="S600" type="Button" parent="UI/SpreadRow" unique_id=1373535199]
+layout_mode = 2
+text = "600"
+
+[node name="S900" type="Button" parent="UI/SpreadRow" unique_id=1756399086]
+layout_mode = 2
+text = "900"
+
+[node name="S1200" type="Button" parent="UI/SpreadRow" unique_id=1415864008]
+layout_mode = 2
+text = "1200"
+
+[connection signal="pressed" from="UI/CountRow/C1" to="." method="_on_count_1"]
+[connection signal="pressed" from="UI/CountRow/C2" to="." method="_on_count_2"]
+[connection signal="pressed" from="UI/CountRow/C5" to="." method="_on_count_5"]
+[connection signal="pressed" from="UI/CountRow/C10" to="." method="_on_count_10"]
+[connection signal="pressed" from="UI/CountRow/C12" to="." method="_on_count_12"]
+[connection signal="pressed" from="UI/AnchorRow/ACenter" to="." method="_on_anchor_center"]
+[connection signal="pressed" from="UI/AnchorRow/ALeft" to="." method="_on_anchor_left"]
+[connection signal="pressed" from="UI/AnchorRow/ARight" to="." method="_on_anchor_right"]
+[connection signal="pressed" from="UI/SpreadRow/S300" to="." method="_on_spread_300"]
+[connection signal="pressed" from="UI/SpreadRow/S600" to="." method="_on_spread_600"]
+[connection signal="pressed" from="UI/SpreadRow/S900" to="." method="_on_spread_900"]
+[connection signal="pressed" from="UI/SpreadRow/S1200" to="." method="_on_spread_1200"]

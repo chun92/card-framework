@@ -5,9 +5,25 @@
 ## natural-looking card arrangements. Cards are positioned in a fan pattern
 ## with configurable spread, rotation, and vertical displacement.
 ##
+## Layout contract:
+## Cards are always distributed evenly inside a fixed layout box of width
+## (max_hand_spread + card_w) and centered relative to that box. As the hand
+## count changes, cards grow symmetrically from the center of the box —
+## hand_anchor only changes where the box itself sits relative to the node's
+## global_position; it does NOT change card distribution within the box.
+##
+## hand_anchor values:
+##   CENTER → box's visual center sits on global_position (default)
+##   LEFT   → box's left edge   sits on global_position
+##   RIGHT  → box's right edge  sits on global_position
+##
+## Note: with strongly asymmetric rotation_curve / vertical_curve the post-rotation
+## bbox can drift slightly from the layout box. The anchor refers to the layout
+## box, not to the post-rotation bbox.
+##
 ## Key Features:
 ## - Fan-shaped card arrangement with customizable curves
-## - Smooth card reordering with optional swap-only mode  
+## - Smooth card reordering with optional swap-only mode
 ## - Dynamic drop zone sizing to match hand spread
 ## - Configurable card limits and hover distances
 ## - Mathematical positioning using Curve resources
@@ -26,10 +42,12 @@
 class_name Hand
 extends CardContainer
 
-## Determines the anchor point of the hand layout.
-## CENTER: global_position is the center of the hand spread (default)
-## LEFT: global_position is the left edge of the hand spread
-## RIGHT: global_position is the right edge of the hand spread
+## Anchor of the hand's layout box (width = max_hand_spread + card_w) relative
+## to the node's global_position. Card distribution inside the box is identical
+## across all values — only the box's placement changes.
+##   CENTER: global_position aligns with the box's visual center (default)
+##   LEFT:   global_position aligns with the box's left edge
+##   RIGHT:  global_position aligns with the box's right edge
 enum HandAnchor {
 	CENTER,
 	LEFT,
@@ -60,7 +78,9 @@ enum HandAnchor {
 @export var hand_vertical_curve : Curve
 
 @export_group("hand_anchor")
-## Anchor point of the hand layout.
+## Where the hand's layout box is anchored relative to global_position.
+## Card distribution inside the box stays the same across all values — this only
+## moves the box (and therefore the whole fan) left/right. See HandAnchor enum.
 @export var hand_anchor := HandAnchor.CENTER:
 	set(value):
 		hand_anchor = value
@@ -88,15 +108,15 @@ func _draw() -> void:
 	_find_editor_card_manager()
 	var _card_size = card_manager.card_size if card_manager else CardFrameworkSettings.LAYOUT_DEFAULT_CARD_SIZE
 
-	# Total visual width = spread range + one card width
+	# Editor preview is a rotation-free approximation of the fan bounds:
+	# spread range + one card width. Runtime layout uses true rotated bbox.
 	var total_width = max_hand_spread + _card_size.x
 
-	# X offset depends on anchor: where the hand starts relative to this node's position
 	var offset_x: float
 	match hand_anchor:
-		HandAnchor.CENTER: offset_x = -max_hand_spread / 2.0
+		HandAnchor.CENTER: offset_x = -(max_hand_spread + _card_size.x) / 2.0
 		HandAnchor.LEFT:   offset_x = 0.0
-		HandAnchor.RIGHT:  offset_x = -max_hand_spread
+		HandAnchor.RIGHT:  offset_x = -(max_hand_spread + _card_size.x)
 
 	draw_rect(Rect2(Vector2(offset_x, 0), Vector2(total_width, _card_size.y)), CardFrameworkSettings.DEBUG_PREVIEW_COLOR)
 
@@ -134,6 +154,15 @@ func _update_target_z_index() -> void:
 
 ## Calculates target positions for all cards using mathematical curves.
 ## Implements sophisticated fan-shaped arrangement with rotation and vertical displacement.
+##
+## Anchor model: the fan is always laid out centered inside a fixed visual box of
+## (max_hand_spread + card_w). hand_anchor only chooses where that box sits relative
+## to global_position — CENTER places its visual center on global_position, LEFT
+## places its left edge there, RIGHT its right edge. Card distribution within the
+## box is identical for all anchors, so cards always grow symmetrically from the
+## center as the count changes. With strongly asymmetric rotation/vertical curves
+## the true rotated bbox can drift from this approximation; that's intentional —
+## the anchor refers to the layout box, not the post-rotation bbox.
 func _update_target_positions() -> void:
 	var x_min: float
 	var x_max: float
@@ -145,59 +174,61 @@ func _update_target_positions() -> void:
 
 	vertical_partitions_from_outside.clear()
 
-	# Calculate anchor offset based on hand_anchor setting to determine how the fan is positioned relative to global_position
+	# Anchor offset: distance from the layout box's left edge to global_position.x.
+	# The layout box width is max_hand_spread + card_w (spread is between top-left
+	# corners; visual extent extends one card width past the rightmost card).
 	var anchor_offset = 0.0
 	match hand_anchor:
-		HandAnchor.CENTER: anchor_offset = max_hand_spread / 2.0
+		HandAnchor.CENTER: anchor_offset = (max_hand_spread + _w) / 2.0
 		HandAnchor.LEFT:   anchor_offset = 0.0
-		HandAnchor.RIGHT:  anchor_offset = max_hand_spread
-	
+		HandAnchor.RIGHT:  anchor_offset = max_hand_spread + _w
+
 	@warning_ignore("integer_division")
 	var card_spacing = max_hand_spread / (_held_cards.size() + 1)
 
 	# Calculate position and rotation for each card in the fan arrangement
 	for i in range(_held_cards.size()):
 		var card = _held_cards[i]
-		
+
 		# Calculate normalized position ratio (0.0 to 1.0) for curve sampling
 		var hand_ratio = 0.5  # Single card centered
 		if _held_cards.size() > 1:
 			hand_ratio = float(i) / float(_held_cards.size() - 1)
-		
+
 		# Calculate base horizontal position with even spacing
 		var target_pos = global_position
 		target_pos.x += (i + 1) * card_spacing - anchor_offset
-		
+
 		# Apply vertical curve displacement for fan shape
 		if hand_vertical_curve:
 			target_pos.y -= hand_vertical_curve.sample(hand_ratio)
-		
+
 		# Apply rotation curve for realistic card fanning
 		var target_rotation = 0
 		if hand_rotation_curve:
 			target_rotation = deg_to_rad(hand_rotation_curve.sample(hand_ratio))
-		
+
 		# Calculate rotated card bounding box for drop zone partitioning
 		# This complex math determines the actual screen space occupied by each rotated card
 		var _x = target_pos.x
 		var _y = target_pos.y
-		
+
 		# Calculate angles to card corners after rotation
 		var _t1 = atan2(_h, _w) + target_rotation      # bottom-right corner
-		var _t2 = atan2(_h, -_w) + target_rotation     # bottom-left corner  
+		var _t2 = atan2(_h, -_w) + target_rotation     # bottom-left corner
 		var _t3 = _t1 + PI + target_rotation           # top-left corner
 		var _t4 = _t2 + PI + target_rotation           # top-right corner
-		
+
 		# Card center and radius for corner calculation
 		var _c = Vector2(_x + _w / 2, _y + _h / 2)     # card center
 		var _r = sqrt(pow(_w / 2, 2.0) + pow(_h / 2, 2.0))  # diagonal radius
-		
+
 		# Calculate actual corner positions after rotation
 		var _p1 = Vector2(_r * cos(_t1), _r * sin(_t1)) + _c # right bottom
 		var _p2 = Vector2(_r * cos(_t2), _r * sin(_t2)) + _c # left bottom
 		var _p3 = Vector2(_r * cos(_t3), _r * sin(_t3)) + _c # left top
 		var _p4 = Vector2(_r * cos(_t4), _r * sin(_t4)) + _c # right top
-		
+
 		# Find bounding box of rotated card
 		var current_x_min = min(_p1.x, _p2.x, _p3.x, _p4.x)
 		var current_x_max = max(_p1.x, _p2.x, _p3.x, _p4.x)
@@ -205,11 +236,11 @@ func _update_target_positions() -> void:
 		var current_y_max = max(_p1.y, _p2.y, _p3.y, _p4.y)
 		var current_x_mid = (current_x_min + current_x_max) / 2
 		vertical_partitions_from_outside.append(current_x_mid)
-		
+
 		if i == 0:
 			x_min = current_x_min
 			x_max = current_x_max
-			y_min = current_y_min 
+			y_min = current_y_min
 			y_max = current_y_max
 		else:
 			x_min = minf(x_min, current_x_min)
@@ -227,14 +258,15 @@ func _update_target_positions() -> void:
 		for j in range(vertical_partitions_from_outside.size() - 1):
 			var mid = (vertical_partitions_from_outside[j] + vertical_partitions_from_outside[j + 1]) / 2.0
 			vertical_partitions_from_inside.append(mid)
-		
+
 	if align_drop_zone_size_with_current_hand_size:
 		if _held_cards.size() == 0:
-			var center_x = max_hand_spread / 2.0 - anchor_offset
-			drop_zone.set_sensor_size_flexibly(
-				drop_zone.stored_sensor_size,
-				Vector2(center_x, drop_zone.stored_sensor_position.y)
-			)
+			# Empty hand: size the sensor to the full layout box so it doesn't
+			# jump when the first card arrives. Position is the box's left edge
+			# in local space (= -anchor_offset from global_position).
+			var box_size = Vector2(max_hand_spread + _w, _h)
+			var box_position = Vector2(-anchor_offset, drop_zone.stored_sensor_position.y)
+			drop_zone.set_sensor_size_flexibly(box_size, box_position)
 		else:
 			var _size = Vector2(x_max - x_min, y_max - y_min)
 			var _position = Vector2(x_min, y_min) - global_position
