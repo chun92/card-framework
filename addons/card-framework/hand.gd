@@ -235,8 +235,6 @@ func _update_target_positions() -> void:
 			y_max = maxf(y_max, current_y_max)
 
 		card.move(target_pos, target_rotation)
-		card.show_front = card_face_up
-		card.can_be_interacted_with = true
 
 	# Calculate midpoints between consecutive values in vertical_partitions_from_outside
 	vertical_partitions_from_inside.clear()
@@ -258,6 +256,13 @@ func _update_target_positions() -> void:
 			var _position = Vector2(x_min, y_min) - global_position
 			drop_zone.set_sensor_size_flexibly(_size, _position)
 		drop_zone.set_vertical_partitions(vertical_partitions_from_outside)
+
+
+## Applies per-card display and interaction defaults for the Hand.
+func _update_card_states() -> void:
+	for card in _held_cards:
+		card.show_front = card_face_up
+		card.can_be_interacted_with = true
 
 
 func move_cards(cards: Array, index: int = -1, with_history: bool = true) -> bool:
@@ -363,18 +368,6 @@ func get_target_pose_for(card: Card) -> Dictionary:
 	@warning_ignore("integer_division")
 	var card_spacing: float = max_hand_spread / (_held_cards.size() + 1)
 	return _compute_pose(idx, _held_cards.size(), card_spacing, anchor_offset)
-
-
-## Position-only reapply (no show_front / interaction state changes).
-func _reapply_card_positions() -> void:
-	if _held_cards.is_empty():
-		return
-	var anchor_offset := _current_anchor_offset()
-	@warning_ignore("integer_division")
-	var card_spacing: float = max_hand_spread / (_held_cards.size() + 1)
-	for i in range(_held_cards.size()):
-		var pose := _compute_pose(i, _held_cards.size(), card_spacing, anchor_offset)
-		_held_cards[i].move(pose["position"], pose["rotation"])
 
 
 func _current_anchor_offset() -> float:

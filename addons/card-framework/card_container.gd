@@ -15,7 +15,8 @@
 ##
 ## Virtual Methods to Override:
 ## - _card_can_be_added(): Define container-specific rules
-## - _update_target_positions(): Implement container layout logic
+## - _update_target_positions(): Layout for held cards (positions + drop zone)
+## - _update_card_states(): Per-card display + interaction defaults
 ## - on_card_move_done(): Handle post-movement processing
 ##
 ## Usage:
@@ -64,8 +65,8 @@ var debug_mode := false
 
 # Deferred reapply coalescing — multiple add_card() calls in the same frame
 # (e.g. dealing 52 cards from a factory) collapse to a single deferred
-# _reapply_card_positions instead of N enqueued copies, keeping the post-sort
-# pass O(n) rather than O(n²).
+# layout pass instead of N enqueued copies, keeping the post-sort work O(n)
+# rather than O(n²).
 var _reapply_pending: bool = false
 
 
@@ -309,11 +310,11 @@ func _assign_card_to_container(card: Card) -> void:
 	if not _held_cards.has(card):
 		_held_cards.append(card)
 	update_card_ui()
-	# Re-apply positions on the next idle frame so cards added before the
-	# parent Container's deferred sort settles get repositioned against the
-	# final layout. Position-only — does NOT touch show_front or
-	# can_be_interacted_with, so external game logic (e.g. Freecell's
-	# update_all_tableaus_cards_can_be_interactwith) survives this pass.
+	# Run a layout-only reapply on the next idle frame so cards added before
+	# the parent Container's deferred sort settles are repositioned against
+	# the final layout. _update_card_states is intentionally NOT called from
+	# the deferred path so external game logic (e.g. Freecell's
+	# update_all_tableaus_cards_can_be_interactwith) survives.
 	_queue_reapply_card_positions()
 
 
@@ -330,10 +331,10 @@ func _insert_card_to_container(card: Card, index: int) -> void:
 	_queue_reapply_card_positions()
 
 
-## Schedules a single deferred _reapply_card_positions per frame. Bulk
-## add_card() flows (factory dealing the deck) call this many times in a row;
-## the _reapply_pending guard collapses them into one deferred pass so we
-## iterate _held_cards once instead of N times.
+## Schedules a single deferred layout reapply per frame. Bulk add_card()
+## flows (factory dealing the deck) call this many times in a row; the
+## _reapply_pending guard collapses them into one deferred pass so we iterate
+## _held_cards once instead of N times.
 func _queue_reapply_card_positions() -> void:
 	if _reapply_pending:
 		return
@@ -345,7 +346,9 @@ func _run_reapply_card_positions() -> void:
 	_reapply_pending = false
 	if not is_inside_tree():
 		return
-	_reapply_card_positions()
+	# Layout-only refresh — card states are intentionally not touched so
+	# external game logic that manages interaction/visibility survives.
+	_update_target_positions()
 
 
 func _move_to_card_container(_card: Card, index: int = -1) -> void:
@@ -377,32 +380,44 @@ func _card_can_be_added(_cards: Array) -> bool:
 	return true
 
 
-## Updates the visual positions of all cards in this container.
-## Call this after modifying card positions or container properties.
+## Updates the full visual state of all cards in this container: child order,
+## z-index, layout (positions + drop-zone geometry), then card state
+## (show_front, interaction flags). Call after modifying card collection or
+## container properties.
 func update_card_ui() -> void:
 	_reorder_card_nodes()
 	_update_target_z_index()
 	_update_target_positions()
+	_update_card_states()
 
 
 func _reorder_card_nodes():
 	for i in _held_cards.size():
 		cards_node.move_child(_held_cards[i],i)
 
-		
+
 func _update_target_z_index() -> void:
 	pass
 
 
+## Updates layout for held cards: per-card positions/rotations and any
+## drop-zone geometry that depends on them (e.g. Hand's vertical partitions).
+## Must NOT touch show_front or can_be_interacted_with — those belong to
+## _update_card_states. The deferred reapply path that runs after the parent
+## Container's sort settles calls this method directly, so any state
+## leakage here would stomp on external game logic that manages card state
+## (e.g. Freecell's update_all_tableaus_cards_can_be_interactwith).
 func _update_target_positions() -> void:
 	pass
 
 
-## Position-only re-layout used by the deferred reapply that runs after the
-## parent Container's sort settles. Subclasses override to call card.move()
-## per held card without touching show_front or can_be_interacted_with so
-## external game state survives.
-func _reapply_card_positions() -> void:
+## Updates per-card display and interaction state (show_front,
+## can_be_interacted_with). Override in subclasses that have container-level
+## defaults for these fields. Game-specific code that owns interaction state
+## (e.g. Freecell tableaux) typically applies its own state AFTER
+## update_card_ui returns; the deferred reapply path skips this method so
+## that external state survives.
+func _update_card_states() -> void:
 	pass
 
 

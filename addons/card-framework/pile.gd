@@ -89,8 +89,9 @@ func _update_target_z_index() -> void:
 			card.stored_z_index = i
 
 
-## Updates visual positions and interaction states for all cards in the pile.
-## Positions cards according to layout direction and applies interaction restrictions.
+## Updates per-card target positions and aligns the drop zone with the top
+## card. Layout only — does not touch show_front or can_be_interacted_with;
+## see _update_card_states for those.
 func _update_target_positions() -> void:
 	# Calculate top card position for drop zone alignment
 	var last_index = _held_cards.size() - 1
@@ -102,23 +103,21 @@ func _update_target_positions() -> void:
 	if enable_drop_zone and align_drop_zone_with_top_card:
 		drop_zone.change_sensor_position_with_offset(last_offset)
 
-	# Position each card and set interaction state
+	for i in range(_held_cards.size()):
+		_held_cards[i].move(_target_position_for_index(i), 0)
+
+
+## Applies per-card display (face direction) and interaction restrictions
+## according to the pile's configuration.
+func _update_card_states() -> void:
 	for i in range(_held_cards.size()):
 		var card = _held_cards[i]
-		var target_pos = _target_position_for_index(i)
-
-		# Set card appearance and position
 		card.show_front = card_face_up
-		card.move(target_pos, 0)
 
-		# Apply interaction restrictions
 		if not allow_card_movement:
 			card.can_be_interacted_with = false
 		elif restrict_to_top_card:
-			if i == _held_cards.size() - 1:
-				card.can_be_interacted_with = true
-			else:
-				card.can_be_interacted_with = false
+			card.can_be_interacted_with = (i == _held_cards.size() - 1)
 		else:
 			card.can_be_interacted_with = true
 
@@ -136,12 +135,6 @@ func get_target_pose_for(card: Card) -> Dictionary:
 	if idx == -1:
 		return {}
 	return {"position": _target_position_for_index(idx), "rotation": 0.0}
-
-
-## Position-only reapply (no show_front / interaction state changes).
-func _reapply_card_positions() -> void:
-	for i in range(_held_cards.size()):
-		_held_cards[i].move(_target_position_for_index(i), 0)
 
 ## Calculates the visual offset for a card at the given index in the stack.
 ## Respects max_stack_display limit to prevent excessive visual spreading.
