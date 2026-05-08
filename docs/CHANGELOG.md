@@ -56,6 +56,27 @@ func _update_card_states() -> void:
 
 If your override only does layout (positions, drop-zone math), no migration is needed.
 
+#### Optional: opt-in `get_target_pose_for(card)` for layout-race-safe return
+
+`Card.return_card` now queries the owning container for an on-demand slot pose so a returning card lands at its current slot regardless of any layout shift since the card was last placed. The base implementation returns `{}` and `Card.return_card` falls back to the cached coordinate, so custom subclasses that don't implement this hook continue to work exactly as in 1.3.x — they just won't benefit from the #38 fix in scenarios where the container is repositioned by a parent Godot `Container` (or window resize, dynamic re-layout, etc.) after cards are placed.
+
+To opt in, implement `get_target_pose_for(card: Card) -> Dictionary`. Return `{"position": Vector2, "rotation": float}` for held cards, or `{}` for unknown cards. The math should mirror what your `_update_target_positions` would produce for that card's index given the container's current state:
+
+```gdscript
+class_name MyContainer extends CardContainer
+
+func get_target_pose_for(card: Card) -> Dictionary:
+    var idx = _held_cards.find(card)
+    if idx == -1:
+        return {}
+    return {
+        "position": global_position + my_offset_for(idx),
+        "rotation": 0.0,
+    }
+```
+
+Recommended whenever the container is laid out by a parent Godot `Container` node, because the layout-race that motivated #38 applies to every such case — not just `Pile`/`Hand`.
+
 ## [1.3.4] - 2026-05-06
 
 ### Fixed
