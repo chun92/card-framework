@@ -418,10 +418,29 @@ Updates visual positioning and appearance of all cards.
 Returns true if the specified cards can be added to this container. Base implementation always returns true.
 
 ##### _update_target_positions() -> void
-Calculates and applies target positions for all cards.
+Layout pass for held cards. Computes target positions/rotations and applies them
+via `card.move()`, plus any drop-zone geometry that depends on them (e.g. Hand's
+vertical partitions). **Must NOT touch `show_front` or `can_be_interacted_with`**
+— card-state belongs to `_update_card_states`. The deferred reapply path that
+runs after the parent Container's sort settles calls this method directly, so
+state leakage here would stomp on external game logic that owns those fields.
+
+##### _update_card_states() -> void
+Per-card display + interaction defaults (`show_front`, `can_be_interacted_with`).
+Override in subclasses that have container-level defaults for these fields.
+Game-specific code that owns interaction state (e.g. Freecell tableaux) typically
+applies its own state AFTER `update_card_ui()` returns; the deferred reapply path
+intentionally skips this method so external state survives layout-only refreshes.
 
 ##### _update_target_z_index() -> void
 Updates Z-index layering for all cards.
+
+##### get_target_pose_for(card: Card) -> Dictionary
+Returns the on-demand `{"position": Vector2, "rotation": float}` slot pose for a
+held card, or `{}` if the card is unknown to this container. `Card.return_card`
+queries this so a returning card lands at its current slot regardless of any
+layout shift since the card was last placed (parent Container reposition,
+window resize, etc.).
 
 ---
 
@@ -953,15 +972,26 @@ class_name CustomPile
 extends CardContainer
 
 @export var max_cards: int = 5
+@export var face_up: bool = true
 
 func _card_can_be_added(cards: Array) -> bool:
     return _held_cards.size() + cards.size() <= max_cards
 
+# Layout: positions only. Called both from update_card_ui() and from the
+# deferred reapply path that runs after the parent Container's sort settles.
 func _update_target_positions():
     for i in range(_held_cards.size()):
         var card = _held_cards[i]
         var offset = Vector2(i * 20, i * 5)  # Slight offset for each card
         card.move(global_position + offset, 0)
+
+# Card state: display + interaction defaults. Called from update_card_ui()
+# only; the deferred reapply path skips this so external game logic that
+# owns interaction state is preserved.
+func _update_card_states():
+    for card in _held_cards:
+        card.show_front = face_up
+        card.can_be_interacted_with = true
 ```
 
 ### Custom Card Factory

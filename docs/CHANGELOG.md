@@ -4,6 +4,23 @@ All notable changes to Card Framework will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.4.0] - Unreleased
+
+### Fixed
+- **Card Return-to-Original Offset After Layout Shift**: Cards captured `original_destination` while the parent Container's deferred sort had not yet positioned the Pile/Hand, leaving the cache pinned to a transient (pre-sort) coordinate. After the sort, dragging a card and dropping it on an invalid zone returned the card to that stale location with a visible offset, most reproducibly when entering the card scene via `change_scene_to_file` from a separate main scene ([#38](https://github.com/chun92/card-framework/issues/38))
+  - `Card.return_card` now asks the owning container for an on-demand target pose via the new `CardContainer.get_target_pose_for()` hook, so a returning card always lands at its current slot regardless of any layout shift since the card was last placed
+  - `_assign_card_to_container` / `_insert_card_to_container` schedule a deferred layout-only reapply so cards added before the parent Container's sort settles get repositioned against the final layout
+  - `DraggableObject.move()` now refreshes the cached "original" on its early-return branch so offset-zero cards (Pile bottom) don't get stuck with stale coordinates
+
+### Changed
+- **BREAKING — `_update_target_positions` Split**: Card-state assignments (`show_front`, `can_be_interacted_with`) moved out of `_update_target_positions` into a new sibling virtual method `_update_card_states()`. `_update_target_positions` is now layout-only (positions, drop-zone geometry) and is the method called by the deferred reapply path. Custom containers that overrode `_update_target_positions` to ALSO assign card state must move that state code into a `_update_card_states()` override; pure-layout overrides are unaffected. See `docs/API.md` for the updated abstract-method contract.
+- **Coalesced Deferred Reapply**: Bulk `add_card()` flows (e.g. dealing 52 cards from a factory in `_ready`) now collapse to a single deferred layout pass per frame instead of N enqueued copies, dropping post-sort work from O(n²) to O(n) move() calls
+
+### Added
+- **`CardContainer.get_target_pose_for(card)` Hook**: Subclasses (Pile, Hand) implement this to compute the slot pose a held card SHOULD be at given the container's current state. Used by `Card.return_card` for layout-race-safe return; opt-in for custom containers (base returns `{}`, in which case `Card.return_card` falls back to the cached coordinate via `DraggableObject.return_to_original`).
+- **`CardContainer._update_card_states()` Virtual Method**: Per-card display + interaction defaults. Override in containers that own these fields container-side; leave to the empty default if game code manages them externally.
+- **Issue #38 Repro Harness**: `example1/repro_main.tscn` exposes three entry paths into example1 (immediate `change_scene_to_file`, after one process frame, and a forced layout-shift variant) for reproducing the bug and verifying regressions after future fixes.
+
 ## [1.3.4] - 2026-05-06
 
 ### Fixed
