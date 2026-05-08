@@ -62,6 +62,12 @@ var cards_node: Control
 var card_manager: CardManager
 var debug_mode := false
 
+# Deferred reapply coalescing — multiple add_card() calls in the same frame
+# (e.g. dealing 52 cards from a factory) collapse to a single deferred
+# _reapply_card_positions instead of N enqueued copies, keeping the post-sort
+# pass O(n) rather than O(n²).
+var _reapply_pending: bool = false
+
 
 func _init() -> void:
 	unique_id = next_id
@@ -308,7 +314,7 @@ func _assign_card_to_container(card: Card) -> void:
 	# final layout. Position-only — does NOT touch show_front or
 	# can_be_interacted_with, so external game logic (e.g. Freecell's
 	# update_all_tableaus_cards_can_be_interactwith) survives this pass.
-	_reapply_card_positions.call_deferred()
+	_queue_reapply_card_positions()
 
 
 func _insert_card_to_container(card: Card, index: int) -> void:
@@ -321,7 +327,25 @@ func _insert_card_to_container(card: Card, index: int) -> void:
 			index = _held_cards.size()
 		_held_cards.insert(index, card)
 	update_card_ui()
-	_reapply_card_positions.call_deferred()
+	_queue_reapply_card_positions()
+
+
+## Schedules a single deferred _reapply_card_positions per frame. Bulk
+## add_card() flows (factory dealing the deck) call this many times in a row;
+## the _reapply_pending guard collapses them into one deferred pass so we
+## iterate _held_cards once instead of N times.
+func _queue_reapply_card_positions() -> void:
+	if _reapply_pending:
+		return
+	_reapply_pending = true
+	_run_reapply_card_positions.call_deferred()
+
+
+func _run_reapply_card_positions() -> void:
+	_reapply_pending = false
+	if not is_inside_tree():
+		return
+	_reapply_card_positions()
 
 
 func _move_to_card_container(_card: Card, index: int = -1) -> void:
