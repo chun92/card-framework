@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://crepromain001"]
+
+[ext_resource type="Script" path="res://example1/repro_main.gd" id="1_repro"]
+
+[node name="ReproMain" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_repro")
+
+[node name="VBox" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -60.0
+offset_right = 160.0
+offset_bottom = 60.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 12
+
+[node name="Title" type="Label" parent="VBox"]
+layout_mode = 2
+text = "Repro for issue #38"
+horizontal_alignment = 1
+
+[node name="Hint" type="Label" parent="VBox"]
+layout_mode = 2
+text = "Press Start, then drag a card outside any drop zone."
+autowrap_mode = 2
+horizontal_alignment = 1
+
+[node name="StartButton" type="Button" parent="VBox"]
+layout_mode = 2
+text = "Start (immediate change_scene)"
+
+[node name="StartDeferredButton" type="Button" parent="VBox"]
+layout_mode = 2
+text = "Start (after one process_frame)"
+
+[node name="StartForcedButton" type="Button" parent="VBox"]
+layout_mode = 2
+text = "Start (force layout shift after load)"
+
+[connection signal="pressed" from="VBox/StartButton" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBox/StartDeferredButton" to="." method="_on_start_deferred_pressed"]
+[connection signal="pressed" from="VBox/StartForcedButton" to="." method="_on_start_forced_pressed"]
