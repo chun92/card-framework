@@ -150,10 +150,24 @@ func has_card(card: Card) -> bool:
 
 ## Removes all cards from this container.
 func clear_cards() -> void:
+	_prune_freed_cards()
 	for card in _held_cards:
 		_remove_object(card)
 	_held_cards.clear()
 	update_card_ui()
+
+
+## Drops any freed Card instances from _held_cards. Defensive guard for the
+## case where game code calls card.queue_free() directly without a matching
+## remove_card(); without this, downstream layout/state loops would touch a
+## freed instance and error out. Normal API flows (remove_card, move_cards,
+## clear_cards) keep _held_cards consistent and this is a no-op for them.
+func _prune_freed_cards() -> void:
+	var i := _held_cards.size() - 1
+	while i >= 0:
+		if not is_instance_valid(_held_cards[i]):
+			_held_cards.remove_at(i)
+		i -= 1
 
 
 ## Checks if the specified cards can be dropped into this container.
@@ -346,6 +360,7 @@ func _run_reapply_card_positions() -> void:
 	_reapply_pending = false
 	if not is_inside_tree():
 		return
+	_prune_freed_cards()
 	# Layout-only refresh — card states are intentionally not touched so
 	# external game logic that manages interaction/visibility survives.
 	_update_target_positions()
@@ -385,6 +400,7 @@ func _card_can_be_added(_cards: Array) -> bool:
 ## (show_front, interaction flags). Call after modifying card collection or
 ## container properties.
 func update_card_ui() -> void:
+	_prune_freed_cards()
 	_reorder_card_nodes()
 	_update_target_z_index()
 	_update_target_positions()
