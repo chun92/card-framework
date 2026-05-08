@@ -4,22 +4,57 @@ All notable changes to Card Framework will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.4.0] - Unreleased
+## [1.4.0] - 2026-05-08
 
 ### Fixed
 - **Card Return-to-Original Offset After Layout Shift**: Cards captured `original_destination` while the parent Container's deferred sort had not yet positioned the Pile/Hand, leaving the cache pinned to a transient (pre-sort) coordinate. After the sort, dragging a card and dropping it on an invalid zone returned the card to that stale location with a visible offset, most reproducibly when entering the card scene via `change_scene_to_file` from a separate main scene ([#38](https://github.com/chun92/card-framework/issues/38))
   - `Card.return_card` now asks the owning container for an on-demand target pose via the new `CardContainer.get_target_pose_for()` hook, so a returning card always lands at its current slot regardless of any layout shift since the card was last placed
   - `_assign_card_to_container` / `_insert_card_to_container` schedule a deferred layout-only reapply so cards added before the parent Container's sort settles get repositioned against the final layout
   - `DraggableObject.move()` now refreshes the cached "original" on its early-return branch so offset-zero cards (Pile bottom) don't get stuck with stale coordinates
+- **Crash on Freed Card in `_held_cards`**: Defensive `_prune_freed_cards()` now drops invalid entries before each layout pass and the deferred reapply, so game code that calls `card.queue_free()` directly without a matching `remove_card()` no longer triggers a runtime error in downstream layout/state loops. Normal API flows already keep `_held_cards` consistent and are unaffected.
 
 ### Changed
-- **BREAKING — `_update_target_positions` Split**: Card-state assignments (`show_front`, `can_be_interacted_with`) moved out of `_update_target_positions` into a new sibling virtual method `_update_card_states()`. `_update_target_positions` is now layout-only (positions, drop-zone geometry) and is the method called by the deferred reapply path. Custom containers that overrode `_update_target_positions` to ALSO assign card state must move that state code into a `_update_card_states()` override; pure-layout overrides are unaffected. See `docs/API.md` for the updated abstract-method contract.
+- **BREAKING — `_update_target_positions` Split**: Card-state assignments (`show_front`, `can_be_interacted_with`) moved out of `_update_target_positions` into a new sibling virtual method `_update_card_states()`. `_update_target_positions` is now layout-only (positions, drop-zone geometry) and is the method called by the deferred reapply path. Custom containers that overrode `_update_target_positions` to ALSO assign card state must move that state code into a `_update_card_states()` override; pure-layout overrides are unaffected. See the **Migration Guide (1.3.x → 1.4.0)** below and `docs/API.md` for the updated abstract-method contract.
 - **Coalesced Deferred Reapply**: Bulk `add_card()` flows (e.g. dealing 52 cards from a factory in `_ready`) now collapse to a single deferred layout pass per frame instead of N enqueued copies, dropping post-sort work from O(n²) to O(n) move() calls
 
 ### Added
 - **`CardContainer.get_target_pose_for(card)` Hook**: Subclasses (Pile, Hand) implement this to compute the slot pose a held card SHOULD be at given the container's current state. Used by `Card.return_card` for layout-race-safe return; opt-in for custom containers (base returns `{}`, in which case `Card.return_card` falls back to the cached coordinate via `DraggableObject.return_to_original`).
 - **`CardContainer._update_card_states()` Virtual Method**: Per-card display + interaction defaults. Override in containers that own these fields container-side; leave to the empty default if game code manages them externally.
 - **Issue #38 Repro Harness**: `example1/repro_main.tscn` exposes three entry paths into example1 (immediate `change_scene_to_file`, after one process frame, and a forced layout-shift variant) for reproducing the bug and verifying regressions after future fixes.
+
+### Migration Guide (1.3.x → 1.4.0)
+
+The only breaking change is the `_update_target_positions` split. **In-tree subclasses (Pile, Hand, Tableau, Foundation, Freecell) are migrated**, so projects that only consume the framework via `Pile`/`Hand` or freecell-style subclasses need no code changes — just bump the version.
+
+You only need to migrate if your project has a **custom CardContainer subclass** whose `_update_target_positions` override sets `card.show_front` or `card.can_be_interacted_with`. Move those assignments into a new `_update_card_states()` override:
+
+```gdscript
+# Before (1.3.x)
+class_name MyContainer extends CardContainer
+
+func _update_target_positions() -> void:
+    for i in range(_held_cards.size()):
+        var card = _held_cards[i]
+        card.move(my_target_for(i), 0)
+        card.show_front = true                # ← moves out
+        card.can_be_interacted_with = true    # ← moves out
+
+# After (1.4.0)
+class_name MyContainer extends CardContainer
+
+func _update_target_positions() -> void:
+    for i in range(_held_cards.size()):
+        _held_cards[i].move(my_target_for(i), 0)
+
+func _update_card_states() -> void:
+    for card in _held_cards:
+        card.show_front = true
+        card.can_be_interacted_with = true
+```
+
+**Why the split matters**: the deferred reapply path (added in 1.4.0 to fix #38) calls `_update_target_positions` *only*. If state assignments stayed in that method, the deferred pass would stomp on game-managed interaction state every frame after the parent Container's sort settles — exactly the kind of bug that breaks games like Freecell where tableau interactability is decided by stacking rules, not container defaults.
+
+If your override only does layout (positions, drop-zone math), no migration is needed.
 
 ## [1.3.4] - 2026-05-06
 

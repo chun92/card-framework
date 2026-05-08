@@ -7,12 +7,12 @@ Scripts for creating Card Framework releases.
 ### Linux / Mac / Git Bash (Windows)
 ```bash
 chmod +x scripts/create-release.sh
-./scripts/create-release.sh 1.3.4
+./scripts/create-release.sh 1.4.0
 ```
 
 ### Windows PowerShell
 ```powershell
-.\scripts\create-release.ps1 1.3.4
+.\scripts\create-release.ps1 1.4.0
 ```
 
 ## What the Script Does
@@ -52,17 +52,17 @@ Before running the script, update version in:
 
 ```bash
 # Bash
-./scripts/create-release.sh 1.3.4
+./scripts/create-release.sh 1.4.0
 
 # PowerShell
-.\scripts\create-release.ps1 1.3.4
+.\scripts\create-release.ps1 1.4.0
 ```
 
 ### 3. Test the Archive
 
 ```bash
 # Extract to test folder
-unzip releases/card-framework-v1.3.4-full.zip -d test-extract/
+unzip releases/card-framework-v1.4.0-full.zip -d test-extract/
 
 # Open in Godot
 cd test-extract
@@ -76,20 +76,20 @@ godot project.godot
 ### 4. Create Git Tag
 
 ```bash
-git tag -a v1.3.4 -m "Release v1.3.4"
-git push origin v1.3.4
+git tag -a v1.4.0 -m "Release v1.4.0"
+git push origin v1.4.0
 ```
 
 ### 5. Create GitHub Release
 
 1. Go to https://github.com/chun92/card-framework/releases/new
-2. Select tag: `v1.3.4`
-3. Release title: `Card Framework v1.3.4`
-4. Upload `releases/card-framework-v1.3.4-full.zip`
+2. Select tag: `v1.4.0`
+3. Release title: `Card Framework v1.4.0`
+4. Upload `releases/card-framework-v1.4.0-full.zip`
 5. Add release notes:
 
 ```markdown
-## What's New in v1.3.4
+## What's New in v1.4.0
 
 ### Features
 - New feature description
@@ -103,7 +103,7 @@ git push origin v1.3.4
 ## Downloads
 
 - **For Asset Library users:** "Source code (zip)" - Addon only
-- **For learning/development:** "card-framework-v1.3.4-full.zip" - Includes examples and documentation
+- **For learning/development:** "card-framework-v1.4.0-full.zip" - Includes examples and documentation
 
 ## Installation
 
@@ -149,7 +149,7 @@ Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
 ### "Must run from project root" error
 ```bash
 cd /path/to/card-framework
-./scripts/create-release.sh 1.3.4
+./scripts/create-release.sh 1.4.0
 ```
 
 ## Notes
