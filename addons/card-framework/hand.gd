@@ -190,23 +190,9 @@ func _update_target_positions() -> void:
 	for i in range(_held_cards.size()):
 		var card = _held_cards[i]
 
-		# Calculate normalized position ratio (0.0 to 1.0) for curve sampling
-		var hand_ratio = 0.5  # Single card centered
-		if _held_cards.size() > 1:
-			hand_ratio = float(i) / float(_held_cards.size() - 1)
-
-		# Calculate base horizontal position with even spacing
-		var target_pos = global_position
-		target_pos.x += (i + 1) * card_spacing - anchor_offset
-
-		# Apply vertical curve displacement for fan shape
-		if hand_vertical_curve:
-			target_pos.y -= hand_vertical_curve.sample(hand_ratio)
-
-		# Apply rotation curve for realistic card fanning
-		var target_rotation = 0
-		if hand_rotation_curve:
-			target_rotation = deg_to_rad(hand_rotation_curve.sample(hand_ratio))
+		var pose := _compute_pose(i, _held_cards.size(), card_spacing, anchor_offset)
+		var target_pos: Vector2 = pose["position"]
+		var target_rotation: float = pose["rotation"]
 
 		# Calculate rotated card bounding box for drop zone partitioning
 		# This complex math determines the actual screen space occupied by each rotated card
@@ -343,3 +329,58 @@ func hold_card(card: Card) -> void:
 	if swap_only_on_reorder and _held_cards.has(card):
 		drop_zone.set_vertical_partitions(vertical_partitions_from_inside)
 	super.hold_card(card)
+
+
+## Computes the global position + rotation for the card at `index` within a hand
+## of size `hand_size`. Pulled out so _update_target_positions and the on-demand
+## get_target_pose_for path produce identical results.
+func _compute_pose(index: int, hand_size: int, card_spacing: float, anchor_offset: float) -> Dictionary:
+	var hand_ratio: float = 0.5  # Single card centered
+	if hand_size > 1:
+		hand_ratio = float(index) / float(hand_size - 1)
+
+	var target_pos := global_position
+	target_pos.x += (index + 1) * card_spacing - anchor_offset
+
+	if hand_vertical_curve:
+		target_pos.y -= hand_vertical_curve.sample(hand_ratio)
+
+	var target_rotation: float = 0.0
+	if hand_rotation_curve:
+		target_rotation = deg_to_rad(hand_rotation_curve.sample(hand_ratio))
+
+	return {"position": target_pos, "rotation": target_rotation}
+
+
+## Returns the on-demand pose for a held card. Mirrors the per-index math used
+## inside _update_target_positions so a card returning after a drag lands on the
+## same slot the layout pass would put it on right now.
+func get_target_pose_for(card: Card) -> Dictionary:
+	var idx := _held_cards.find(card)
+	if idx == -1:
+		return {}
+	var anchor_offset := _current_anchor_offset()
+	@warning_ignore("integer_division")
+	var card_spacing: float = max_hand_spread / (_held_cards.size() + 1)
+	return _compute_pose(idx, _held_cards.size(), card_spacing, anchor_offset)
+
+
+## Position-only reapply (no show_front / interaction state changes).
+func _reapply_card_positions() -> void:
+	if _held_cards.is_empty():
+		return
+	var anchor_offset := _current_anchor_offset()
+	@warning_ignore("integer_division")
+	var card_spacing: float = max_hand_spread / (_held_cards.size() + 1)
+	for i in range(_held_cards.size()):
+		var pose := _compute_pose(i, _held_cards.size(), card_spacing, anchor_offset)
+		_held_cards[i].move(pose["position"], pose["rotation"])
+
+
+func _current_anchor_offset() -> float:
+	var _w: float = card_manager.card_size.x
+	match hand_anchor:
+		HandAnchor.CENTER: return (max_hand_spread + _w) / 2.0
+		HandAnchor.LEFT:   return 0.0
+		HandAnchor.RIGHT:  return max_hand_spread + _w
+	return 0.0

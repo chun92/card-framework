@@ -303,6 +303,12 @@ func _assign_card_to_container(card: Card) -> void:
 	if not _held_cards.has(card):
 		_held_cards.append(card)
 	update_card_ui()
+	# Re-apply positions on the next idle frame so cards added before the
+	# parent Container's deferred sort settles get repositioned against the
+	# final layout. Position-only — does NOT touch show_front or
+	# can_be_interacted_with, so external game logic (e.g. Freecell's
+	# update_all_tableaus_cards_can_be_interactwith) survives this pass.
+	_reapply_card_positions.call_deferred()
 
 
 func _insert_card_to_container(card: Card, index: int) -> void:
@@ -314,7 +320,8 @@ func _insert_card_to_container(card: Card, index: int) -> void:
 		elif index > _held_cards.size():
 			index = _held_cards.size()
 		_held_cards.insert(index, card)
-	update_card_ui()	
+	update_card_ui()
+	_reapply_card_positions.call_deferred()
 
 
 func _move_to_card_container(_card: Card, index: int = -1) -> void:
@@ -365,6 +372,28 @@ func _update_target_z_index() -> void:
 
 func _update_target_positions() -> void:
 	pass
+
+
+## Position-only re-layout used by the deferred reapply that runs after the
+## parent Container's sort settles. Subclasses override to call card.move()
+## per held card without touching show_front or can_be_interacted_with so
+## external game state survives.
+func _reapply_card_positions() -> void:
+	pass
+
+
+## Returns the on-demand target pose for a card that this container holds.
+## Subclasses (Pile, Hand) override this to compute the position/rotation a
+## given card SHOULD be at right now, based on the container's current state.
+## Used by Card.return_card so a returning card lands at its current slot
+## even if the container has been shifted (parent layout, window resize, etc.)
+## since the card was last placed.
+##
+## @param card: Card whose slot pose to compute. Must be present in _held_cards.
+## @returns: Dictionary with "position": Vector2 and "rotation": float, or empty
+##           Dictionary if the card is unknown to this container.
+func get_target_pose_for(card: Card) -> Dictionary:
+	return {}
 
 
 func _move_object(target: Node, to: Node, index: int = -1) -> void:

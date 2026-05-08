@@ -119,7 +119,18 @@ func set_faces(front_face: Texture2D, back_face: Texture2D) -> void:
 
 
 ## Returns the card to its original position with smooth animation.
+##
+## Asks the owning container for the up-to-date target pose so the card lands at
+## its current slot — even if the container has been shifted by parent layout
+## (Container sort, window resize, etc.) since the card's last placement.
+## Falls back to DraggableObject.return_to_original (cached coords) if the
+## container can't supply a pose.
 func return_card() -> void:
+	if card_container:
+		var pose := card_container.get_target_pose_for(self)
+		if not pose.is_empty():
+			move(pose["position"], pose["rotation"])
+			return
 	super.return_to_original()
 
 

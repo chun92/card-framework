@@ -323,8 +323,14 @@ func _on_gui_input(event: InputEvent) -> void:
 ## @param target_destination: Global position to move to
 ## @param degree: Target rotation in radians
 func move(target_destination: Vector2, degree: float) -> void:
-	# Skip if current position and rotation match target
+	# Skip animation if current position and rotation already match the target,
+	# but still refresh the cached "original" so subsequent return_to_original
+	# calls don't fall back to a stale (transient) coordinate. This matters for
+	# bottom-of-pile cards whose offset is zero and therefore hit this branch.
 	if global_position == target_destination and rotation == degree:
+		if not is_returning_to_original:
+			original_destination = target_destination
+			original_rotation = degree
 		return
 
 	# Force transition to MOVING state (highest priority)

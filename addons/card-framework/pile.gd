@@ -97,7 +97,7 @@ func _update_target_positions() -> void:
 	if last_index < 0:
 		last_index = 0
 	var last_offset = _calculate_offset(last_index)
-	
+
 	# Align drop zone with top card if enabled
 	if enable_drop_zone and align_drop_zone_with_top_card:
 		drop_zone.change_sensor_position_with_offset(last_offset)
@@ -105,15 +105,14 @@ func _update_target_positions() -> void:
 	# Position each card and set interaction state
 	for i in range(_held_cards.size()):
 		var card = _held_cards[i]
-		var offset = _calculate_offset(i)
-		var target_pos = global_position + offset
-		
+		var target_pos = _target_position_for_index(i)
+
 		# Set card appearance and position
 		card.show_front = card_face_up
 		card.move(target_pos, 0)
-		
+
 		# Apply interaction restrictions
-		if not allow_card_movement: 
+		if not allow_card_movement:
 			card.can_be_interacted_with = false
 		elif restrict_to_top_card:
 			if i == _held_cards.size() - 1:
@@ -122,6 +121,27 @@ func _update_target_positions() -> void:
 				card.can_be_interacted_with = false
 		else:
 			card.can_be_interacted_with = true
+
+
+## Computes the global position for the card at the given index, evaluated
+## against the pile's current global_position. Shared by _update_target_positions
+## and get_target_pose_for so both stay in sync.
+func _target_position_for_index(index: int) -> Vector2:
+	return global_position + _calculate_offset(index)
+
+
+## Pile cards have no rotation, so rotation is always 0.
+func get_target_pose_for(card: Card) -> Dictionary:
+	var idx = _held_cards.find(card)
+	if idx == -1:
+		return {}
+	return {"position": _target_position_for_index(idx), "rotation": 0.0}
+
+
+## Position-only reapply (no show_front / interaction state changes).
+func _reapply_card_positions() -> void:
+	for i in range(_held_cards.size()):
+		_held_cards[i].move(_target_position_for_index(i), 0)
 
 ## Calculates the visual offset for a card at the given index in the stack.
 ## Respects max_stack_display limit to prevent excessive visual spreading.
