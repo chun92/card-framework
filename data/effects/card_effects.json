@@ -1,0 +1,719 @@
+{
+  "base1-2": {
+    "attacks": {
+      "Hydro Pump": {
+        "function": "damage_plus_per_unpaid_energy_unit",
+        "args": {
+          "energy_type": "Water",
+          "per_energy": 10,
+          "max_counted": 2
+        }
+      }
+    }
+  },
+  "base1-3": {
+    "attacks": {
+      "Double-edge": {
+        "function": "damage_then_damage_self",
+        "args": {
+          "amount": 80
+        }
+      }
+    }
+  },
+  "base1-4": {
+    "attacks": {
+      "Fire Spin": {
+        "function": "discard_energy_cards_then_damage",
+        "args": {
+          "energy_type": "Any",
+          "count": 2
+        }
+      }
+    }
+  },
+  "base1-10": {
+    "attacks": {
+      "Psychic": {
+        "function": "damage_plus_per_defender_energy_card",
+        "args": {
+          "per_energy": 10
+        }
+      }
+    }
+  },
+  "base1-11": {
+    "attacks": {
+      "Thrash": {
+        "function": "damage_plus_on_heads_or_damage_self",
+        "args": {
+          "bonus": 10,
+          "self_damage": 10
+        }
+      }
+    }
+  },
+  "base1-12": {
+    "attacks": {
+      "Fire Blast": {
+        "function": "discard_energy_cards_then_damage",
+        "args": {
+          "energy_type": "Fire",
+          "count": 1
+        }
+      }
+    }
+  },
+  "base1-13": {
+    "attacks": {
+      "Water Gun": {
+        "function": "damage_plus_per_unpaid_energy_unit",
+        "args": {
+          "energy_type": "Water",
+          "per_energy": 10,
+          "max_counted": 2
+        }
+      }
+    }
+  },
+  "base1-14": {
+    "attacks": {
+      "Thunder": {
+        "function": "damage_then_damage_self_on_tails",
+        "args": {
+          "amount": 30
+        }
+      }
+    }
+  },
+  "base1-16": {
+    "attacks": {
+      "Thunder": {
+        "function": "damage_then_damage_self_on_tails",
+        "args": {
+          "amount": 30
+        }
+      },
+      "Thunderbolt": {
+        "function": "discard_all_energy_cards_then_damage",
+        "args": {}
+      }
+    }
+  },
+  "base1-17": {
+    "attacks": {
+      "Twineedle": {
+        "function": "damage_times_heads",
+        "args": {
+          "coins": 2
+        }
+      }
+    }
+  },
+  "base1-18": {
+    "attacks": {
+      "Slam": {
+        "function": "damage_times_heads",
+        "args": {
+          "coins": 2
+        }
+      }
+    }
+  },
+  "base1-20": {
+    "attacks": {
+      "Thunderpunch": {
+        "function": "damage_plus_on_heads_or_damage_self",
+        "args": {
+          "bonus": 10,
+          "self_damage": 10
+        }
+      }
+    }
+  },
+  "base1-21": {
+    "attacks": {
+      "Electric Shock": {
+        "function": "damage_then_damage_self_on_tails",
+        "args": {
+          "amount": 10
+        }
+      }
+    }
+  },
+  "base1-23": {
+    "attacks": {
+      "Flamethrower": {
+        "function": "discard_energy_cards_then_damage",
+        "args": {
+          "energy_type": "Fire",
+          "count": 1
+        }
+      },
+      "Take Down": {
+        "function": "damage_then_damage_self",
+        "args": {
+          "amount": 30
+        }
+      }
+    }
+  },
+  "base1-24": {
+    "attacks": {
+      "Flamethrower": {
+        "function": "discard_energy_cards_then_damage",
+        "args": {
+          "energy_type": "Fire",
+          "count": 1
+        }
+      }
+    }
+  },
+  "base1-31": {
+    "attacks": {
+      "Doubleslap": {
+        "function": "damage_times_heads",
+        "args": {
+          "coins": 2
+        }
+      },
+      "Meditate": {
+        "function": "damage_plus_per_defender_counter",
+        "args": {
+          "per_counter": 10
+        }
+      }
+    }
+  },
+  "base1-34": {
+    "attacks": {
+      "Karate Chop": {
+        "function": "damage_minus_per_own_counter",
+        "args": {
+          "per_counter": 10
+        }
+      },
+      "Submission": {
+        "function": "damage_then_damage_self",
+        "args": {
+          "amount": 20
+        }
+      }
+    }
+  },
+  "base1-35": {
+    "attacks": {
+      "Flail": {
+        "function": "damage_times_own_counters",
+        "args": {}
+      }
+    }
+  },
+  "base1-36": {
+    "attacks": {
+      "Flamethrower": {
+        "function": "discard_energy_cards_then_damage",
+        "args": {
+          "energy_type": "Fire",
+          "count": 1
+        }
+      }
+    }
+  },
+  "base1-37": {
+    "attacks": {
+      "Double Kick": {
+        "function": "damage_times_heads",
+        "args": {
+          "coins": 2
+        }
+      }
+    }
+  },
+  "base1-38": {
+    "attacks": {
+      "Doubleslap": {
+        "function": "damage_times_heads",
+        "args": {
+          "coins": 2
+        }
+      }
+    }
+  },
+  "base1-46": {
+    "attacks": {
+      "Ember": {
+        "function": "discard_energy_cards_then_damage",
+        "args": {
+          "energy_type": "Fire",
+          "count": 1
+        }
+      }
+    }
+  },
+  "base1-48": {
+    "attacks": {
+      "Fury Attack": {
+        "function": "damage_times_heads",
+        "args": {
+          "coins": 2
+        }
+      }
+    }
+  },
+  "base1-55": {
+    "attacks": {
+      "Horn Hazard": {
+        "function": "damage_times_heads",
+        "args": {
+          "coins": 1
+        }
+      }
+    }
+  },
+  "base1-58": {
+    "attacks": {
+      "Thunder Jolt": {
+        "function": "damage_then_damage_self_on_tails",
+        "args": {
+          "amount": 10
+        }
+      }
+    }
+  },
+  "base2-3": {
+    "attacks": {
+      "Quick Attack": {
+        "function": "damage_plus_on_heads",
+        "args": {
+          "coins": 1,
+          "bonus_per_heads": 20
+        }
+      },
+      "Flamethrower": {
+        "function": "discard_energy_cards_then_damage",
+        "args": {
+          "energy_type": "Fire",
+          "count": 1
+        }
+      }
+    }
+  },
+  "base2-4": {
+    "attacks": {
+      "Quick Attack": {
+        "function": "damage_plus_on_heads",
+        "args": {
+          "coins": 1,
+          "bonus_per_heads": 20
+        }
+      },
+      "Pin Missile": {
+        "function": "damage_times_heads",
+        "args": {
+          "coins": 4
+        }
+      }
+    }
+  },
+  "base2-5": {
+    "attacks": {
+      "Fetch": {
+        "function": "draw",
+        "args": {
+          "count": 1
+        }
+      },
+      "Comet Punch": {
+        "function": "damage_times_heads",
+        "args": {
+          "coins": 4
+        }
+      }
+    }
+  },
+  "base2-6": {
+    "attacks": {
+      "Meditate": {
+        "function": "damage_plus_per_defender_counter",
+        "args": {
+          "per_counter": 10
+        }
+      }
+    }
+  },
+  "base2-12": {
+    "attacks": {
+      "Quick Attack": {
+        "function": "damage_plus_on_heads",
+        "args": {
+          "coins": 1,
+          "bonus_per_heads": 20
+        }
+      },
+      "Water Gun": {
+        "function": "damage_plus_per_unpaid_energy_unit",
+        "args": {
+          "energy_type": "Any",
+          "per_energy": 10,
+          "max_counted": 2
+        }
+      }
+    }
+  },
+  "base2-16": {
+    "attacks": {
+      "Do the Wave": {
+        "function": "damage_plus_per_own_benched",
+        "args": {
+          "per_benched": 10
+        }
+      }
+    }
+  },
+  "base2-19": {
+    "attacks": {
+      "Quick Attack": {
+        "function": "damage_plus_on_heads",
+        "args": {
+          "coins": 1,
+          "bonus_per_heads": 20
+        }
+      },
+      "Flamethrower": {
+        "function": "discard_energy_cards_then_damage",
+        "args": {
+          "energy_type": "Fire",
+          "count": 1
+        }
+      }
+    }
+  },
+  "base2-20": {
+    "attacks": {
+      "Quick Attack": {
+        "function": "damage_plus_on_heads",
+        "args": {
+          "coins": 1,
+          "bonus_per_heads": 20
+        }
+      },
+      "Pin Missile": {
+        "function": "damage_times_heads",
+        "args": {
+          "coins": 4
+        }
+      }
+    }
+  },
+  "base2-21": {
+    "attacks": {
+      "Fetch": {
+        "function": "draw",
+        "args": {
+          "count": 1
+        }
+      },
+      "Comet Punch": {
+        "function": "damage_times_heads",
+        "args": {
+          "coins": 4
+        }
+      }
+    }
+  },
+  "base2-22": {
+    "attacks": {
+      "Meditate": {
+        "function": "damage_plus_per_defender_counter",
+        "args": {
+          "per_counter": 10
+        }
+      }
+    }
+  },
+  "base2-28": {
+    "attacks": {
+      "Quick Attack": {
+        "function": "damage_plus_on_heads",
+        "args": {
+          "coins": 1,
+          "bonus_per_heads": 20
+        }
+      },
+      "Water Gun": {
+        "function": "damage_plus_per_unpaid_energy_unit",
+        "args": {
+          "energy_type": "Any",
+          "per_energy": 10,
+          "max_counted": 2
+        }
+      }
+    }
+  },
+  "base2-32": {
+    "attacks": {
+      "Do the Wave": {
+        "function": "damage_plus_per_own_benched",
+        "args": {
+          "per_benched": 10
+        }
+      }
+    }
+  },
+  "base2-34": {
+    "attacks": {
+      "Rage": {
+        "function": "damage_plus_per_own_counter",
+        "args": {
+          "per_counter": 10
+        }
+      }
+    }
+  },
+  "base2-35": {
+    "attacks": {
+      "Big Eggsplosion": {
+        "function": "damage_times_heads_per_own_energy_unit",
+        "args": {}
+      }
+    }
+  },
+  "base2-39": {
+    "attacks": {
+      "Bonemerang": {
+        "function": "damage_times_heads",
+        "args": {
+          "coins": 2
+        }
+      }
+    }
+  },
+  "base2-40": {
+    "attacks": {
+      "Double Kick": {
+        "function": "damage_times_heads",
+        "args": {
+          "coins": 2
+        }
+      }
+    }
+  },
+  "base2-43": {
+    "attacks": {
+      "Fury Swipes": {
+        "function": "damage_times_heads",
+        "args": {
+          "coins": 3
+        }
+      }
+    }
+  },
+  "base2-44": {
+    "attacks": {
+      "Stomp": {
+        "function": "damage_plus_on_heads",
+        "args": {
+          "coins": 1,
+          "bonus_per_heads": 10
+        }
+      }
+    }
+  },
+  "base2-47": {
+    "attacks": {
+      "Stomp": {
+        "function": "damage_plus_on_heads",
+        "args": {
+          "coins": 1,
+          "bonus_per_heads": 10
+        }
+      }
+    }
+  },
+  "base2-50": {
+    "attacks": {
+      "Rage": {
+        "function": "damage_plus_per_own_counter",
+        "args": {
+          "per_counter": 10
+        }
+      }
+    }
+  },
+  "base2-51": {
+    "attacks": {
+      "Quick Attack": {
+        "function": "damage_plus_on_heads",
+        "args": {
+          "coins": 1,
+          "bonus_per_heads": 20
+        }
+      }
+    }
+  },
+  "base2-56": {
+    "attacks": {
+      "Pay Day": {
+        "function": "damage_then_draw_on_heads",
+        "args": {
+          "count": 1
+        }
+      }
+    }
+  },
+  "base2-57": {
+    "attacks": {
+      "Fury Swipes": {
+        "function": "damage_times_heads",
+        "args": {
+          "coins": 3
+        }
+      }
+    }
+  },
+  "base3-4": {
+    "attacks": {
+      "Slam": {
+        "function": "damage_times_heads",
+        "args": {
+          "coins": 2
+        }
+      }
+    }
+  },
+  "base3-10": {
+    "attacks": {
+      "Water Gun": {
+        "function": "damage_plus_per_unpaid_energy_unit",
+        "args": {
+          "energy_type": "Any",
+          "per_energy": 10,
+          "max_counted": 2
+        }
+      }
+    }
+  },
+  "base3-12": {
+    "attacks": {
+      "Dive Bomb": {
+        "function": "damage_times_heads",
+        "args": {
+          "coins": 1
+        }
+      }
+    }
+  },
+  "base3-19": {
+    "attacks": {
+      "Slam": {
+        "function": "damage_times_heads",
+        "args": {
+          "coins": 2
+        }
+      }
+    }
+  },
+  "base3-25": {
+    "attacks": {
+      "Water Gun": {
+        "function": "damage_plus_per_unpaid_energy_unit",
+        "args": {
+          "energy_type": "Any",
+          "per_energy": 10,
+          "max_counted": 2
+        }
+      }
+    }
+  },
+  "base3-27": {
+    "attacks": {
+      "Dive Bomb": {
+        "function": "damage_times_heads",
+        "args": {
+          "coins": 1
+        }
+      }
+    }
+  },
+  "base3-32": {
+    "attacks": {
+      "Spike Cannon": {
+        "function": "damage_times_heads",
+        "args": {
+          "coins": 2
+        }
+      }
+    }
+  },
+  "base3-38": {
+    "attacks": {
+      "Flail": {
+        "function": "damage_times_own_counters",
+        "args": {}
+      }
+    }
+  },
+  "base3-40": {
+    "attacks": {
+      "Water Gun": {
+        "function": "damage_plus_per_unpaid_energy_unit",
+        "args": {
+          "energy_type": "Any",
+          "per_energy": 10,
+          "max_counted": 2
+        }
+      },
+      "Spike Cannon": {
+        "function": "damage_times_heads",
+        "args": {
+          "coins": 2
+        }
+      }
+    }
+  },
+  "base3-41": {
+    "attacks": {
+      "Fury Swipes": {
+        "function": "damage_times_heads",
+        "args": {
+          "coins": 3
+        }
+      }
+    }
+  },
+  "base3-42": {
+    "attacks": {
+      "Water Gun": {
+        "function": "damage_plus_per_unpaid_energy_unit",
+        "args": {
+          "energy_type": "Any",
+          "per_energy": 10,
+          "max_counted": 2
+        }
+      }
+    }
+  },
+  "base3-52": {
+    "attacks": {
+      "Water Gun": {
+        "function": "damage_plus_per_unpaid_energy_unit",
+        "args": {
+          "energy_type": "Any",
+          "per_energy": 10,
+          "max_counted": 2
+        }
+      }
+    }
+  },
+  "base3-53": {
+    "attacks": {
+      "Fury Swipes": {
+        "function": "damage_times_heads",
+        "args": {
+          "coins": 3
+        }
+      }
+    }
+  }
+}

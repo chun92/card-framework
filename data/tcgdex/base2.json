@@ -1,0 +1,6006 @@
+{
+	"cards": [
+		{
+			"attacks": [
+				{
+					"cost": [
+						"Colorless"
+					],
+					"effect": "Choose 1 of the Defending Pokémon's attacks. Metronome copies that attack except for its Energy costs and anything else required in order to use that attack, such as discarding Energy cards. (No matter what type the Defending Pokémon is, Clefable's type is still Colorless.)",
+					"name": "Metronome"
+				},
+				{
+					"cost": [
+						"Colorless",
+						"Colorless"
+					],
+					"effect": "All damage done by attacks to Clefable during your opponent's next turn is reduce by 20 (after applying Weakness and Resistance).",
+					"name": "Minimize"
+				}
+			],
+			"category": "Pokemon",
+			"description": "A timid fairy Pokémon that is rarely seen. It will run and hide the moment it senses people.",
+			"dexId": [
+				36.0
+			],
+			"evolveFrom": "Clefairy",
+			"hp": 70.0,
+			"id": "base2-1",
+			"illustrator": "Mitsuhiro Arita",
+			"image": "https://assets.tcgdex.net/en/base/base2/1",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "1",
+			"name": "Clefable",
+			"rarity": "Rare",
+			"resistances": [
+				{
+					"type": "Psychic",
+					"value": "-30"
+				}
+			],
+			"retreat": 2.0,
+			"set": {
+				"cardCount": {
+					"official": 64.0,
+					"total": 64.0
+				},
+				"id": "base2",
+				"logo": "https://assets.tcgdex.net/en/base/base2/logo",
+				"name": "Jungle",
+				"symbol": "https://assets.tcgdex.net/univ/base/base2/symbol"
+			},
+			"stage": "Stage1",
+			"types": [
+				"Colorless"
+			],
+			"updated": "2026-08-14T19:45:37+01:00",
+			"variants": {
+				"firstEdition": true,
+				"holo": true,
+				"normal": false,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273798.0,
+						"tcgplayer": 45120.0
+					},
+					"type": "holo",
+					"variantId": "jr7oetx1mqug9"
+				},
+				{
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273798.0,
+						"tcgplayer": 45120.0
+					},
+					"type": "holo",
+					"variantId": "3a83wf50ts0izj268xwv3crwi"
+				},
+				{
+					"size": "standard",
+					"subtype": "missing-expansion-symbol",
+					"type": "holo",
+					"variantId": "gx8bq2hegsxhnvfqms0phyvkpdvo2pfej4uii"
+				},
+				{
+					"size": "standard",
+					"stamp": [
+						"pre-release"
+					],
+					"type": "holo",
+					"variantId": "3a83wf50typ2p5qsrlm6y3f8o"
+				}
+			],
+			"weaknesses": [
+				{
+					"type": "Fighting",
+					"value": "×2"
+				}
+			]
+		},
+		{
+			"attacks": [
+				{
+					"cost": [
+						"Colorless",
+						"Colorless"
+					],
+					"damage": 20.0,
+					"name": "Tackle"
+				},
+				{
+					"cost": [
+						"Lightning",
+						"Lightning",
+						"Lightning"
+					],
+					"damage": 20.0,
+					"effect": "If the Defending Pokémon isn't Colorless, this attack does 10 damage to each Benched Pokémon of the same type as the Defending Pokémon (including your own).",
+					"name": "Chain Lightning"
+				}
+			],
+			"category": "Pokemon",
+			"description": "It stores electrical energy under very high pressure. It often explodes with little or no provocation.",
+			"dexId": [
+				101.0
+			],
+			"evolveFrom": "Voltorb",
+			"hp": 90.0,
+			"id": "base2-2",
+			"illustrator": "Mitsuhiro Arita",
+			"image": "https://assets.tcgdex.net/en/base/base2/2",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "2",
+			"name": "Electrode",
+			"rarity": "Rare",
+			"retreat": 1.0,
+			"set": {
+				"cardCount": {
+					"official": 64.0,
+					"total": 64.0
+				},
+				"id": "base2",
+				"logo": "https://assets.tcgdex.net/en/base/base2/logo",
+				"name": "Jungle",
+				"symbol": "https://assets.tcgdex.net/univ/base/base2/symbol"
+			},
+			"stage": "Stage1",
+			"types": [
+				"Lightning"
+			],
+			"updated": "2026-08-14T19:45:37+01:00",
+			"variants": {
+				"firstEdition": true,
+				"holo": true,
+				"normal": false,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273799.0,
+						"tcgplayer": 45128.0
+					},
+					"type": "holo",
+					"variantId": "jr7oetx1mqug9"
+				},
+				{
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273799.0,
+						"tcgplayer": 45128.0
+					},
+					"type": "holo",
+					"variantId": "3a83wf50ts0izj268xwv3crwi"
+				},
+				{
+					"size": "standard",
+					"subtype": "missing-expansion-symbol",
+					"type": "holo",
+					"variantId": "gx8bq2hegsxhnvfqms0phyvkpdvo2pfej4uii"
+				}
+			],
+			"weaknesses": [
+				{
+					"type": "Fighting",
+					"value": "×2"
+				}
+			]
+		},
+		{
+			"attacks": [
+				{
+					"cost": [
+						"Colorless",
+						"Colorless"
+					],
+					"damage": "10+",
+					"effect": "Flip a coin. If heads, this attack does 10 damage plus 20 more damage; if tails, this attack does 10 damage.",
+					"name": "Quick Attack"
+				},
+				{
+					"cost": [
+						"Fire",
+						"Fire",
+						"Colorless",
+						"Colorless"
+					],
+					"damage": 60.0,
+					"effect": "Discard 1 Energy card attached to Flareon in order to use this attack.",
+					"name": "Flamethrower"
+				}
+			],
+			"category": "Pokemon",
+			"description": "When storing thermal energy in its body, its temperature could soar to over 1600 degrees.",
+			"dexId": [
+				136.0
+			],
+			"evolveFrom": "Eevee",
+			"hp": 70.0,
+			"id": "base2-3",
+			"illustrator": "Kagemaru Himeno",
+			"image": "https://assets.tcgdex.net/en/base/base2/3",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "3",
+			"name": "Flareon",
+			"rarity": "Rare",
+			"retreat": 1.0,
+			"set": {
+				"cardCount": {
+					"official": 64.0,
+					"total": 64.0
+				},
+				"id": "base2",
+				"logo": "https://assets.tcgdex.net/en/base/base2/logo",
+				"name": "Jungle",
+				"symbol": "https://assets.tcgdex.net/univ/base/base2/symbol"
+			},
+			"stage": "Stage1",
+			"types": [
+				"Fire"
+			],
+			"updated": "2026-08-14T19:45:37+01:00",
+			"variants": {
+				"firstEdition": true,
+				"holo": true,
+				"normal": false,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273800.0,
+						"tcgplayer": 45129.0
+					},
+					"type": "holo",
+					"variantId": "jr7oetx1mqug9"
+				},
+				{
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273800.0,
+						"tcgplayer": 45129.0
+					},
+					"type": "holo",
+					"variantId": "3a83wf50ts0izj268xwv3crwi"
+				},
+				{
+					"size": "standard",
+					"subtype": "missing-expansion-symbol",
+					"type": "holo",
+					"variantId": "gx8bq2hegsxhnvfqms0phyvkpdvo2pfej4uii"
+				}
+			],
+			"weaknesses": [
+				{
+					"type": "Water",
+					"value": "×2"
+				}
+			]
+		},
+		{
+			"attacks": [
+				{
+					"cost": [
+						"Colorless",
+						"Colorless"
+					],
+					"damage": "10+",
+					"effect": "Flip a coin. If heads, this attack does 10 damage plus 20 more damage; if tails, this attack does 10 damage.",
+					"name": "Quick Attack"
+				},
+				{
+					"cost": [
+						"Lightning",
+						"Lightning",
+						"Colorless"
+					],
+					"damage": "20x",
+					"effect": "Flip 4 coins. This attack does 20 damage times the number of heads.",
+					"name": "Pin Missile"
+				}
+			],
+			"category": "Pokemon",
+			"description": "It accumulates negative ions from the atmosphere to blast out 10,000-volt lightning bolts.",
+			"dexId": [
+				135.0
+			],
+			"evolveFrom": "Eevee",
+			"hp": 70.0,
+			"id": "base2-4",
+			"illustrator": "Kagemaru Himeno",
+			"image": "https://assets.tcgdex.net/en/base/base2/4",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "4",
+			"name": "Jolteon",
+			"rarity": "Rare",
+			"retreat": 1.0,
+			"set": {
+				"cardCount": {
+					"official": 64.0,
+					"total": 64.0
+				},
+				"id": "base2",
+				"logo": "https://assets.tcgdex.net/en/base/base2/logo",
+				"name": "Jungle",
+				"symbol": "https://assets.tcgdex.net/univ/base/base2/symbol"
+			},
+			"stage": "Stage1",
+			"types": [
+				"Lightning"
+			],
+			"updated": "2026-08-14T19:45:37+01:00",
+			"variants": {
+				"firstEdition": true,
+				"holo": true,
+				"normal": false,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273801.0,
+						"tcgplayer": 45130.0
+					},
+					"type": "holo",
+					"variantId": "jr7oetx1mqug9"
+				},
+				{
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273801.0,
+						"tcgplayer": 45130.0
+					},
+					"type": "holo",
+					"variantId": "3a83wf50ts0izj268xwv3crwi"
+				},
+				{
+					"size": "standard",
+					"subtype": "missing-expansion-symbol",
+					"type": "holo",
+					"variantId": "gx8bq2hegsxhnvfqms0phyvkpdvo2pfej4uii"
+				}
+			],
+			"weaknesses": [
+				{
+					"type": "Fighting",
+					"value": "×2"
+				}
+			]
+		},
+		{
+			"attacks": [
+				{
+					"cost": [
+						"Colorless"
+					],
+					"effect": "Draw a card.",
+					"name": "Fetch"
+				},
+				{
+					"cost": [
+						"Colorless",
+						"Colorless",
+						"Colorless",
+						"Colorless"
+					],
+					"damage": "20x",
+					"effect": "Flip 4 coins. This attack does 20 damage times the number of heads.",
+					"name": "Comet Punch"
+				}
+			],
+			"category": "Pokemon",
+			"description": "The infant rarely ventures out of its mother's protective pouch until it is three years old.",
+			"dexId": [
+				115.0
+			],
+			"hp": 90.0,
+			"id": "base2-5",
+			"illustrator": "Mitsuhiro Arita",
+			"image": "https://assets.tcgdex.net/en/base/base2/5",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "5",
+			"name": "Kangaskhan",
+			"rarity": "Rare",
+			"resistances": [
+				{
+					"type": "Psychic",
+					"value": "-30"
+				}
+			],
+			"retreat": 3.0,
+			"set": {
+				"cardCount": {
+					"official": 64.0,
+					"total": 64.0
+				},
+				"id": "base2",
+				"logo": "https://assets.tcgdex.net/en/base/base2/logo",
+				"name": "Jungle",
+				"symbol": "https://assets.tcgdex.net/univ/base/base2/symbol"
+			},
+			"stage": "Basic",
+			"types": [
+				"Colorless"
+			],
+			"updated": "2026-08-14T19:45:37+01:00",
+			"variants": {
+				"firstEdition": true,
+				"holo": true,
+				"normal": false,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273802.0,
+						"tcgplayer": 45131.0
+					},
+					"type": "holo",
+					"variantId": "jr7oetx1mqug9"
+				},
+				{
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273802.0,
+						"tcgplayer": 45131.0
+					},
+					"type": "holo",
+					"variantId": "3a83wf50ts0izj268xwv3crwi"
+				},
+				{
+					"size": "standard",
+					"subtype": "missing-expansion-symbol",
+					"type": "holo",
+					"variantId": "gx8bq2hegsxhnvfqms0phyvkpdvo2pfej4uii"
+				}
+			],
+			"weaknesses": [
+				{
+					"type": "Fighting",
+					"value": "×2"
+				}
+			]
+		},
+		{
+			"abilities": [
+				{
+					"effect": "Whenever an attack (including your own) does 30 or more damage to Mr. Mime (after applying Weakness and Resistance), prevent that damage. (Any other effects of attacks still happen.) This power can't be used if Mr. Mime is Asleep, Confused, or Paralyzed.",
+					"name": "Invisible Wall",
+					"type": "Pokemon Power"
+				}
+			],
+			"attacks": [
+				{
+					"cost": [
+						"Psychic",
+						"Colorless"
+					],
+					"damage": "10+",
+					"effect": "Does 10 damage plus 10 more damage for each damage counter on the Defending Pokémon.",
+					"name": "Meditate"
+				}
+			],
+			"category": "Pokemon",
+			"description": "If interrupted while miming, it will slap around the enemy with its broad hands.",
+			"dexId": [
+				122.0
+			],
+			"evolveFrom": "Mime Jr.",
+			"hp": 40.0,
+			"id": "base2-6",
+			"illustrator": "Ken Sugimori",
+			"image": "https://assets.tcgdex.net/en/base/base2/6",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "6",
+			"name": "Mr. Mime",
+			"rarity": "Rare",
+			"retreat": 1.0,
+			"set": {
+				"cardCount": {
+					"official": 64.0,
+					"total": 64.0
+				},
+				"id": "base2",
+				"logo": "https://assets.tcgdex.net/en/base/base2/logo",
+				"name": "Jungle",
+				"symbol": "https://assets.tcgdex.net/univ/base/base2/symbol"
+			},
+			"stage": "Basic",
+			"types": [
+				"Psychic"
+			],
+			"updated": "2026-08-18T17:19:50Z",
+			"variants": {
+				"firstEdition": true,
+				"holo": true,
+				"normal": false,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273803.0,
+						"tcgplayer": 45132.0
+					},
+					"type": "holo",
+					"variantId": "jr7oetx1mqug9"
+				},
+				{
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273803.0,
+						"tcgplayer": 45132.0
+					},
+					"type": "holo",
+					"variantId": "3a83wf50ts0izj268xwv3crwi"
+				},
+				{
+					"size": "standard",
+					"subtype": "missing-expansion-symbol",
+					"type": "holo",
+					"variantId": "gx8bq2hegsxhnvfqms0phyvkpdvo2pfej4uii"
+				}
+			],
+			"weaknesses": [
+				{
+					"type": "Psychic",
+					"value": "×2"
+				}
+			]
+		},
+		{
+			"attacks": [
+				{
+					"cost": [
+						"Grass",
+						"Colorless"
+					],
+					"damage": "20+",
+					"effect": "Does 20 damage plus 20 more damage for each Nidoking you have in play.",
+					"name": "Boyfriends"
+				},
+				{
+					"cost": [
+						"Grass",
+						"Grass",
+						"Colorless",
+						"Colorless"
+					],
+					"damage": 50.0,
+					"name": "Mega Punch"
+				}
+			],
+			"category": "Pokemon",
+			"description": "Its hard scales provide strong protection. It uses its hefty bulk to execute powerful moves.",
+			"dexId": [
+				31.0
+			],
+			"evolveFrom": "Nidorina",
+			"hp": 90.0,
+			"id": "base2-7",
+			"illustrator": "Ken Sugimori",
+			"image": "https://assets.tcgdex.net/en/base/base2/7",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "7",
+			"name": "Nidoqueen",
+			"rarity": "Rare",
+			"retreat": 3.0,
+			"set": {
+				"cardCount": {
+					"official": 64.0,
+					"total": 64.0
+				},
+				"id": "base2",
+				"logo": "https://assets.tcgdex.net/en/base/base2/logo",
+				"name": "Jungle",
+				"symbol": "https://assets.tcgdex.net/univ/base/base2/symbol"
+			},
+			"stage": "Stage2",
+			"types": [
+				"Grass"
+			],
+			"updated": "2026-08-14T19:45:37+01:00",
+			"variants": {
+				"firstEdition": true,
+				"holo": true,
+				"normal": false,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273804.0,
+						"tcgplayer": 45133.0
+					},
+					"type": "holo",
+					"variantId": "jr7oetx1mqug9"
+				},
+				{
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273804.0,
+						"tcgplayer": 45133.0
+					},
+					"type": "holo",
+					"variantId": "3a83wf50ts0izj268xwv3crwi"
+				},
+				{
+					"size": "standard",
+					"subtype": "missing-expansion-symbol",
+					"type": "holo",
+					"variantId": "gx8bq2hegsxhnvfqms0phyvkpdvo2pfej4uii"
+				}
+			],
+			"weaknesses": [
+				{
+					"type": "Psychic",
+					"value": "×2"
+				}
+			]
+		},
+		{
+			"attacks": [
+				{
+					"cost": [
+						"Colorless",
+						"Colorless"
+					],
+					"damage": 20.0,
+					"name": "Wing Attack"
+				},
+				{
+					"cost": [
+						"Colorless",
+						"Colorless",
+						"Colorless"
+					],
+					"damage": 30.0,
+					"effect": "Unless this attack Knocks Out the Defending Pokémon, return the Defending Pokémon and all cards attached to it to your opponent's hand.",
+					"name": "Hurricane"
+				}
+			],
+			"category": "Pokemon",
+			"description": "When hunting, it skims the surface of water at high speed to pick off unwary prey such as Magikarp.",
+			"dexId": [
+				18.0
+			],
+			"evolveFrom": "Pidgeotto",
+			"hp": 80.0,
+			"id": "base2-8",
+			"illustrator": "Kagemaru Himeno",
+			"image": "https://assets.tcgdex.net/en/base/base2/8",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "8",
+			"name": "Pidgeot",
+			"rarity": "Rare",
+			"resistances": [
+				{
+					"type": "Fighting",
+					"value": "-30"
+				}
+			],
+			"set": {
+				"cardCount": {
+					"official": 64.0,
+					"total": 64.0
+				},
+				"id": "base2",
+				"logo": "https://assets.tcgdex.net/en/base/base2/logo",
+				"name": "Jungle",
+				"symbol": "https://assets.tcgdex.net/univ/base/base2/symbol"
+			},
+			"stage": "Stage2",
+			"types": [
+				"Colorless"
+			],
+			"updated": "2026-08-14T19:45:37+01:00",
+			"variants": {
+				"firstEdition": true,
+				"holo": true,
+				"normal": false,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273805.0,
+						"tcgplayer": 45134.0
+					},
+					"type": "holo",
+					"variantId": "jr7oetx1mqug9"
+				},
+				{
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273805.0,
+						"tcgplayer": 45134.0
+					},
+					"type": "holo",
+					"variantId": "3a83wf50ts0izj268xwv3crwi"
+				},
+				{
+					"size": "standard",
+					"subtype": "missing-expansion-symbol",
+					"type": "holo",
+					"variantId": "gx8bq2hegsxhnvfqms0phyvkpdvo2pfej4uii"
+				}
+			],
+			"weaknesses": [
+				{
+					"type": "Lightning",
+					"value": "×2"
+				}
+			]
+		},
+		{
+			"attacks": [
+				{
+					"cost": [
+						"Grass",
+						"Grass"
+					],
+					"damage": 20.0,
+					"effect": "Flip a coin. If heads, the Defending Pokémon is now Paralyzed.",
+					"name": "Irongrip"
+				},
+				{
+					"cost": [
+						"Grass",
+						"Grass",
+						"Colorless",
+						"Colorless"
+					],
+					"damage": 50.0,
+					"name": "Guillotine"
+				}
+			],
+			"category": "Pokemon",
+			"description": "If it fails to crush the victim in its pincers, it will swing its victim around and toss it hard.",
+			"dexId": [
+				127.0
+			],
+			"hp": 60.0,
+			"id": "base2-9",
+			"illustrator": "Kagemaru Himeno",
+			"image": "https://assets.tcgdex.net/en/base/base2/9",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "9",
+			"name": "Pinsir",
+			"rarity": "Rare",
+			"retreat": 1.0,
+			"set": {
+				"cardCount": {
+					"official": 64.0,
+					"total": 64.0
+				},
+				"id": "base2",
+				"logo": "https://assets.tcgdex.net/en/base/base2/logo",
+				"name": "Jungle",
+				"symbol": "https://assets.tcgdex.net/univ/base/base2/symbol"
+			},
+			"stage": "Basic",
+			"types": [
+				"Grass"
+			],
+			"updated": "2026-08-14T19:45:37+01:00",
+			"variants": {
+				"firstEdition": true,
+				"holo": true,
+				"normal": false,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273806.0,
+						"tcgplayer": 45135.0
+					},
+					"type": "holo",
+					"variantId": "jr7oetx1mqug9"
+				},
+				{
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273806.0,
+						"tcgplayer": 45135.0
+					},
+					"type": "holo",
+					"variantId": "3a83wf50ts0izj268xwv3crwi"
+				},
+				{
+					"size": "standard",
+					"subtype": "missing-expansion-symbol",
+					"type": "holo",
+					"variantId": "gx8bq2hegsxhnvfqms0phyvkpdvo2pfej4uii"
+				},
+				{
+					"size": "standard",
+					"stamp": [
+						"1st-edition-scratch-error"
+					],
+					"type": "holo",
+					"variantId": "ekm63g4zfosxiabj9rry4ejepjbay8g94k9y3e"
+				}
+			],
+			"weaknesses": [
+				{
+					"type": "Fire",
+					"value": "×2"
+				}
+			]
+		},
+		{
+			"attacks": [
+				{
+					"cost": [
+						"Grass"
+					],
+					"effect": "During your next turn, Scyther's Slash attack's base damage is 60 instead of 30.",
+					"name": "Swords Dance"
+				},
+				{
+					"cost": [
+						"Colorless",
+						"Colorless",
+						"Colorless"
+					],
+					"damage": 30.0,
+					"name": "Slash"
+				}
+			],
+			"category": "Pokemon",
+			"description": "With ninja-like agility and speed, it can create the illusion that there is more than one of it.",
+			"dexId": [
+				123.0
+			],
+			"hp": 70.0,
+			"id": "base2-10",
+			"illustrator": "Ken Sugimori",
+			"image": "https://assets.tcgdex.net/en/base/base2/10",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "10",
+			"name": "Scyther",
+			"rarity": "Rare",
+			"resistances": [
+				{
+					"type": "Fighting",
+					"value": "-30"
+				}
+			],
+			"set": {
+				"cardCount": {
+					"official": 64.0,
+					"total": 64.0
+				},
+				"id": "base2",
+				"logo": "https://assets.tcgdex.net/en/base/base2/logo",
+				"name": "Jungle",
+				"symbol": "https://assets.tcgdex.net/univ/base/base2/symbol"
+			},
+			"stage": "Basic",
+			"types": [
+				"Grass"
+			],
+			"updated": "2026-08-14T19:45:37+01:00",
+			"variants": {
+				"firstEdition": true,
+				"holo": true,
+				"normal": false,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273807.0,
+						"tcgplayer": 45121.0
+					},
+					"type": "holo",
+					"variantId": "jr7oetx1mqug9"
+				},
+				{
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273807.0,
+						"tcgplayer": 45121.0
+					},
+					"type": "holo",
+					"variantId": "3a83wf50ts0izj268xwv3crwi"
+				},
+				{
+					"size": "standard",
+					"subtype": "missing-expansion-symbol",
+					"type": "holo",
+					"variantId": "gx8bq2hegsxhnvfqms0phyvkpdvo2pfej4uii"
+				}
+			],
+			"weaknesses": [
+				{
+					"type": "Fire",
+					"value": "×2"
+				}
+			]
+		},
+		{
+			"abilities": [
+				{
+					"effect": "Snorlax can't become Asleep, Confused, Paralyzed, or Poisoned. This power can't be used if Snorlax is already Asleep, Confused, or Paralyzed.",
+					"name": "Thick Skinned",
+					"type": "Pokemon Power"
+				}
+			],
+			"attacks": [
+				{
+					"cost": [
+						"Colorless",
+						"Colorless",
+						"Colorless",
+						"Colorless"
+					],
+					"damage": 30.0,
+					"effect": "Flip a coin. If heads, the Defending Pokémon is now Paralyzed.",
+					"name": "Body Slam"
+				}
+			],
+			"category": "Pokemon",
+			"description": "Very lazy. Just eats and sleeps. As its rotund bulk builds, it becomes steadily more slothful.",
+			"dexId": [
+				143.0
+			],
+			"evolveFrom": "Munchlax",
+			"hp": 90.0,
+			"id": "base2-11",
+			"illustrator": "Ken Sugimori",
+			"image": "https://assets.tcgdex.net/en/base/base2/11",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "11",
+			"name": "Snorlax",
+			"rarity": "Rare",
+			"resistances": [
+				{
+					"type": "Psychic",
+					"value": "-30"
+				}
+			],
+			"retreat": 4.0,
+			"set": {
+				"cardCount": {
+					"official": 64.0,
+					"total": 64.0
+				},
+				"id": "base2",
+				"logo": "https://assets.tcgdex.net/en/base/base2/logo",
+				"name": "Jungle",
+				"symbol": "https://assets.tcgdex.net/univ/base/base2/symbol"
+			},
+			"stage": "Basic",
+			"types": [
+				"Colorless"
+			],
+			"updated": "2026-08-18T17:19:50Z",
+			"variants": {
+				"firstEdition": true,
+				"holo": true,
+				"normal": false,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273808.0,
+						"tcgplayer": 45122.0
+					},
+					"type": "holo",
+					"variantId": "jr7oetx1mqug9"
+				},
+				{
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273808.0,
+						"tcgplayer": 45122.0
+					},
+					"type": "holo",
+					"variantId": "3a83wf50ts0izj268xwv3crwi"
+				},
+				{
+					"size": "standard",
+					"subtype": "missing-expansion-symbol",
+					"type": "holo",
+					"variantId": "gx8bq2hegsxhnvfqms0phyvkpdvo2pfej4uii"
+				}
+			],
+			"weaknesses": [
+				{
+					"type": "Fighting",
+					"value": "×2"
+				}
+			]
+		},
+		{
+			"attacks": [
+				{
+					"cost": [
+						"Colorless",
+						"Colorless"
+					],
+					"damage": "10+",
+					"effect": "Flip a coin. If heads, this attack does 10 damage plus 20 more damage; if tails, this attack does 10 damage.",
+					"name": "Quick Attack"
+				},
+				{
+					"cost": [
+						"Water",
+						"Water",
+						"Colorless"
+					],
+					"damage": "30+",
+					"effect": "Does 30 damage plus 10 more damage for each Energy attached to Vaporeon but not used to pay for this attack's Energy cost. Extra Energy after the 2nd doesn't count.",
+					"name": "Water Gun"
+				}
+			],
+			"category": "Pokemon",
+			"description": "Lives close to water. Its long tail is ridged with a fin that is often mistaken for a mermaid's.",
+			"dexId": [
+				134.0
+			],
+			"evolveFrom": "Eevee",
+			"hp": 80.0,
+			"id": "base2-12",
+			"illustrator": "Kagemaru Himeno",
+			"image": "https://assets.tcgdex.net/en/base/base2/12",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "12",
+			"name": "Vaporeon",
+			"rarity": "Rare",
+			"retreat": 1.0,
+			"set": {
+				"cardCount": {
+					"official": 64.0,
+					"total": 64.0
+				},
+				"id": "base2",
+				"logo": "https://assets.tcgdex.net/en/base/base2/logo",
+				"name": "Jungle",
+				"symbol": "https://assets.tcgdex.net/univ/base/base2/symbol"
+			},
+			"stage": "Stage1",
+			"types": [
+				"Water"
+			],
+			"updated": "2026-08-14T19:45:37+01:00",
+			"variants": {
+				"firstEdition": true,
+				"holo": true,
+				"normal": false,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273809.0,
+						"tcgplayer": 45123.0
+					},
+					"type": "holo",
+					"variantId": "jr7oetx1mqug9"
+				},
+				{
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273809.0,
+						"tcgplayer": 45123.0
+					},
+					"type": "holo",
+					"variantId": "3a83wf50ts0izj268xwv3crwi"
+				},
+				{
+					"size": "standard",
+					"subtype": "missing-expansion-symbol",
+					"type": "holo",
+					"variantId": "gx8bq2hegsxhnvfqms0phyvkpdvo2pfej4uii"
+				}
+			],
+			"weaknesses": [
+				{
+					"type": "Lightning",
+					"value": "×2"
+				}
+			]
+		},
+		{
+			"abilities": [
+				{
+					"effect": "Once during your turn (before your attack), you may change the type of Venomoth to the type of any other Pokémon in play other than Colorless. This power can't be used if Venomoth is Asleep, Confused, or Paralyzed.",
+					"name": "Shift",
+					"type": "Pokemon Power"
+				}
+			],
+			"attacks": [
+				{
+					"cost": [
+						"Grass",
+						"Grass"
+					],
+					"damage": 10.0,
+					"effect": "Flip a coin. If heads, the Defending Pokémon is now Confused and Poisoned.",
+					"name": "Venom Powder"
+				}
+			],
+			"category": "Pokemon",
+			"description": "The dust-like scales covering its wings are color coded to indicate the kinds of poison it has.",
+			"dexId": [
+				49.0
+			],
+			"evolveFrom": "Venonat",
+			"hp": 70.0,
+			"id": "base2-13",
+			"illustrator": "Ken Sugimori",
+			"image": "https://assets.tcgdex.net/en/base/base2/13",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "13",
+			"name": "Venomoth",
+			"rarity": "Rare",
+			"resistances": [
+				{
+					"type": "Fighting",
+					"value": "-30"
+				}
+			],
+			"set": {
+				"cardCount": {
+					"official": 64.0,
+					"total": 64.0
+				},
+				"id": "base2",
+				"logo": "https://assets.tcgdex.net/en/base/base2/logo",
+				"name": "Jungle",
+				"symbol": "https://assets.tcgdex.net/univ/base/base2/symbol"
+			},
+			"stage": "Stage1",
+			"types": [
+				"Grass"
+			],
+			"updated": "2026-08-14T19:45:37+01:00",
+			"variants": {
+				"firstEdition": true,
+				"holo": true,
+				"normal": false,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273810.0,
+						"tcgplayer": 45124.0
+					},
+					"type": "holo",
+					"variantId": "jr7oetx1mqug9"
+				},
+				{
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273810.0,
+						"tcgplayer": 45124.0
+					},
+					"type": "holo",
+					"variantId": "3a83wf50ts0izj268xwv3crwi"
+				},
+				{
+					"size": "standard",
+					"subtype": "missing-expansion-symbol",
+					"type": "holo",
+					"variantId": "gx8bq2hegsxhnvfqms0phyvkpdvo2pfej4uii"
+				}
+			],
+			"weaknesses": [
+				{
+					"type": "Fire",
+					"value": "×2"
+				}
+			]
+		},
+		{
+			"attacks": [
+				{
+					"cost": [
+						"Grass"
+					],
+					"effect": "If your opponent has any Benched Pokémon, choose 1 of them and switch it with his or her Active Pokémon.",
+					"name": "Lure"
+				},
+				{
+					"cost": [
+						"Grass",
+						"Grass"
+					],
+					"damage": 20.0,
+					"effect": "Flip a coin. If heads, the Defending Pokémon can't retreat during your opponent's next turn.",
+					"name": "Acid"
+				}
+			],
+			"category": "Pokemon",
+			"description": "Said to live in huge colonies deep in jungles, although no one has ever returned from there.",
+			"dexId": [
+				71.0
+			],
+			"evolveFrom": "Weepinbell",
+			"hp": 80.0,
+			"id": "base2-14",
+			"illustrator": "Ken Sugimori",
+			"image": "https://assets.tcgdex.net/en/base/base2/14",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "14",
+			"name": "Victreebel",
+			"rarity": "Rare",
+			"retreat": 2.0,
+			"set": {
+				"cardCount": {
+					"official": 64.0,
+					"total": 64.0
+				},
+				"id": "base2",
+				"logo": "https://assets.tcgdex.net/en/base/base2/logo",
+				"name": "Jungle",
+				"symbol": "https://assets.tcgdex.net/univ/base/base2/symbol"
+			},
+			"stage": "Stage2",
+			"types": [
+				"Grass"
+			],
+			"updated": "2026-08-14T19:45:37+01:00",
+			"variants": {
+				"firstEdition": true,
+				"holo": true,
+				"normal": false,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273811.0,
+						"tcgplayer": 45125.0
+					},
+					"type": "holo",
+					"variantId": "jr7oetx1mqug9"
+				},
+				{
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273811.0,
+						"tcgplayer": 45125.0
+					},
+					"type": "holo",
+					"variantId": "3a83wf50ts0izj268xwv3crwi"
+				},
+				{
+					"size": "standard",
+					"subtype": "missing-expansion-symbol",
+					"type": "holo",
+					"variantId": "gx8bq2hegsxhnvfqms0phyvkpdvo2pfej4uii"
+				}
+			],
+			"weaknesses": [
+				{
+					"type": "Fire",
+					"value": "×2"
+				}
+			]
+		},
+		{
+			"abilities": [
+				{
+					"effect": "Once during your turn (before your attack), you may flip a coin. If heads, remove 1 damage counter from 1 of your Pokémon. This power can't be used if Vileplume is Asleep, Confused, or Paralyzed.",
+					"name": "Heal",
+					"type": "Pokemon Power"
+				}
+			],
+			"attacks": [
+				{
+					"cost": [
+						"Grass",
+						"Grass",
+						"Grass"
+					],
+					"damage": "40x",
+					"effect": "Flip 3 coins. This attack does 40 damage times the number of heads. Vileplume is now Confused (after doing damage).",
+					"name": "Petal Dance"
+				}
+			],
+			"category": "Pokemon",
+			"description": "The larger its petals, the more toxic pollen it contains. Its big head is heavy and hard to hold up.",
+			"dexId": [
+				45.0
+			],
+			"evolveFrom": "Gloom",
+			"hp": 80.0,
+			"id": "base2-15",
+			"illustrator": "Keiji Kinebuchi",
+			"image": "https://assets.tcgdex.net/en/base/base2/15",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "15",
+			"name": "Vileplume",
+			"rarity": "Rare",
+			"retreat": 2.0,
+			"set": {
+				"cardCount": {
+					"official": 64.0,
+					"total": 64.0
+				},
+				"id": "base2",
+				"logo": "https://assets.tcgdex.net/en/base/base2/logo",
+				"name": "Jungle",
+				"symbol": "https://assets.tcgdex.net/univ/base/base2/symbol"
+			},
+			"stage": "Stage2",
+			"types": [
+				"Grass"
+			],
+			"updated": "2026-08-14T19:45:37+01:00",
+			"variants": {
+				"firstEdition": true,
+				"holo": true,
+				"normal": false,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273812.0,
+						"tcgplayer": 45126.0
+					},
+					"type": "holo",
+					"variantId": "jr7oetx1mqug9"
+				},
+				{
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273812.0,
+						"tcgplayer": 45126.0
+					},
+					"type": "holo",
+					"variantId": "3a83wf50ts0izj268xwv3crwi"
+				},
+				{
+					"size": "standard",
+					"subtype": "missing-expansion-symbol",
+					"type": "holo",
+					"variantId": "gx8bq2hegsxhnvfqms0phyvkpdvo2pfej4uii"
+				}
+			],
+			"weaknesses": [
+				{
+					"type": "Fire",
+					"value": "×2"
+				}
+			]
+		},
+		{
+			"attacks": [
+				{
+					"cost": [
+						"Colorless"
+					],
+					"effect": "The Defending Pokémon is now Asleep.",
+					"name": "Lullaby"
+				},
+				{
+					"cost": [
+						"Colorless",
+						"Colorless",
+						"Colorless"
+					],
+					"damage": "10+",
+					"effect": "Does 10 damage plus 10 more damage for each of your Benched Pokémon.",
+					"name": "Do the Wave"
+				}
+			],
+			"category": "Pokemon",
+			"description": "The body is soft and rubbery. When angered, it will suck in air and inflate itself to an enormous size.",
+			"dexId": [
+				40.0
+			],
+			"evolveFrom": "Jigglypuff",
+			"hp": 80.0,
+			"id": "base2-16",
+			"illustrator": "Mitsuhiro Arita",
+			"image": "https://assets.tcgdex.net/en/base/base2/16",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "16",
+			"name": "Wigglytuff",
+			"rarity": "Rare",
+			"resistances": [
+				{
+					"type": "Psychic",
+					"value": "-30"
+				}
+			],
+			"retreat": 2.0,
+			"set": {
+				"cardCount": {
+					"official": 64.0,
+					"total": 64.0
+				},
+				"id": "base2",
+				"logo": "https://assets.tcgdex.net/en/base/base2/logo",
+				"name": "Jungle",
+				"symbol": "https://assets.tcgdex.net/univ/base/base2/symbol"
+			},
+			"stage": "Stage1",
+			"types": [
+				"Colorless"
+			],
+			"updated": "2026-08-14T19:45:37+01:00",
+			"variants": {
+				"firstEdition": true,
+				"holo": true,
+				"normal": false,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273813.0,
+						"tcgplayer": 45127.0
+					},
+					"type": "holo",
+					"variantId": "jr7oetx1mqug9"
+				},
+				{
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273813.0,
+						"tcgplayer": 45127.0
+					},
+					"type": "holo",
+					"variantId": "3a83wf50ts0izj268xwv3crwi"
+				},
+				{
+					"size": "standard",
+					"subtype": "missing-expansion-symbol",
+					"type": "holo",
+					"variantId": "gx8bq2hegsxhnvfqms0phyvkpdvo2pfej4uii"
+				}
+			],
+			"weaknesses": [
+				{
+					"type": "Fighting",
+					"value": "×2"
+				}
+			]
+		},
+		{
+			"attacks": [
+				{
+					"cost": [
+						"Colorless"
+					],
+					"effect": "Choose 1 of the Defending Pokémon's attacks. Metronome copies that attack except for its Energy costs and anything else required in order to use that attack, such as discarding Energy cards. (No matter what type the Defending Pokémon is, Clefable's type is still Colorless.)",
+					"name": "Metronome"
+				},
+				{
+					"cost": [
+						"Colorless",
+						"Colorless"
+					],
+					"effect": "All damage done by attacks to Clefable during your opponent's next turn is reduce by 20 (after applying Weakness and Resistance).",
+					"name": "Minimize"
+				}
+			],
+			"category": "Pokemon",
+			"description": "A timid Fairy Pokémon that is rarely seen. It will run and hide the moment it senses people.",
+			"dexId": [
+				36.0
+			],
+			"evolveFrom": "Clefairy",
+			"hp": 70.0,
+			"id": "base2-17",
+			"illustrator": "Mitsuhiro Arita",
+			"image": "https://assets.tcgdex.net/en/base/base2/17",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "17",
+			"name": "Clefable",
+			"rarity": "Rare",
+			"resistances": [
+				{
+					"type": "Psychic",
+					"value": "-30"
+				}
+			],
+			"retreat": 2.0,
+			"set": {
+				"cardCount": {
+					"official": 64.0,
+					"total": 64.0
+				},
+				"id": "base2",
+				"logo": "https://assets.tcgdex.net/en/base/base2/logo",
+				"name": "Jungle",
+				"symbol": "https://assets.tcgdex.net/univ/base/base2/symbol"
+			},
+			"stage": "Stage1",
+			"types": [
+				"Colorless"
+			],
+			"updated": "2026-08-14T19:45:37+01:00",
+			"variants": {
+				"firstEdition": true,
+				"holo": false,
+				"normal": true,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273798.0,
+						"tcgplayer": 106979.0
+					},
+					"type": "normal",
+					"variantId": "endfynwn4n10gzq"
+				},
+				{
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273798.0,
+						"tcgplayer": 106979.0
+					},
+					"type": "normal",
+					"variantId": "2fnyg4g532wu2uft0spaa3eefrz"
+				}
+			],
+			"weaknesses": [
+				{
+					"type": "Fighting",
+					"value": "×2"
+				}
+			]
+		},
+		{
+			"attacks": [
+				{
+					"cost": [
+						"Colorless",
+						"Colorless"
+					],
+					"damage": 20.0,
+					"name": "Tackle"
+				},
+				{
+					"cost": [
+						"Lightning",
+						"Lightning",
+						"Lightning"
+					],
+					"damage": 20.0,
+					"effect": "If the Defending Pokémon isn't Colorless, this attack does 10 damage to each Benched Pokémon of the same type as the Defending Pokémon (including your own).",
+					"name": "Chain Lightning"
+				}
+			],
+			"category": "Pokemon",
+			"description": "It stores electrical energy under very high pressure. It often explodes with little or no provocation.",
+			"dexId": [
+				101.0
+			],
+			"evolveFrom": "Voltorb",
+			"hp": 90.0,
+			"id": "base2-18",
+			"illustrator": "Mitsuhiro Arita",
+			"image": "https://assets.tcgdex.net/en/base/base2/18",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "18",
+			"name": "Electrode",
+			"rarity": "Rare",
+			"retreat": 1.0,
+			"set": {
+				"cardCount": {
+					"official": 64.0,
+					"total": 64.0
+				},
+				"id": "base2",
+				"logo": "https://assets.tcgdex.net/en/base/base2/logo",
+				"name": "Jungle",
+				"symbol": "https://assets.tcgdex.net/univ/base/base2/symbol"
+			},
+			"stage": "Stage1",
+			"types": [
+				"Lightning"
+			],
+			"updated": "2026-08-14T19:45:37+01:00",
+			"variants": {
+				"firstEdition": true,
+				"holo": false,
+				"normal": true,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273799.0,
+						"tcgplayer": 106980.0
+					},
+					"type": "normal",
+					"variantId": "endfynwn4n10gzq"
+				},
+				{
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273799.0,
+						"tcgplayer": 106980.0
+					},
+					"type": "normal",
+					"variantId": "2fnyg4g532wu2uft0spaa3eefrz"
+				}
+			],
+			"weaknesses": [
+				{
+					"type": "Fighting",
+					"value": "×2"
+				}
+			]
+		},
+		{
+			"attacks": [
+				{
+					"cost": [
+						"Colorless",
+						"Colorless"
+					],
+					"damage": "10+",
+					"effect": "Flip a coin. If heads, this attack does 10 damage plus 20 more damage; if tails, this attack does 10 damage.",
+					"name": "Quick Attack"
+				},
+				{
+					"cost": [
+						"Fire",
+						"Fire",
+						"Colorless",
+						"Colorless"
+					],
+					"damage": 60.0,
+					"effect": "Discard 1 Energy card attached to Flareon in order to use this attack.",
+					"name": "Flamethrower"
+				}
+			],
+			"category": "Pokemon",
+			"description": "When storing thermal energy in its body, its temperature could soar to over 1600 degrees.",
+			"dexId": [
+				136.0
+			],
+			"evolveFrom": "Eevee",
+			"hp": 70.0,
+			"id": "base2-19",
+			"illustrator": "Kagemaru Himeno",
+			"image": "https://assets.tcgdex.net/en/base/base2/19",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "19",
+			"name": "Flareon",
+			"rarity": "Rare",
+			"retreat": 1.0,
+			"set": {
+				"cardCount": {
+					"official": 64.0,
+					"total": 64.0
+				},
+				"id": "base2",
+				"logo": "https://assets.tcgdex.net/en/base/base2/logo",
+				"name": "Jungle",
+				"symbol": "https://assets.tcgdex.net/univ/base/base2/symbol"
+			},
+			"stage": "Stage1",
+			"types": [
+				"Fire"
+			],
+			"updated": "2026-08-14T19:45:37+01:00",
+			"variants": {
+				"firstEdition": true,
+				"holo": false,
+				"normal": true,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273800.0,
+						"tcgplayer": 106981.0
+					},
+					"type": "normal",
+					"variantId": "endfynwn4n10gzq"
+				},
+				{
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273800.0,
+						"tcgplayer": 106981.0
+					},
+					"type": "normal",
+					"variantId": "2fnyg4g532wu2uft0spaa3eefrz"
+				}
+			],
+			"weaknesses": [
+				{
+					"type": "Water",
+					"value": "×2"
+				}
+			]
+		},
+		{
+			"attacks": [
+				{
+					"cost": [
+						"Colorless",
+						"Colorless"
+					],
+					"damage": "10+",
+					"effect": "Flip a coin. If heads, this attack does 10 damage plus 20 more damage; if tails, this attack does 10 damage.",
+					"name": "Quick Attack"
+				},
+				{
+					"cost": [
+						"Lightning",
+						"Lightning",
+						"Colorless"
+					],
+					"damage": "20x",
+					"effect": "Flip 4 coins. This attack does 20 damage times the number of heads.",
+					"name": "Pin Missile"
+				}
+			],
+			"category": "Pokemon",
+			"description": "It accumulates negative ions from the atmosphere to blast out 10,000-volt lightning bolts.",
+			"dexId": [
+				135.0
+			],
+			"evolveFrom": "Eevee",
+			"hp": 70.0,
+			"id": "base2-20",
+			"illustrator": "Kagemaru Himeno",
+			"image": "https://assets.tcgdex.net/en/base/base2/20",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "20",
+			"name": "Jolteon",
+			"rarity": "Rare",
+			"retreat": 1.0,
+			"set": {
+				"cardCount": {
+					"official": 64.0,
+					"total": 64.0
+				},
+				"id": "base2",
+				"logo": "https://assets.tcgdex.net/en/base/base2/logo",
+				"name": "Jungle",
+				"symbol": "https://assets.tcgdex.net/univ/base/base2/symbol"
+			},
+			"stage": "Stage1",
+			"types": [
+				"Lightning"
+			],
+			"updated": "2026-08-14T19:45:37+01:00",
+			"variants": {
+				"firstEdition": true,
+				"holo": false,
+				"normal": true,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273801.0,
+						"tcgplayer": 106982.0
+					},
+					"type": "normal",
+					"variantId": "endfynwn4n10gzq"
+				},
+				{
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273801.0,
+						"tcgplayer": 106982.0
+					},
+					"type": "normal",
+					"variantId": "2fnyg4g532wu2uft0spaa3eefrz"
+				}
+			],
+			"weaknesses": [
+				{
+					"type": "Fighting",
+					"value": "×2"
+				}
+			]
+		},
+		{
+			"attacks": [
+				{
+					"cost": [
+						"Colorless"
+					],
+					"effect": "Draw a card.",
+					"name": "Fetch"
+				},
+				{
+					"cost": [
+						"Colorless",
+						"Colorless",
+						"Colorless",
+						"Colorless"
+					],
+					"damage": "20x",
+					"effect": "Flip 4 coins. This attack does 20 damage times the number of heads.",
+					"name": "Comet Punch"
+				}
+			],
+			"category": "Pokemon",
+			"description": "The infant rarely ventures out of its mother's protective pouch until it is three years old.",
+			"dexId": [
+				115.0
+			],
+			"hp": 90.0,
+			"id": "base2-21",
+			"illustrator": "Mitsuhiro Arita",
+			"image": "https://assets.tcgdex.net/en/base/base2/21",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "21",
+			"name": "Kangaskhan",
+			"rarity": "Rare",
+			"resistances": [
+				{
+					"type": "Psychic",
+					"value": "-30"
+				}
+			],
+			"retreat": 3.0,
+			"set": {
+				"cardCount": {
+					"official": 64.0,
+					"total": 64.0
+				},
+				"id": "base2",
+				"logo": "https://assets.tcgdex.net/en/base/base2/logo",
+				"name": "Jungle",
+				"symbol": "https://assets.tcgdex.net/univ/base/base2/symbol"
+			},
+			"stage": "Basic",
+			"types": [
+				"Colorless"
+			],
+			"updated": "2026-08-14T19:45:37+01:00",
+			"variants": {
+				"firstEdition": true,
+				"holo": false,
+				"normal": true,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273802.0,
+						"tcgplayer": 106983.0
+					},
+					"type": "normal",
+					"variantId": "endfynwn4n10gzq"
+				},
+				{
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273802.0,
+						"tcgplayer": 106983.0
+					},
+					"type": "normal",
+					"variantId": "2fnyg4g532wu2uft0spaa3eefrz"
+				}
+			],
+			"weaknesses": [
+				{
+					"type": "Fighting",
+					"value": "×2"
+				}
+			]
+		},
+		{
+			"abilities": [
+				{
+					"effect": "Whenever an attack (including your own) does 30 or more damage to Mr. Mime (after applying Weakness and Resistance), prevent that damage. (Any other effects of attacks still happen.) This power can't be used if Mr. Mime is Asleep, Confused, or Paralyzed.",
+					"name": "Invisible Wall",
+					"type": "Pokemon Power"
+				}
+			],
+			"attacks": [
+				{
+					"cost": [
+						"Psychic",
+						"Colorless"
+					],
+					"damage": "10+",
+					"effect": "Does 10 damage plus 10 more damage for each damage counter on the Defending Pokémon.",
+					"name": "Meditate"
+				}
+			],
+			"category": "Pokemon",
+			"description": "If interrupted while miming, it will slap around the enemy with its broad hands.",
+			"dexId": [
+				122.0
+			],
+			"evolveFrom": "Mime Jr.",
+			"hp": 40.0,
+			"id": "base2-22",
+			"illustrator": "Ken Sugimori",
+			"image": "https://assets.tcgdex.net/en/base/base2/22",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "22",
+			"name": "Mr. Mime",
+			"rarity": "Rare",
+			"retreat": 1.0,
+			"set": {
+				"cardCount": {
+					"official": 64.0,
+					"total": 64.0
+				},
+				"id": "base2",
+				"logo": "https://assets.tcgdex.net/en/base/base2/logo",
+				"name": "Jungle",
+				"symbol": "https://assets.tcgdex.net/univ/base/base2/symbol"
+			},
+			"stage": "Basic",
+			"types": [
+				"Psychic"
+			],
+			"updated": "2026-08-18T17:19:50Z",
+			"variants": {
+				"firstEdition": true,
+				"holo": false,
+				"normal": true,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273803.0,
+						"tcgplayer": 106984.0
+					},
+					"type": "normal",
+					"variantId": "endfynwn4n10gzq"
+				},
+				{
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273803.0,
+						"tcgplayer": 106984.0
+					},
+					"type": "normal",
+					"variantId": "2fnyg4g532wu2uft0spaa3eefrz"
+				}
+			],
+			"weaknesses": [
+				{
+					"type": "Psychic",
+					"value": "×2"
+				}
+			]
+		},
+		{
+			"attacks": [
+				{
+					"cost": [
+						"Grass",
+						"Colorless"
+					],
+					"damage": "20+",
+					"effect": "Does 20 damage plus 20 more damage for each Nidoking you have in play.",
+					"name": "Boyfriends"
+				},
+				{
+					"cost": [
+						"Grass",
+						"Grass",
+						"Colorless",
+						"Colorless"
+					],
+					"damage": 50.0,
+					"name": "Mega Punch"
+				}
+			],
+			"category": "Pokemon",
+			"description": "Its hard scales provide strong protection. It uses its hefty bulk to execute powerful moves.",
+			"dexId": [
+				31.0
+			],
+			"evolveFrom": "Nidorina",
+			"hp": 90.0,
+			"id": "base2-23",
+			"illustrator": "Ken Sugimori",
+			"image": "https://assets.tcgdex.net/en/base/base2/23",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "23",
+			"name": "Nidoqueen",
+			"rarity": "Rare",
+			"retreat": 3.0,
+			"set": {
+				"cardCount": {
+					"official": 64.0,
+					"total": 64.0
+				},
+				"id": "base2",
+				"logo": "https://assets.tcgdex.net/en/base/base2/logo",
+				"name": "Jungle",
+				"symbol": "https://assets.tcgdex.net/univ/base/base2/symbol"
+			},
+			"stage": "Stage2",
+			"types": [
+				"Grass"
+			],
+			"updated": "2026-08-14T19:45:37+01:00",
+			"variants": {
+				"firstEdition": true,
+				"holo": false,
+				"normal": true,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273804.0,
+						"tcgplayer": 106985.0
+					},
+					"type": "normal",
+					"variantId": "endfynwn4n10gzq"
+				},
+				{
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273804.0,
+						"tcgplayer": 106985.0
+					},
+					"type": "normal",
+					"variantId": "2fnyg4g532wu2uft0spaa3eefrz"
+				}
+			],
+			"weaknesses": [
+				{
+					"type": "Psychic",
+					"value": "×2"
+				}
+			]
+		},
+		{
+			"attacks": [
+				{
+					"cost": [
+						"Colorless",
+						"Colorless"
+					],
+					"damage": 20.0,
+					"name": "Wing Attack"
+				},
+				{
+					"cost": [
+						"Colorless",
+						"Colorless",
+						"Colorless"
+					],
+					"damage": 30.0,
+					"effect": "Unless this attack Knocks Out the Defending Pokémon, return the Defending Pokémon and all cards attached to it to your opponent's hand.",
+					"name": "Hurricane"
+				}
+			],
+			"category": "Pokemon",
+			"description": "When hunting, it skims the surface of water at high speed to pick off unwary prey such as Magikarp.",
+			"dexId": [
+				18.0
+			],
+			"evolveFrom": "Pidgeotto",
+			"hp": 80.0,
+			"id": "base2-24",
+			"illustrator": "Kagemaru Himeno",
+			"image": "https://assets.tcgdex.net/en/base/base2/24",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "24",
+			"name": "Pidgeot",
+			"rarity": "Rare",
+			"resistances": [
+				{
+					"type": "Fighting",
+					"value": "-30"
+				}
+			],
+			"set": {
+				"cardCount": {
+					"official": 64.0,
+					"total": 64.0
+				},
+				"id": "base2",
+				"logo": "https://assets.tcgdex.net/en/base/base2/logo",
+				"name": "Jungle",
+				"symbol": "https://assets.tcgdex.net/univ/base/base2/symbol"
+			},
+			"stage": "Stage2",
+			"types": [
+				"Colorless"
+			],
+			"updated": "2026-08-14T19:45:37+01:00",
+			"variants": {
+				"firstEdition": true,
+				"holo": false,
+				"normal": true,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273805.0,
+						"tcgplayer": 106986.0
+					},
+					"type": "normal",
+					"variantId": "endfynwn4n10gzq"
+				},
+				{
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273805.0,
+						"tcgplayer": 106986.0
+					},
+					"type": "normal",
+					"variantId": "2fnyg4g532wu2uft0spaa3eefrz"
+				}
+			],
+			"weaknesses": [
+				{
+					"type": "Lightning",
+					"value": "×2"
+				}
+			]
+		},
+		{
+			"attacks": [
+				{
+					"cost": [
+						"Grass",
+						"Grass"
+					],
+					"damage": 20.0,
+					"effect": "Flip a coin. If heads, the Defending Pokémon is now Paralyzed.",
+					"name": "Irongrip"
+				},
+				{
+					"cost": [
+						"Grass",
+						"Grass",
+						"Colorless",
+						"Colorless"
+					],
+					"damage": 50.0,
+					"name": "Guillotine"
+				}
+			],
+			"category": "Pokemon",
+			"description": "If it fails to crush the victim in its pincers, it will swing its victim around and toss it hard.",
+			"dexId": [
+				127.0
+			],
+			"hp": 60.0,
+			"id": "base2-25",
+			"illustrator": "Kagemaru Himeno",
+			"image": "https://assets.tcgdex.net/en/base/base2/25",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "25",
+			"name": "Pinsir",
+			"rarity": "Rare",
+			"retreat": 1.0,
+			"set": {
+				"cardCount": {
+					"official": 64.0,
+					"total": 64.0
+				},
+				"id": "base2",
+				"logo": "https://assets.tcgdex.net/en/base/base2/logo",
+				"name": "Jungle",
+				"symbol": "https://assets.tcgdex.net/univ/base/base2/symbol"
+			},
+			"stage": "Basic",
+			"types": [
+				"Grass"
+			],
+			"updated": "2026-08-14T19:45:37+01:00",
+			"variants": {
+				"firstEdition": true,
+				"holo": false,
+				"normal": true,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273806.0,
+						"tcgplayer": 106987.0
+					},
+					"type": "normal",
+					"variantId": "endfynwn4n10gzq"
+				},
+				{
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273806.0,
+						"tcgplayer": 106987.0
+					},
+					"type": "normal",
+					"variantId": "2fnyg4g532wu2uft0spaa3eefrz"
+				}
+			],
+			"weaknesses": [
+				{
+					"type": "Fire",
+					"value": "×2"
+				}
+			]
+		},
+		{
+			"attacks": [
+				{
+					"cost": [
+						"Grass"
+					],
+					"effect": "During your next turn, Scyther's Slash attack's base damage is 60 instead of 30.",
+					"name": "Swords Dance"
+				},
+				{
+					"cost": [
+						"Colorless",
+						"Colorless",
+						"Colorless"
+					],
+					"damage": 30.0,
+					"name": "Slash"
+				}
+			],
+			"category": "Pokemon",
+			"description": "With ninja-like agility and speed, it can create the illusion that there is more than one of it.",
+			"dexId": [
+				123.0
+			],
+			"hp": 70.0,
+			"id": "base2-26",
+			"illustrator": "Ken Sugimori",
+			"image": "https://assets.tcgdex.net/en/base/base2/26",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "26",
+			"name": "Scyther",
+			"rarity": "Rare",
+			"resistances": [
+				{
+					"type": "Fighting",
+					"value": "-30"
+				}
+			],
+			"set": {
+				"cardCount": {
+					"official": 64.0,
+					"total": 64.0
+				},
+				"id": "base2",
+				"logo": "https://assets.tcgdex.net/en/base/base2/logo",
+				"name": "Jungle",
+				"symbol": "https://assets.tcgdex.net/univ/base/base2/symbol"
+			},
+			"stage": "Basic",
+			"types": [
+				"Grass"
+			],
+			"updated": "2026-08-14T19:45:37+01:00",
+			"variants": {
+				"firstEdition": true,
+				"holo": false,
+				"normal": true,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273807.0,
+						"tcgplayer": 106988.0
+					},
+					"type": "normal",
+					"variantId": "endfynwn4n10gzq"
+				},
+				{
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273807.0,
+						"tcgplayer": 106988.0
+					},
+					"type": "normal",
+					"variantId": "2fnyg4g532wu2uft0spaa3eefrz"
+				}
+			],
+			"weaknesses": [
+				{
+					"type": "Fire",
+					"value": "×2"
+				}
+			]
+		},
+		{
+			"abilities": [
+				{
+					"effect": "Snorlax can't become Asleep, Confused, Paralyzed, or Poisoned. This power can't be used if Snorlax is already Asleep, Confused, or Paralyzed.",
+					"name": "Thick Skinned",
+					"type": "Pokemon Power"
+				}
+			],
+			"attacks": [
+				{
+					"cost": [
+						"Colorless",
+						"Colorless",
+						"Colorless",
+						"Colorless"
+					],
+					"damage": 30.0,
+					"effect": "Flip a coin. If heads, the Defending Pokémon is now Paralyzed.",
+					"name": "Body Slam"
+				}
+			],
+			"category": "Pokemon",
+			"description": "Very lazy. Just eats and sleeps. As its rotund bulk builds, it becomes steadily more slothful.",
+			"dexId": [
+				143.0
+			],
+			"evolveFrom": "Munchlax",
+			"hp": 90.0,
+			"id": "base2-27",
+			"illustrator": "Ken Sugimori",
+			"image": "https://assets.tcgdex.net/en/base/base2/27",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "27",
+			"name": "Snorlax",
+			"rarity": "Rare",
+			"resistances": [
+				{
+					"type": "Psychic",
+					"value": "-30"
+				}
+			],
+			"retreat": 4.0,
+			"set": {
+				"cardCount": {
+					"official": 64.0,
+					"total": 64.0
+				},
+				"id": "base2",
+				"logo": "https://assets.tcgdex.net/en/base/base2/logo",
+				"name": "Jungle",
+				"symbol": "https://assets.tcgdex.net/univ/base/base2/symbol"
+			},
+			"stage": "Basic",
+			"types": [
+				"Colorless"
+			],
+			"updated": "2026-08-18T17:19:50Z",
+			"variants": {
+				"firstEdition": true,
+				"holo": false,
+				"normal": true,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273808.0,
+						"tcgplayer": 106989.0
+					},
+					"type": "normal",
+					"variantId": "endfynwn4n10gzq"
+				},
+				{
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273808.0,
+						"tcgplayer": 106989.0
+					},
+					"type": "normal",
+					"variantId": "2fnyg4g532wu2uft0spaa3eefrz"
+				}
+			],
+			"weaknesses": [
+				{
+					"type": "Fighting",
+					"value": "×2"
+				}
+			]
+		},
+		{
+			"attacks": [
+				{
+					"cost": [
+						"Colorless",
+						"Colorless"
+					],
+					"damage": "10+",
+					"effect": "Flip a coin. If heads, this attack does 10 damage plus 20 more damage; if tails, this attack does 10 damage.",
+					"name": "Quick Attack"
+				},
+				{
+					"cost": [
+						"Water",
+						"Water",
+						"Colorless"
+					],
+					"damage": "30+",
+					"effect": "Does 30 damage plus 10 more damage for each Energy attached to Vaporeon but not used to pay for this attack's Energy cost. Extra Energy after the 2nd doesn't count.",
+					"name": "Water Gun"
+				}
+			],
+			"category": "Pokemon",
+			"description": "Lives close to water. Its long tail is ridged with a fin that is often mistaken for a mermaid's.",
+			"dexId": [
+				134.0
+			],
+			"evolveFrom": "Eevee",
+			"hp": 80.0,
+			"id": "base2-28",
+			"illustrator": "Kagemaru Himeno",
+			"image": "https://assets.tcgdex.net/en/base/base2/28",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "28",
+			"name": "Vaporeon",
+			"rarity": "Rare",
+			"retreat": 1.0,
+			"set": {
+				"cardCount": {
+					"official": 64.0,
+					"total": 64.0
+				},
+				"id": "base2",
+				"logo": "https://assets.tcgdex.net/en/base/base2/logo",
+				"name": "Jungle",
+				"symbol": "https://assets.tcgdex.net/univ/base/base2/symbol"
+			},
+			"stage": "Stage1",
+			"types": [
+				"Water"
+			],
+			"updated": "2026-08-14T19:45:37+01:00",
+			"variants": {
+				"firstEdition": true,
+				"holo": false,
+				"normal": true,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273809.0,
+						"tcgplayer": 106990.0
+					},
+					"type": "normal",
+					"variantId": "endfynwn4n10gzq"
+				},
+				{
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273809.0,
+						"tcgplayer": 106990.0
+					},
+					"type": "normal",
+					"variantId": "2fnyg4g532wu2uft0spaa3eefrz"
+				}
+			],
+			"weaknesses": [
+				{
+					"type": "Lightning",
+					"value": "×2"
+				}
+			]
+		},
+		{
+			"abilities": [
+				{
+					"effect": "Once during your turn (before your attack), you may change the type of Venomoth to the type of any other Pokémon in play other than Colorless. This power can't be used if Venomoth is Asleep, Confused, or Paralyzed.",
+					"name": "Shift",
+					"type": "Pokemon Power"
+				}
+			],
+			"attacks": [
+				{
+					"cost": [
+						"Grass",
+						"Grass"
+					],
+					"damage": 10.0,
+					"effect": "Flip a coin. If heads, the Defending Pokémon is now Confused and Poisoned.",
+					"name": "Venom Powder"
+				}
+			],
+			"category": "Pokemon",
+			"description": "The dust-like scales covering its wings are color coded to indicate the kinds of poison it has.",
+			"dexId": [
+				49.0
+			],
+			"evolveFrom": "Venonat",
+			"hp": 70.0,
+			"id": "base2-29",
+			"illustrator": "Ken Sugimori",
+			"image": "https://assets.tcgdex.net/en/base/base2/29",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "29",
+			"name": "Venomoth",
+			"rarity": "Rare",
+			"resistances": [
+				{
+					"type": "Fighting",
+					"value": "-30"
+				}
+			],
+			"set": {
+				"cardCount": {
+					"official": 64.0,
+					"total": 64.0
+				},
+				"id": "base2",
+				"logo": "https://assets.tcgdex.net/en/base/base2/logo",
+				"name": "Jungle",
+				"symbol": "https://assets.tcgdex.net/univ/base/base2/symbol"
+			},
+			"stage": "Stage1",
+			"types": [
+				"Grass"
+			],
+			"updated": "2026-08-14T19:45:37+01:00",
+			"variants": {
+				"firstEdition": true,
+				"holo": false,
+				"normal": true,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273810.0,
+						"tcgplayer": 106991.0
+					},
+					"type": "normal",
+					"variantId": "endfynwn4n10gzq"
+				},
+				{
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273810.0,
+						"tcgplayer": 106991.0
+					},
+					"type": "normal",
+					"variantId": "2fnyg4g532wu2uft0spaa3eefrz"
+				}
+			],
+			"weaknesses": [
+				{
+					"type": "Fire",
+					"value": "×2"
+				}
+			]
+		},
+		{
+			"attacks": [
+				{
+					"cost": [
+						"Grass"
+					],
+					"effect": "If your opponent has any Benched Pokémon, choose 1 of them and switch it with his or her Active Pokémon.",
+					"name": "Lure"
+				},
+				{
+					"cost": [
+						"Grass",
+						"Grass"
+					],
+					"damage": 20.0,
+					"effect": "Flip a coin. If heads, the Defending Pokémon can't retreat during your opponent's next turn.",
+					"name": "Acid"
+				}
+			],
+			"category": "Pokemon",
+			"description": "Said to live in huge colonies deep in jungles, although no one has ever returned from there.",
+			"dexId": [
+				71.0
+			],
+			"evolveFrom": "Weepinbell",
+			"hp": 80.0,
+			"id": "base2-30",
+			"illustrator": "Ken Sugimori",
+			"image": "https://assets.tcgdex.net/en/base/base2/30",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "30",
+			"name": "Victreebel",
+			"rarity": "Rare",
+			"retreat": 2.0,
+			"set": {
+				"cardCount": {
+					"official": 64.0,
+					"total": 64.0
+				},
+				"id": "base2",
+				"logo": "https://assets.tcgdex.net/en/base/base2/logo",
+				"name": "Jungle",
+				"symbol": "https://assets.tcgdex.net/univ/base/base2/symbol"
+			},
+			"stage": "Stage2",
+			"types": [
+				"Grass"
+			],
+			"updated": "2026-08-14T19:45:37+01:00",
+			"variants": {
+				"firstEdition": true,
+				"holo": false,
+				"normal": true,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273811.0,
+						"tcgplayer": 106992.0
+					},
+					"type": "normal",
+					"variantId": "endfynwn4n10gzq"
+				},
+				{
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273811.0,
+						"tcgplayer": 106992.0
+					},
+					"type": "normal",
+					"variantId": "2fnyg4g532wu2uft0spaa3eefrz"
+				}
+			],
+			"weaknesses": [
+				{
+					"type": "Fire",
+					"value": "×2"
+				}
+			]
+		},
+		{
+			"abilities": [
+				{
+					"effect": "Once during your turn (before your attack), you may flip a coin. If heads, remove 1 damage counter from 1 of your Pokémon. This power can't be used if Vileplume is Asleep, Confused, or Paralyzed.",
+					"name": "Heal",
+					"type": "Pokemon Power"
+				}
+			],
+			"attacks": [
+				{
+					"cost": [
+						"Grass",
+						"Grass",
+						"Grass"
+					],
+					"damage": "40x",
+					"effect": "Flip 3 coins. This attack does 40 damage times the number of heads. Vileplume is now Confused (after doing damage).",
+					"name": "Petal Dance"
+				}
+			],
+			"category": "Pokemon",
+			"description": "The larger its petals, the more toxic pollen it contains. Its big head is heavy and hard to hold up.",
+			"dexId": [
+				45.0
+			],
+			"evolveFrom": "Gloom",
+			"hp": 80.0,
+			"id": "base2-31",
+			"illustrator": "Keiji Kinebuchi",
+			"image": "https://assets.tcgdex.net/en/base/base2/31",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "31",
+			"name": "Vileplume",
+			"rarity": "Rare",
+			"retreat": 2.0,
+			"set": {
+				"cardCount": {
+					"official": 64.0,
+					"total": 64.0
+				},
+				"id": "base2",
+				"logo": "https://assets.tcgdex.net/en/base/base2/logo",
+				"name": "Jungle",
+				"symbol": "https://assets.tcgdex.net/univ/base/base2/symbol"
+			},
+			"stage": "Stage2",
+			"types": [
+				"Grass"
+			],
+			"updated": "2026-08-14T19:45:37+01:00",
+			"variants": {
+				"firstEdition": true,
+				"holo": false,
+				"normal": true,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273812.0,
+						"tcgplayer": 106993.0
+					},
+					"type": "normal",
+					"variantId": "endfynwn4n10gzq"
+				},
+				{
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273812.0,
+						"tcgplayer": 106993.0
+					},
+					"type": "normal",
+					"variantId": "2fnyg4g532wu2uft0spaa3eefrz"
+				}
+			],
+			"weaknesses": [
+				{
+					"type": "Fire",
+					"value": "×2"
+				}
+			]
+		},
+		{
+			"attacks": [
+				{
+					"cost": [
+						"Colorless"
+					],
+					"effect": "The Defending Pokémon is now Asleep.",
+					"name": "Lullaby"
+				},
+				{
+					"cost": [
+						"Colorless",
+						"Colorless",
+						"Colorless"
+					],
+					"damage": "10+",
+					"effect": "Does 10 damage plus 10 more damage for each of your Benched Pokémon.",
+					"name": "Do the Wave"
+				}
+			],
+			"category": "Pokemon",
+			"description": "The body is soft and rubbery. When angered, it will suck in air and inflate itself to an enormous size.",
+			"dexId": [
+				40.0
+			],
+			"evolveFrom": "Jigglypuff",
+			"hp": 80.0,
+			"id": "base2-32",
+			"illustrator": "Mitsuhiro Arita",
+			"image": "https://assets.tcgdex.net/en/base/base2/32",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "32",
+			"name": "Wigglytuff",
+			"rarity": "Rare",
+			"resistances": [
+				{
+					"type": "Psychic",
+					"value": "-30"
+				}
+			],
+			"retreat": 2.0,
+			"set": {
+				"cardCount": {
+					"official": 64.0,
+					"total": 64.0
+				},
+				"id": "base2",
+				"logo": "https://assets.tcgdex.net/en/base/base2/logo",
+				"name": "Jungle",
+				"symbol": "https://assets.tcgdex.net/univ/base/base2/symbol"
+			},
+			"stage": "Stage1",
+			"types": [
+				"Colorless"
+			],
+			"updated": "2026-08-14T19:45:37+01:00",
+			"variants": {
+				"firstEdition": true,
+				"holo": false,
+				"normal": true,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273813.0,
+						"tcgplayer": 106994.0
+					},
+					"type": "normal",
+					"variantId": "endfynwn4n10gzq"
+				},
+				{
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273813.0,
+						"tcgplayer": 106994.0
+					},
+					"type": "normal",
+					"variantId": "2fnyg4g532wu2uft0spaa3eefrz"
+				}
+			],
+			"weaknesses": [
+				{
+					"type": "Fighting",
+					"value": "×2"
+				}
+			]
+		},
+		{
+			"attacks": [
+				{
+					"cost": [
+						"Colorless",
+						"Colorless"
+					],
+					"damage": 20.0,
+					"effect": "If your opponent has any Benched Pokémon, he or she chooses 1 of them and switches it with the Defending Pokémon. (Do the damage before switching the Pokémon.)",
+					"name": "Whirlwind"
+				},
+				{
+					"cost": [
+						"Grass",
+						"Grass",
+						"Grass",
+						"Grass"
+					],
+					"damage": 40.0,
+					"effect": "Remove a number of damage counters from Butterfree equal to half the damage done to the Defending Pokémon (after applying Weakness and Resistance) (rounded up to the nearest 10).",
+					"name": "Mega Drain"
+				}
+			],
+			"category": "Pokemon",
+			"description": "In battle, it flaps its wings at high speed to release highly toxic dust into the air.",
+			"dexId": [
+				12.0
+			],
+			"evolveFrom": "Metapod",
+			"hp": 70.0,
+			"id": "base2-33",
+			"illustrator": "Kagemaru Himeno",
+			"image": "https://assets.tcgdex.net/en/base/base2/33",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "33",
+			"name": "Butterfree",
+			"rarity": "Uncommon",
+			"resistances": [
+				{
+					"type": "Fighting",
+					"value": "-30"
+				}
+			],
+			"set": {
+				"cardCount": {
+					"official": 64.0,
+					"total": 64.0
+				},
+				"id": "base2",
+				"logo": "https://assets.tcgdex.net/en/base/base2/logo",
+				"name": "Jungle",
+				"symbol": "https://assets.tcgdex.net/univ/base/base2/symbol"
+			},
+			"stage": "Stage2",
+			"types": [
+				"Grass"
+			],
+			"updated": "2026-08-14T19:45:37+01:00",
+			"variants": {
+				"firstEdition": true,
+				"holo": false,
+				"normal": true,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273830.0,
+						"tcgplayer": 45136.0
+					},
+					"type": "normal",
+					"variantId": "endfynwn4n10gzq"
+				},
+				{
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273830.0,
+						"tcgplayer": 45136.0
+					},
+					"type": "normal",
+					"variantId": "2fnyg4g532wu2uft0spaa3eefrz"
+				},
+				{
+					"size": "standard",
+					"stamp": [
+						"d-edition-error"
+					],
+					"type": "normal",
+					"variantId": "1c79txmtnnu55io7q5f20seyt9w67ea"
+				}
+			],
+			"weaknesses": [
+				{
+					"type": "Fire",
+					"value": "×2"
+				}
+			]
+		},
+		{
+			"abilities": [
+				{
+					"effect": "As long as Dodrio is Benched, pay 1 Colorless less to retreat your Active Pokémon.",
+					"name": "Retreat Aid",
+					"type": "Pokemon Power"
+				}
+			],
+			"attacks": [
+				{
+					"cost": [
+						"Colorless",
+						"Colorless",
+						"Colorless"
+					],
+					"damage": "10+",
+					"effect": "Does 10 damage plus 10 more damage for each damage counter on Dodrio.",
+					"name": "Rage"
+				}
+			],
+			"category": "Pokemon",
+			"description": "Uses its three brains to execute complex plans. While two heads sleep, one head stays awake.",
+			"dexId": [
+				85.0
+			],
+			"evolveFrom": "Doduo",
+			"hp": 70.0,
+			"id": "base2-34",
+			"illustrator": "Mitsuhiro Arita",
+			"image": "https://assets.tcgdex.net/en/base/base2/34",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "34",
+			"name": "Dodrio",
+			"rarity": "Uncommon",
+			"resistances": [
+				{
+					"type": "Fighting",
+					"value": "-30"
+				}
+			],
+			"set": {
+				"cardCount": {
+					"official": 64.0,
+					"total": 64.0
+				},
+				"id": "base2",
+				"logo": "https://assets.tcgdex.net/en/base/base2/logo",
+				"name": "Jungle",
+				"symbol": "https://assets.tcgdex.net/univ/base/base2/symbol"
+			},
+			"stage": "Stage1",
+			"types": [
+				"Colorless"
+			],
+			"updated": "2026-08-14T19:45:37+01:00",
+			"variants": {
+				"firstEdition": true,
+				"holo": false,
+				"normal": true,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273831.0,
+						"tcgplayer": 45137.0
+					},
+					"type": "normal",
+					"variantId": "endfynwn4n10gzq"
+				},
+				{
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273831.0,
+						"tcgplayer": 45137.0
+					},
+					"type": "normal",
+					"variantId": "2fnyg4g532wu2uft0spaa3eefrz"
+				}
+			],
+			"weaknesses": [
+				{
+					"type": "Lightning",
+					"value": "×2"
+				}
+			]
+		},
+		{
+			"attacks": [
+				{
+					"cost": [
+						"Psychic"
+					],
+					"effect": "Switch Exeggutor with 1 of your Benched Pokémon.",
+					"name": "Teleport"
+				},
+				{
+					"cost": [
+						"Colorless"
+					],
+					"damage": "20x",
+					"effect": "Flip a number of coins equal to the number of Energy attached to Exeggutor. This attack does 20 damage times the number of heads.",
+					"name": "Big Eggsplosion"
+				}
+			],
+			"category": "Pokemon",
+			"description": "Legend has it that on rare occasions, one of its heads will drop off and continue on as an Exeggcute.",
+			"dexId": [
+				103.0
+			],
+			"evolveFrom": "Exeggcute",
+			"hp": 80.0,
+			"id": "base2-35",
+			"illustrator": "Kagemaru Himeno",
+			"image": "https://assets.tcgdex.net/en/base/base2/35",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "35",
+			"name": "Exeggutor",
+			"rarity": "Uncommon",
+			"retreat": 3.0,
+			"set": {
+				"cardCount": {
+					"official": 64.0,
+					"total": 64.0
+				},
+				"id": "base2",
+				"logo": "https://assets.tcgdex.net/en/base/base2/logo",
+				"name": "Jungle",
+				"symbol": "https://assets.tcgdex.net/univ/base/base2/symbol"
+			},
+			"stage": "Stage1",
+			"types": [
+				"Grass"
+			],
+			"updated": "2026-08-14T19:45:37+01:00",
+			"variants": {
+				"firstEdition": true,
+				"holo": false,
+				"normal": true,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273832.0,
+						"tcgplayer": 45138.0
+					},
+					"type": "normal",
+					"variantId": "endfynwn4n10gzq"
+				},
+				{
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273832.0,
+						"tcgplayer": 45138.0
+					},
+					"type": "normal",
+					"variantId": "2fnyg4g532wu2uft0spaa3eefrz"
+				}
+			],
+			"weaknesses": [
+				{
+					"type": "Fire",
+					"value": "×2"
+				}
+			]
+		},
+		{
+			"attacks": [
+				{
+					"cost": [
+						"Colorless",
+						"Colorless",
+						"Colorless"
+					],
+					"damage": 20.0,
+					"effect": "Flip a coin. If heads, during your opponent's next turn, prevent all effects of attacks, including damage, done to Fearow.",
+					"name": "Agility"
+				},
+				{
+					"cost": [
+						"Colorless",
+						"Colorless",
+						"Colorless",
+						"Colorless"
+					],
+					"damage": 40.0,
+					"name": "Drill Peck"
+				}
+			],
+			"category": "Pokemon",
+			"description": "With its huge and magnificent wings, it can keep aloft without ever having to land for rest.",
+			"dexId": [
+				22.0
+			],
+			"evolveFrom": "Spearow",
+			"hp": 70.0,
+			"id": "base2-36",
+			"illustrator": "Mitsuhiro Arita",
+			"image": "https://assets.tcgdex.net/en/base/base2/36",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "36",
+			"name": "Fearow",
+			"rarity": "Uncommon",
+			"resistances": [
+				{
+					"type": "Fighting",
+					"value": "-30"
+				}
+			],
+			"set": {
+				"cardCount": {
+					"official": 64.0,
+					"total": 64.0
+				},
+				"id": "base2",
+				"logo": "https://assets.tcgdex.net/en/base/base2/logo",
+				"name": "Jungle",
+				"symbol": "https://assets.tcgdex.net/univ/base/base2/symbol"
+			},
+			"stage": "Stage1",
+			"types": [
+				"Colorless"
+			],
+			"updated": "2026-08-14T19:45:37+01:00",
+			"variants": {
+				"firstEdition": true,
+				"holo": false,
+				"normal": true,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273833.0,
+						"tcgplayer": 45139.0
+					},
+					"type": "normal",
+					"variantId": "endfynwn4n10gzq"
+				},
+				{
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273833.0,
+						"tcgplayer": 45139.0
+					},
+					"type": "normal",
+					"variantId": "2fnyg4g532wu2uft0spaa3eefrz"
+				}
+			],
+			"weaknesses": [
+				{
+					"type": "Lightning",
+					"value": "×2"
+				}
+			]
+		},
+		{
+			"attacks": [
+				{
+					"cost": [
+						"Grass"
+					],
+					"effect": "The Defending Pokémon is now Poisoned.",
+					"name": "Poisonpowder"
+				},
+				{
+					"cost": [
+						"Grass",
+						"Grass"
+					],
+					"damage": 20.0,
+					"effect": "Both the Defending Pokémon and Gloom are now Confused (after doing damage).",
+					"name": "Foul Odor"
+				}
+			],
+			"category": "Pokemon",
+			"description": "The fluid that oozes from its mouth isn't drool; it is a nectar that is used to attract prey.",
+			"dexId": [
+				44.0
+			],
+			"evolveFrom": "Oddish",
+			"hp": 60.0,
+			"id": "base2-37",
+			"illustrator": "Keiji Kinebuchi",
+			"image": "https://assets.tcgdex.net/en/base/base2/37",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "37",
+			"name": "Gloom",
+			"rarity": "Uncommon",
+			"retreat": 1.0,
+			"set": {
+				"cardCount": {
+					"official": 64.0,
+					"total": 64.0
+				},
+				"id": "base2",
+				"logo": "https://assets.tcgdex.net/en/base/base2/logo",
+				"name": "Jungle",
+				"symbol": "https://assets.tcgdex.net/univ/base/base2/symbol"
+			},
+			"stage": "Stage1",
+			"types": [
+				"Grass"
+			],
+			"updated": "2026-08-14T19:45:37+01:00",
+			"variants": {
+				"firstEdition": true,
+				"holo": false,
+				"normal": true,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273834.0,
+						"tcgplayer": 45140.0
+					},
+					"type": "normal",
+					"variantId": "endfynwn4n10gzq"
+				},
+				{
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273834.0,
+						"tcgplayer": 45140.0
+					},
+					"type": "normal",
+					"variantId": "2fnyg4g532wu2uft0spaa3eefrz"
+				}
+			],
+			"weaknesses": [
+				{
+					"type": "Fire",
+					"value": "×2"
+				}
+			]
+		},
+		{
+			"attacks": [
+				{
+					"cost": [
+						"Colorless"
+					],
+					"damage": 10.0,
+					"effect": "Flip a coin. If heads, the Defending Pokémon is now Paralyzed.",
+					"name": "Tongue Wrap"
+				},
+				{
+					"cost": [
+						"Colorless",
+						"Colorless"
+					],
+					"effect": "Flip a coin. If heads, the Defending Pokémon is now Confused.",
+					"name": "Supersonic"
+				}
+			],
+			"category": "Pokemon",
+			"description": "Its tongue can be extended like a chameleon's. It leaves a stinging sensation when it licks enemies.",
+			"dexId": [
+				108.0
+			],
+			"hp": 90.0,
+			"id": "base2-38",
+			"illustrator": "Mitsuhiro Arita",
+			"image": "https://assets.tcgdex.net/en/base/base2/38",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "38",
+			"name": "Lickitung",
+			"rarity": "Uncommon",
+			"resistances": [
+				{
+					"type": "Psychic",
+					"value": "-30"
+				}
+			],
+			"retreat": 3.0,
+			"set": {
+				"cardCount": {
+					"official": 64.0,
+					"total": 64.0
+				},
+				"id": "base2",
+				"logo": "https://assets.tcgdex.net/en/base/base2/logo",
+				"name": "Jungle",
+				"symbol": "https://assets.tcgdex.net/univ/base/base2/symbol"
+			},
+			"stage": "Basic",
+			"types": [
+				"Colorless"
+			],
+			"updated": "2026-08-14T19:45:37+01:00",
+			"variants": {
+				"firstEdition": true,
+				"holo": false,
+				"normal": true,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273835.0,
+						"tcgplayer": 45141.0
+					},
+					"type": "normal",
+					"variantId": "endfynwn4n10gzq"
+				},
+				{
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273835.0,
+						"tcgplayer": 45141.0
+					},
+					"type": "normal",
+					"variantId": "2fnyg4g532wu2uft0spaa3eefrz"
+				}
+			],
+			"weaknesses": [
+				{
+					"type": "Fighting",
+					"value": "×2"
+				}
+			]
+		},
+		{
+			"attacks": [
+				{
+					"cost": [
+						"Fighting",
+						"Fighting"
+					],
+					"damage": "30x",
+					"effect": "Flip 2 coins. This attack does 30 damage times the number of heads.",
+					"name": "Bonemerang"
+				},
+				{
+					"cost": [
+						"Fighting",
+						"Fighting",
+						"Colorless"
+					],
+					"effect": "Search your deck for a Fighting Basic Pokémon card and put it onto your Bench. Shuffle your deck afterward. (You can't use this attack if your Bench is full.)",
+					"name": "Call for Friend"
+				}
+			],
+			"category": "Pokemon",
+			"description": "The bone it holds is its key weapon. It throws the bone skillfully like a boomerang to K.O. targets.",
+			"dexId": [
+				105.0
+			],
+			"evolveFrom": "Cubone",
+			"hp": 60.0,
+			"id": "base2-39",
+			"illustrator": "Mitsuhiro Arita",
+			"image": "https://assets.tcgdex.net/en/base/base2/39",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "39",
+			"name": "Marowak",
+			"rarity": "Uncommon",
+			"resistances": [
+				{
+					"type": "Lightning",
+					"value": "-30"
+				}
+			],
+			"retreat": 1.0,
+			"set": {
+				"cardCount": {
+					"official": 64.0,
+					"total": 64.0
+				},
+				"id": "base2",
+				"logo": "https://assets.tcgdex.net/en/base/base2/logo",
+				"name": "Jungle",
+				"symbol": "https://assets.tcgdex.net/univ/base/base2/symbol"
+			},
+			"stage": "Stage1",
+			"types": [
+				"Fighting"
+			],
+			"updated": "2026-08-14T19:45:37+01:00",
+			"variants": {
+				"firstEdition": true,
+				"holo": false,
+				"normal": true,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273836.0,
+						"tcgplayer": 45142.0
+					},
+					"type": "normal",
+					"variantId": "endfynwn4n10gzq"
+				},
+				{
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273836.0,
+						"tcgplayer": 45142.0
+					},
+					"type": "normal",
+					"variantId": "2fnyg4g532wu2uft0spaa3eefrz"
+				}
+			],
+			"weaknesses": [
+				{
+					"type": "Grass",
+					"value": "×2"
+				}
+			]
+		},
+		{
+			"attacks": [
+				{
+					"cost": [
+						"Grass"
+					],
+					"effect": "Flip a coin. If heads, the Defending Pokémon is now Confused.",
+					"name": "Supersonic"
+				},
+				{
+					"cost": [
+						"Grass",
+						"Colorless",
+						"Colorless"
+					],
+					"damage": "30x",
+					"effect": "Flip 2 coins. This attack does 30 damage times the number of heads.",
+					"name": "Double Kick"
+				}
+			],
+			"category": "Pokemon",
+			"description": "The female's horn develops slowly. Prefers physical attacks such as clawing and biting.",
+			"dexId": [
+				30.0
+			],
+			"evolveFrom": "Nidoran♀",
+			"hp": 70.0,
+			"id": "base2-40",
+			"illustrator": "Ken Sugimori",
+			"image": "https://assets.tcgdex.net/en/base/base2/40",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "40",
+			"name": "Nidorina",
+			"rarity": "Uncommon",
+			"retreat": 1.0,
+			"set": {
+				"cardCount": {
+					"official": 64.0,
+					"total": 64.0
+				},
+				"id": "base2",
+				"logo": "https://assets.tcgdex.net/en/base/base2/logo",
+				"name": "Jungle",
+				"symbol": "https://assets.tcgdex.net/univ/base/base2/symbol"
+			},
+			"stage": "Stage1",
+			"types": [
+				"Grass"
+			],
+			"updated": "2026-08-14T19:45:37+01:00",
+			"variants": {
+				"firstEdition": true,
+				"holo": false,
+				"normal": true,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273837.0,
+						"tcgplayer": 45143.0
+					},
+					"type": "normal",
+					"variantId": "endfynwn4n10gzq"
+				},
+				{
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273837.0,
+						"tcgplayer": 45143.0
+					},
+					"type": "normal",
+					"variantId": "2fnyg4g532wu2uft0spaa3eefrz"
+				}
+			],
+			"weaknesses": [
+				{
+					"type": "Psychic",
+					"value": "×2"
+				}
+			]
+		},
+		{
+			"attacks": [
+				{
+					"cost": [
+						"Grass",
+						"Grass"
+					],
+					"effect": "The Defending Pokémon is now Asleep.",
+					"name": "Spore"
+				},
+				{
+					"cost": [
+						"Colorless",
+						"Colorless",
+						"Colorless"
+					],
+					"damage": 30.0,
+					"name": "Slash"
+				}
+			],
+			"category": "Pokemon",
+			"description": "A host-parasite pair in which the parasite mushroom has taken over the host bug. Prefers damp places.",
+			"dexId": [
+				47.0
+			],
+			"evolveFrom": "Paras",
+			"hp": 60.0,
+			"id": "base2-41",
+			"illustrator": "Ken Sugimori",
+			"image": "https://assets.tcgdex.net/en/base/base2/41",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "41",
+			"name": "Parasect",
+			"rarity": "Uncommon",
+			"retreat": 1.0,
+			"set": {
+				"cardCount": {
+					"official": 64.0,
+					"total": 64.0
+				},
+				"id": "base2",
+				"logo": "https://assets.tcgdex.net/en/base/base2/logo",
+				"name": "Jungle",
+				"symbol": "https://assets.tcgdex.net/univ/base/base2/symbol"
+			},
+			"stage": "Stage1",
+			"types": [
+				"Grass"
+			],
+			"updated": "2026-08-14T19:45:37+01:00",
+			"variants": {
+				"firstEdition": true,
+				"holo": false,
+				"normal": true,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273838.0,
+						"tcgplayer": 45144.0
+					},
+					"type": "normal",
+					"variantId": "endfynwn4n10gzq"
+				},
+				{
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273838.0,
+						"tcgplayer": 45144.0
+					},
+					"type": "normal",
+					"variantId": "2fnyg4g532wu2uft0spaa3eefrz"
+				}
+			],
+			"weaknesses": [
+				{
+					"type": "Fire",
+					"value": "×2"
+				}
+			]
+		},
+		{
+			"attacks": [
+				{
+					"cost": [
+						"Colorless",
+						"Colorless"
+					],
+					"damage": 20.0,
+					"name": "Scratch"
+				},
+				{
+					"cost": [
+						"Colorless",
+						"Colorless",
+						"Colorless"
+					],
+					"damage": 30.0,
+					"effect": "If the Defending Pokémon attacks Persian during your opponent's next turn, any damage done by the attack is reduce by 10 (after applying Weakness and Resistance). (Benching either Pokémon ends this effect.)",
+					"name": "Pounce"
+				}
+			],
+			"category": "Pokemon",
+			"description": "Although its fur has many admirers, it is tough to raise as a pet because of its fickle meanness.",
+			"dexId": [
+				53.0
+			],
+			"evolveFrom": "Meowth",
+			"hp": 70.0,
+			"id": "base2-42",
+			"illustrator": "Kagemaru Himeno",
+			"image": "https://assets.tcgdex.net/en/base/base2/42",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "42",
+			"name": "Persian",
+			"rarity": "Uncommon",
+			"resistances": [
+				{
+					"type": "Psychic",
+					"value": "-30"
+				}
+			],
+			"set": {
+				"cardCount": {
+					"official": 64.0,
+					"total": 64.0
+				},
+				"id": "base2",
+				"logo": "https://assets.tcgdex.net/en/base/base2/logo",
+				"name": "Jungle",
+				"symbol": "https://assets.tcgdex.net/univ/base/base2/symbol"
+			},
+			"stage": "Stage1",
+			"types": [
+				"Colorless"
+			],
+			"updated": "2026-08-14T19:45:37+01:00",
+			"variants": {
+				"firstEdition": true,
+				"holo": false,
+				"normal": true,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273839.0,
+						"tcgplayer": 45145.0
+					},
+					"type": "normal",
+					"variantId": "endfynwn4n10gzq"
+				},
+				{
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273839.0,
+						"tcgplayer": 45145.0
+					},
+					"type": "normal",
+					"variantId": "2fnyg4g532wu2uft0spaa3eefrz"
+				}
+			],
+			"weaknesses": [
+				{
+					"type": "Fighting",
+					"value": "×2"
+				}
+			]
+		},
+		{
+			"attacks": [
+				{
+					"cost": [
+						"Fighting",
+						"Fighting"
+					],
+					"damage": "20x",
+					"effect": "Flip 3 coins. This attack does 20 damage times the number of heads.",
+					"name": "Fury Swipes"
+				},
+				{
+					"cost": [
+						"Fighting",
+						"Fighting",
+						"Colorless"
+					],
+					"damage": 50.0,
+					"effect": "Flip a coin. If tails, Primeape is now Confused (after doing damage).",
+					"name": "Tantrum"
+				}
+			],
+			"category": "Pokemon",
+			"description": "Always furious and tenacious to boot. It will not abandon chasing its quarry until its quarry is caught.",
+			"dexId": [
+				57.0
+			],
+			"evolveFrom": "Mankey",
+			"hp": 70.0,
+			"id": "base2-43",
+			"illustrator": "Kagemaru Himeno",
+			"image": "https://assets.tcgdex.net/en/base/base2/43",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "43",
+			"name": "Primeape",
+			"rarity": "Uncommon",
+			"retreat": 1.0,
+			"set": {
+				"cardCount": {
+					"official": 64.0,
+					"total": 64.0
+				},
+				"id": "base2",
+				"logo": "https://assets.tcgdex.net/en/base/base2/logo",
+				"name": "Jungle",
+				"symbol": "https://assets.tcgdex.net/univ/base/base2/symbol"
+			},
+			"stage": "Stage1",
+			"types": [
+				"Fighting"
+			],
+			"updated": "2026-08-14T19:45:37+01:00",
+			"variants": {
+				"firstEdition": true,
+				"holo": false,
+				"normal": true,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273840.0,
+						"tcgplayer": 45146.0
+					},
+					"type": "normal",
+					"variantId": "endfynwn4n10gzq"
+				},
+				{
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273840.0,
+						"tcgplayer": 45146.0
+					},
+					"type": "normal",
+					"variantId": "2fnyg4g532wu2uft0spaa3eefrz"
+				}
+			],
+			"weaknesses": [
+				{
+					"type": "Psychic",
+					"value": "×2"
+				}
+			]
+		},
+		{
+			"attacks": [
+				{
+					"cost": [
+						"Colorless",
+						"Colorless"
+					],
+					"damage": "20+",
+					"effect": "Flip a coin. If heads, this attack does 20 damage plus 10 more damage; if tails, this attack does 20 damage.",
+					"name": "Stomp"
+				},
+				{
+					"cost": [
+						"Fire",
+						"Fire",
+						"Colorless"
+					],
+					"damage": 30.0,
+					"effect": "Flip a coin. If heads, during your opponent's next turn, prevent all effects of attacks, including damage, done to Rapidash.",
+					"name": "Agility"
+				}
+			],
+			"category": "Pokemon",
+			"description": "Very competitive, this Pokémon will chase anything that moves fast in the hopes of racing it.",
+			"dexId": [
+				78.0
+			],
+			"evolveFrom": "Ponyta",
+			"hp": 70.0,
+			"id": "base2-44",
+			"illustrator": "Mitsuhiro Arita",
+			"image": "https://assets.tcgdex.net/en/base/base2/44",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "44",
+			"name": "Rapidash",
+			"rarity": "Uncommon",
+			"set": {
+				"cardCount": {
+					"official": 64.0,
+					"total": 64.0
+				},
+				"id": "base2",
+				"logo": "https://assets.tcgdex.net/en/base/base2/logo",
+				"name": "Jungle",
+				"symbol": "https://assets.tcgdex.net/univ/base/base2/symbol"
+			},
+			"stage": "Stage1",
+			"types": [
+				"Fire"
+			],
+			"updated": "2026-08-14T19:45:37+01:00",
+			"variants": {
+				"firstEdition": true,
+				"holo": false,
+				"normal": true,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273841.0,
+						"tcgplayer": 45147.0
+					},
+					"type": "normal",
+					"variantId": "endfynwn4n10gzq"
+				},
+				{
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273841.0,
+						"tcgplayer": 45147.0
+					},
+					"type": "normal",
+					"variantId": "2fnyg4g532wu2uft0spaa3eefrz"
+				}
+			],
+			"weaknesses": [
+				{
+					"type": "Water",
+					"value": "×2"
+				}
+			]
+		},
+		{
+			"attacks": [
+				{
+					"cost": [
+						"Fighting",
+						"Colorless",
+						"Colorless"
+					],
+					"damage": 30.0,
+					"name": "Horn Attack"
+				},
+				{
+					"cost": [
+						"Fighting",
+						"Fighting",
+						"Fighting",
+						"Fighting"
+					],
+					"damage": 50.0,
+					"effect": "Rhydon does 20 damage to itself. If your opponent has any Benched Pokémon, he or she chooses 1 of them and switches it with the Defending Pokémon. (Do the damage before switching the Pokémon. Switch the Pokémon even if Rhydon is knocked out.)",
+					"name": "Ram"
+				}
+			],
+			"category": "Pokemon",
+			"description": "Protected by an armor-like hide, it is capable of living in molten lava of 3600 degrees.",
+			"dexId": [
+				112.0
+			],
+			"evolveFrom": "Rhyhorn",
+			"hp": 100.0,
+			"id": "base2-45",
+			"illustrator": "Kagemaru Himeno",
+			"image": "https://assets.tcgdex.net/en/base/base2/45",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "45",
+			"name": "Rhydon",
+			"rarity": "Uncommon",
+			"resistances": [
+				{
+					"type": "Lightning",
+					"value": "-30"
+				}
+			],
+			"retreat": 3.0,
+			"set": {
+				"cardCount": {
+					"official": 64.0,
+					"total": 64.0
+				},
+				"id": "base2",
+				"logo": "https://assets.tcgdex.net/en/base/base2/logo",
+				"name": "Jungle",
+				"symbol": "https://assets.tcgdex.net/univ/base/base2/symbol"
+			},
+			"stage": "Stage1",
+			"types": [
+				"Fighting"
+			],
+			"updated": "2026-08-14T19:45:37+01:00",
+			"variants": {
+				"firstEdition": true,
+				"holo": false,
+				"normal": true,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273842.0,
+						"tcgplayer": 45148.0
+					},
+					"type": "normal",
+					"variantId": "endfynwn4n10gzq"
+				},
+				{
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273842.0,
+						"tcgplayer": 45148.0
+					},
+					"type": "normal",
+					"variantId": "2fnyg4g532wu2uft0spaa3eefrz"
+				}
+			],
+			"weaknesses": [
+				{
+					"type": "Grass",
+					"value": "×2"
+				}
+			]
+		},
+		{
+			"attacks": [
+				{
+					"cost": [
+						"Water"
+					],
+					"damage": 10.0,
+					"name": "Horn Attack"
+				},
+				{
+					"cost": [
+						"Water",
+						"Colorless"
+					],
+					"damage": 30.0,
+					"name": "Waterfall"
+				}
+			],
+			"category": "Pokemon",
+			"description": "In the autumn spawning season, they can be seen swimming powerfully up rivers and creeks.",
+			"dexId": [
+				119.0
+			],
+			"evolveFrom": "Goldeen",
+			"hp": 70.0,
+			"id": "base2-46",
+			"illustrator": "Kagemaru Himeno",
+			"image": "https://assets.tcgdex.net/en/base/base2/46",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "46",
+			"name": "Seaking",
+			"rarity": "Uncommon",
+			"retreat": 1.0,
+			"set": {
+				"cardCount": {
+					"official": 64.0,
+					"total": 64.0
+				},
+				"id": "base2",
+				"logo": "https://assets.tcgdex.net/en/base/base2/logo",
+				"name": "Jungle",
+				"symbol": "https://assets.tcgdex.net/univ/base/base2/symbol"
+			},
+			"stage": "Stage1",
+			"types": [
+				"Water"
+			],
+			"updated": "2026-08-14T19:45:37+01:00",
+			"variants": {
+				"firstEdition": true,
+				"holo": false,
+				"normal": true,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273843.0,
+						"tcgplayer": 45149.0
+					},
+					"type": "normal",
+					"variantId": "endfynwn4n10gzq"
+				},
+				{
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273843.0,
+						"tcgplayer": 45149.0
+					},
+					"type": "normal",
+					"variantId": "2fnyg4g532wu2uft0spaa3eefrz"
+				}
+			],
+			"weaknesses": [
+				{
+					"type": "Lightning",
+					"value": "×2"
+				}
+			]
+		},
+		{
+			"attacks": [
+				{
+					"cost": [
+						"Colorless",
+						"Colorless"
+					],
+					"damage": 20.0,
+					"effect": "Flip a coin. If heads, this attack does 20 damage plus 10 more damage; if tails, this attack does 20 damage.",
+					"name": "Stomp"
+				},
+				{
+					"cost": [
+						"Colorless",
+						"Colorless",
+						"Colorless"
+					],
+					"damage": "20+",
+					"effect": "Does 20 damage plus 10 more damage for each damage counter on Tauros. Flip a coin. If tails, Tauros is now Confused (after doing damage).",
+					"name": "Rampage"
+				}
+			],
+			"category": "Pokemon",
+			"description": "When it targets an enemy, it charges furiously while whipping its body with its long tails.",
+			"dexId": [
+				128.0
+			],
+			"hp": 60.0,
+			"id": "base2-47",
+			"illustrator": "Kagemaru Himeno",
+			"image": "https://assets.tcgdex.net/en/base/base2/47",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "47",
+			"name": "Tauros",
+			"rarity": "Uncommon",
+			"resistances": [
+				{
+					"type": "Psychic",
+					"value": "-30"
+				}
+			],
+			"retreat": 2.0,
+			"set": {
+				"cardCount": {
+					"official": 64.0,
+					"total": 64.0
+				},
+				"id": "base2",
+				"logo": "https://assets.tcgdex.net/en/base/base2/logo",
+				"name": "Jungle",
+				"symbol": "https://assets.tcgdex.net/univ/base/base2/symbol"
+			},
+			"stage": "Basic",
+			"types": [
+				"Colorless"
+			],
+			"updated": "2026-08-14T19:45:37+01:00",
+			"variants": {
+				"firstEdition": true,
+				"holo": false,
+				"normal": true,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273844.0,
+						"tcgplayer": 45150.0
+					},
+					"type": "normal",
+					"variantId": "endfynwn4n10gzq"
+				},
+				{
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273844.0,
+						"tcgplayer": 45150.0
+					},
+					"type": "normal",
+					"variantId": "2fnyg4g532wu2uft0spaa3eefrz"
+				}
+			],
+			"weaknesses": [
+				{
+					"type": "Fighting",
+					"value": "×2"
+				}
+			]
+		},
+		{
+			"attacks": [
+				{
+					"cost": [
+						"Grass"
+					],
+					"damage": 10.0,
+					"effect": "Flip a coin. If heads, the Defending Pokémon is now Poisoned.",
+					"name": "Poisonpowder"
+				},
+				{
+					"cost": [
+						"Grass",
+						"Grass"
+					],
+					"damage": 30.0,
+					"name": "Razor Leaf"
+				}
+			],
+			"category": "Pokemon",
+			"description": "It spits out poisonpowder to immobilize the enemy, and then finishes the enemy with a spray of acid.",
+			"dexId": [
+				70.0
+			],
+			"evolveFrom": "Bellsprout",
+			"hp": 70.0,
+			"id": "base2-48",
+			"illustrator": "Kagemaru Himeno",
+			"image": "https://assets.tcgdex.net/en/base/base2/48",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "48",
+			"name": "Weepinbell",
+			"rarity": "Uncommon",
+			"retreat": 1.0,
+			"set": {
+				"cardCount": {
+					"official": 64.0,
+					"total": 64.0
+				},
+				"id": "base2",
+				"logo": "https://assets.tcgdex.net/en/base/base2/logo",
+				"name": "Jungle",
+				"symbol": "https://assets.tcgdex.net/univ/base/base2/symbol"
+			},
+			"stage": "Stage1",
+			"types": [
+				"Grass"
+			],
+			"updated": "2026-08-14T19:45:37+01:00",
+			"variants": {
+				"firstEdition": true,
+				"holo": false,
+				"normal": true,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273845.0,
+						"tcgplayer": 45151.0
+					},
+					"type": "normal",
+					"variantId": "endfynwn4n10gzq"
+				},
+				{
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273845.0,
+						"tcgplayer": 45151.0
+					},
+					"type": "normal",
+					"variantId": "2fnyg4g532wu2uft0spaa3eefrz"
+				}
+			],
+			"weaknesses": [
+				{
+					"type": "Fire",
+					"value": "×2"
+				}
+			]
+		},
+		{
+			"attacks": [
+				{
+					"cost": [
+						"Grass"
+					],
+					"damage": 10.0,
+					"name": "Vine Whip"
+				},
+				{
+					"cost": [
+						"Grass"
+					],
+					"effect": "Search your deck for a Basic Pokémon named Bellsprout and put it onto your Bench. Shuffle your deck afterward. (You can't use this attack if your Bench is full.)",
+					"name": "Call for Family"
+				}
+			],
+			"category": "Pokemon",
+			"description": "A carnivorous Pokémon that traps and eats bugs. It uses its root feet to soak up needed moisture.",
+			"dexId": [
+				69.0
+			],
+			"hp": 40.0,
+			"id": "base2-49",
+			"illustrator": "Kagemaru Himeno",
+			"image": "https://assets.tcgdex.net/en/base/base2/49",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "49",
+			"name": "Bellsprout",
+			"rarity": "Common",
+			"retreat": 1.0,
+			"set": {
+				"cardCount": {
+					"official": 64.0,
+					"total": 64.0
+				},
+				"id": "base2",
+				"logo": "https://assets.tcgdex.net/en/base/base2/logo",
+				"name": "Jungle",
+				"symbol": "https://assets.tcgdex.net/univ/base/base2/symbol"
+			},
+			"stage": "Basic",
+			"types": [
+				"Grass"
+			],
+			"updated": "2026-08-14T19:45:37+01:00",
+			"variants": {
+				"firstEdition": true,
+				"holo": false,
+				"normal": true,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273846.0,
+						"tcgplayer": 45152.0
+					},
+					"type": "normal",
+					"variantId": "endfynwn4n10gzq"
+				},
+				{
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273846.0,
+						"tcgplayer": 45152.0
+					},
+					"type": "normal",
+					"variantId": "2fnyg4g532wu2uft0spaa3eefrz"
+				}
+			],
+			"weaknesses": [
+				{
+					"type": "Fire",
+					"value": "×2"
+				}
+			]
+		},
+		{
+			"attacks": [
+				{
+					"cost": [
+						"Colorless"
+					],
+					"effect": "If the Defending Pokémon attacks Cubone during your opponent's next turn, any damage done by the attack is reduced by 20 (after applying Weakness and Resistance). (Benching either Pokémon ends this effect.)",
+					"name": "Snivel"
+				},
+				{
+					"cost": [
+						"Fighting",
+						"Fighting"
+					],
+					"damage": "10+",
+					"effect": "Does 10 damage plus 10 more damage for each damage counter on Cubone.",
+					"name": "Rage"
+				}
+			],
+			"category": "Pokemon",
+			"description": "Because it never removes its skull helmet, no one has ever seen this Pokémon's real face.",
+			"dexId": [
+				104.0
+			],
+			"hp": 40.0,
+			"id": "base2-50",
+			"illustrator": "Mitsuhiro Arita",
+			"image": "https://assets.tcgdex.net/en/base/base2/50",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "50",
+			"name": "Cubone",
+			"rarity": "Common",
+			"resistances": [
+				{
+					"type": "Lightning",
+					"value": "-30"
+				}
+			],
+			"retreat": 1.0,
+			"set": {
+				"cardCount": {
+					"official": 64.0,
+					"total": 64.0
+				},
+				"id": "base2",
+				"logo": "https://assets.tcgdex.net/en/base/base2/logo",
+				"name": "Jungle",
+				"symbol": "https://assets.tcgdex.net/univ/base/base2/symbol"
+			},
+			"stage": "Basic",
+			"types": [
+				"Fighting"
+			],
+			"updated": "2026-08-14T19:45:37+01:00",
+			"variants": {
+				"firstEdition": true,
+				"holo": false,
+				"normal": true,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273847.0,
+						"tcgplayer": 45153.0
+					},
+					"type": "normal",
+					"variantId": "endfynwn4n10gzq"
+				},
+				{
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273847.0,
+						"tcgplayer": 45153.0
+					},
+					"type": "normal",
+					"variantId": "2fnyg4g532wu2uft0spaa3eefrz"
+				}
+			],
+			"weaknesses": [
+				{
+					"type": "Grass",
+					"value": "×2"
+				}
+			]
+		},
+		{
+			"attacks": [
+				{
+					"cost": [
+						"Colorless"
+					],
+					"effect": "Flip a coin. If heads, the Defending Pokémon can't attack Eevee during your opponent's next turn. (Benching either Pokémon ends this effect.)",
+					"name": "Tail Wag"
+				},
+				{
+					"cost": [
+						"Colorless",
+						"Colorless"
+					],
+					"damage": "10+",
+					"effect": "Flip a coin. If heads, this attack does 10 damage plus 20 more damage; if tails, this attack does 10 damage.",
+					"name": "Quick Attack"
+				}
+			],
+			"category": "Pokemon",
+			"description": "Its genetic code is irregular. It may mutate if it is exposed to radiation from elemental stones.",
+			"dexId": [
+				133.0
+			],
+			"hp": 50.0,
+			"id": "base2-51",
+			"illustrator": "Kagemaru Himeno",
+			"image": "https://assets.tcgdex.net/en/base/base2/51",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "51",
+			"name": "Eevee",
+			"rarity": "Common",
+			"resistances": [
+				{
+					"type": "Psychic",
+					"value": "-30"
+				}
+			],
+			"retreat": 1.0,
+			"set": {
+				"cardCount": {
+					"official": 64.0,
+					"total": 64.0
+				},
+				"id": "base2",
+				"logo": "https://assets.tcgdex.net/en/base/base2/logo",
+				"name": "Jungle",
+				"symbol": "https://assets.tcgdex.net/univ/base/base2/symbol"
+			},
+			"stage": "Basic",
+			"types": [
+				"Colorless"
+			],
+			"updated": "2026-08-14T19:45:37+01:00",
+			"variants": {
+				"firstEdition": true,
+				"holo": false,
+				"normal": true,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273848.0,
+						"tcgplayer": 45154.0
+					},
+					"type": "normal",
+					"variantId": "endfynwn4n10gzq"
+				},
+				{
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273848.0,
+						"tcgplayer": 45154.0
+					},
+					"type": "normal",
+					"variantId": "2fnyg4g532wu2uft0spaa3eefrz"
+				}
+			],
+			"weaknesses": [
+				{
+					"type": "Fighting",
+					"value": "×2"
+				}
+			]
+		},
+		{
+			"attacks": [
+				{
+					"cost": [
+						"Psychic"
+					],
+					"effect": "The Defending Pokémon is now Asleep.",
+					"name": "Hypnosis"
+				},
+				{
+					"cost": [
+						"Grass",
+						"Grass"
+					],
+					"damage": 20.0,
+					"effect": "Unless all damage from this attack is prevented, you may remove 1 damage counter from Exeggcute.",
+					"name": "Leech Seed"
+				}
+			],
+			"category": "Pokemon",
+			"description": "Often mistaken for eggs. When disturbed, they quickly gather and attack in swarms.",
+			"dexId": [
+				102.0
+			],
+			"hp": 50.0,
+			"id": "base2-52",
+			"illustrator": "Mitsuhiro Arita",
+			"image": "https://assets.tcgdex.net/en/base/base2/52",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "52",
+			"name": "Exeggcute",
+			"rarity": "Common",
+			"retreat": 1.0,
+			"set": {
+				"cardCount": {
+					"official": 64.0,
+					"total": 64.0
+				},
+				"id": "base2",
+				"logo": "https://assets.tcgdex.net/en/base/base2/logo",
+				"name": "Jungle",
+				"symbol": "https://assets.tcgdex.net/univ/base/base2/symbol"
+			},
+			"stage": "Basic",
+			"types": [
+				"Grass"
+			],
+			"updated": "2026-08-14T19:45:37+01:00",
+			"variants": {
+				"firstEdition": true,
+				"holo": false,
+				"normal": true,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273849.0,
+						"tcgplayer": 45155.0
+					},
+					"type": "normal",
+					"variantId": "endfynwn4n10gzq"
+				},
+				{
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273849.0,
+						"tcgplayer": 45155.0
+					},
+					"type": "normal",
+					"variantId": "2fnyg4g532wu2uft0spaa3eefrz"
+				}
+			],
+			"weaknesses": [
+				{
+					"type": "Fire",
+					"value": "×2"
+				}
+			]
+		},
+		{
+			"attacks": [
+				{
+					"cost": [
+						"Water"
+					],
+					"damage": 10.0,
+					"name": "Horn Attack"
+				}
+			],
+			"category": "Pokemon",
+			"description": "Its tail fin billows like an elegant ballroom dress, giving it the nickname \"Water Queen.\"",
+			"dexId": [
+				118.0
+			],
+			"hp": 40.0,
+			"id": "base2-53",
+			"illustrator": "Kagemaru Himeno",
+			"image": "https://assets.tcgdex.net/en/base/base2/53",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "53",
+			"name": "Goldeen",
+			"rarity": "Common",
+			"set": {
+				"cardCount": {
+					"official": 64.0,
+					"total": 64.0
+				},
+				"id": "base2",
+				"logo": "https://assets.tcgdex.net/en/base/base2/logo",
+				"name": "Jungle",
+				"symbol": "https://assets.tcgdex.net/univ/base/base2/symbol"
+			},
+			"stage": "Basic",
+			"types": [
+				"Water"
+			],
+			"updated": "2026-08-14T19:45:37+01:00",
+			"variants": {
+				"firstEdition": true,
+				"holo": false,
+				"normal": true,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273850.0,
+						"tcgplayer": 45156.0
+					},
+					"type": "normal",
+					"variantId": "endfynwn4n10gzq"
+				},
+				{
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273850.0,
+						"tcgplayer": 45156.0
+					},
+					"type": "normal",
+					"variantId": "2fnyg4g532wu2uft0spaa3eefrz"
+				}
+			],
+			"weaknesses": [
+				{
+					"type": "Lightning",
+					"value": "×2"
+				}
+			]
+		},
+		{
+			"attacks": [
+				{
+					"cost": [
+						"Colorless"
+					],
+					"effect": "The Defending Pokémon is now Asleep.",
+					"name": "Lullaby"
+				},
+				{
+					"cost": [
+						"Colorless",
+						"Colorless"
+					],
+					"damage": 20.0,
+					"name": "Pound"
+				}
+			],
+			"category": "Pokemon",
+			"description": "When its huge eyes light up, it sings a mysteriously soothing melody that lulls its enemies to sleep.",
+			"dexId": [
+				39.0
+			],
+			"hp": 60.0,
+			"id": "base2-54",
+			"illustrator": "Kagemaru Himeno",
+			"image": "https://assets.tcgdex.net/en/base/base2/54",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "54",
+			"name": "Jigglypuff",
+			"rarity": "Common",
+			"resistances": [
+				{
+					"type": "Psychic",
+					"value": "-30"
+				}
+			],
+			"retreat": 1.0,
+			"set": {
+				"cardCount": {
+					"official": 64.0,
+					"total": 64.0
+				},
+				"id": "base2",
+				"logo": "https://assets.tcgdex.net/en/base/base2/logo",
+				"name": "Jungle",
+				"symbol": "https://assets.tcgdex.net/univ/base/base2/symbol"
+			},
+			"stage": "Basic",
+			"types": [
+				"Colorless"
+			],
+			"updated": "2026-08-14T19:45:37+01:00",
+			"variants": {
+				"firstEdition": true,
+				"holo": false,
+				"normal": true,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273851.0,
+						"tcgplayer": 45157.0
+					},
+					"type": "normal",
+					"variantId": "endfynwn4n10gzq"
+				},
+				{
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273851.0,
+						"tcgplayer": 45157.0
+					},
+					"type": "normal",
+					"variantId": "2fnyg4g532wu2uft0spaa3eefrz"
+				}
+			],
+			"weaknesses": [
+				{
+					"type": "Fighting",
+					"value": "×2"
+				}
+			]
+		},
+		{
+			"abilities": [
+				{
+					"effect": "Once during your turn (before your attack), you may look at one of the following: the top card of either player's deck, a random card from your opponent's hand, or one of either player's Prizes. This power can't be used if Mankey is Asleep, Confused, or Paralyzed.",
+					"name": "Peek",
+					"type": "Pokemon Power"
+				}
+			],
+			"attacks": [
+				{
+					"cost": [
+						"Colorless"
+					],
+					"damage": 10.0,
+					"name": "Scratch"
+				}
+			],
+			"category": "Pokemon",
+			"description": "Extremely quick to anger. It could be docile one moment, then thrashing away the next.",
+			"dexId": [
+				56.0
+			],
+			"hp": 30.0,
+			"id": "base2-55",
+			"illustrator": "Kagemaru Himeno",
+			"image": "https://assets.tcgdex.net/en/base/base2/55",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "55",
+			"name": "Mankey",
+			"rarity": "Common",
+			"set": {
+				"cardCount": {
+					"official": 64.0,
+					"total": 64.0
+				},
+				"id": "base2",
+				"logo": "https://assets.tcgdex.net/en/base/base2/logo",
+				"name": "Jungle",
+				"symbol": "https://assets.tcgdex.net/univ/base/base2/symbol"
+			},
+			"stage": "Basic",
+			"types": [
+				"Fighting"
+			],
+			"updated": "2026-08-14T19:45:37+01:00",
+			"variants": {
+				"firstEdition": true,
+				"holo": false,
+				"normal": true,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273852.0,
+						"tcgplayer": 45158.0
+					},
+					"type": "normal",
+					"variantId": "endfynwn4n10gzq"
+				},
+				{
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273852.0,
+						"tcgplayer": 45158.0
+					},
+					"type": "normal",
+					"variantId": "2fnyg4g532wu2uft0spaa3eefrz"
+				}
+			],
+			"weaknesses": [
+				{
+					"type": "Psychic",
+					"value": "×2"
+				}
+			]
+		},
+		{
+			"attacks": [
+				{
+					"cost": [
+						"Colorless",
+						"Colorless"
+					],
+					"damage": 10.0,
+					"effect": "Flip a coin. If heads, draw a card.",
+					"name": "Pay Day"
+				}
+			],
+			"category": "Pokemon",
+			"description": "Adores circular objects. Wanders the streets on a nightly basis to look for dropped loose change.",
+			"dexId": [
+				52.0
+			],
+			"hp": 50.0,
+			"id": "base2-56",
+			"illustrator": "Mitsuhiro Arita",
+			"image": "https://assets.tcgdex.net/en/base/base2/56",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "56",
+			"name": "Meowth",
+			"rarity": "Common",
+			"resistances": [
+				{
+					"type": "Psychic",
+					"value": "-30"
+				}
+			],
+			"retreat": 1.0,
+			"set": {
+				"cardCount": {
+					"official": 64.0,
+					"total": 64.0
+				},
+				"id": "base2",
+				"logo": "https://assets.tcgdex.net/en/base/base2/logo",
+				"name": "Jungle",
+				"symbol": "https://assets.tcgdex.net/univ/base/base2/symbol"
+			},
+			"stage": "Basic",
+			"types": [
+				"Colorless"
+			],
+			"updated": "2026-08-14T19:45:37+01:00",
+			"variants": {
+				"firstEdition": true,
+				"holo": false,
+				"normal": true,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273853.0,
+						"tcgplayer": 45159.0
+					},
+					"type": "normal",
+					"variantId": "endfynwn4n10gzq"
+				},
+				{
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273853.0,
+						"tcgplayer": 45159.0
+					},
+					"type": "normal",
+					"variantId": "2fnyg4g532wu2uft0spaa3eefrz"
+				},
+				{
+					"size": "standard",
+					"subtype": "gold-border",
+					"type": "normal",
+					"variantId": "2fnyg4g5375ge361wlkg109mhm1"
+				}
+			],
+			"weaknesses": [
+				{
+					"type": "Fighting",
+					"value": "×2"
+				}
+			]
+		},
+		{
+			"attacks": [
+				{
+					"cost": [
+						"Grass"
+					],
+					"damage": "10x",
+					"effect": "Flip 3 coins. This attack does 10 damage times the number of heads.",
+					"name": "Fury Swipes"
+				},
+				{
+					"cost": [
+						"Grass",
+						"Grass"
+					],
+					"effect": "Search your deck for a Basic Pokémon named Nidoran M or Nidoran F and put it onto your Bench. Shuffle your deck afterward. (You can't use this attack if your Bench is full.)",
+					"name": "Call for Family"
+				}
+			],
+			"category": "Pokemon",
+			"description": "Although small, its venomous barbs make this Pokémon dangerous. The female has smaller horns.",
+			"dexId": [
+				29.0
+			],
+			"hp": 60.0,
+			"id": "base2-57",
+			"illustrator": "Ken Sugimori",
+			"image": "https://assets.tcgdex.net/en/base/base2/57",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "57",
+			"name": "Nidoran♀",
+			"rarity": "Common",
+			"retreat": 1.0,
+			"set": {
+				"cardCount": {
+					"official": 64.0,
+					"total": 64.0
+				},
+				"id": "base2",
+				"logo": "https://assets.tcgdex.net/en/base/base2/logo",
+				"name": "Jungle",
+				"symbol": "https://assets.tcgdex.net/univ/base/base2/symbol"
+			},
+			"stage": "Basic",
+			"types": [
+				"Grass"
+			],
+			"updated": "2026-08-14T19:45:37+01:00",
+			"variants": {
+				"firstEdition": true,
+				"holo": false,
+				"normal": true,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"size": "standard",
+					"type": "normal",
+					"variantId": "endfynwn4n10gzq"
+				},
+				{
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"type": "normal",
+					"variantId": "2fnyg4g532wu2uft0spaa3eefrz"
+				}
+			],
+			"weaknesses": [
+				{
+					"type": "Psychic",
+					"value": "×2"
+				}
+			]
+		},
+		{
+			"attacks": [
+				{
+					"cost": [
+						"Grass"
+					],
+					"damage": 10.0,
+					"effect": "Flip a coin. If heads, the Defending Pokémon is now Paralyzed.",
+					"name": "Stun Spore"
+				},
+				{
+					"cost": [
+						"Grass",
+						"Grass"
+					],
+					"effect": "Search your deck for a Basic Pokémon named Oddish and put it onto your Bench. Shuffle your deck afterward. (You can't use this attack if your Bench is full.)",
+					"name": "Sprout"
+				}
+			],
+			"category": "Pokemon",
+			"description": "During the day, it keeps its face buried in the ground. At night, it wanders around sowing its seeds.",
+			"dexId": [
+				43.0
+			],
+			"hp": 50.0,
+			"id": "base2-58",
+			"illustrator": "Keiji Kinebuchi",
+			"image": "https://assets.tcgdex.net/en/base/base2/58",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "58",
+			"name": "Oddish",
+			"rarity": "Common",
+			"retreat": 1.0,
+			"set": {
+				"cardCount": {
+					"official": 64.0,
+					"total": 64.0
+				},
+				"id": "base2",
+				"logo": "https://assets.tcgdex.net/en/base/base2/logo",
+				"name": "Jungle",
+				"symbol": "https://assets.tcgdex.net/univ/base/base2/symbol"
+			},
+			"stage": "Basic",
+			"types": [
+				"Grass"
+			],
+			"updated": "2026-08-14T19:45:37+01:00",
+			"variants": {
+				"firstEdition": true,
+				"holo": false,
+				"normal": true,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273855.0,
+						"tcgplayer": 45161.0
+					},
+					"type": "normal",
+					"variantId": "endfynwn4n10gzq"
+				},
+				{
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273855.0,
+						"tcgplayer": 45161.0
+					},
+					"type": "normal",
+					"variantId": "2fnyg4g532wu2uft0spaa3eefrz"
+				}
+			],
+			"weaknesses": [
+				{
+					"type": "Fire",
+					"value": "×2"
+				}
+			]
+		},
+		{
+			"attacks": [
+				{
+					"cost": [
+						"Colorless",
+						"Colorless"
+					],
+					"damage": 20.0,
+					"name": "Scratch"
+				},
+				{
+					"cost": [
+						"Grass",
+						"Grass"
+					],
+					"effect": "The Defending Pokémon is now Asleep.",
+					"name": "Spore"
+				}
+			],
+			"category": "Pokemon",
+			"description": "Burrows to suck tree roots. The mushrooms on its back grow by drawing nutrients from the bug host.",
+			"dexId": [
+				46.0
+			],
+			"hp": 40.0,
+			"id": "base2-59",
+			"illustrator": "Ken Sugimori",
+			"image": "https://assets.tcgdex.net/en/base/base2/59",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "59",
+			"name": "Paras",
+			"rarity": "Common",
+			"retreat": 1.0,
+			"set": {
+				"cardCount": {
+					"official": 64.0,
+					"total": 64.0
+				},
+				"id": "base2",
+				"logo": "https://assets.tcgdex.net/en/base/base2/logo",
+				"name": "Jungle",
+				"symbol": "https://assets.tcgdex.net/univ/base/base2/symbol"
+			},
+			"stage": "Basic",
+			"types": [
+				"Grass"
+			],
+			"updated": "2026-08-14T19:45:37+01:00",
+			"variants": {
+				"firstEdition": true,
+				"holo": false,
+				"normal": true,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273856.0,
+						"tcgplayer": 45162.0
+					},
+					"type": "normal",
+					"variantId": "endfynwn4n10gzq"
+				},
+				{
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273856.0,
+						"tcgplayer": 45162.0
+					},
+					"type": "normal",
+					"variantId": "2fnyg4g532wu2uft0spaa3eefrz"
+				}
+			],
+			"weaknesses": [
+				{
+					"type": "Fire",
+					"value": "×2"
+				}
+			]
+		},
+		{
+			"attacks": [
+				{
+					"cost": [
+						"Lightning",
+						"Lightning"
+					],
+					"damage": 20.0,
+					"effect": "If your opponent has any Benched Pokémon, choose 1 of them and this attack does 10 damage to it. (Don't apply Weakness and Resistance for Benched Pokémon.)",
+					"name": "Spark"
+				}
+			],
+			"category": "Pokemon",
+			"description": "When several of these Pokémon gather, their electricity can build and cause lightning storms.",
+			"dexId": [
+				25.0
+			],
+			"evolveFrom": "Pichu",
+			"hp": 50.0,
+			"id": "base2-60",
+			"illustrator": "Ken Sugimori",
+			"image": "https://assets.tcgdex.net/en/base/base2/60",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "60",
+			"name": "Pikachu",
+			"rarity": "Common",
+			"retreat": 1.0,
+			"set": {
+				"cardCount": {
+					"official": 64.0,
+					"total": 64.0
+				},
+				"id": "base2",
+				"logo": "https://assets.tcgdex.net/en/base/base2/logo",
+				"name": "Jungle",
+				"symbol": "https://assets.tcgdex.net/univ/base/base2/symbol"
+			},
+			"stage": "Basic",
+			"types": [
+				"Lightning"
+			],
+			"updated": "2026-08-18T17:19:50Z",
+			"variants": {
+				"firstEdition": true,
+				"holo": false,
+				"normal": true,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273857.0,
+						"tcgplayer": 45163.0
+					},
+					"type": "normal",
+					"variantId": "endfynwn4n10gzq"
+				},
+				{
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273857.0,
+						"tcgplayer": 45163.0
+					},
+					"type": "normal",
+					"variantId": "2fnyg4g532wu2uft0spaa3eefrz"
+				},
+				{
+					"size": "standard",
+					"stamp": [
+						"pikachu-tail"
+					],
+					"type": "normal",
+					"variantId": "23hmnvtwdrr6jf51awzjk0vcmfgo"
+				},
+				{
+					"size": "standard",
+					"stamp": [
+						"wotc"
+					],
+					"type": "normal",
+					"variantId": "6xp3yys30vhxy35fte9p"
+				}
+			],
+			"weaknesses": [
+				{
+					"type": "Fighting",
+					"value": "×2"
+				}
+			]
+		},
+		{
+			"attacks": [
+				{
+					"cost": [
+						"Colorless"
+					],
+					"effect": "Flip a coin. If heads, the Defending Pokémon can't attack Rhyhorn during your opponent's next turn. (Benching either Pokémon ends this effect.)",
+					"name": "Leer"
+				},
+				{
+					"cost": [
+						"Fighting",
+						"Colorless",
+						"Colorless"
+					],
+					"damage": 30.0,
+					"name": "Horn Attack"
+				}
+			],
+			"category": "Pokemon",
+			"description": "Its massive bones are 1,000 times harder than human bones. It can easily knock a trailer flying.",
+			"dexId": [
+				111.0
+			],
+			"hp": 70.0,
+			"id": "base2-61",
+			"illustrator": "Mitsuhiro Arita",
+			"image": "https://assets.tcgdex.net/en/base/base2/61",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "61",
+			"name": "Rhyhorn",
+			"rarity": "Common",
+			"resistances": [
+				{
+					"type": "Lightning",
+					"value": "-30"
+				}
+			],
+			"retreat": 3.0,
+			"set": {
+				"cardCount": {
+					"official": 64.0,
+					"total": 64.0
+				},
+				"id": "base2",
+				"logo": "https://assets.tcgdex.net/en/base/base2/logo",
+				"name": "Jungle",
+				"symbol": "https://assets.tcgdex.net/univ/base/base2/symbol"
+			},
+			"stage": "Basic",
+			"types": [
+				"Fighting"
+			],
+			"updated": "2026-08-14T19:45:37+01:00",
+			"variants": {
+				"firstEdition": true,
+				"holo": false,
+				"normal": true,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273858.0,
+						"tcgplayer": 45164.0
+					},
+					"type": "normal",
+					"variantId": "endfynwn4n10gzq"
+				},
+				{
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273858.0,
+						"tcgplayer": 45164.0
+					},
+					"type": "normal",
+					"variantId": "2fnyg4g532wu2uft0spaa3eefrz"
+				}
+			],
+			"weaknesses": [
+				{
+					"type": "Grass",
+					"value": "×2"
+				}
+			]
+		},
+		{
+			"attacks": [
+				{
+					"cost": [
+						"Colorless"
+					],
+					"damage": 10.0,
+					"name": "Peck"
+				},
+				{
+					"cost": [
+						"Colorless",
+						"Colorless",
+						"Colorless"
+					],
+					"effect": "If Spearow was attacked last turn, do the final result of that attack on Spearow to the Defending Pokémon.",
+					"name": "Mirror Move"
+				}
+			],
+			"category": "Pokemon",
+			"description": "Eats bugs in grassy areas. It has to flap its short wings at high speeds to stay airborne.",
+			"dexId": [
+				21.0
+			],
+			"hp": 50.0,
+			"id": "base2-62",
+			"illustrator": "Mitsuhiro Arita",
+			"image": "https://assets.tcgdex.net/en/base/base2/62",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "62",
+			"name": "Spearow",
+			"rarity": "Common",
+			"resistances": [
+				{
+					"type": "Fighting",
+					"value": "-30"
+				}
+			],
+			"set": {
+				"cardCount": {
+					"official": 64.0,
+					"total": 64.0
+				},
+				"id": "base2",
+				"logo": "https://assets.tcgdex.net/en/base/base2/logo",
+				"name": "Jungle",
+				"symbol": "https://assets.tcgdex.net/univ/base/base2/symbol"
+			},
+			"stage": "Basic",
+			"types": [
+				"Colorless"
+			],
+			"updated": "2026-08-14T19:45:37+01:00",
+			"variants": {
+				"firstEdition": true,
+				"holo": false,
+				"normal": true,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273859.0,
+						"tcgplayer": 45165.0
+					},
+					"type": "normal",
+					"variantId": "endfynwn4n10gzq"
+				},
+				{
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273859.0,
+						"tcgplayer": 45165.0
+					},
+					"type": "normal",
+					"variantId": "2fnyg4g532wu2uft0spaa3eefrz"
+				}
+			],
+			"weaknesses": [
+				{
+					"type": "Lightning",
+					"value": "×2"
+				}
+			]
+		},
+		{
+			"attacks": [
+				{
+					"cost": [
+						"Grass"
+					],
+					"damage": 10.0,
+					"effect": "Flip a coin. If heads, the Defending Pokémon is now Paralyzed.",
+					"name": "Stun Spore"
+				},
+				{
+					"cost": [
+						"Grass",
+						"Colorless"
+					],
+					"damage": 10.0,
+					"effect": "Remove a number of damage counters from Venonat equal to the damage done to the Defending Pokémon (after applying Weakness and Resistance).",
+					"name": "Leech Life"
+				}
+			],
+			"category": "Pokemon",
+			"description": "Lives in the shadows of tall trees where it eats insects. It is attracted by light at night.",
+			"dexId": [
+				48.0
+			],
+			"hp": 40.0,
+			"id": "base2-63",
+			"illustrator": "Mitsuhiro Arita",
+			"image": "https://assets.tcgdex.net/en/base/base2/63",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "63",
+			"name": "Venonat",
+			"rarity": "Common",
+			"retreat": 1.0,
+			"set": {
+				"cardCount": {
+					"official": 64.0,
+					"total": 64.0
+				},
+				"id": "base2",
+				"logo": "https://assets.tcgdex.net/en/base/base2/logo",
+				"name": "Jungle",
+				"symbol": "https://assets.tcgdex.net/univ/base/base2/symbol"
+			},
+			"stage": "Basic",
+			"types": [
+				"Grass"
+			],
+			"updated": "2026-08-14T19:45:37+01:00",
+			"variants": {
+				"firstEdition": true,
+				"holo": false,
+				"normal": true,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273860.0,
+						"tcgplayer": 45166.0
+					},
+					"type": "normal",
+					"variantId": "endfynwn4n10gzq"
+				},
+				{
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273860.0,
+						"tcgplayer": 45166.0
+					},
+					"type": "normal",
+					"variantId": "2fnyg4g532wu2uft0spaa3eefrz"
+				}
+			],
+			"weaknesses": [
+				{
+					"type": "Fire",
+					"value": "×2"
+				}
+			]
+		},
+		{
+			"category": "Trainer",
+			"effect": "Flip a coin. If heads, you may search your deck for any Basic Pokémon or Evolution card. Show that card to your opponent, then put it into your hand. Shuffle your deck afterward.",
+			"id": "base2-64",
+			"illustrator": "Keiji Kinebuchi",
+			"image": "https://assets.tcgdex.net/en/base/base2/64",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "64",
+			"name": "Poké Ball",
+			"rarity": "Common",
+			"set": {
+				"cardCount": {
+					"official": 64.0,
+					"total": 64.0
+				},
+				"id": "base2",
+				"logo": "https://assets.tcgdex.net/en/base/base2/logo",
+				"name": "Jungle",
+				"symbol": "https://assets.tcgdex.net/univ/base/base2/symbol"
+			},
+			"updated": "2026-08-14T19:45:37+01:00",
+			"variants": {
+				"firstEdition": true,
+				"holo": false,
+				"normal": true,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273861.0
+					},
+					"type": "normal",
+					"variantId": "endfynwn4n10gzq"
+				},
+				{
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273861.0
+					},
+					"type": "normal",
+					"variantId": "2fnyg4g532wu2uft0spaa3eefrz"
+				}
+			]
+		}
+	],
+	"set": {
+		"abbreviation": {
+			"official": "JU"
+		},
+		"cardCount": {
+			"firstEd": 64.0,
+			"holo": 50.0,
+			"normal": 100.0,
+			"official": 64.0,
+			"reverse": 0.0,
+			"total": 64.0
+		},
+		"id": "base2",
+		"legal": {
+			"expanded": false,
+			"standard": false
+		},
+		"logo": "https://assets.tcgdex.net/en/base/base2/logo",
+		"name": "Jungle",
+		"releaseDate": "1999-06-16",
+		"serie": {
+			"id": "base",
+			"name": "Base"
+		},
+		"symbol": "https://assets.tcgdex.net/univ/base/base2/symbol",
+		"tcgOnline": "JU"
+	}
+}

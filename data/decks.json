@@ -1,0 +1,42 @@
+{
+  "fighting_starter": {
+    "name": "Fighting Starter",
+    "cards": {
+      "base1-52": 6,
+      "base1-47": 4,
+      "base1-7": 2,
+      "base1-97": 18
+    }
+  },
+  "lightning_starter": {
+    "name": "Lightning Starter",
+    "cards": {
+      "base1-67": 6,
+      "base1-61": 4,
+      "base1-26": 2,
+      "base1-100": 18
+    }
+  },
+  "effects_fire_lightning": {
+    "name": "Effects: Fire and Lightning",
+    "cards": {
+      "base1-46": 4,
+      "base1-58": 4,
+      "base1-36": 2,
+      "base1-60": 2,
+      "base1-98": 9,
+      "base1-100": 9
+    }
+  },
+  "effects_colorless": {
+    "name": "Effects: Colorless",
+    "cards": {
+      "base2-5": 2,
+      "base2-51": 4,
+      "base1-48": 4,
+      "base1-61": 2,
+      "base1-97": 16,
+      "base1-96": 2
+    }
+  }
+}

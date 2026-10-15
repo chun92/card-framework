@@ -1,0 +1,5839 @@
+{
+	"cards": [
+		{
+			"abilities": [
+				{
+					"effect": "No more Evolution cards can be played. This power stops working while Aerodactyl is Asleep, Confused, or Paralyzed.",
+					"name": "Prehistoric Power",
+					"type": "Pokemon Power"
+				}
+			],
+			"attacks": [
+				{
+					"cost": [
+						"Colorless",
+						"Colorless",
+						"Colorless"
+					],
+					"damage": 30.0,
+					"name": "Wing Attack"
+				}
+			],
+			"category": "Pokemon",
+			"description": "A ferocious prehistoric Pokémon that goes for the enemy's throat with its serrated saw-like fangs.",
+			"dexId": [
+				142.0
+			],
+			"hp": 60.0,
+			"id": "base3-1",
+			"illustrator": "Kagemaru Himeno",
+			"image": "https://assets.tcgdex.net/en/base/base3/1",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "1",
+			"name": "Aerodactyl",
+			"rarity": "Rare",
+			"resistances": [
+				{
+					"type": "Fighting",
+					"value": "-30"
+				}
+			],
+			"retreat": 2.0,
+			"set": {
+				"cardCount": {
+					"official": 62.0,
+					"total": 62.0
+				},
+				"id": "base3",
+				"logo": "https://assets.tcgdex.net/en/base/base3/logo",
+				"name": "Fossil",
+				"symbol": "https://assets.tcgdex.net/univ/base/base3/symbol"
+			},
+			"stage": "Stage1",
+			"types": [
+				"Fighting"
+			],
+			"updated": "2026-08-19T20:52:03Z",
+			"variants": {
+				"firstEdition": true,
+				"holo": true,
+				"normal": false,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273862.0,
+						"tcgplayer": 44418.0
+					},
+					"type": "holo",
+					"variantId": "677yasikk9iggi3g0o8t"
+				},
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273862.0,
+						"tcgplayer": 44418.0
+					},
+					"type": "holo",
+					"variantId": "113thq6t8j5zpn9aq2h12bi21oykxyl2"
+				},
+				{
+					"foil": "cosmos",
+					"size": "standard",
+					"stamp": [
+						"pre-release"
+					],
+					"type": "holo",
+					"variantId": "zvav3mvrt9wtug63acxg33o45wg391y"
+				},
+				{
+					"foil": "starlight",
+					"size": "standard",
+					"stamp": [
+						"pre-release"
+					],
+					"type": "holo",
+					"variantId": "qi4hl156ztevhio39njr8t2eqgmqjdlals"
+				}
+			],
+			"weaknesses": [
+				{
+					"type": "Grass",
+					"value": "×2"
+				}
+			]
+		},
+		{
+			"attacks": [
+				{
+					"cost": [
+						"Water",
+						"Water",
+						"Water"
+					],
+					"damage": 30.0,
+					"effect": "Flip a coin. If heads, the Defending Pokémon is now Paralyzed.",
+					"name": "Freeze Dry"
+				},
+				{
+					"cost": [
+						"Water",
+						"Water",
+						"Water",
+						"Water"
+					],
+					"damage": 50.0,
+					"effect": "Flip a coin. If heads, this attack does 10 damage to each of your opponent's Benched Pokémon. If tails, this attack does 10 damage to each of your own Benched Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)",
+					"name": "Blizzard"
+				}
+			],
+			"category": "Pokemon",
+			"description": "A legendary bird Pokémon that is said to appear to doomed people who are lost in icy mountains.",
+			"dexId": [
+				144.0
+			],
+			"hp": 70.0,
+			"id": "base3-2",
+			"illustrator": "Mitsuhiro Arita",
+			"image": "https://assets.tcgdex.net/en/base/base3/2",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "2",
+			"name": "Articuno",
+			"rarity": "Rare",
+			"resistances": [
+				{
+					"type": "Fighting",
+					"value": "-30"
+				}
+			],
+			"retreat": 2.0,
+			"set": {
+				"cardCount": {
+					"official": 62.0,
+					"total": 62.0
+				},
+				"id": "base3",
+				"logo": "https://assets.tcgdex.net/en/base/base3/logo",
+				"name": "Fossil",
+				"symbol": "https://assets.tcgdex.net/univ/base/base3/symbol"
+			},
+			"stage": "Basic",
+			"types": [
+				"Water"
+			],
+			"updated": "2026-08-11T23:48:45+01:00",
+			"variants": {
+				"firstEdition": true,
+				"holo": true,
+				"normal": false,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273863.0,
+						"tcgplayer": 106518.0
+					},
+					"type": "holo",
+					"variantId": "677yasikk9iggi3g0o8t"
+				},
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273863.0,
+						"tcgplayer": 106518.0
+					},
+					"type": "holo",
+					"variantId": "113thq6t8j5zpn9aq2h12bi21oykxyl2"
+				}
+			]
+		},
+		{
+			"abilities": [
+				{
+					"effect": "If Ditto is your Active Pokémon, treat it as if it were the same card as the Defending Pokémon, including type, Hit Points, Weakness, and so on, except Ditto can't evolve, always has this Pokémon Power, and you may treat any Energy attached to Ditto as Energy of any type. Ditto isn't a copy of any other Pokémon while Ditto is Asleep, Confused, or Paralyzed.",
+					"name": "Transform",
+					"type": "Pokemon Power"
+				}
+			],
+			"category": "Pokemon",
+			"description": "Capable of copying an enemy's genetic code to instantly transform itself into a duplicate of the enemy.",
+			"dexId": [
+				132.0
+			],
+			"hp": 50.0,
+			"id": "base3-3",
+			"illustrator": "Keiji Kinebuchi",
+			"image": "https://assets.tcgdex.net/en/base/base3/3",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "3",
+			"name": "Ditto",
+			"rarity": "Rare",
+			"resistances": [
+				{
+					"type": "Psychic",
+					"value": "-30"
+				}
+			],
+			"retreat": 1.0,
+			"set": {
+				"cardCount": {
+					"official": 62.0,
+					"total": 62.0
+				},
+				"id": "base3",
+				"logo": "https://assets.tcgdex.net/en/base/base3/logo",
+				"name": "Fossil",
+				"symbol": "https://assets.tcgdex.net/univ/base/base3/symbol"
+			},
+			"stage": "Basic",
+			"types": [
+				"Colorless"
+			],
+			"updated": "2026-08-19T20:52:03Z",
+			"variants": {
+				"firstEdition": true,
+				"holo": true,
+				"normal": false,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273864.0,
+						"tcgplayer": 106519.0
+					},
+					"type": "holo",
+					"variantId": "677yasikk9iggi3g0o8t"
+				},
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273864.0,
+						"tcgplayer": 106519.0
+					},
+					"type": "holo",
+					"variantId": "113thq6t8j5zpn9aq2h12bi21oykxyl2"
+				}
+			],
+			"weaknesses": [
+				{
+					"type": "Fighting",
+					"value": "×2"
+				}
+			]
+		},
+		{
+			"abilities": [
+				{
+					"effect": "Once during your turn (before you attack) if Dragonite is on your Bench, you may switch it with your Active Pokémon.",
+					"name": "Step In",
+					"type": "Pokemon Power"
+				}
+			],
+			"attacks": [
+				{
+					"cost": [
+						"Colorless",
+						"Colorless",
+						"Colorless",
+						"Colorless"
+					],
+					"damage": "40x",
+					"effect": "Flip 2 coins. This attack does 40 damage times the number of heads.",
+					"name": "Slam"
+				}
+			],
+			"category": "Pokemon",
+			"description": "An extremely rarely seen marine Pokémon. Its intelligence is said to match that of humans.",
+			"dexId": [
+				149.0
+			],
+			"evolveFrom": "Dragonair",
+			"hp": 100.0,
+			"id": "base3-4",
+			"illustrator": "Kagemaru Himeno",
+			"image": "https://assets.tcgdex.net/en/base/base3/4",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "4",
+			"name": "Dragonite",
+			"rarity": "Rare",
+			"resistances": [
+				{
+					"type": "Fighting",
+					"value": "-30"
+				}
+			],
+			"retreat": 1.0,
+			"set": {
+				"cardCount": {
+					"official": 62.0,
+					"total": 62.0
+				},
+				"id": "base3",
+				"logo": "https://assets.tcgdex.net/en/base/base3/logo",
+				"name": "Fossil",
+				"symbol": "https://assets.tcgdex.net/univ/base/base3/symbol"
+			},
+			"stage": "Stage2",
+			"types": [
+				"Colorless"
+			],
+			"updated": "2026-08-11T23:48:45+01:00",
+			"variants": {
+				"firstEdition": true,
+				"holo": true,
+				"normal": false,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273865.0,
+						"tcgplayer": 106520.0
+					},
+					"type": "holo",
+					"variantId": "677yasikk9iggi3g0o8t"
+				},
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273865.0,
+						"tcgplayer": 106520.0
+					},
+					"type": "holo",
+					"variantId": "113thq6t8j5zpn9aq2h12bi21oykxyl2"
+				}
+			]
+		},
+		{
+			"abilities": [
+				{
+					"effect": "Once during your turn (before your attack), you may move 1 damage counter from 1 of your opponent's Pokémon to another (even if it would Knock Out the other Pokémon). This power can't be used if Gengar is Asleep, Confused, or Paralyzed.",
+					"name": "Curse",
+					"type": "Pokemon Power"
+				}
+			],
+			"attacks": [
+				{
+					"cost": [
+						"Psychic",
+						"Psychic",
+						"Psychic"
+					],
+					"damage": 30.0,
+					"effect": "If your opponent has any Benched Pokémon, choose 1 of them and this attack does 10 damage to it. (Don't apply Weakness and Resistance for Benched Pokémon.)",
+					"name": "Dark Mind"
+				}
+			],
+			"category": "Pokemon",
+			"description": "Under a full moon, this Pokémon likes to mimic the shadows of people and laugh at their fright.",
+			"dexId": [
+				94.0
+			],
+			"evolveFrom": "Haunter",
+			"hp": 80.0,
+			"id": "base3-5",
+			"illustrator": "Keiji Kinebuchi",
+			"image": "https://assets.tcgdex.net/en/base/base3/5",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "5",
+			"name": "Gengar",
+			"rarity": "Rare",
+			"resistances": [
+				{
+					"type": "Fighting",
+					"value": "-30"
+				}
+			],
+			"retreat": 1.0,
+			"set": {
+				"cardCount": {
+					"official": 62.0,
+					"total": 62.0
+				},
+				"id": "base3",
+				"logo": "https://assets.tcgdex.net/en/base/base3/logo",
+				"name": "Fossil",
+				"symbol": "https://assets.tcgdex.net/univ/base/base3/symbol"
+			},
+			"stage": "Stage2",
+			"types": [
+				"Psychic"
+			],
+			"updated": "2026-08-11T23:48:45+01:00",
+			"variants": {
+				"firstEdition": true,
+				"holo": true,
+				"normal": false,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273866.0,
+						"tcgplayer": 106521.0
+					},
+					"type": "holo",
+					"variantId": "677yasikk9iggi3g0o8t"
+				},
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273866.0,
+						"tcgplayer": 106521.0
+					},
+					"type": "holo",
+					"variantId": "113thq6t8j5zpn9aq2h12bi21oykxyl2"
+				}
+			]
+		},
+		{
+			"abilities": [
+				{
+					"effect": "Whenever an attack does anything to Haunter, flip a coin. If heads, prevent all effects of that attack, including damage, done to Haunter. This power stops working while Haunter is Asleep.",
+					"name": "Transparency",
+					"type": "Pokemon Power"
+				}
+			],
+			"attacks": [
+				{
+					"cost": [
+						"Psychic",
+						"Colorless"
+					],
+					"damage": 10.0,
+					"effect": "The Defending Pokémon is now Asleep.",
+					"name": "Nightmare"
+				}
+			],
+			"category": "Pokemon",
+			"description": "Because of its ability to slip through block walls, it is said to be from another dimension.",
+			"dexId": [
+				93.0
+			],
+			"evolveFrom": "Gastly",
+			"hp": 50.0,
+			"id": "base3-6",
+			"illustrator": "Ken Sugimori",
+			"image": "https://assets.tcgdex.net/en/base/base3/6",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "6",
+			"name": "Haunter",
+			"rarity": "Rare",
+			"resistances": [
+				{
+					"type": "Fighting",
+					"value": "-30"
+				}
+			],
+			"set": {
+				"cardCount": {
+					"official": 62.0,
+					"total": 62.0
+				},
+				"id": "base3",
+				"logo": "https://assets.tcgdex.net/en/base/base3/logo",
+				"name": "Fossil",
+				"symbol": "https://assets.tcgdex.net/univ/base/base3/symbol"
+			},
+			"stage": "Stage1",
+			"types": [
+				"Psychic"
+			],
+			"updated": "2026-08-11T23:48:45+01:00",
+			"variants": {
+				"firstEdition": true,
+				"holo": true,
+				"normal": false,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273867.0,
+						"tcgplayer": 106522.0
+					},
+					"type": "holo",
+					"variantId": "677yasikk9iggi3g0o8t"
+				},
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273867.0,
+						"tcgplayer": 106522.0
+					},
+					"type": "holo",
+					"variantId": "113thq6t8j5zpn9aq2h12bi21oykxyl2"
+				}
+			]
+		},
+		{
+			"attacks": [
+				{
+					"cost": [
+						"Fighting",
+						"Fighting"
+					],
+					"effect": "If your opponent has any Benched Pokémon, choose 1 of them and this attack does 20 damage to it. (Don't apply Weakness and Resistance for Benched Pokémon.)",
+					"name": "Stretch Kick"
+				},
+				{
+					"cost": [
+						"Fighting",
+						"Fighting",
+						"Fighting"
+					],
+					"damage": 50.0,
+					"name": "High Jump Kick"
+				}
+			],
+			"category": "Pokemon",
+			"description": "When in a hurry, its legs lengthen progressively. It runs smoothly with extra long, loping strides.",
+			"dexId": [
+				106.0
+			],
+			"hp": 60.0,
+			"id": "base3-7",
+			"illustrator": "Ken Sugimori",
+			"image": "https://assets.tcgdex.net/en/base/base3/7",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "7",
+			"name": "Hitmonlee",
+			"rarity": "Rare",
+			"retreat": 1.0,
+			"set": {
+				"cardCount": {
+					"official": 62.0,
+					"total": 62.0
+				},
+				"id": "base3",
+				"logo": "https://assets.tcgdex.net/en/base/base3/logo",
+				"name": "Fossil",
+				"symbol": "https://assets.tcgdex.net/univ/base/base3/symbol"
+			},
+			"stage": "Basic",
+			"types": [
+				"Fighting"
+			],
+			"updated": "2026-08-11T23:48:45+01:00",
+			"variants": {
+				"firstEdition": true,
+				"holo": true,
+				"normal": false,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273868.0,
+						"tcgplayer": 106523.0
+					},
+					"type": "holo",
+					"variantId": "677yasikk9iggi3g0o8t"
+				},
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273868.0,
+						"tcgplayer": 106523.0
+					},
+					"type": "holo",
+					"variantId": "113thq6t8j5zpn9aq2h12bi21oykxyl2"
+				}
+			],
+			"weaknesses": [
+				{
+					"type": "Psychic",
+					"value": "×2"
+				}
+			]
+		},
+		{
+			"attacks": [
+				{
+					"cost": [
+						"Psychic"
+					],
+					"effect": "Look at up to 3 cards from the top of either player's deck and rearrange them as you like.",
+					"name": "Prophecy"
+				},
+				{
+					"cost": [
+						"Psychic",
+						"Psychic",
+						"Psychic"
+					],
+					"damage": 30.0,
+					"effect": "If your opponent has any Benched Pokémon, choose 1 of them and this attack does 10 damage to it. (Don't apply Weakness and Resistance for Benched Pokémon.)",
+					"name": "Dark Mind"
+				}
+			],
+			"category": "Pokemon",
+			"description": "When it locks eyes with an enemy, it will use a mix of psi moves such as Hypnosis and Confusion.",
+			"dexId": [
+				97.0
+			],
+			"evolveFrom": "Drowzee",
+			"hp": 90.0,
+			"id": "base3-8",
+			"illustrator": "Ken Sugimori",
+			"image": "https://assets.tcgdex.net/en/base/base3/8",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "8",
+			"name": "Hypno",
+			"rarity": "Rare",
+			"retreat": 2.0,
+			"set": {
+				"cardCount": {
+					"official": 62.0,
+					"total": 62.0
+				},
+				"id": "base3",
+				"logo": "https://assets.tcgdex.net/en/base/base3/logo",
+				"name": "Fossil",
+				"symbol": "https://assets.tcgdex.net/univ/base/base3/symbol"
+			},
+			"stage": "Stage1",
+			"types": [
+				"Psychic"
+			],
+			"updated": "2026-08-11T23:48:45+01:00",
+			"variants": {
+				"firstEdition": true,
+				"holo": true,
+				"normal": false,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273869.0,
+						"tcgplayer": 106524.0
+					},
+					"type": "holo",
+					"variantId": "677yasikk9iggi3g0o8t"
+				},
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273869.0,
+						"tcgplayer": 106524.0
+					},
+					"type": "holo",
+					"variantId": "113thq6t8j5zpn9aq2h12bi21oykxyl2"
+				}
+			],
+			"weaknesses": [
+				{
+					"type": "Psychic",
+					"value": "×2"
+				}
+			]
+		},
+		{
+			"attacks": [
+				{
+					"cost": [
+						"Fighting",
+						"Fighting"
+					],
+					"damage": 30.0,
+					"name": "Sharp Sickle"
+				},
+				{
+					"cost": [
+						"Fighting",
+						"Fighting",
+						"Fighting",
+						"Fighting"
+					],
+					"damage": 40.0,
+					"effect": "Remove a number of damage counters from Kabutops equal to half the damage done to Defending Pokémon (after applying Weakness and Resistance) (rounded up to the nearest 10). If Kabutops has fewer damage counters than that, remove all of them.",
+					"name": "Absorb"
+				}
+			],
+			"category": "Pokemon",
+			"description": "Its sleek shape is perfect for swimming. It slashes prey with its claws and drains the body fluids.",
+			"dexId": [
+				141.0
+			],
+			"evolveFrom": "Kabuto",
+			"hp": 60.0,
+			"id": "base3-9",
+			"illustrator": "Ken Sugimori",
+			"image": "https://assets.tcgdex.net/en/base/base3/9",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "9",
+			"name": "Kabutops",
+			"rarity": "Rare",
+			"retreat": 1.0,
+			"set": {
+				"cardCount": {
+					"official": 62.0,
+					"total": 62.0
+				},
+				"id": "base3",
+				"logo": "https://assets.tcgdex.net/en/base/base3/logo",
+				"name": "Fossil",
+				"symbol": "https://assets.tcgdex.net/univ/base/base3/symbol"
+			},
+			"stage": "Stage2",
+			"types": [
+				"Fighting"
+			],
+			"updated": "2026-08-11T23:48:45+01:00",
+			"variants": {
+				"firstEdition": true,
+				"holo": true,
+				"normal": false,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273870.0,
+						"tcgplayer": 106525.0
+					},
+					"type": "holo",
+					"variantId": "677yasikk9iggi3g0o8t"
+				},
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273870.0,
+						"tcgplayer": 106525.0
+					},
+					"type": "holo",
+					"variantId": "113thq6t8j5zpn9aq2h12bi21oykxyl2"
+				}
+			],
+			"weaknesses": [
+				{
+					"type": "Grass",
+					"value": "×2"
+				}
+			]
+		},
+		{
+			"attacks": [
+				{
+					"cost": [
+						"Water"
+					],
+					"damage": "10+",
+					"effect": "Does 10 damage plus 10 more damage for each Energy attached to Lapras but not used to pay for this attack's Energy cost. You can't add more than 20 damage this way.",
+					"name": "Water Gun"
+				},
+				{
+					"cost": [
+						"Water",
+						"Water"
+					],
+					"damage": 10.0,
+					"effect": "Flip a coin. If heads, the Defending Pokémon is now Confused.",
+					"name": "Confuse Ray"
+				}
+			],
+			"category": "Pokemon",
+			"description": "A Pokémon that has been overhunted almost to extinction. It can ferry people across water.",
+			"dexId": [
+				131.0
+			],
+			"hp": 80.0,
+			"id": "base3-10",
+			"illustrator": "Ken Sugimori",
+			"image": "https://assets.tcgdex.net/en/base/base3/10",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "10",
+			"name": "Lapras",
+			"rarity": "Rare",
+			"retreat": 2.0,
+			"set": {
+				"cardCount": {
+					"official": 62.0,
+					"total": 62.0
+				},
+				"id": "base3",
+				"logo": "https://assets.tcgdex.net/en/base/base3/logo",
+				"name": "Fossil",
+				"symbol": "https://assets.tcgdex.net/univ/base/base3/symbol"
+			},
+			"stage": "Basic",
+			"types": [
+				"Water"
+			],
+			"updated": "2026-08-11T23:48:45+01:00",
+			"variants": {
+				"firstEdition": true,
+				"holo": true,
+				"normal": false,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273871.0,
+						"tcgplayer": 44419.0
+					},
+					"type": "holo",
+					"variantId": "677yasikk9iggi3g0o8t"
+				},
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273871.0,
+						"tcgplayer": 44419.0
+					},
+					"type": "holo",
+					"variantId": "113thq6t8j5zpn9aq2h12bi21oykxyl2"
+				}
+			],
+			"weaknesses": [
+				{
+					"type": "Lightning",
+					"value": "×2"
+				}
+			]
+		},
+		{
+			"attacks": [
+				{
+					"cost": [
+						"Lightning",
+						"Colorless"
+					],
+					"damage": 20.0,
+					"effect": "Don't apply Weakness and Resistance for this attack. (Any other effects that would happen after applying Weakness and Resistance still happen.)",
+					"name": "Sonicboom"
+				},
+				{
+					"cost": [
+						"Lightning",
+						"Lightning",
+						"Lightning",
+						"Lightning"
+					],
+					"damage": 100.0,
+					"effect": "Does 20 damage to each Pokémon on each player's Bench. (Don't apply Weakness and Resistance for Benched Pokémon.) Magneton does 100 damage to itself.",
+					"name": "Selfdestruct"
+				}
+			],
+			"category": "Pokemon",
+			"description": "Formed by several Magnemites linked together. They frequently appear when sunspots flare up.",
+			"dexId": [
+				82.0
+			],
+			"evolveFrom": "Magnemite",
+			"hp": 80.0,
+			"id": "base3-11",
+			"illustrator": "Ken Sugimori",
+			"image": "https://assets.tcgdex.net/en/base/base3/11",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "11",
+			"name": "Magneton",
+			"rarity": "Rare",
+			"retreat": 2.0,
+			"set": {
+				"cardCount": {
+					"official": 62.0,
+					"total": 62.0
+				},
+				"id": "base3",
+				"logo": "https://assets.tcgdex.net/en/base/base3/logo",
+				"name": "Fossil",
+				"symbol": "https://assets.tcgdex.net/univ/base/base3/symbol"
+			},
+			"stage": "Stage1",
+			"types": [
+				"Lightning"
+			],
+			"updated": "2026-08-19T20:52:03Z",
+			"variants": {
+				"firstEdition": true,
+				"holo": true,
+				"normal": false,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273872.0,
+						"tcgplayer": 44420.0
+					},
+					"type": "holo",
+					"variantId": "677yasikk9iggi3g0o8t"
+				},
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273872.0,
+						"tcgplayer": 44420.0
+					},
+					"type": "holo",
+					"variantId": "113thq6t8j5zpn9aq2h12bi21oykxyl2"
+				}
+			],
+			"weaknesses": [
+				{
+					"type": "Fighting",
+					"value": "×2"
+				}
+			]
+		},
+		{
+			"attacks": [
+				{
+					"cost": [
+						"Fire"
+					],
+					"effect": "You may discard any number of R Energy cards attached to Moltres when you use this attack. If you do, discard that many cards from the top of your opponent's deck.",
+					"name": "Wildfire"
+				},
+				{
+					"cost": [
+						"Fire",
+						"Fire",
+						"Fire",
+						"Fire"
+					],
+					"damage": 80.0,
+					"effect": "Flip a coin. If tails, this attack does nothing.",
+					"name": "Dive Bomb"
+				}
+			],
+			"category": "Pokemon",
+			"description": "Known as the legendary bird of fire. Every flap of its wings creates a dazzling flash of flames.",
+			"dexId": [
+				146.0
+			],
+			"hp": 70.0,
+			"id": "base3-12",
+			"illustrator": "Mitsuhiro Arita",
+			"image": "https://assets.tcgdex.net/en/base/base3/12",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "12",
+			"name": "Moltres",
+			"rarity": "Rare",
+			"resistances": [
+				{
+					"type": "Fighting",
+					"value": "-30"
+				}
+			],
+			"retreat": 2.0,
+			"set": {
+				"cardCount": {
+					"official": 62.0,
+					"total": 62.0
+				},
+				"id": "base3",
+				"logo": "https://assets.tcgdex.net/en/base/base3/logo",
+				"name": "Fossil",
+				"symbol": "https://assets.tcgdex.net/univ/base/base3/symbol"
+			},
+			"stage": "Basic",
+			"types": [
+				"Fire"
+			],
+			"updated": "2026-08-11T23:48:45+01:00",
+			"variants": {
+				"firstEdition": true,
+				"holo": true,
+				"normal": false,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273873.0,
+						"tcgplayer": 44421.0
+					},
+					"type": "holo",
+					"variantId": "677yasikk9iggi3g0o8t"
+				},
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273873.0,
+						"tcgplayer": 44421.0
+					},
+					"type": "holo",
+					"variantId": "113thq6t8j5zpn9aq2h12bi21oykxyl2"
+				}
+			]
+		},
+		{
+			"abilities": [
+				{
+					"effect": "Ignore all Pokémon Powers other than Toxic Gases. This power stops working while Muk is Asleep, Confused, or Paralyzed.",
+					"name": "Toxic Gas",
+					"type": "Pokemon Power"
+				}
+			],
+			"attacks": [
+				{
+					"cost": [
+						"Grass",
+						"Grass",
+						"Grass"
+					],
+					"damage": 30.0,
+					"effect": "Flip a coin. If heads, the Defending Pokémon is now Poisoned.",
+					"name": "Sludge"
+				}
+			],
+			"category": "Pokemon",
+			"description": "Thickly covered with a filthy, vile sludge. It is so toxic, even its footprints contain poison.",
+			"dexId": [
+				89.0
+			],
+			"evolveFrom": "Grimer",
+			"hp": 70.0,
+			"id": "base3-13",
+			"illustrator": "Mitsuhiro Arita",
+			"image": "https://assets.tcgdex.net/en/base/base3/13",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "13",
+			"name": "Muk",
+			"rarity": "Rare",
+			"retreat": 2.0,
+			"set": {
+				"cardCount": {
+					"official": 62.0,
+					"total": 62.0
+				},
+				"id": "base3",
+				"logo": "https://assets.tcgdex.net/en/base/base3/logo",
+				"name": "Fossil",
+				"symbol": "https://assets.tcgdex.net/univ/base/base3/symbol"
+			},
+			"stage": "Stage1",
+			"types": [
+				"Grass"
+			],
+			"updated": "2026-08-11T23:48:45+01:00",
+			"variants": {
+				"firstEdition": true,
+				"holo": true,
+				"normal": false,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273874.0,
+						"tcgplayer": 44422.0
+					},
+					"type": "holo",
+					"variantId": "677yasikk9iggi3g0o8t"
+				},
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273874.0,
+						"tcgplayer": 44422.0
+					},
+					"type": "holo",
+					"variantId": "113thq6t8j5zpn9aq2h12bi21oykxyl2"
+				}
+			],
+			"weaknesses": [
+				{
+					"type": "Psychic",
+					"value": "×2"
+				}
+			]
+		},
+		{
+			"attacks": [
+				{
+					"cost": [
+						"Lightning",
+						"Lightning",
+						"Lightning",
+						"Lightning"
+					],
+					"damage": 30.0,
+					"effect": "Choose 3 of your opponent's Benched Pokémon and this attack does 10 damage to each of them. (Don't apply Weakness and Resistance for Benched Pokémon.) If your opponent has fewer than 3 Benched Pokémon, do the damage to each of them.",
+					"name": "Gigashock"
+				}
+			],
+			"category": "Pokemon",
+			"description": "Its long tail serves as a ground to protect itself from its own high-voltage power.",
+			"dexId": [
+				26.0
+			],
+			"evolveFrom": "Pikachu",
+			"hp": 90.0,
+			"id": "base3-14",
+			"illustrator": "Mitsuhiro Arita",
+			"image": "https://assets.tcgdex.net/en/base/base3/14",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "14",
+			"name": "Raichu",
+			"rarity": "Rare",
+			"retreat": 1.0,
+			"set": {
+				"cardCount": {
+					"official": 62.0,
+					"total": 62.0
+				},
+				"id": "base3",
+				"logo": "https://assets.tcgdex.net/en/base/base3/logo",
+				"name": "Fossil",
+				"symbol": "https://assets.tcgdex.net/univ/base/base3/symbol"
+			},
+			"stage": "Stage1",
+			"types": [
+				"Lightning"
+			],
+			"updated": "2026-08-11T23:48:45+01:00",
+			"variants": {
+				"firstEdition": true,
+				"holo": true,
+				"normal": false,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273875.0,
+						"tcgplayer": 44423.0
+					},
+					"type": "holo",
+					"variantId": "677yasikk9iggi3g0o8t"
+				},
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273875.0,
+						"tcgplayer": 44423.0
+					},
+					"type": "holo",
+					"variantId": "113thq6t8j5zpn9aq2h12bi21oykxyl2"
+				}
+			],
+			"weaknesses": [
+				{
+					"type": "Fighting",
+					"value": "×2"
+				}
+			]
+		},
+		{
+			"attacks": [
+				{
+					"cost": [
+						"Lightning",
+						"Lightning",
+						"Lightning",
+						"Lightning"
+					],
+					"damage": 40.0,
+					"effect": "For each of your opponent's Benched Pokémon, flip a coin. If heads, this attack does 20 damage to that Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.) Then, Zapdos does 10 damage times the number of tails to itself.",
+					"name": "Thunderstorm"
+				}
+			],
+			"category": "Pokemon",
+			"description": "A legendary thunderbird Pokémon whose anger is said to cause storms. Some say it has lived above the clouds for thousands of years.",
+			"dexId": [
+				145.0
+			],
+			"hp": 80.0,
+			"id": "base3-15",
+			"illustrator": "Mitsuhiro Arita",
+			"image": "https://assets.tcgdex.net/en/base/base3/15",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "15",
+			"name": "Zapdos",
+			"rarity": "Rare",
+			"resistances": [
+				{
+					"type": "Fighting",
+					"value": "-30"
+				}
+			],
+			"retreat": 2.0,
+			"set": {
+				"cardCount": {
+					"official": 62.0,
+					"total": 62.0
+				},
+				"id": "base3",
+				"logo": "https://assets.tcgdex.net/en/base/base3/logo",
+				"name": "Fossil",
+				"symbol": "https://assets.tcgdex.net/univ/base/base3/symbol"
+			},
+			"stage": "Basic",
+			"types": [
+				"Lightning"
+			],
+			"updated": "2026-08-11T23:48:45+01:00",
+			"variants": {
+				"firstEdition": true,
+				"holo": true,
+				"normal": false,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273876.0,
+						"tcgplayer": 44424.0
+					},
+					"type": "holo",
+					"variantId": "677yasikk9iggi3g0o8t"
+				},
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"subtype": "evolution-box-error",
+					"type": "holo",
+					"variantId": "b7umzhg4jsxexkkoam6q23oq2rn9o6rbauivmo5"
+				},
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273876.0,
+						"tcgplayer": 44424.0
+					},
+					"type": "holo",
+					"variantId": "113thq6t8j5zpn9aq2h12bi21oykxyl2"
+				},
+				{
+					"foil": "cosmos",
+					"size": "standard",
+					"subtype": "1999-2000-copyright",
+					"type": "holo",
+					"variantId": "aue4h84qbt2ypnix9oxp0bw20pil4e49pajvgeu"
+				},
+				{
+					"foil": "cosmos",
+					"size": "standard",
+					"subtype": "1999-copyright",
+					"type": "holo",
+					"variantId": "mwj036xkyp75dy8e2fkhntwglwxuctaac7"
+				}
+			]
+		},
+		{
+			"abilities": [
+				{
+					"effect": "No more Evolution cards can be played. This power stops working while Aerodactyl is Asleep, Confused, or Paralyzed.",
+					"name": "Prehistoric Power",
+					"type": "Pokemon Power"
+				}
+			],
+			"attacks": [
+				{
+					"cost": [
+						"Colorless",
+						"Colorless",
+						"Colorless"
+					],
+					"damage": 30.0,
+					"name": "Wing Attack"
+				}
+			],
+			"category": "Pokemon",
+			"description": "A ferocious prehistoric Pokémon that goes for the enemy's throat with its serrated saw-like fangs.",
+			"dexId": [
+				142.0
+			],
+			"hp": 60.0,
+			"id": "base3-16",
+			"illustrator": "Kagemaru Himeno",
+			"image": "https://assets.tcgdex.net/en/base/base3/16",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "16",
+			"name": "Aerodactyl",
+			"rarity": "Rare",
+			"resistances": [
+				{
+					"type": "Fighting",
+					"value": "-30"
+				}
+			],
+			"retreat": 2.0,
+			"set": {
+				"cardCount": {
+					"official": 62.0,
+					"total": 62.0
+				},
+				"id": "base3",
+				"logo": "https://assets.tcgdex.net/en/base/base3/logo",
+				"name": "Fossil",
+				"symbol": "https://assets.tcgdex.net/univ/base/base3/symbol"
+			},
+			"stage": "Stage1",
+			"types": [
+				"Fighting"
+			],
+			"updated": "2026-08-19T20:52:03Z",
+			"variants": {
+				"firstEdition": true,
+				"holo": false,
+				"normal": true,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273862.0,
+						"tcgplayer": 106526.0
+					},
+					"type": "normal",
+					"variantId": "4liram37qwxxpcj21gcs9m"
+				},
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273862.0,
+						"tcgplayer": 106526.0
+					},
+					"type": "normal",
+					"variantId": "riiya83ugrmyblv79w0lex10n7b7wxt9v"
+				},
+				{
+					"size": "standard",
+					"subtype": "1999-2000-copyright",
+					"type": "normal",
+					"variantId": "qi4g3e7tzbkcyhfflvx7zmvunxwjcq3pvp"
+				}
+			],
+			"weaknesses": [
+				{
+					"type": "Grass",
+					"value": "×2"
+				}
+			]
+		},
+		{
+			"attacks": [
+				{
+					"cost": [
+						"Water",
+						"Water",
+						"Water"
+					],
+					"damage": 30.0,
+					"effect": "Flip a coin. If heads, the Defending Pokémon is now Paralyzed.",
+					"name": "Freeze Dry"
+				},
+				{
+					"cost": [
+						"Water",
+						"Water",
+						"Water",
+						"Water"
+					],
+					"damage": 50.0,
+					"effect": "Flip a coin. If heads, this attack does 10 damage to each of your opponent's Benched Pokémon. If tails, this attack does 10 damage to each of your own Benched Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)",
+					"name": "Blizzard"
+				}
+			],
+			"category": "Pokemon",
+			"description": "A legendary bird Pokémon that is said to appear to doomed people who are lost in icy mountains.",
+			"dexId": [
+				144.0
+			],
+			"hp": 70.0,
+			"id": "base3-17",
+			"illustrator": "Mitsuhiro Arita",
+			"image": "https://assets.tcgdex.net/en/base/base3/17",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "17",
+			"name": "Articuno",
+			"rarity": "Rare",
+			"resistances": [
+				{
+					"type": "Fighting",
+					"value": "-30"
+				}
+			],
+			"retreat": 2.0,
+			"set": {
+				"cardCount": {
+					"official": 62.0,
+					"total": 62.0
+				},
+				"id": "base3",
+				"logo": "https://assets.tcgdex.net/en/base/base3/logo",
+				"name": "Fossil",
+				"symbol": "https://assets.tcgdex.net/univ/base/base3/symbol"
+			},
+			"stage": "Basic",
+			"types": [
+				"Water"
+			],
+			"updated": "2026-08-11T23:48:45+01:00",
+			"variants": {
+				"firstEdition": true,
+				"holo": false,
+				"normal": true,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273863.0,
+						"tcgplayer": 44425.0
+					},
+					"type": "normal",
+					"variantId": "4liram37qwxxpcj21gcs9m"
+				},
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273863.0,
+						"tcgplayer": 44425.0
+					},
+					"type": "normal",
+					"variantId": "riiya83ugrmyblv79w0lex10n7b7wxt9v"
+				},
+				{
+					"size": "standard",
+					"subtype": "1999-2000-copyright",
+					"type": "normal",
+					"variantId": "qi4g3e7tzbkcyhfflvx7zmvunxwjcq3pvp"
+				}
+			]
+		},
+		{
+			"abilities": [
+				{
+					"effect": "If Ditto is your Active Pokémon, treat it as if it were the same card as the Defending Pokémon, including type, Hit Points, Weakness, and so on, except Ditto can't evolve, always has this Pokémon Power, and you may treat any Energy attached to Ditto as Energy of any type. Ditto isn't a copy of any other Pokémon while Ditto is Asleep, Confused, or Paralyzed.",
+					"name": "Transform",
+					"type": "Pokemon Power"
+				}
+			],
+			"category": "Pokemon",
+			"description": "Capable of copying an enemy's genetic code to instantly transform itself into a duplicate of the enemy.",
+			"dexId": [
+				132.0
+			],
+			"hp": 50.0,
+			"id": "base3-18",
+			"illustrator": "Keiji Kinebuchi",
+			"image": "https://assets.tcgdex.net/en/base/base3/18",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "18",
+			"name": "Ditto",
+			"rarity": "Rare",
+			"resistances": [
+				{
+					"type": "Psychic",
+					"value": "-30"
+				}
+			],
+			"retreat": 1.0,
+			"set": {
+				"cardCount": {
+					"official": 62.0,
+					"total": 62.0
+				},
+				"id": "base3",
+				"logo": "https://assets.tcgdex.net/en/base/base3/logo",
+				"name": "Fossil",
+				"symbol": "https://assets.tcgdex.net/univ/base/base3/symbol"
+			},
+			"stage": "Basic",
+			"types": [
+				"Colorless"
+			],
+			"updated": "2026-08-19T20:52:03Z",
+			"variants": {
+				"firstEdition": true,
+				"holo": false,
+				"normal": true,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273864.0,
+						"tcgplayer": 44426.0
+					},
+					"type": "normal",
+					"variantId": "4liram37qwxxpcj21gcs9m"
+				},
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273864.0,
+						"tcgplayer": 44426.0
+					},
+					"type": "normal",
+					"variantId": "riiya83ugrmyblv79w0lex10n7b7wxt9v"
+				},
+				{
+					"size": "standard",
+					"subtype": "1999-2000-copyright",
+					"type": "normal",
+					"variantId": "qi4g3e7tzbkcyhfflvx7zmvunxwjcq3pvp"
+				}
+			],
+			"weaknesses": [
+				{
+					"type": "Fighting",
+					"value": "×2"
+				}
+			]
+		},
+		{
+			"abilities": [
+				{
+					"effect": "Once during your turn (before you attack) if Dragonite is on your Bench, you may switch it with your Active Pokémon.",
+					"name": "Step In",
+					"type": "Pokemon Power"
+				}
+			],
+			"attacks": [
+				{
+					"cost": [
+						"Colorless",
+						"Colorless",
+						"Colorless",
+						"Colorless"
+					],
+					"damage": "40x",
+					"effect": "Flip 2 coins. This attack does 40 damage times the number of heads.",
+					"name": "Slam"
+				}
+			],
+			"category": "Pokemon",
+			"description": "An extremely rarely seen marine Pokémon. Its intelligence is said to match that of humans.",
+			"dexId": [
+				149.0
+			],
+			"evolveFrom": "Dragonair",
+			"hp": 100.0,
+			"id": "base3-19",
+			"illustrator": "Kagemaru Himeno",
+			"image": "https://assets.tcgdex.net/en/base/base3/19",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "19",
+			"name": "Dragonite",
+			"rarity": "Rare",
+			"resistances": [
+				{
+					"type": "Fighting",
+					"value": "-30"
+				}
+			],
+			"retreat": 1.0,
+			"set": {
+				"cardCount": {
+					"official": 62.0,
+					"total": 62.0
+				},
+				"id": "base3",
+				"logo": "https://assets.tcgdex.net/en/base/base3/logo",
+				"name": "Fossil",
+				"symbol": "https://assets.tcgdex.net/univ/base/base3/symbol"
+			},
+			"stage": "Stage2",
+			"types": [
+				"Colorless"
+			],
+			"updated": "2026-08-11T23:48:45+01:00",
+			"variants": {
+				"firstEdition": true,
+				"holo": false,
+				"normal": true,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273865.0,
+						"tcgplayer": 44427.0
+					},
+					"type": "normal",
+					"variantId": "4liram37qwxxpcj21gcs9m"
+				},
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273865.0,
+						"tcgplayer": 44427.0
+					},
+					"type": "normal",
+					"variantId": "riiya83ugrmyblv79w0lex10n7b7wxt9v"
+				},
+				{
+					"size": "standard",
+					"subtype": "1999-2000-copyright",
+					"type": "normal",
+					"variantId": "qi4g3e7tzbkcyhfflvx7zmvunxwjcq3pvp"
+				}
+			]
+		},
+		{
+			"abilities": [
+				{
+					"effect": "Once during your turn (before your attack), you may move 1 damage counter from 1 of your opponent's Pokémon to another (even if it would Knock Out the other Pokémon). This power can't be used if Gengar is Asleep, Confused, or Paralyzed.",
+					"name": "Curse",
+					"type": "Pokemon Power"
+				}
+			],
+			"attacks": [
+				{
+					"cost": [
+						"Psychic",
+						"Psychic",
+						"Psychic"
+					],
+					"damage": 30.0,
+					"effect": "If your opponent has any Benched Pokémon, choose 1 of them and this attack does 10 damage to it. (Don't apply Weakness and Resistance for Benched Pokémon.)",
+					"name": "Dark Mind"
+				}
+			],
+			"category": "Pokemon",
+			"description": "Under a full moon, this Pokémon likes to mimic the shadows of people and laugh at their fright.",
+			"dexId": [
+				94.0
+			],
+			"evolveFrom": "Haunter",
+			"hp": 80.0,
+			"id": "base3-20",
+			"illustrator": "Keiji Kinebuchi",
+			"image": "https://assets.tcgdex.net/en/base/base3/20",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "20",
+			"name": "Gengar",
+			"rarity": "Rare",
+			"resistances": [
+				{
+					"type": "Fighting",
+					"value": "-30"
+				}
+			],
+			"retreat": 1.0,
+			"set": {
+				"cardCount": {
+					"official": 62.0,
+					"total": 62.0
+				},
+				"id": "base3",
+				"logo": "https://assets.tcgdex.net/en/base/base3/logo",
+				"name": "Fossil",
+				"symbol": "https://assets.tcgdex.net/univ/base/base3/symbol"
+			},
+			"stage": "Stage2",
+			"types": [
+				"Psychic"
+			],
+			"updated": "2026-08-11T23:48:45+01:00",
+			"variants": {
+				"firstEdition": true,
+				"holo": false,
+				"normal": true,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273866.0,
+						"tcgplayer": 44428.0
+					},
+					"type": "normal",
+					"variantId": "4liram37qwxxpcj21gcs9m"
+				},
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273866.0,
+						"tcgplayer": 44428.0
+					},
+					"type": "normal",
+					"variantId": "riiya83ugrmyblv79w0lex10n7b7wxt9v"
+				},
+				{
+					"size": "standard",
+					"subtype": "1999-2000-copyright",
+					"type": "normal",
+					"variantId": "qi4g3e7tzbkcyhfflvx7zmvunxwjcq3pvp"
+				}
+			]
+		},
+		{
+			"abilities": [
+				{
+					"effect": "Whenever an attack does anything to Haunter, flip a coin. If heads, prevent all effects of that attack, including damage, done to Haunter. This power stops working while Haunter is Asleep.",
+					"name": "Transparency",
+					"type": "Pokemon Power"
+				}
+			],
+			"attacks": [
+				{
+					"cost": [
+						"Psychic",
+						"Colorless"
+					],
+					"damage": 10.0,
+					"effect": "The Defending Pokémon is now Asleep.",
+					"name": "Nightmare"
+				}
+			],
+			"category": "Pokemon",
+			"description": "Because of its ability to slip through block walls, it is said to be from another dimension.",
+			"dexId": [
+				93.0
+			],
+			"evolveFrom": "Gastly",
+			"hp": 50.0,
+			"id": "base3-21",
+			"illustrator": "Ken Sugimori",
+			"image": "https://assets.tcgdex.net/en/base/base3/21",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "21",
+			"name": "Haunter",
+			"rarity": "Rare",
+			"resistances": [
+				{
+					"type": "Fighting",
+					"value": "-30"
+				}
+			],
+			"set": {
+				"cardCount": {
+					"official": 62.0,
+					"total": 62.0
+				},
+				"id": "base3",
+				"logo": "https://assets.tcgdex.net/en/base/base3/logo",
+				"name": "Fossil",
+				"symbol": "https://assets.tcgdex.net/univ/base/base3/symbol"
+			},
+			"stage": "Stage1",
+			"types": [
+				"Psychic"
+			],
+			"updated": "2026-08-11T23:48:45+01:00",
+			"variants": {
+				"firstEdition": true,
+				"holo": false,
+				"normal": true,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273867.0,
+						"tcgplayer": 44429.0
+					},
+					"type": "normal",
+					"variantId": "4liram37qwxxpcj21gcs9m"
+				},
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273867.0,
+						"tcgplayer": 44429.0
+					},
+					"type": "normal",
+					"variantId": "riiya83ugrmyblv79w0lex10n7b7wxt9v"
+				},
+				{
+					"size": "standard",
+					"subtype": "1999-2000-copyright",
+					"type": "normal",
+					"variantId": "qi4g3e7tzbkcyhfflvx7zmvunxwjcq3pvp"
+				}
+			]
+		},
+		{
+			"attacks": [
+				{
+					"cost": [
+						"Fighting",
+						"Fighting"
+					],
+					"effect": "If your opponent has any Benched Pokémon, choose 1 of them and this attack does 20 damage to it. (Don't apply Weakness and Resistance for Benched Pokémon.)",
+					"name": "Stretch Kick"
+				},
+				{
+					"cost": [
+						"Fighting",
+						"Fighting",
+						"Fighting"
+					],
+					"damage": 50.0,
+					"name": "High Jump Kick"
+				}
+			],
+			"category": "Pokemon",
+			"description": "When in a hurry, its legs lengthen progressively. It runs smoothly with extra long, loping strides.",
+			"dexId": [
+				106.0
+			],
+			"hp": 60.0,
+			"id": "base3-22",
+			"illustrator": "Ken Sugimori",
+			"image": "https://assets.tcgdex.net/en/base/base3/22",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "22",
+			"name": "Hitmonlee",
+			"rarity": "Rare",
+			"retreat": 1.0,
+			"set": {
+				"cardCount": {
+					"official": 62.0,
+					"total": 62.0
+				},
+				"id": "base3",
+				"logo": "https://assets.tcgdex.net/en/base/base3/logo",
+				"name": "Fossil",
+				"symbol": "https://assets.tcgdex.net/univ/base/base3/symbol"
+			},
+			"stage": "Basic",
+			"types": [
+				"Fighting"
+			],
+			"updated": "2026-08-11T23:48:45+01:00",
+			"variants": {
+				"firstEdition": true,
+				"holo": false,
+				"normal": true,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273868.0,
+						"tcgplayer": 44430.0
+					},
+					"type": "normal",
+					"variantId": "4liram37qwxxpcj21gcs9m"
+				},
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273868.0,
+						"tcgplayer": 44430.0
+					},
+					"type": "normal",
+					"variantId": "riiya83ugrmyblv79w0lex10n7b7wxt9v"
+				},
+				{
+					"size": "standard",
+					"subtype": "1999-2000-copyright",
+					"type": "normal",
+					"variantId": "qi4g3e7tzbkcyhfflvx7zmvunxwjcq3pvp"
+				}
+			],
+			"weaknesses": [
+				{
+					"type": "Psychic",
+					"value": "×2"
+				}
+			]
+		},
+		{
+			"attacks": [
+				{
+					"cost": [
+						"Psychic"
+					],
+					"effect": "Look at up to 3 cards from the top of either player's deck and rearrange them as you like.",
+					"name": "Prophecy"
+				},
+				{
+					"cost": [
+						"Psychic",
+						"Psychic",
+						"Psychic"
+					],
+					"damage": 30.0,
+					"effect": "If your opponent has any Benched Pokémon, choose 1 of them and this attack does 10 damage to it. (Don't apply Weakness and Resistance for Benched Pokémon.)",
+					"name": "Dark Mind"
+				}
+			],
+			"category": "Pokemon",
+			"description": "When it locks eyes with an enemy, it will use a mix of psi moves such as Hypnosis and Confusion.",
+			"dexId": [
+				97.0
+			],
+			"evolveFrom": "Drowzee",
+			"hp": 90.0,
+			"id": "base3-23",
+			"illustrator": "Ken Sugimori",
+			"image": "https://assets.tcgdex.net/en/base/base3/23",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "23",
+			"name": "Hypno",
+			"rarity": "Rare",
+			"retreat": 2.0,
+			"set": {
+				"cardCount": {
+					"official": 62.0,
+					"total": 62.0
+				},
+				"id": "base3",
+				"logo": "https://assets.tcgdex.net/en/base/base3/logo",
+				"name": "Fossil",
+				"symbol": "https://assets.tcgdex.net/univ/base/base3/symbol"
+			},
+			"stage": "Stage1",
+			"types": [
+				"Psychic"
+			],
+			"updated": "2026-08-11T23:48:45+01:00",
+			"variants": {
+				"firstEdition": true,
+				"holo": false,
+				"normal": true,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273869.0,
+						"tcgplayer": 44431.0
+					},
+					"type": "normal",
+					"variantId": "4liram37qwxxpcj21gcs9m"
+				},
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273869.0,
+						"tcgplayer": 44431.0
+					},
+					"type": "normal",
+					"variantId": "riiya83ugrmyblv79w0lex10n7b7wxt9v"
+				},
+				{
+					"size": "standard",
+					"subtype": "1999-2000-copyright",
+					"type": "normal",
+					"variantId": "qi4g3e7tzbkcyhfflvx7zmvunxwjcq3pvp"
+				}
+			],
+			"weaknesses": [
+				{
+					"type": "Psychic",
+					"value": "×2"
+				}
+			]
+		},
+		{
+			"attacks": [
+				{
+					"cost": [
+						"Fighting",
+						"Fighting"
+					],
+					"damage": 30.0,
+					"name": "Sharp Sickle"
+				},
+				{
+					"cost": [
+						"Fighting",
+						"Fighting",
+						"Fighting",
+						"Fighting"
+					],
+					"damage": 40.0,
+					"effect": "Remove a number of damage counters from Kabutops equal to half the damage done to Defending Pokémon (after applying Weakness and Resistance) (rounded up to the nearest 10). If Kabutops has fewer damage counters than that, remove all of them.",
+					"name": "Absorb"
+				}
+			],
+			"category": "Pokemon",
+			"description": "Its sleek shape is perfect for swimming. It slashes prey with its claws and drains the body fluids. ",
+			"dexId": [
+				141.0
+			],
+			"evolveFrom": "Kabuto",
+			"hp": 60.0,
+			"id": "base3-24",
+			"illustrator": "Ken Sugimori",
+			"image": "https://assets.tcgdex.net/en/base/base3/24",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "24",
+			"name": "Kabutops",
+			"rarity": "Rare",
+			"retreat": 1.0,
+			"set": {
+				"cardCount": {
+					"official": 62.0,
+					"total": 62.0
+				},
+				"id": "base3",
+				"logo": "https://assets.tcgdex.net/en/base/base3/logo",
+				"name": "Fossil",
+				"symbol": "https://assets.tcgdex.net/univ/base/base3/symbol"
+			},
+			"stage": "Stage2",
+			"types": [
+				"Fighting"
+			],
+			"updated": "2026-08-11T23:48:45+01:00",
+			"variants": {
+				"firstEdition": true,
+				"holo": false,
+				"normal": true,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273870.0,
+						"tcgplayer": 44432.0
+					},
+					"type": "normal",
+					"variantId": "4liram37qwxxpcj21gcs9m"
+				},
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273870.0,
+						"tcgplayer": 44432.0
+					},
+					"type": "normal",
+					"variantId": "riiya83ugrmyblv79w0lex10n7b7wxt9v"
+				},
+				{
+					"size": "standard",
+					"subtype": "1999-2000-copyright",
+					"type": "normal",
+					"variantId": "qi4g3e7tzbkcyhfflvx7zmvunxwjcq3pvp"
+				}
+			],
+			"weaknesses": [
+				{
+					"type": "Grass",
+					"value": "×2"
+				}
+			]
+		},
+		{
+			"attacks": [
+				{
+					"cost": [
+						"Water"
+					],
+					"damage": "10+",
+					"effect": "Does 10 damage plus 10 more damage for each Energy attached to Lapras but not used to pay for this attack's Energy cost. You can't add more than 20 damage this way.",
+					"name": "Water Gun"
+				},
+				{
+					"cost": [
+						"Water",
+						"Water"
+					],
+					"damage": 10.0,
+					"effect": "Flip a coin. If heads, the Defending Pokémon is now Confused.",
+					"name": "Confuse Ray"
+				}
+			],
+			"category": "Pokemon",
+			"description": "A Pokémon that has been overhunted almost to extinction. It can ferry people across water.",
+			"dexId": [
+				131.0
+			],
+			"hp": 80.0,
+			"id": "base3-25",
+			"illustrator": "Ken Sugimori",
+			"image": "https://assets.tcgdex.net/en/base/base3/25",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "25",
+			"name": "Lapras",
+			"rarity": "Rare",
+			"retreat": 2.0,
+			"set": {
+				"cardCount": {
+					"official": 62.0,
+					"total": 62.0
+				},
+				"id": "base3",
+				"logo": "https://assets.tcgdex.net/en/base/base3/logo",
+				"name": "Fossil",
+				"symbol": "https://assets.tcgdex.net/univ/base/base3/symbol"
+			},
+			"stage": "Basic",
+			"types": [
+				"Water"
+			],
+			"updated": "2026-08-11T23:48:45+01:00",
+			"variants": {
+				"firstEdition": true,
+				"holo": false,
+				"normal": true,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273871.0,
+						"tcgplayer": 106527.0
+					},
+					"type": "normal",
+					"variantId": "4liram37qwxxpcj21gcs9m"
+				},
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273871.0,
+						"tcgplayer": 106527.0
+					},
+					"type": "normal",
+					"variantId": "riiya83ugrmyblv79w0lex10n7b7wxt9v"
+				},
+				{
+					"size": "standard",
+					"subtype": "1999-2000-copyright",
+					"type": "normal",
+					"variantId": "qi4g3e7tzbkcyhfflvx7zmvunxwjcq3pvp"
+				}
+			],
+			"weaknesses": [
+				{
+					"type": "Lightning",
+					"value": "×2"
+				}
+			]
+		},
+		{
+			"attacks": [
+				{
+					"cost": [
+						"Lightning",
+						"Colorless"
+					],
+					"damage": 20.0,
+					"effect": "Don't apply Weakness and Resistance for this attack. (Any other effects that would happen after applying Weakness and Resistance still happen.)",
+					"name": "Sonicboom"
+				},
+				{
+					"cost": [
+						"Lightning",
+						"Lightning",
+						"Lightning",
+						"Lightning"
+					],
+					"damage": 100.0,
+					"effect": "Does 20 damage to each Pokémon on each player's Bench. (Don't apply Weakness and Resistance for Benched Pokémon.) Magneton does 100 damage to itself.",
+					"name": "Selfdestruct"
+				}
+			],
+			"category": "Pokemon",
+			"description": "Formed by several Magnemites linked together. They frequently appear when sunspots flare up.",
+			"dexId": [
+				82.0
+			],
+			"evolveFrom": "Magnemite",
+			"hp": 80.0,
+			"id": "base3-26",
+			"illustrator": "Ken Sugimori",
+			"image": "https://assets.tcgdex.net/en/base/base3/26",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "26",
+			"name": "Magneton",
+			"rarity": "Rare",
+			"retreat": 2.0,
+			"set": {
+				"cardCount": {
+					"official": 62.0,
+					"total": 62.0
+				},
+				"id": "base3",
+				"logo": "https://assets.tcgdex.net/en/base/base3/logo",
+				"name": "Fossil",
+				"symbol": "https://assets.tcgdex.net/univ/base/base3/symbol"
+			},
+			"stage": "Stage1",
+			"types": [
+				"Lightning"
+			],
+			"updated": "2026-08-19T20:52:03Z",
+			"variants": {
+				"firstEdition": true,
+				"holo": false,
+				"normal": true,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273872.0,
+						"tcgplayer": 106528.0
+					},
+					"type": "normal",
+					"variantId": "4liram37qwxxpcj21gcs9m"
+				},
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273872.0,
+						"tcgplayer": 106528.0
+					},
+					"type": "normal",
+					"variantId": "riiya83ugrmyblv79w0lex10n7b7wxt9v"
+				},
+				{
+					"size": "standard",
+					"subtype": "1999-2000-copyright",
+					"type": "normal",
+					"variantId": "qi4g3e7tzbkcyhfflvx7zmvunxwjcq3pvp"
+				}
+			],
+			"weaknesses": [
+				{
+					"type": "Fighting",
+					"value": "×2"
+				}
+			]
+		},
+		{
+			"attacks": [
+				{
+					"cost": [
+						"Fire"
+					],
+					"effect": "You may discard any number of R Energy cards attached to Moltres when you use this attack. If you do, discard that many cards from the top of your opponent's deck.",
+					"name": "Wildfire"
+				},
+				{
+					"cost": [
+						"Fire",
+						"Fire",
+						"Fire",
+						"Fire"
+					],
+					"damage": 80.0,
+					"effect": "Flip a coin. If tails, this attack does nothing.",
+					"name": "Dive Bomb"
+				}
+			],
+			"category": "Pokemon",
+			"description": "Known as the legendary bird of fire. Every flap of its wings creates a dazzling flash of flames.",
+			"dexId": [
+				146.0
+			],
+			"hp": 70.0,
+			"id": "base3-27",
+			"illustrator": "Mitsuhiro Arita",
+			"image": "https://assets.tcgdex.net/en/base/base3/27",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "27",
+			"name": "Moltres",
+			"rarity": "Rare",
+			"resistances": [
+				{
+					"type": "Fighting",
+					"value": "-30"
+				}
+			],
+			"retreat": 2.0,
+			"set": {
+				"cardCount": {
+					"official": 62.0,
+					"total": 62.0
+				},
+				"id": "base3",
+				"logo": "https://assets.tcgdex.net/en/base/base3/logo",
+				"name": "Fossil",
+				"symbol": "https://assets.tcgdex.net/univ/base/base3/symbol"
+			},
+			"stage": "Basic",
+			"types": [
+				"Fire"
+			],
+			"updated": "2026-08-11T23:48:45+01:00",
+			"variants": {
+				"firstEdition": true,
+				"holo": false,
+				"normal": true,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273873.0,
+						"tcgplayer": 106529.0
+					},
+					"type": "normal",
+					"variantId": "4liram37qwxxpcj21gcs9m"
+				},
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273873.0,
+						"tcgplayer": 106529.0
+					},
+					"type": "normal",
+					"variantId": "riiya83ugrmyblv79w0lex10n7b7wxt9v"
+				},
+				{
+					"size": "standard",
+					"subtype": "1999-2000-copyright",
+					"type": "normal",
+					"variantId": "qi4g3e7tzbkcyhfflvx7zmvunxwjcq3pvp"
+				}
+			]
+		},
+		{
+			"abilities": [
+				{
+					"effect": "Ignore all Pokémon Powers other than Toxic Gases. This power stops working while Muk is Asleep, Confused, or Paralyzed.",
+					"name": "Toxic Gas",
+					"type": "Pokemon Power"
+				}
+			],
+			"attacks": [
+				{
+					"cost": [
+						"Grass",
+						"Grass",
+						"Grass"
+					],
+					"damage": 30.0,
+					"effect": "Flip a coin. If heads, the Defending Pokémon is now Poisoned.",
+					"name": "Sludge"
+				}
+			],
+			"category": "Pokemon",
+			"description": "Thickly covered with a filthy, vile sludge. It is so toxic, even its footprints contain poison.",
+			"dexId": [
+				89.0
+			],
+			"evolveFrom": "Grimer",
+			"hp": 70.0,
+			"id": "base3-28",
+			"illustrator": "Mitsuhiro Arita",
+			"image": "https://assets.tcgdex.net/en/base/base3/28",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "28",
+			"name": "Muk",
+			"rarity": "Rare",
+			"retreat": 2.0,
+			"set": {
+				"cardCount": {
+					"official": 62.0,
+					"total": 62.0
+				},
+				"id": "base3",
+				"logo": "https://assets.tcgdex.net/en/base/base3/logo",
+				"name": "Fossil",
+				"symbol": "https://assets.tcgdex.net/univ/base/base3/symbol"
+			},
+			"stage": "Stage1",
+			"types": [
+				"Grass"
+			],
+			"updated": "2026-08-11T23:48:45+01:00",
+			"variants": {
+				"firstEdition": true,
+				"holo": false,
+				"normal": true,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273874.0,
+						"tcgplayer": 106530.0
+					},
+					"type": "normal",
+					"variantId": "4liram37qwxxpcj21gcs9m"
+				},
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273874.0,
+						"tcgplayer": 106530.0
+					},
+					"type": "normal",
+					"variantId": "riiya83ugrmyblv79w0lex10n7b7wxt9v"
+				},
+				{
+					"size": "standard",
+					"subtype": "1999-2000-copyright",
+					"type": "normal",
+					"variantId": "qi4g3e7tzbkcyhfflvx7zmvunxwjcq3pvp"
+				}
+			],
+			"weaknesses": [
+				{
+					"type": "Psychic",
+					"value": "×2"
+				}
+			]
+		},
+		{
+			"attacks": [
+				{
+					"cost": [
+						"Lightning",
+						"Lightning",
+						"Lightning",
+						"Lightning"
+					],
+					"damage": 30.0,
+					"effect": "Choose 3 of your opponent's Benched Pokémon and this attack does 10 damage to each of them. (Don't apply Weakness and Resistance for Benched Pokémon.) If your opponent has fewer than 3 Benched Pokémon, do the damage to each of them.",
+					"name": "Gigashock"
+				}
+			],
+			"category": "Pokemon",
+			"description": "Its long tail serves as a ground to protect itself from its own high voltage power.",
+			"dexId": [
+				26.0
+			],
+			"evolveFrom": "Pikachu",
+			"hp": 90.0,
+			"id": "base3-29",
+			"illustrator": "Mitsuhiro Arita",
+			"image": "https://assets.tcgdex.net/en/base/base3/29",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "29",
+			"name": "Raichu",
+			"rarity": "Rare",
+			"retreat": 1.0,
+			"set": {
+				"cardCount": {
+					"official": 62.0,
+					"total": 62.0
+				},
+				"id": "base3",
+				"logo": "https://assets.tcgdex.net/en/base/base3/logo",
+				"name": "Fossil",
+				"symbol": "https://assets.tcgdex.net/univ/base/base3/symbol"
+			},
+			"stage": "Stage1",
+			"types": [
+				"Lightning"
+			],
+			"updated": "2026-08-11T23:48:45+01:00",
+			"variants": {
+				"firstEdition": true,
+				"holo": false,
+				"normal": true,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273875.0,
+						"tcgplayer": 106531.0
+					},
+					"type": "normal",
+					"variantId": "4liram37qwxxpcj21gcs9m"
+				},
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273875.0,
+						"tcgplayer": 106531.0
+					},
+					"type": "normal",
+					"variantId": "riiya83ugrmyblv79w0lex10n7b7wxt9v"
+				},
+				{
+					"size": "standard",
+					"subtype": "1999-2000-copyright",
+					"type": "normal",
+					"variantId": "qi4g3e7tzbkcyhfflvx7zmvunxwjcq3pvp"
+				}
+			],
+			"weaknesses": [
+				{
+					"type": "Fighting",
+					"value": "×2"
+				}
+			]
+		},
+		{
+			"attacks": [
+				{
+					"cost": [
+						"Lightning",
+						"Lightning",
+						"Lightning",
+						"Lightning"
+					],
+					"damage": 40.0,
+					"effect": "For each of your opponent's Benched Pokémon, flip a coin. If heads, this attack does 20 damage to that Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.) Then, Zapdos does 10 damage times the number of tails to itself.",
+					"name": "Thunderstorm"
+				}
+			],
+			"category": "Pokemon",
+			"description": "A legendary thunderbird Pokémon whose anger is said to cause storms. Some say it has lived above the clouds for thousands of years.",
+			"dexId": [
+				145.0
+			],
+			"hp": 80.0,
+			"id": "base3-30",
+			"illustrator": "Mitsuhiro Arita",
+			"image": "https://assets.tcgdex.net/en/base/base3/30",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "30",
+			"name": "Zapdos",
+			"rarity": "Rare",
+			"resistances": [
+				{
+					"type": "Fighting",
+					"value": "-30"
+				}
+			],
+			"retreat": 2.0,
+			"set": {
+				"cardCount": {
+					"official": 62.0,
+					"total": 62.0
+				},
+				"id": "base3",
+				"logo": "https://assets.tcgdex.net/en/base/base3/logo",
+				"name": "Fossil",
+				"symbol": "https://assets.tcgdex.net/univ/base/base3/symbol"
+			},
+			"stage": "Basic",
+			"types": [
+				"Lightning"
+			],
+			"updated": "2026-08-11T23:48:45+01:00",
+			"variants": {
+				"firstEdition": true,
+				"holo": false,
+				"normal": true,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273876.0,
+						"tcgplayer": 106532.0
+					},
+					"type": "normal",
+					"variantId": "4liram37qwxxpcj21gcs9m"
+				},
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273876.0,
+						"tcgplayer": 106532.0
+					},
+					"type": "normal",
+					"variantId": "riiya83ugrmyblv79w0lex10n7b7wxt9v"
+				},
+				{
+					"size": "standard",
+					"subtype": "1999-2000-copyright",
+					"type": "normal",
+					"variantId": "qi4g3e7tzbkcyhfflvx7zmvunxwjcq3pvp"
+				}
+			]
+		},
+		{
+			"attacks": [
+				{
+					"cost": [
+						"Grass"
+					],
+					"damage": 10.0,
+					"effect": "Flip a coin. If heads and if your opponent has any Benched Pokémon, he or she chooses 1 of them and switches it with the Defending Pokémon. (Do the damage before switching the Pokémon.)",
+					"name": "Terror Strike"
+				},
+				{
+					"cost": [
+						"Grass",
+						"Grass",
+						"Colorless"
+					],
+					"damage": 20.0,
+					"effect": "The Defending Pokémon is now Poisoned.",
+					"name": "Poison Fang"
+				}
+			],
+			"category": "Pokemon",
+			"description": "It is rumored that the ferocious warning markings on its belly differ from area to area.",
+			"dexId": [
+				24.0
+			],
+			"evolveFrom": "Ekans",
+			"hp": 60.0,
+			"id": "base3-31",
+			"illustrator": "Ken Sugimori",
+			"image": "https://assets.tcgdex.net/en/base/base3/31",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "31",
+			"name": "Arbok",
+			"rarity": "Uncommon",
+			"retreat": 2.0,
+			"set": {
+				"cardCount": {
+					"official": 62.0,
+					"total": 62.0
+				},
+				"id": "base3",
+				"logo": "https://assets.tcgdex.net/en/base/base3/logo",
+				"name": "Fossil",
+				"symbol": "https://assets.tcgdex.net/univ/base/base3/symbol"
+			},
+			"stage": "Stage1",
+			"types": [
+				"Grass"
+			],
+			"updated": "2026-08-11T23:48:45+01:00",
+			"variants": {
+				"firstEdition": true,
+				"holo": false,
+				"normal": true,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273892.0,
+						"tcgplayer": 44433.0
+					},
+					"type": "normal",
+					"variantId": "4liram37qwxxpcj21gcs9m"
+				},
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273892.0,
+						"tcgplayer": 44433.0
+					},
+					"type": "normal",
+					"variantId": "riiya83ugrmyblv79w0lex10n7b7wxt9v"
+				},
+				{
+					"size": "standard",
+					"subtype": "1999-2000-copyright",
+					"type": "normal",
+					"variantId": "qi4g3e7tzbkcyhfflvx7zmvunxwjcq3pvp"
+				}
+			],
+			"weaknesses": [
+				{
+					"type": "Psychic",
+					"value": "×2"
+				}
+			]
+		},
+		{
+			"attacks": [
+				{
+					"cost": [
+						"Water",
+						"Water"
+					],
+					"damage": 30.0,
+					"effect": "Flip a coin. If heads, the Defending Pokémon is now Paralyzed. If tails, this attack does nothing (not even damage).",
+					"name": "Clamp"
+				},
+				{
+					"cost": [
+						"Water",
+						"Water"
+					],
+					"damage": "30x",
+					"effect": "Flip 2 coins. This attack does 30 damage times the number of heads.",
+					"name": "Spike Cannon"
+				}
+			],
+			"category": "Pokemon",
+			"description": "When attacked, it launches its horns in quick volleys. Its innards have never been seen.",
+			"dexId": [
+				91.0
+			],
+			"evolveFrom": "Shellder",
+			"hp": 50.0,
+			"id": "base3-32",
+			"illustrator": "Kagemaru Himeno",
+			"image": "https://assets.tcgdex.net/en/base/base3/32",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "32",
+			"name": "Cloyster",
+			"rarity": "Uncommon",
+			"retreat": 2.0,
+			"set": {
+				"cardCount": {
+					"official": 62.0,
+					"total": 62.0
+				},
+				"id": "base3",
+				"logo": "https://assets.tcgdex.net/en/base/base3/logo",
+				"name": "Fossil",
+				"symbol": "https://assets.tcgdex.net/univ/base/base3/symbol"
+			},
+			"stage": "Stage1",
+			"types": [
+				"Water"
+			],
+			"updated": "2026-08-11T23:48:45+01:00",
+			"variants": {
+				"firstEdition": true,
+				"holo": false,
+				"normal": true,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273893.0,
+						"tcgplayer": 44434.0
+					},
+					"type": "normal",
+					"variantId": "4liram37qwxxpcj21gcs9m"
+				},
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273893.0,
+						"tcgplayer": 44434.0
+					},
+					"type": "normal",
+					"variantId": "riiya83ugrmyblv79w0lex10n7b7wxt9v"
+				},
+				{
+					"size": "standard",
+					"subtype": "1999-2000-copyright",
+					"type": "normal",
+					"variantId": "qi4g3e7tzbkcyhfflvx7zmvunxwjcq3pvp"
+				}
+			],
+			"weaknesses": [
+				{
+					"type": "Lightning",
+					"value": "×2"
+				}
+			]
+		},
+		{
+			"attacks": [
+				{
+					"cost": [
+						"Psychic"
+					],
+					"damage": 10.0,
+					"effect": "Flip a coin. If heads, the Defending Pokémon is now Paralyzed.",
+					"name": "Lick"
+				},
+				{
+					"cost": [
+						"Psychic",
+						"Psychic"
+					],
+					"effect": "Put up to 2 Energy cards from your discard pile into your hand. Gastly does 10 damage to itself.",
+					"name": "Energy Conversion"
+				}
+			],
+			"category": "Pokemon",
+			"description": "A mysterious Pokémon. Some say it is a lifeform from another dimension, while other believe it is formed from smog.",
+			"dexId": [
+				92.0
+			],
+			"hp": 50.0,
+			"id": "base3-33",
+			"illustrator": "Mitsuhiro Arita",
+			"image": "https://assets.tcgdex.net/en/base/base3/33",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "33",
+			"name": "Gastly",
+			"rarity": "Uncommon",
+			"resistances": [
+				{
+					"type": "Fighting",
+					"value": "-30"
+				}
+			],
+			"set": {
+				"cardCount": {
+					"official": 62.0,
+					"total": 62.0
+				},
+				"id": "base3",
+				"logo": "https://assets.tcgdex.net/en/base/base3/logo",
+				"name": "Fossil",
+				"symbol": "https://assets.tcgdex.net/univ/base/base3/symbol"
+			},
+			"stage": "Basic",
+			"types": [
+				"Psychic"
+			],
+			"updated": "2026-08-11T23:48:45+01:00",
+			"variants": {
+				"firstEdition": true,
+				"holo": false,
+				"normal": true,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273894.0,
+						"tcgplayer": 44435.0
+					},
+					"type": "normal",
+					"variantId": "4liram37qwxxpcj21gcs9m"
+				},
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273894.0,
+						"tcgplayer": 44435.0
+					},
+					"type": "normal",
+					"variantId": "riiya83ugrmyblv79w0lex10n7b7wxt9v"
+				},
+				{
+					"size": "standard",
+					"subtype": "1999-2000-copyright",
+					"type": "normal",
+					"variantId": "qi4g3e7tzbkcyhfflvx7zmvunxwjcq3pvp"
+				}
+			]
+		},
+		{
+			"attacks": [
+				{
+					"cost": [
+						"Colorless",
+						"Colorless",
+						"Colorless"
+					],
+					"damage": 30.0,
+					"name": "Wing Attack"
+				},
+				{
+					"cost": [
+						"Grass",
+						"Grass",
+						"Colorless"
+					],
+					"damage": 20.0,
+					"effect": "Remove a number of damage counters from Golbat equal to the damage done to the Defending Pokémon (after applying Weakness and Resistance). If Golbat has fewer damage counters than that, remove all of them.",
+					"name": "Leech Life"
+				}
+			],
+			"category": "Pokemon",
+			"description": "Once it strikes, it will not stop draining energy from the victim even if it gets too heavy to fly.",
+			"dexId": [
+				42.0
+			],
+			"evolveFrom": "Zubat",
+			"hp": 60.0,
+			"id": "base3-34",
+			"illustrator": "Kagemaru Himeno",
+			"image": "https://assets.tcgdex.net/en/base/base3/34",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "34",
+			"name": "Golbat",
+			"rarity": "Uncommon",
+			"resistances": [
+				{
+					"type": "Fighting",
+					"value": "-30"
+				}
+			],
+			"set": {
+				"cardCount": {
+					"official": 62.0,
+					"total": 62.0
+				},
+				"id": "base3",
+				"logo": "https://assets.tcgdex.net/en/base/base3/logo",
+				"name": "Fossil",
+				"symbol": "https://assets.tcgdex.net/univ/base/base3/symbol"
+			},
+			"stage": "Stage1",
+			"types": [
+				"Grass"
+			],
+			"updated": "2026-08-11T23:48:45+01:00",
+			"variants": {
+				"firstEdition": true,
+				"holo": false,
+				"normal": true,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273895.0,
+						"tcgplayer": 44436.0
+					},
+					"type": "normal",
+					"variantId": "4liram37qwxxpcj21gcs9m"
+				},
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273895.0,
+						"tcgplayer": 44436.0
+					},
+					"type": "normal",
+					"variantId": "riiya83ugrmyblv79w0lex10n7b7wxt9v"
+				},
+				{
+					"size": "standard",
+					"subtype": "1999-2000-copyright",
+					"type": "normal",
+					"variantId": "qi4g3e7tzbkcyhfflvx7zmvunxwjcq3pvp"
+				}
+			],
+			"weaknesses": [
+				{
+					"type": "Psychic",
+					"value": "×2"
+				}
+			]
+		},
+		{
+			"attacks": [
+				{
+					"cost": [
+						"Psychic"
+					],
+					"damage": 10.0,
+					"effect": "Flip a coin. If heads, the Defending Pokémon is now Paralyzed.",
+					"name": "Psyshock"
+				},
+				{
+					"cost": [
+						"Water",
+						"Water",
+						"Colorless"
+					],
+					"damage": 20.0,
+					"effect": "If the Defending Pokémon has any Energy cards attached to it, choose 1 of them and discard it.",
+					"name": "Hyper Beam"
+				}
+			],
+			"category": "Pokemon",
+			"description": "Often seen swimming elegantly by lake shores. It is often mistaken for the Japanese monster, Kappa.",
+			"dexId": [
+				55.0
+			],
+			"evolveFrom": "Psyduck",
+			"hp": 70.0,
+			"id": "base3-35",
+			"illustrator": "Kagemaru Himeno",
+			"image": "https://assets.tcgdex.net/en/base/base3/35",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "35",
+			"name": "Golduck",
+			"rarity": "Uncommon",
+			"retreat": 1.0,
+			"set": {
+				"cardCount": {
+					"official": 62.0,
+					"total": 62.0
+				},
+				"id": "base3",
+				"logo": "https://assets.tcgdex.net/en/base/base3/logo",
+				"name": "Fossil",
+				"symbol": "https://assets.tcgdex.net/univ/base/base3/symbol"
+			},
+			"stage": "Stage1",
+			"types": [
+				"Water"
+			],
+			"updated": "2026-08-11T23:48:45+01:00",
+			"variants": {
+				"firstEdition": true,
+				"holo": false,
+				"normal": true,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273896.0,
+						"tcgplayer": 44437.0
+					},
+					"type": "normal",
+					"variantId": "4liram37qwxxpcj21gcs9m"
+				},
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273896.0,
+						"tcgplayer": 44437.0
+					},
+					"type": "normal",
+					"variantId": "riiya83ugrmyblv79w0lex10n7b7wxt9v"
+				},
+				{
+					"size": "standard",
+					"subtype": "1999-2000-copyright",
+					"type": "normal",
+					"variantId": "qi4g3e7tzbkcyhfflvx7zmvunxwjcq3pvp"
+				}
+			],
+			"weaknesses": [
+				{
+					"type": "Lightning",
+					"value": "×2"
+				}
+			]
+		},
+		{
+			"attacks": [
+				{
+					"cost": [
+						"Fighting",
+						"Fighting",
+						"Fighting",
+						"Colorless"
+					],
+					"damage": 60.0,
+					"name": "Avalanche"
+				},
+				{
+					"cost": [
+						"Fighting",
+						"Fighting",
+						"Fighting",
+						"Fighting"
+					],
+					"damage": 100.0,
+					"effect": "Does 20 damage to each Pokémon on each player's Bench. (Don't apply Weakness and Resistance for Benched Pokémon.) Golem does 100 damage to itself.",
+					"name": "Selfdestruct"
+				}
+			],
+			"category": "Pokemon",
+			"description": "Its boulder-like body is extremely hard. It can easily withstand dynamite blasts without damage.",
+			"dexId": [
+				76.0
+			],
+			"evolveFrom": "Graveler",
+			"hp": 80.0,
+			"id": "base3-36",
+			"illustrator": "Kagemaru Himeno",
+			"image": "https://assets.tcgdex.net/en/base/base3/36",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "36",
+			"name": "Golem",
+			"rarity": "Uncommon",
+			"retreat": 4.0,
+			"set": {
+				"cardCount": {
+					"official": 62.0,
+					"total": 62.0
+				},
+				"id": "base3",
+				"logo": "https://assets.tcgdex.net/en/base/base3/logo",
+				"name": "Fossil",
+				"symbol": "https://assets.tcgdex.net/univ/base/base3/symbol"
+			},
+			"stage": "Stage2",
+			"types": [
+				"Fighting"
+			],
+			"updated": "2026-08-11T23:48:45+01:00",
+			"variants": {
+				"firstEdition": true,
+				"holo": false,
+				"normal": true,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273897.0,
+						"tcgplayer": 44438.0
+					},
+					"type": "normal",
+					"variantId": "4liram37qwxxpcj21gcs9m"
+				},
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273897.0,
+						"tcgplayer": 44438.0
+					},
+					"type": "normal",
+					"variantId": "riiya83ugrmyblv79w0lex10n7b7wxt9v"
+				},
+				{
+					"size": "standard",
+					"subtype": "1999-2000-copyright",
+					"type": "normal",
+					"variantId": "qi4g3e7tzbkcyhfflvx7zmvunxwjcq3pvp"
+				}
+			],
+			"weaknesses": [
+				{
+					"type": "Grass",
+					"value": "×2"
+				}
+			]
+		},
+		{
+			"attacks": [
+				{
+					"cost": [
+						"Fighting",
+						"Fighting"
+					],
+					"effect": "During your opponent's next turn, whenever 30 or less damage is done to Graveler (after applying Weakness and Resistance), prevent that damage. (Any other effects of attacks still happen.)",
+					"name": "Harden"
+				},
+				{
+					"cost": [
+						"Fighting",
+						"Fighting",
+						"Colorless"
+					],
+					"damage": 40.0,
+					"name": "Rock Throw"
+				}
+			],
+			"category": "Pokemon",
+			"description": "Rolls down slopes to move. It rolls over any obstacle without slowing or changing its direction.",
+			"dexId": [
+				75.0
+			],
+			"evolveFrom": "Geodude",
+			"hp": 60.0,
+			"id": "base3-37",
+			"illustrator": "Kagemaru Himeno",
+			"image": "https://assets.tcgdex.net/en/base/base3/37",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "37",
+			"name": "Graveler",
+			"rarity": "Uncommon",
+			"retreat": 2.0,
+			"set": {
+				"cardCount": {
+					"official": 62.0,
+					"total": 62.0
+				},
+				"id": "base3",
+				"logo": "https://assets.tcgdex.net/en/base/base3/logo",
+				"name": "Fossil",
+				"symbol": "https://assets.tcgdex.net/univ/base/base3/symbol"
+			},
+			"stage": "Stage1",
+			"types": [
+				"Fighting"
+			],
+			"updated": "2026-08-11T23:48:45+01:00",
+			"variants": {
+				"firstEdition": true,
+				"holo": false,
+				"normal": true,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273898.0,
+						"tcgplayer": 44439.0
+					},
+					"type": "normal",
+					"variantId": "4liram37qwxxpcj21gcs9m"
+				},
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273898.0,
+						"tcgplayer": 44439.0
+					},
+					"type": "normal",
+					"variantId": "riiya83ugrmyblv79w0lex10n7b7wxt9v"
+				},
+				{
+					"size": "standard",
+					"subtype": "1999-2000-copyright",
+					"type": "normal",
+					"variantId": "qi4g3e7tzbkcyhfflvx7zmvunxwjcq3pvp"
+				}
+			],
+			"weaknesses": [
+				{
+					"type": "Grass",
+					"value": "×2"
+				}
+			]
+		},
+		{
+			"attacks": [
+				{
+					"cost": [
+						"Water"
+					],
+					"damage": "10x",
+					"effect": "Does 10 damage times the number of damage counters on Kingler.",
+					"name": "Flail"
+				},
+				{
+					"cost": [
+						"Water",
+						"Water",
+						"Colorless"
+					],
+					"damage": 40.0,
+					"name": "Crabhammer"
+				}
+			],
+			"category": "Pokemon",
+			"description": "The large pincer has 10,000 horsepower of crushing power. However, its huge size makes it unwieldy to use.",
+			"dexId": [
+				99.0
+			],
+			"evolveFrom": "Krabby",
+			"hp": 60.0,
+			"id": "base3-38",
+			"illustrator": "Kagemaru Himeno",
+			"image": "https://assets.tcgdex.net/en/base/base3/38",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "38",
+			"name": "Kingler",
+			"rarity": "Uncommon",
+			"retreat": 3.0,
+			"set": {
+				"cardCount": {
+					"official": 62.0,
+					"total": 62.0
+				},
+				"id": "base3",
+				"logo": "https://assets.tcgdex.net/en/base/base3/logo",
+				"name": "Fossil",
+				"symbol": "https://assets.tcgdex.net/univ/base/base3/symbol"
+			},
+			"stage": "Stage1",
+			"types": [
+				"Water"
+			],
+			"updated": "2026-08-11T23:48:45+01:00",
+			"variants": {
+				"firstEdition": true,
+				"holo": false,
+				"normal": true,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273899.0,
+						"tcgplayer": 44440.0
+					},
+					"type": "normal",
+					"variantId": "4liram37qwxxpcj21gcs9m"
+				},
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273899.0,
+						"tcgplayer": 44440.0
+					},
+					"type": "normal",
+					"variantId": "riiya83ugrmyblv79w0lex10n7b7wxt9v"
+				},
+				{
+					"size": "standard",
+					"subtype": "1999-2000-copyright",
+					"type": "normal",
+					"variantId": "qi4g3e7tzbkcyhfflvx7zmvunxwjcq3pvp"
+				}
+			],
+			"weaknesses": [
+				{
+					"type": "Lightning",
+					"value": "×2"
+				}
+			]
+		},
+		{
+			"attacks": [
+				{
+					"cost": [
+						"Fire"
+					],
+					"damage": 10.0,
+					"effect": "If the Defending Pokémon tries to attack during your opponent's next turn, your opponent flips a coin. If tails, that attack does nothing.",
+					"name": "Smokescreen"
+				},
+				{
+					"cost": [
+						"Fire",
+						"Fire"
+					],
+					"damage": 20.0,
+					"effect": "Flip a coin. If heads, the Defending Pokémon is now Poisoned.",
+					"name": "Smog"
+				}
+			],
+			"category": "Pokemon",
+			"description": "Found at the mouths of volcanoes and extremely hard to spot. There are very few instances of capturing this Pokémon.",
+			"dexId": [
+				126.0
+			],
+			"evolveFrom": "Magby",
+			"hp": 70.0,
+			"id": "base3-39",
+			"illustrator": "Mitsuhiro Arita",
+			"image": "https://assets.tcgdex.net/en/base/base3/39",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "39",
+			"name": "Magmar",
+			"rarity": "Uncommon",
+			"retreat": 1.0,
+			"set": {
+				"cardCount": {
+					"official": 62.0,
+					"total": 62.0
+				},
+				"id": "base3",
+				"logo": "https://assets.tcgdex.net/en/base/base3/logo",
+				"name": "Fossil",
+				"symbol": "https://assets.tcgdex.net/univ/base/base3/symbol"
+			},
+			"stage": "Basic",
+			"types": [
+				"Fire"
+			],
+			"updated": "2026-08-18T12:11:26Z",
+			"variants": {
+				"firstEdition": true,
+				"holo": false,
+				"normal": true,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273900.0,
+						"tcgplayer": 44441.0
+					},
+					"type": "normal",
+					"variantId": "4liram37qwxxpcj21gcs9m"
+				},
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273900.0,
+						"tcgplayer": 44441.0
+					},
+					"type": "normal",
+					"variantId": "riiya83ugrmyblv79w0lex10n7b7wxt9v"
+				},
+				{
+					"size": "standard",
+					"subtype": "1999-2000-copyright",
+					"type": "normal",
+					"variantId": "qi4g3e7tzbkcyhfflvx7zmvunxwjcq3pvp"
+				}
+			],
+			"weaknesses": [
+				{
+					"type": "Water",
+					"value": "×2"
+				}
+			]
+		},
+		{
+			"attacks": [
+				{
+					"cost": [
+						"Water",
+						"Colorless"
+					],
+					"damage": "20+",
+					"effect": "Does 20 damage plus 10 more damage for each Energy attached to Omastar but not used to pay for this attack's Energy cost. You can't add more than 20 damage in this way.",
+					"name": "Water Gun"
+				},
+				{
+					"cost": [
+						"Water",
+						"Water"
+					],
+					"damage": "30x",
+					"effect": "Flip 2 coins. This attack does 30 damage times the number of heads.",
+					"name": "Spike Cannon"
+				}
+			],
+			"category": "Pokemon",
+			"description": "A prehistoric Pokémon that died out when its heavy shell made it impossible for it to catch prey.",
+			"dexId": [
+				139.0
+			],
+			"evolveFrom": "Omanyte",
+			"hp": 70.0,
+			"id": "base3-40",
+			"illustrator": "Ken Sugimori",
+			"image": "https://assets.tcgdex.net/en/base/base3/40",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "40",
+			"name": "Omastar",
+			"rarity": "Uncommon",
+			"retreat": 1.0,
+			"set": {
+				"cardCount": {
+					"official": 62.0,
+					"total": 62.0
+				},
+				"id": "base3",
+				"logo": "https://assets.tcgdex.net/en/base/base3/logo",
+				"name": "Fossil",
+				"symbol": "https://assets.tcgdex.net/univ/base/base3/symbol"
+			},
+			"stage": "Stage2",
+			"types": [
+				"Water"
+			],
+			"updated": "2026-08-11T23:48:45+01:00",
+			"variants": {
+				"firstEdition": true,
+				"holo": false,
+				"normal": true,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273901.0,
+						"tcgplayer": 44442.0
+					},
+					"type": "normal",
+					"variantId": "4liram37qwxxpcj21gcs9m"
+				},
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273901.0,
+						"tcgplayer": 44442.0
+					},
+					"type": "normal",
+					"variantId": "riiya83ugrmyblv79w0lex10n7b7wxt9v"
+				},
+				{
+					"size": "standard",
+					"subtype": "1999-2000-copyright",
+					"type": "normal",
+					"variantId": "qi4g3e7tzbkcyhfflvx7zmvunxwjcq3pvp"
+				}
+			],
+			"weaknesses": [
+				{
+					"type": "Grass",
+					"value": "×2"
+				}
+			]
+		},
+		{
+			"attacks": [
+				{
+					"cost": [
+						"Colorless",
+						"Colorless"
+					],
+					"damage": 20.0,
+					"name": "Slash"
+				},
+				{
+					"cost": [
+						"Fighting",
+						"Fighting"
+					],
+					"damage": "20x",
+					"effect": "Flip 3 coins. This attack does 20 damage times the number of heads.",
+					"name": "Fury Swipes"
+				}
+			],
+			"category": "Pokemon",
+			"description": "Curls up into a spiny ball when threatened. It can roll while curled up to attack or escape.",
+			"dexId": [
+				28.0
+			],
+			"evolveFrom": "Sandshrew",
+			"hp": 70.0,
+			"id": "base3-41",
+			"illustrator": "Ken Sugimori",
+			"image": "https://assets.tcgdex.net/en/base/base3/41",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "41",
+			"name": "Sandslash",
+			"rarity": "Uncommon",
+			"resistances": [
+				{
+					"type": "Lightning",
+					"value": "-30"
+				}
+			],
+			"retreat": 1.0,
+			"set": {
+				"cardCount": {
+					"official": 62.0,
+					"total": 62.0
+				},
+				"id": "base3",
+				"logo": "https://assets.tcgdex.net/en/base/base3/logo",
+				"name": "Fossil",
+				"symbol": "https://assets.tcgdex.net/univ/base/base3/symbol"
+			},
+			"stage": "Stage1",
+			"types": [
+				"Fighting"
+			],
+			"updated": "2026-08-11T23:48:45+01:00",
+			"variants": {
+				"firstEdition": true,
+				"holo": false,
+				"normal": true,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273902.0,
+						"tcgplayer": 44443.0
+					},
+					"type": "normal",
+					"variantId": "4liram37qwxxpcj21gcs9m"
+				},
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273902.0,
+						"tcgplayer": 44443.0
+					},
+					"type": "normal",
+					"variantId": "riiya83ugrmyblv79w0lex10n7b7wxt9v"
+				},
+				{
+					"size": "standard",
+					"subtype": "1999-2000-copyright",
+					"type": "normal",
+					"variantId": "qi4g3e7tzbkcyhfflvx7zmvunxwjcq3pvp"
+				}
+			],
+			"weaknesses": [
+				{
+					"type": "Grass",
+					"value": "×2"
+				}
+			]
+		},
+		{
+			"attacks": [
+				{
+					"cost": [
+						"Water",
+						"Colorless"
+					],
+					"damage": "20+",
+					"effect": "Does 20 damage plus 10 more damage for each Energy attached to Seadra but not used to pay for this attack's Energy cost. You can't add more than 20 damage in this way.",
+					"name": "Water Gun"
+				},
+				{
+					"cost": [
+						"Water",
+						"Colorless",
+						"Colorless"
+					],
+					"damage": 20.0,
+					"effect": "Flip a coin. If heads, during your opponent's next turn, prevent all effects of attacks, including damage, done to Seadra.",
+					"name": "Agility"
+				}
+			],
+			"category": "Pokemon",
+			"description": "Capable of swimming backward by rapidly flapping its wing-like pectoral fins and stout tail.",
+			"dexId": [
+				117.0
+			],
+			"evolveFrom": "Horsea",
+			"hp": 60.0,
+			"id": "base3-42",
+			"illustrator": "Ken Sugimori",
+			"image": "https://assets.tcgdex.net/en/base/base3/42",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "42",
+			"name": "Seadra",
+			"rarity": "Uncommon",
+			"retreat": 1.0,
+			"set": {
+				"cardCount": {
+					"official": 62.0,
+					"total": 62.0
+				},
+				"id": "base3",
+				"logo": "https://assets.tcgdex.net/en/base/base3/logo",
+				"name": "Fossil",
+				"symbol": "https://assets.tcgdex.net/univ/base/base3/symbol"
+			},
+			"stage": "Stage1",
+			"types": [
+				"Water"
+			],
+			"updated": "2026-08-11T23:48:45+01:00",
+			"variants": {
+				"firstEdition": true,
+				"holo": false,
+				"normal": true,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273903.0,
+						"tcgplayer": 44444.0
+					},
+					"type": "normal",
+					"variantId": "4liram37qwxxpcj21gcs9m"
+				},
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273903.0,
+						"tcgplayer": 44444.0
+					},
+					"type": "normal",
+					"variantId": "riiya83ugrmyblv79w0lex10n7b7wxt9v"
+				},
+				{
+					"size": "standard",
+					"subtype": "1999-2000-copyright",
+					"type": "normal",
+					"variantId": "qi4g3e7tzbkcyhfflvx7zmvunxwjcq3pvp"
+				}
+			],
+			"weaknesses": [
+				{
+					"type": "Lightning",
+					"value": "×2"
+				}
+			]
+		},
+		{
+			"abilities": [
+				{
+					"effect": "As often as you like during your turn (before your attack), you may move 1 damage counter from 1 of your Pokémon to Slowbro as long as you don't Knock Out Slowbro. This power can't be used if Slowbro is Asleep, Confused, or Paralyzed.",
+					"name": "Strange Behavior",
+					"type": "Pokemon Power"
+				}
+			],
+			"attacks": [
+				{
+					"cost": [
+						"Psychic",
+						"Psychic"
+					],
+					"damage": 20.0,
+					"effect": "Flip a coin. If heads, the Defending Pokémon is now Paralyzed.",
+					"name": "Psyshock"
+				}
+			],
+			"category": "Pokemon",
+			"description": "The Shellder that is latched onto Slowpoke's tail is said to feed on the host's left-over scraps.",
+			"dexId": [
+				80.0
+			],
+			"evolveFrom": "Slowpoke",
+			"hp": 60.0,
+			"id": "base3-43",
+			"illustrator": "Kagemaru Himeno",
+			"image": "https://assets.tcgdex.net/en/base/base3/43",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "43",
+			"name": "Slowbro",
+			"rarity": "Uncommon",
+			"retreat": 1.0,
+			"set": {
+				"cardCount": {
+					"official": 62.0,
+					"total": 62.0
+				},
+				"id": "base3",
+				"logo": "https://assets.tcgdex.net/en/base/base3/logo",
+				"name": "Fossil",
+				"symbol": "https://assets.tcgdex.net/univ/base/base3/symbol"
+			},
+			"stage": "Stage1",
+			"types": [
+				"Psychic"
+			],
+			"updated": "2026-08-11T23:48:45+01:00",
+			"variants": {
+				"firstEdition": true,
+				"holo": false,
+				"normal": true,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273904.0,
+						"tcgplayer": 44445.0
+					},
+					"type": "normal",
+					"variantId": "4liram37qwxxpcj21gcs9m"
+				},
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273904.0,
+						"tcgplayer": 44445.0
+					},
+					"type": "normal",
+					"variantId": "riiya83ugrmyblv79w0lex10n7b7wxt9v"
+				},
+				{
+					"size": "standard",
+					"subtype": "1999-2000-copyright",
+					"type": "normal",
+					"variantId": "qi4g3e7tzbkcyhfflvx7zmvunxwjcq3pvp"
+				}
+			],
+			"weaknesses": [
+				{
+					"type": "Psychic",
+					"value": "×2"
+				}
+			]
+		},
+		{
+			"attacks": [
+				{
+					"cost": [
+						"Water"
+					],
+					"effect": "Flip a coin. If heads, the Defending Pokémon is now Confused.",
+					"name": "Supersonic"
+				},
+				{
+					"cost": [
+						"Water",
+						"Water"
+					],
+					"damage": 10.0,
+					"effect": "The Defending Pokémon is now Poisoned.",
+					"name": "Jellyfish Sting"
+				}
+			],
+			"category": "Pokemon",
+			"description": "The tentacles are normally kept short. On hunts, they are extended to ensnare and immobilize prey.",
+			"dexId": [
+				73.0
+			],
+			"evolveFrom": "Tentacool",
+			"hp": 60.0,
+			"id": "base3-44",
+			"illustrator": "Kagemaru Himeno",
+			"image": "https://assets.tcgdex.net/en/base/base3/44",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "44",
+			"name": "Tentacruel",
+			"rarity": "Uncommon",
+			"set": {
+				"cardCount": {
+					"official": 62.0,
+					"total": 62.0
+				},
+				"id": "base3",
+				"logo": "https://assets.tcgdex.net/en/base/base3/logo",
+				"name": "Fossil",
+				"symbol": "https://assets.tcgdex.net/univ/base/base3/symbol"
+			},
+			"stage": "Stage1",
+			"types": [
+				"Water"
+			],
+			"updated": "2026-08-11T23:48:45+01:00",
+			"variants": {
+				"firstEdition": true,
+				"holo": false,
+				"normal": true,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273905.0,
+						"tcgplayer": 44446.0
+					},
+					"type": "normal",
+					"variantId": "4liram37qwxxpcj21gcs9m"
+				},
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273905.0,
+						"tcgplayer": 44446.0
+					},
+					"type": "normal",
+					"variantId": "riiya83ugrmyblv79w0lex10n7b7wxt9v"
+				},
+				{
+					"size": "standard",
+					"subtype": "1999-2000-copyright",
+					"type": "normal",
+					"variantId": "qi4g3e7tzbkcyhfflvx7zmvunxwjcq3pvp"
+				}
+			],
+			"weaknesses": [
+				{
+					"type": "Lightning",
+					"value": "×2"
+				}
+			]
+		},
+		{
+			"attacks": [
+				{
+					"cost": [
+						"Grass",
+						"Grass"
+					],
+					"damage": 20.0,
+					"effect": "Flip a coin. If heads, the Defending Pokémon is now Poisoned.",
+					"name": "Smog"
+				},
+				{
+					"cost": [
+						"Grass",
+						"Grass",
+						"Colorless"
+					],
+					"damage": 60.0,
+					"effect": "Does 10 damage to each Pokémon on each player's Bench. (Don't apply Weakness and Resistance for Benched Pokémon.) Weezing does 60 damage to itself.",
+					"name": "Selfdestruct"
+				}
+			],
+			"category": "Pokemon",
+			"description": "Where two kinds of poison gases meet, two Koffings can fuse into a Weezing over many years.",
+			"dexId": [
+				110.0
+			],
+			"evolveFrom": "Koffing",
+			"hp": 60.0,
+			"id": "base3-45",
+			"illustrator": "Mitsuhiro Arita",
+			"image": "https://assets.tcgdex.net/en/base/base3/45",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "45",
+			"name": "Weezing",
+			"rarity": "Uncommon",
+			"retreat": 1.0,
+			"set": {
+				"cardCount": {
+					"official": 62.0,
+					"total": 62.0
+				},
+				"id": "base3",
+				"logo": "https://assets.tcgdex.net/en/base/base3/logo",
+				"name": "Fossil",
+				"symbol": "https://assets.tcgdex.net/univ/base/base3/symbol"
+			},
+			"stage": "Stage1",
+			"types": [
+				"Grass"
+			],
+			"updated": "2026-08-11T23:48:45+01:00",
+			"variants": {
+				"firstEdition": true,
+				"holo": false,
+				"normal": true,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273906.0,
+						"tcgplayer": 44447.0
+					},
+					"type": "normal",
+					"variantId": "4liram37qwxxpcj21gcs9m"
+				},
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273906.0,
+						"tcgplayer": 44447.0
+					},
+					"type": "normal",
+					"variantId": "riiya83ugrmyblv79w0lex10n7b7wxt9v"
+				},
+				{
+					"size": "standard",
+					"subtype": "1999-2000-copyright",
+					"type": "normal",
+					"variantId": "qi4g3e7tzbkcyhfflvx7zmvunxwjcq3pvp"
+				}
+			],
+			"weaknesses": [
+				{
+					"type": "Psychic",
+					"value": "×2"
+				}
+			]
+		},
+		{
+			"attacks": [
+				{
+					"cost": [
+						"Grass"
+					],
+					"effect": "Flip a coin. If heads, the Defending Pokémon is now Poisoned.",
+					"name": "Spit Poison"
+				},
+				{
+					"cost": [
+						"Colorless",
+						"Grass"
+					],
+					"damage": 20.0,
+					"effect": "Flip a coin. If heads, the Defending Pokémon is now Paralyzed.",
+					"name": "Wrap"
+				}
+			],
+			"category": "Pokemon",
+			"description": "Moves silently and stealthily. Eats the eggs of birds such as Pidgey and Spearow whole.",
+			"dexId": [
+				23.0
+			],
+			"hp": 40.0,
+			"id": "base3-46",
+			"illustrator": "Kagemaru Himeno",
+			"image": "https://assets.tcgdex.net/en/base/base3/46",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "46",
+			"name": "Ekans",
+			"rarity": "Common",
+			"retreat": 1.0,
+			"set": {
+				"cardCount": {
+					"official": 62.0,
+					"total": 62.0
+				},
+				"id": "base3",
+				"logo": "https://assets.tcgdex.net/en/base/base3/logo",
+				"name": "Fossil",
+				"symbol": "https://assets.tcgdex.net/univ/base/base3/symbol"
+			},
+			"stage": "Basic",
+			"types": [
+				"Grass"
+			],
+			"updated": "2026-08-11T23:48:45+01:00",
+			"variants": {
+				"firstEdition": true,
+				"holo": false,
+				"normal": true,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273907.0,
+						"tcgplayer": 44448.0
+					},
+					"type": "normal",
+					"variantId": "4liram37qwxxpcj21gcs9m"
+				},
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273907.0,
+						"tcgplayer": 44448.0
+					},
+					"type": "normal",
+					"variantId": "riiya83ugrmyblv79w0lex10n7b7wxt9v"
+				},
+				{
+					"size": "standard",
+					"subtype": "1999-2000-copyright",
+					"type": "normal",
+					"variantId": "qi4g3e7tzbkcyhfflvx7zmvunxwjcq3pvp"
+				}
+			],
+			"weaknesses": [
+				{
+					"type": "Psychic",
+					"value": "×2"
+				}
+			]
+		},
+		{
+			"attacks": [
+				{
+					"cost": [
+						"Fighting",
+						"Colorless"
+					],
+					"damage": "10x",
+					"effect": "Flip a coin until you get tails. This attack does 10 damage times the number of heads.",
+					"name": "Stone Barrage"
+				}
+			],
+			"category": "Pokemon",
+			"description": "Found in fields and mountains. Mistaking them for boulders, people often step or trip on them.",
+			"dexId": [
+				74.0
+			],
+			"hp": 50.0,
+			"id": "base3-47",
+			"illustrator": "Kagemaru Himeno",
+			"image": "https://assets.tcgdex.net/en/base/base3/47",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "47",
+			"name": "Geodude",
+			"rarity": "Common",
+			"retreat": 1.0,
+			"set": {
+				"cardCount": {
+					"official": 62.0,
+					"total": 62.0
+				},
+				"id": "base3",
+				"logo": "https://assets.tcgdex.net/en/base/base3/logo",
+				"name": "Fossil",
+				"symbol": "https://assets.tcgdex.net/univ/base/base3/symbol"
+			},
+			"stage": "Basic",
+			"types": [
+				"Fighting"
+			],
+			"updated": "2026-08-11T23:48:45+01:00",
+			"variants": {
+				"firstEdition": true,
+				"holo": false,
+				"normal": true,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273908.0,
+						"tcgplayer": 44449.0
+					},
+					"type": "normal",
+					"variantId": "4liram37qwxxpcj21gcs9m"
+				},
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273908.0,
+						"tcgplayer": 44449.0
+					},
+					"type": "normal",
+					"variantId": "riiya83ugrmyblv79w0lex10n7b7wxt9v"
+				},
+				{
+					"size": "standard",
+					"subtype": "1999-2000-copyright",
+					"type": "normal",
+					"variantId": "qi4g3e7tzbkcyhfflvx7zmvunxwjcq3pvp"
+				}
+			],
+			"weaknesses": [
+				{
+					"type": "Grass",
+					"value": "×2"
+				}
+			]
+		},
+		{
+			"attacks": [
+				{
+					"cost": [
+						"Colorless"
+					],
+					"damage": 10.0,
+					"effect": "Flip a coin. If heads, the Defending Pokémon is now Paralyzed.",
+					"name": "Nasty Goo"
+				},
+				{
+					"cost": [
+						"Grass"
+					],
+					"effect": "All damage done by attacks to Grimer during your opponent's next turn is reduced by 20 (after applying Weakness and Resistance).",
+					"name": "Minimize"
+				}
+			],
+			"category": "Pokemon",
+			"description": "Appears in filthy areas. Thrives by sucking up polluted sludge that is pumped out of factories.",
+			"dexId": [
+				88.0
+			],
+			"hp": 50.0,
+			"id": "base3-48",
+			"illustrator": "Mitsuhiro Arita",
+			"image": "https://assets.tcgdex.net/en/base/base3/48",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "48",
+			"name": "Grimer",
+			"rarity": "Common",
+			"retreat": 1.0,
+			"set": {
+				"cardCount": {
+					"official": 62.0,
+					"total": 62.0
+				},
+				"id": "base3",
+				"logo": "https://assets.tcgdex.net/en/base/base3/logo",
+				"name": "Fossil",
+				"symbol": "https://assets.tcgdex.net/univ/base/base3/symbol"
+			},
+			"stage": "Basic",
+			"types": [
+				"Grass"
+			],
+			"updated": "2026-08-11T23:48:45+01:00",
+			"variants": {
+				"firstEdition": true,
+				"holo": false,
+				"normal": true,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273909.0,
+						"tcgplayer": 44450.0
+					},
+					"type": "normal",
+					"variantId": "4liram37qwxxpcj21gcs9m"
+				},
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273909.0,
+						"tcgplayer": 44450.0
+					},
+					"type": "normal",
+					"variantId": "riiya83ugrmyblv79w0lex10n7b7wxt9v"
+				},
+				{
+					"size": "standard",
+					"subtype": "1999-2000-copyright",
+					"type": "normal",
+					"variantId": "qi4g3e7tzbkcyhfflvx7zmvunxwjcq3pvp"
+				}
+			],
+			"weaknesses": [
+				{
+					"type": "Psychic",
+					"value": "×2"
+				}
+			]
+		},
+		{
+			"attacks": [
+				{
+					"cost": [
+						"Water"
+					],
+					"damage": 10.0,
+					"effect": "If the Defending Pokémon tries to attack during your opponent's next turn, your opponent flips a coin. If tails, that attack does nothing.",
+					"name": "Smokescreen"
+				}
+			],
+			"category": "Pokemon",
+			"description": "Known to shoot down flying bugs with precision blasts of ink from the surface of the water.",
+			"dexId": [
+				116.0
+			],
+			"hp": 40.0,
+			"id": "base3-49",
+			"illustrator": "Mitsuhiro Arita",
+			"image": "https://assets.tcgdex.net/en/base/base3/49",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "49",
+			"name": "Horsea",
+			"rarity": "Common",
+			"set": {
+				"cardCount": {
+					"official": 62.0,
+					"total": 62.0
+				},
+				"id": "base3",
+				"logo": "https://assets.tcgdex.net/en/base/base3/logo",
+				"name": "Fossil",
+				"symbol": "https://assets.tcgdex.net/univ/base/base3/symbol"
+			},
+			"stage": "Basic",
+			"types": [
+				"Water"
+			],
+			"updated": "2026-08-11T23:48:45+01:00",
+			"variants": {
+				"firstEdition": true,
+				"holo": false,
+				"normal": true,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273910.0,
+						"tcgplayer": 44451.0
+					},
+					"type": "normal",
+					"variantId": "4liram37qwxxpcj21gcs9m"
+				},
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273910.0,
+						"tcgplayer": 44451.0
+					},
+					"type": "normal",
+					"variantId": "riiya83ugrmyblv79w0lex10n7b7wxt9v"
+				},
+				{
+					"size": "standard",
+					"subtype": "1999-2000-copyright",
+					"type": "normal",
+					"variantId": "qi4g3e7tzbkcyhfflvx7zmvunxwjcq3pvp"
+				}
+			],
+			"weaknesses": [
+				{
+					"type": "Lightning",
+					"value": "×2"
+				}
+			]
+		},
+		{
+			"abilities": [
+				{
+					"effect": "Whenever an attack (even your own) does damage to Kabuto (after applying Weakness and Resistance), that attack only does half the damage to Kabuto (rounded down to nearest 10). (Any other effects of attacks still happen.) This power stops working while Kabuto is Asleep, Confused, or Paralyzed.",
+					"name": "Kabuto Armor",
+					"type": "Pokemon Power"
+				}
+			],
+			"attacks": [
+				{
+					"cost": [
+						"Colorless"
+					],
+					"damage": 10.0,
+					"name": "Scratch"
+				}
+			],
+			"category": "Pokemon",
+			"description": "A Pokémon that was resurrected from a fossil found in what was once the ocean floor eons ago.",
+			"dexId": [
+				140.0
+			],
+			"hp": 30.0,
+			"id": "base3-50",
+			"illustrator": "Ken Sugimori",
+			"image": "https://assets.tcgdex.net/en/base/base3/50",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "50",
+			"name": "Kabuto",
+			"rarity": "Common",
+			"retreat": 1.0,
+			"set": {
+				"cardCount": {
+					"official": 62.0,
+					"total": 62.0
+				},
+				"id": "base3",
+				"logo": "https://assets.tcgdex.net/en/base/base3/logo",
+				"name": "Fossil",
+				"symbol": "https://assets.tcgdex.net/univ/base/base3/symbol"
+			},
+			"stage": "Stage1",
+			"types": [
+				"Fighting"
+			],
+			"updated": "2026-08-11T23:48:45+01:00",
+			"variants": {
+				"firstEdition": true,
+				"holo": false,
+				"normal": true,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273911.0,
+						"tcgplayer": 44452.0
+					},
+					"type": "normal",
+					"variantId": "endfynwn4n10gzq"
+				},
+				{
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273911.0,
+						"tcgplayer": 44452.0
+					},
+					"type": "normal",
+					"variantId": "2fnyg4g532wu2uft0spaa3eefrz"
+				},
+				{
+					"size": "standard",
+					"stamp": [
+						"wotc"
+					],
+					"type": "normal",
+					"variantId": "6xp3yys30vhxy35fte9p"
+				},
+				{
+					"size": "standard",
+					"subtype": "1999-2000-copyright",
+					"type": "normal",
+					"variantId": "qi4g3e7tzbkcyhfflvx7zmvunxwjcq3pvp"
+				}
+			],
+			"weaknesses": [
+				{
+					"type": "Grass",
+					"value": "×2"
+				}
+			]
+		},
+		{
+			"attacks": [
+				{
+					"cost": [
+						"Water"
+					],
+					"effect": "Search your deck for a Basic Pokémon named Krabby and put it onto your Bench. Shuffle your deck afterward. (You can't use this attack if your Bench is full.)",
+					"name": "Call for Family"
+				},
+				{
+					"cost": [
+						"Water",
+						"Colorless"
+					],
+					"damage": 20.0,
+					"name": "Irongrip"
+				}
+			],
+			"category": "Pokemon",
+			"description": "Its pincers are not only powerful weapons, they are used for balance when walking sideways.",
+			"dexId": [
+				98.0
+			],
+			"hp": 50.0,
+			"id": "base3-51",
+			"illustrator": "Mitsuhiro Arita",
+			"image": "https://assets.tcgdex.net/en/base/base3/51",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "51",
+			"name": "Krabby",
+			"rarity": "Common",
+			"retreat": 2.0,
+			"set": {
+				"cardCount": {
+					"official": 62.0,
+					"total": 62.0
+				},
+				"id": "base3",
+				"logo": "https://assets.tcgdex.net/en/base/base3/logo",
+				"name": "Fossil",
+				"symbol": "https://assets.tcgdex.net/univ/base/base3/symbol"
+			},
+			"stage": "Basic",
+			"types": [
+				"Water"
+			],
+			"updated": "2026-08-11T23:48:45+01:00",
+			"variants": {
+				"firstEdition": true,
+				"holo": false,
+				"normal": true,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273912.0,
+						"tcgplayer": 44453.0
+					},
+					"type": "normal",
+					"variantId": "4liram37qwxxpcj21gcs9m"
+				},
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273912.0,
+						"tcgplayer": 44453.0
+					},
+					"type": "normal",
+					"variantId": "riiya83ugrmyblv79w0lex10n7b7wxt9v"
+				},
+				{
+					"size": "standard",
+					"subtype": "1999-2000-copyright",
+					"type": "normal",
+					"variantId": "qi4g3e7tzbkcyhfflvx7zmvunxwjcq3pvp"
+				}
+			],
+			"weaknesses": [
+				{
+					"type": "Lightning",
+					"value": "×2"
+				}
+			]
+		},
+		{
+			"abilities": [
+				{
+					"effect": "Your opponent plays with his or her hand face up. This power stops working while Omanyte is Asleep, Confused, or Paralyzed.",
+					"name": "Clairvoyance",
+					"type": "Pokemon Power"
+				}
+			],
+			"attacks": [
+				{
+					"cost": [
+						"Water"
+					],
+					"damage": "10+",
+					"effect": "Does 10 damage plus 10 more damage for each Energy attached to Omanyte but not used to pay for this attack's Energy cost. You can't add more than 20 damage in this way.",
+					"name": "Water Gun"
+				}
+			],
+			"category": "Pokemon",
+			"description": "Although long extinct, in rare cases, it can be genetically resurrected from fossils.",
+			"dexId": [
+				138.0
+			],
+			"hp": 40.0,
+			"id": "base3-52",
+			"illustrator": "Kagemaru Himeno",
+			"image": "https://assets.tcgdex.net/en/base/base3/52",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "52",
+			"name": "Omanyte",
+			"rarity": "Common",
+			"retreat": 1.0,
+			"set": {
+				"cardCount": {
+					"official": 62.0,
+					"total": 62.0
+				},
+				"id": "base3",
+				"logo": "https://assets.tcgdex.net/en/base/base3/logo",
+				"name": "Fossil",
+				"symbol": "https://assets.tcgdex.net/univ/base/base3/symbol"
+			},
+			"stage": "Stage1",
+			"types": [
+				"Water"
+			],
+			"updated": "2026-08-11T23:48:45+01:00",
+			"variants": {
+				"firstEdition": true,
+				"holo": false,
+				"normal": true,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273913.0,
+						"tcgplayer": 44454.0
+					},
+					"type": "normal",
+					"variantId": "4liram37qwxxpcj21gcs9m"
+				},
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273913.0,
+						"tcgplayer": 44454.0
+					},
+					"type": "normal",
+					"variantId": "riiya83ugrmyblv79w0lex10n7b7wxt9v"
+				},
+				{
+					"size": "standard",
+					"subtype": "1999-2000-copyright",
+					"type": "normal",
+					"variantId": "qi4g3e7tzbkcyhfflvx7zmvunxwjcq3pvp"
+				}
+			],
+			"weaknesses": [
+				{
+					"type": "Grass",
+					"value": "×2"
+				}
+			]
+		},
+		{
+			"attacks": [
+				{
+					"cost": [
+						"Psychic"
+					],
+					"effect": "Your opponent can't play Trainer cards during his or her next turn.",
+					"name": "Headache"
+				},
+				{
+					"cost": [
+						"Water"
+					],
+					"damage": "10x",
+					"effect": "Flip 3 coins. This attack does 10 damage times the number of heads.",
+					"name": "Fury Swipes"
+				}
+			],
+			"category": "Pokemon",
+			"description": "While lulling its enemies with its vacant look, this wily Pokémon will use psychokinetic powers.",
+			"dexId": [
+				54.0
+			],
+			"hp": 50.0,
+			"id": "base3-53",
+			"illustrator": "Kagemaru Himeno",
+			"image": "https://assets.tcgdex.net/en/base/base3/53",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "53",
+			"name": "Psyduck",
+			"rarity": "Common",
+			"retreat": 1.0,
+			"set": {
+				"cardCount": {
+					"official": 62.0,
+					"total": 62.0
+				},
+				"id": "base3",
+				"logo": "https://assets.tcgdex.net/en/base/base3/logo",
+				"name": "Fossil",
+				"symbol": "https://assets.tcgdex.net/univ/base/base3/symbol"
+			},
+			"stage": "Basic",
+			"types": [
+				"Water"
+			],
+			"updated": "2026-08-11T23:48:45+01:00",
+			"variants": {
+				"firstEdition": true,
+				"holo": false,
+				"normal": true,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273914.0,
+						"tcgplayer": 44455.0
+					},
+					"type": "normal",
+					"variantId": "4liram37qwxxpcj21gcs9m"
+				},
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273914.0,
+						"tcgplayer": 44455.0
+					},
+					"type": "normal",
+					"variantId": "riiya83ugrmyblv79w0lex10n7b7wxt9v"
+				},
+				{
+					"size": "standard",
+					"subtype": "1999-2000-copyright",
+					"type": "normal",
+					"variantId": "qi4g3e7tzbkcyhfflvx7zmvunxwjcq3pvp"
+				}
+			],
+			"weaknesses": [
+				{
+					"type": "Lightning",
+					"value": "×2"
+				}
+			]
+		},
+		{
+			"attacks": [
+				{
+					"cost": [
+						"Water"
+					],
+					"effect": "Flip a coin. If heads, the Defending Pokémon is now Confused.",
+					"name": "Supersonic"
+				},
+				{
+					"cost": [
+						"Water"
+					],
+					"effect": "Flip a coin. If heads, prevent all damage done to Shellder during your opponent's next turn. (Any other effects of attacks still happen.)",
+					"name": "Hide in Shell"
+				}
+			],
+			"category": "Pokemon",
+			"description": "Its hard shell repels any kind of attack. It is vulnerable only when its shell is open.",
+			"dexId": [
+				90.0
+			],
+			"hp": 30.0,
+			"id": "base3-54",
+			"illustrator": "Mitsuhiro Arita",
+			"image": "https://assets.tcgdex.net/en/base/base3/54",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "54",
+			"name": "Shellder",
+			"rarity": "Common",
+			"retreat": 1.0,
+			"set": {
+				"cardCount": {
+					"official": 62.0,
+					"total": 62.0
+				},
+				"id": "base3",
+				"logo": "https://assets.tcgdex.net/en/base/base3/logo",
+				"name": "Fossil",
+				"symbol": "https://assets.tcgdex.net/univ/base/base3/symbol"
+			},
+			"stage": "Basic",
+			"types": [
+				"Water"
+			],
+			"updated": "2026-08-11T23:48:45+01:00",
+			"variants": {
+				"firstEdition": true,
+				"holo": false,
+				"normal": true,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273915.0,
+						"tcgplayer": 44456.0
+					},
+					"type": "normal",
+					"variantId": "4liram37qwxxpcj21gcs9m"
+				},
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273915.0,
+						"tcgplayer": 44456.0
+					},
+					"type": "normal",
+					"variantId": "riiya83ugrmyblv79w0lex10n7b7wxt9v"
+				},
+				{
+					"size": "standard",
+					"subtype": "1999-2000-copyright",
+					"type": "normal",
+					"variantId": "qi4g3e7tzbkcyhfflvx7zmvunxwjcq3pvp"
+				}
+			],
+			"weaknesses": [
+				{
+					"type": "Lightning",
+					"value": "×2"
+				}
+			]
+		},
+		{
+			"attacks": [
+				{
+					"cost": [
+						"Colorless"
+					],
+					"effect": "Flip a coin. If heads, remove a damage counter from Slowpoke. This attack can't be used if Slowpoke has no damage counters on it.",
+					"name": "Spacing Out"
+				},
+				{
+					"cost": [
+						"Psychic",
+						"Psychic"
+					],
+					"effect": "Discard 1 Energy card attached to Slowpoke in order to use this attack. Put a Trainer card from your discard pile into your hand.",
+					"name": "Scavenge"
+				}
+			],
+			"category": "Pokemon",
+			"description": "Incredibly slow and dopey. It takes 5 seconds for it to feel pain when under attack.",
+			"dexId": [
+				79.0
+			],
+			"hp": 50.0,
+			"id": "base3-55",
+			"illustrator": "Miki Tanaka",
+			"image": "https://assets.tcgdex.net/en/base/base3/55",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "55",
+			"name": "Slowpoke",
+			"rarity": "Common",
+			"retreat": 1.0,
+			"set": {
+				"cardCount": {
+					"official": 62.0,
+					"total": 62.0
+				},
+				"id": "base3",
+				"logo": "https://assets.tcgdex.net/en/base/base3/logo",
+				"name": "Fossil",
+				"symbol": "https://assets.tcgdex.net/univ/base/base3/symbol"
+			},
+			"stage": "Basic",
+			"types": [
+				"Psychic"
+			],
+			"updated": "2026-08-11T23:48:45+01:00",
+			"variants": {
+				"firstEdition": true,
+				"holo": false,
+				"normal": true,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273916.0,
+						"tcgplayer": 44457.0
+					},
+					"type": "normal",
+					"variantId": "4liram37qwxxpcj21gcs9m"
+				},
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273916.0,
+						"tcgplayer": 44457.0
+					},
+					"type": "normal",
+					"variantId": "riiya83ugrmyblv79w0lex10n7b7wxt9v"
+				},
+				{
+					"size": "standard",
+					"subtype": "1999-2000-copyright",
+					"type": "normal",
+					"variantId": "qi4g3e7tzbkcyhfflvx7zmvunxwjcq3pvp"
+				}
+			],
+			"weaknesses": [
+				{
+					"type": "Psychic",
+					"value": "×2"
+				}
+			]
+		},
+		{
+			"abilities": [
+				{
+					"effect": "At any time during your turn (before your attack), you may return Tentacool to your hand. (Discard all cards attached to Tentacool.) This power can't be used the turn you put Tentacool into play or if Tentacool is Asleep, Confused, or Paralyzed.",
+					"name": "Cowardice",
+					"type": "Pokemon Power"
+				}
+			],
+			"attacks": [
+				{
+					"cost": [
+						"Water"
+					],
+					"damage": 10.0,
+					"name": "Acid"
+				}
+			],
+			"category": "Pokemon",
+			"description": "Drifts in shallow seas. Anglers who hook them by accident are often punished by its stinging acid.",
+			"dexId": [
+				72.0
+			],
+			"hp": 30.0,
+			"id": "base3-56",
+			"illustrator": "Kagemaru Himeno",
+			"image": "https://assets.tcgdex.net/en/base/base3/56",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "56",
+			"name": "Tentacool",
+			"rarity": "Common",
+			"set": {
+				"cardCount": {
+					"official": 62.0,
+					"total": 62.0
+				},
+				"id": "base3",
+				"logo": "https://assets.tcgdex.net/en/base/base3/logo",
+				"name": "Fossil",
+				"symbol": "https://assets.tcgdex.net/univ/base/base3/symbol"
+			},
+			"stage": "Basic",
+			"types": [
+				"Water"
+			],
+			"updated": "2026-08-11T23:48:45+01:00",
+			"variants": {
+				"firstEdition": true,
+				"holo": false,
+				"normal": true,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273917.0,
+						"tcgplayer": 44458.0
+					},
+					"type": "normal",
+					"variantId": "4liram37qwxxpcj21gcs9m"
+				},
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273917.0,
+						"tcgplayer": 44458.0
+					},
+					"type": "normal",
+					"variantId": "riiya83ugrmyblv79w0lex10n7b7wxt9v"
+				},
+				{
+					"size": "standard",
+					"subtype": "1999-2000-copyright",
+					"type": "normal",
+					"variantId": "qi4g3e7tzbkcyhfflvx7zmvunxwjcq3pvp"
+				}
+			],
+			"weaknesses": [
+				{
+					"type": "Lightning",
+					"value": "×2"
+				}
+			]
+		},
+		{
+			"attacks": [
+				{
+					"cost": [
+						"Colorless",
+						"Colorless"
+					],
+					"effect": "Flip a coin. If heads, the Defending Pokémon is now Confused.",
+					"name": "Supersonic"
+				},
+				{
+					"cost": [
+						"Grass",
+						"Colorless"
+					],
+					"damage": 10.0,
+					"effect": "Remove a number of damage counters from Zubat equal to the damage done to the Defending Pokémon (after applying Weakness and Resistance). If Zubat has fewer damage counters than that, remove all of them.",
+					"name": "Leech Life"
+				}
+			],
+			"category": "Pokemon",
+			"description": "Forms colonies in perpetually dark places. Uses ultrasonic waves to identify and approach targets.",
+			"dexId": [
+				41.0
+			],
+			"hp": 40.0,
+			"id": "base3-57",
+			"illustrator": "Kagemaru Himeno",
+			"image": "https://assets.tcgdex.net/en/base/base3/57",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "57",
+			"name": "Zubat",
+			"rarity": "Common",
+			"resistances": [
+				{
+					"type": "Fighting",
+					"value": "-30"
+				}
+			],
+			"set": {
+				"cardCount": {
+					"official": 62.0,
+					"total": 62.0
+				},
+				"id": "base3",
+				"logo": "https://assets.tcgdex.net/en/base/base3/logo",
+				"name": "Fossil",
+				"symbol": "https://assets.tcgdex.net/univ/base/base3/symbol"
+			},
+			"stage": "Basic",
+			"types": [
+				"Grass"
+			],
+			"updated": "2026-08-11T23:48:45+01:00",
+			"variants": {
+				"firstEdition": true,
+				"holo": false,
+				"normal": true,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273918.0,
+						"tcgplayer": 44459.0
+					},
+					"type": "normal",
+					"variantId": "4liram37qwxxpcj21gcs9m"
+				},
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273918.0,
+						"tcgplayer": 44459.0
+					},
+					"type": "normal",
+					"variantId": "riiya83ugrmyblv79w0lex10n7b7wxt9v"
+				},
+				{
+					"size": "standard",
+					"subtype": "1999-2000-copyright",
+					"type": "normal",
+					"variantId": "qi4g3e7tzbkcyhfflvx7zmvunxwjcq3pvp"
+				}
+			],
+			"weaknesses": [
+				{
+					"type": "Psychic",
+					"value": "×2"
+				}
+			]
+		},
+		{
+			"category": "Trainer",
+			"effect": "Choose a Pokémon on your Bench. Shuffle it and any cards attached to it into your deck.",
+			"id": "base3-58",
+			"illustrator": "Ken Sugimori",
+			"image": "https://assets.tcgdex.net/en/base/base3/58",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "58",
+			"name": "Mr. Fuji",
+			"rarity": "Uncommon",
+			"set": {
+				"cardCount": {
+					"official": 62.0,
+					"total": 62.0
+				},
+				"id": "base3",
+				"logo": "https://assets.tcgdex.net/en/base/base3/logo",
+				"name": "Fossil",
+				"symbol": "https://assets.tcgdex.net/univ/base/base3/symbol"
+			},
+			"updated": "2026-08-11T23:48:45+01:00",
+			"variants": {
+				"firstEdition": true,
+				"holo": false,
+				"normal": true,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273919.0,
+						"tcgplayer": 44460.0
+					},
+					"type": "normal",
+					"variantId": "4liram37qwxxpcj21gcs9m"
+				},
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273919.0,
+						"tcgplayer": 44460.0
+					},
+					"type": "normal",
+					"variantId": "riiya83ugrmyblv79w0lex10n7b7wxt9v"
+				},
+				{
+					"size": "standard",
+					"subtype": "1999-2000-copyright",
+					"type": "normal",
+					"variantId": "qi4g3e7tzbkcyhfflvx7zmvunxwjcq3pvp"
+				}
+			]
+		},
+		{
+			"category": "Trainer",
+			"effect": "Search your deck for a basic Energy card and put it into your hand. Shuffle your deck afterward.",
+			"id": "base3-59",
+			"illustrator": "Keiji Kinebuchi",
+			"image": "https://assets.tcgdex.net/en/base/base3/59",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "59",
+			"name": "Energy Search",
+			"rarity": "Common",
+			"set": {
+				"cardCount": {
+					"official": 62.0,
+					"total": 62.0
+				},
+				"id": "base3",
+				"logo": "https://assets.tcgdex.net/en/base/base3/logo",
+				"name": "Fossil",
+				"symbol": "https://assets.tcgdex.net/univ/base/base3/symbol"
+			},
+			"updated": "2026-08-11T23:48:45+01:00",
+			"variants": {
+				"firstEdition": true,
+				"holo": false,
+				"normal": true,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273920.0,
+						"tcgplayer": 44461.0
+					},
+					"type": "normal",
+					"variantId": "4liram37qwxxpcj21gcs9m"
+				},
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273920.0,
+						"tcgplayer": 44461.0
+					},
+					"type": "normal",
+					"variantId": "riiya83ugrmyblv79w0lex10n7b7wxt9v"
+				},
+				{
+					"size": "standard",
+					"subtype": "1999-2000-copyright",
+					"type": "normal",
+					"variantId": "qi4g3e7tzbkcyhfflvx7zmvunxwjcq3pvp"
+				}
+			]
+		},
+		{
+			"category": "Trainer",
+			"effect": "Shuffle your hand into your deck. Flip a coin. If heads, draw 8 cards. If tails, draw 1 card.",
+			"id": "base3-60",
+			"illustrator": "Keiji Kinebuchi",
+			"image": "https://assets.tcgdex.net/en/base/base3/60",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "60",
+			"name": "Gambler",
+			"rarity": "Common",
+			"set": {
+				"cardCount": {
+					"official": 62.0,
+					"total": 62.0
+				},
+				"id": "base3",
+				"logo": "https://assets.tcgdex.net/en/base/base3/logo",
+				"name": "Fossil",
+				"symbol": "https://assets.tcgdex.net/univ/base/base3/symbol"
+			},
+			"updated": "2026-08-11T23:48:45+01:00",
+			"variants": {
+				"firstEdition": true,
+				"holo": false,
+				"normal": true,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273921.0,
+						"tcgplayer": 44462.0
+					},
+					"type": "normal",
+					"variantId": "4liram37qwxxpcj21gcs9m"
+				},
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273921.0,
+						"tcgplayer": 44462.0
+					},
+					"type": "normal",
+					"variantId": "riiya83ugrmyblv79w0lex10n7b7wxt9v"
+				},
+				{
+					"size": "standard",
+					"subtype": "1999-2000-copyright",
+					"type": "normal",
+					"variantId": "qi4g3e7tzbkcyhfflvx7zmvunxwjcq3pvp"
+				}
+			]
+		},
+		{
+			"category": "Trainer",
+			"effect": "Flip a coin. If heads, put a card in your discard pile on top of your deck.",
+			"id": "base3-61",
+			"illustrator": "Keiji Kinebuchi",
+			"image": "https://assets.tcgdex.net/en/base/base3/61",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "61",
+			"name": "Recycle",
+			"rarity": "Common",
+			"set": {
+				"cardCount": {
+					"official": 62.0,
+					"total": 62.0
+				},
+				"id": "base3",
+				"logo": "https://assets.tcgdex.net/en/base/base3/logo",
+				"name": "Fossil",
+				"symbol": "https://assets.tcgdex.net/univ/base/base3/symbol"
+			},
+			"updated": "2026-08-11T23:48:45+01:00",
+			"variants": {
+				"firstEdition": true,
+				"holo": false,
+				"normal": true,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273922.0,
+						"tcgplayer": 44463.0
+					},
+					"type": "normal",
+					"variantId": "4liram37qwxxpcj21gcs9m"
+				},
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273922.0,
+						"tcgplayer": 44463.0
+					},
+					"type": "normal",
+					"variantId": "riiya83ugrmyblv79w0lex10n7b7wxt9v"
+				},
+				{
+					"size": "standard",
+					"subtype": "1999-2000-copyright",
+					"type": "normal",
+					"variantId": "qi4g3e7tzbkcyhfflvx7zmvunxwjcq3pvp"
+				}
+			]
+		},
+		{
+			"category": "Trainer",
+			"effect": "Play Mysterious Fossil as if it were a Basic Pokémon. While in play, Mysterious Fossil counts as a Pokémon (instead of a Trainer card). Mysterious Fossil has no attacks, can't retreat, and can't be Asleep, Confused, Paralyzed, or Poisoned. If Mysterious Fossil is Knocked Out, it doesn't count as a Knocked Out Pokémon. (Discard it anyway.) At any time during your turn before your attack, you may discard Mysterious Fossil from play.",
+			"hp": 10.0,
+			"id": "base3-62",
+			"illustrator": "Keiji Kinebuchi",
+			"image": "https://assets.tcgdex.net/en/base/base3/62",
+			"legal": {
+				"expanded": false,
+				"standard": false
+			},
+			"localId": "62",
+			"name": "Mysterious Fossil",
+			"rarity": "Common",
+			"set": {
+				"cardCount": {
+					"official": 62.0,
+					"total": 62.0
+				},
+				"id": "base3",
+				"logo": "https://assets.tcgdex.net/en/base/base3/logo",
+				"name": "Fossil",
+				"symbol": "https://assets.tcgdex.net/univ/base/base3/symbol"
+			},
+			"updated": "2026-08-11T23:48:45+01:00",
+			"variants": {
+				"firstEdition": true,
+				"holo": false,
+				"normal": true,
+				"reverse": false,
+				"wPromo": false
+			},
+			"variants_detailed": [
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"thirdParty": {
+						"cardmarket": 273923.0,
+						"tcgplayer": 44464.0
+					},
+					"type": "normal",
+					"variantId": "4liram37qwxxpcj21gcs9m"
+				},
+				{
+					"foil": "galaxy",
+					"size": "standard",
+					"stamp": [
+						"1st-edition"
+					],
+					"thirdParty": {
+						"cardmarket": 273923.0,
+						"tcgplayer": 44464.0
+					},
+					"type": "normal",
+					"variantId": "riiya83ugrmyblv79w0lex10n7b7wxt9v"
+				},
+				{
+					"size": "standard",
+					"subtype": "1999-2000-copyright",
+					"type": "normal",
+					"variantId": "qi4g3e7tzbkcyhfflvx7zmvunxwjcq3pvp"
+				}
+			]
+		}
+	],
+	"set": {
+		"abbreviation": {
+			"official": "FO"
+		},
+		"cardCount": {
+			"firstEd": 62.0,
+			"holo": 35.0,
+			"normal": 142.0,
+			"official": 62.0,
+			"reverse": 0.0,
+			"total": 62.0
+		},
+		"id": "base3",
+		"legal": {
+			"expanded": false,
+			"standard": false
+		},
+		"logo": "https://assets.tcgdex.net/en/base/base3/logo",
+		"name": "Fossil",
+		"releaseDate": "1999-10-10",
+		"serie": {
+			"id": "base",
+			"name": "Base"
+		},
+		"symbol": "https://assets.tcgdex.net/univ/base/base3/symbol",
+		"tcgOnline": "FO"
+	}
+}

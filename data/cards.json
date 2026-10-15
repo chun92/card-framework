@@ -1,0 +1,69 @@
+[
+  {
+    "id": "machop",
+    "name": "Machop",
+    "kind": "pokemon",
+    "hp": 50,
+    "types": ["fighting"],
+    "weakness": { "types": ["psychic"], "modifier": "x2" },
+    "resistance": { "types": [], "modifier": "" },
+    "retreat_cost": 1,
+    "attacks": [
+      { "name": "Low Kick", "cost": ["fighting"], "damage": 20 },
+      { "name": "Karate Chop", "cost": ["fighting", "fighting", "colorless"], "damage": 50 }
+    ]
+  },
+  {
+    "id": "diglett",
+    "name": "Diglett",
+    "kind": "pokemon",
+    "hp": 30,
+    "types": ["fighting"],
+    "weakness": { "types": ["water"], "modifier": "x2" },
+    "resistance": { "types": ["lightning"], "modifier": "-30" },
+    "retreat_cost": 0,
+    "attacks": [
+      { "name": "Dig", "cost": ["fighting"], "damage": 10 },
+      { "name": "Mud Slap", "cost": ["fighting", "fighting"], "damage": 30 }
+    ]
+  },
+  {
+    "id": "squirtle",
+    "name": "Squirtle",
+    "kind": "pokemon",
+    "hp": 40,
+    "types": ["water"],
+    "weakness": { "types": ["lightning"], "modifier": "x2" },
+    "resistance": { "types": ["fighting"], "modifier": "-30" },
+    "retreat_cost": 1,
+    "attacks": [
+      { "name": "Bubble", "cost": ["water"], "damage": 10 },
+      { "name": "Water Gun", "cost": ["water", "colorless"], "damage": 30 }
+    ]
+  },
+  {
+    "id": "staryu",
+    "name": "Staryu",
+    "kind": "pokemon",
+    "hp": 40,
+    "types": ["water"],
+    "weakness": { "types": ["lightning"], "modifier": "x2" },
+    "resistance": { "types": [], "modifier": "" },
+    "retreat_cost": 1,
+    "attacks": [
+      { "name": "Slap", "cost": ["water"], "damage": 20 }
+    ]
+  },
+  {
+    "id": "fighting_energy",
+    "name": "Fighting Energy",
+    "kind": "energy",
+    "provides": ["fighting"]
+  },
+  {
+    "id": "water_energy",
+    "name": "Water Energy",
+    "kind": "energy",
+    "provides": ["water"]
+  }
+]

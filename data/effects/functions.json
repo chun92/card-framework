@@ -1,0 +1,150 @@
+{
+  "damage_times_heads": {
+    "params": { "coins": "int" },
+    "steps": [
+      {"call": "flip_coins", "args": {"count": "$coins"}, "as": "heads"},
+      {"call": "attack_damage", "args": {"times": "$heads", "plus": 0}}
+    ]
+  },
+  "damage_times_heads_per_own_energy_unit": {
+    "params": {},
+    "steps": [
+      {"call": "count_attached_energy_units", "args": {"target": "$self", "energy_type": "Any"}, "as": "energy"},
+      {"call": "damage_times_heads", "args": {"coins": "$energy"}}
+    ]
+  },
+  "damage_plus_on_heads": {
+    "params": { "coins": "int", "bonus_per_heads": "int" },
+    "steps": [
+      {"call": "flip_coins", "args": {"count": "$coins"}, "as": "heads"},
+      {"call": "multiply", "args": {"a": "$heads", "b": "$bonus_per_heads"}, "as": "bonus"},
+      {"call": "attack_damage", "args": {"times": 1, "plus": "$bonus"}}
+    ]
+  },
+  "damage_self": {
+    "params": { "amount": "int" },
+    "steps": [
+      {"call": "direct_damage", "args": {"target": "$self", "amount": "$amount"}}
+    ]
+  },
+  "damage_then_damage_self": {
+    "params": { "amount": "int" },
+    "steps": [
+      {"call": "attack_damage", "args": {"times": 1, "plus": 0}},
+      {"call": "damage_self", "args": {"amount": "$amount"}}
+    ]
+  },
+  "damage_then_damage_self_on_tails": {
+    "params": { "amount": "int" },
+    "steps": [
+      {"call": "flip_coins", "args": {"count": 1}, "as": "heads"},
+      {"call": "attack_damage", "args": {"times": 1, "plus": 0}},
+      {"call": "damage_self", "args": {"amount": "$amount"}, "when": {"value": "$heads", "eq": 0}}
+    ]
+  },
+  "damage_plus_on_heads_or_damage_self": {
+    "params": { "bonus": "int", "self_damage": "int" },
+    "steps": [
+      {"call": "flip_coins", "args": {"count": 1}, "as": "heads"},
+      {"call": "multiply", "args": {"a": "$heads", "b": "$bonus"}, "as": "extra"},
+      {"call": "attack_damage", "args": {"times": 1, "plus": "$extra"}},
+      {"call": "damage_self", "args": {"amount": "$self_damage"}, "when": {"value": "$heads", "eq": 0}}
+    ]
+  },
+  "damage_plus_per_counter": {
+    "params": { "target": "pokemon", "per_counter": "int" },
+    "steps": [
+      {"call": "count_damage_counters", "args": {"target": "$target"}, "as": "counters"},
+      {"call": "multiply", "args": {"a": "$counters", "b": "$per_counter"}, "as": "bonus"},
+      {"call": "attack_damage", "args": {"times": 1, "plus": "$bonus"}}
+    ]
+  },
+  "damage_plus_per_own_counter": {
+    "params": { "per_counter": "int" },
+    "steps": [
+      {"call": "damage_plus_per_counter", "args": {"target": "$self", "per_counter": "$per_counter"}}
+    ]
+  },
+  "damage_plus_per_defender_counter": {
+    "params": { "per_counter": "int" },
+    "steps": [
+      {"call": "damage_plus_per_counter", "args": {"target": "$defender", "per_counter": "$per_counter"}}
+    ]
+  },
+  "damage_minus_per_own_counter": {
+    "params": { "per_counter": "int" },
+    "steps": [
+      {"call": "multiply", "args": {"a": "$per_counter", "b": -1}, "as": "negative"},
+      {"call": "damage_plus_per_counter", "args": {"target": "$self", "per_counter": "$negative"}}
+    ]
+  },
+  "damage_times_own_counters": {
+    "params": {},
+    "steps": [
+      {"call": "count_damage_counters", "args": {"target": "$self"}, "as": "counters"},
+      {"call": "attack_damage", "args": {"times": "$counters", "plus": 0}}
+    ]
+  },
+  "damage_plus_per_own_benched": {
+    "params": { "per_benched": "int" },
+    "steps": [
+      {"call": "count_benched", "args": {"player": "$player"}, "as": "benched"},
+      {"call": "multiply", "args": {"a": "$benched", "b": "$per_benched"}, "as": "bonus"},
+      {"call": "attack_damage", "args": {"times": 1, "plus": "$bonus"}}
+    ]
+  },
+  "damage_plus_per_unpaid_energy_unit": {
+    "params": { "energy_type": "energy_type_or_any", "per_energy": "int", "max_counted": "int" },
+    "steps": [
+      {"call": "count_unpaid_energy_units", "args": {"energy_type": "$energy_type"}, "as": "unpaid"},
+      {"call": "min", "args": {"a": "$unpaid", "b": "$max_counted"}, "as": "counted"},
+      {"call": "multiply", "args": {"a": "$counted", "b": "$per_energy"}, "as": "bonus"},
+      {"call": "attack_damage", "args": {"times": 1, "plus": "$bonus"}}
+    ]
+  },
+  "damage_plus_per_defender_energy_card": {
+    "params": { "per_energy": "int" },
+    "steps": [
+      {"call": "count_attached_energy_cards", "args": {"target": "$defender", "energy_type": "Any"}, "as": "energy"},
+      {"call": "multiply", "args": {"a": "$energy", "b": "$per_energy"}, "as": "bonus"},
+      {"call": "attack_damage", "args": {"times": 1, "plus": "$bonus"}}
+    ]
+  },
+  "discard_own_energy_cards": {
+    "params": { "energy_type": "energy_type_or_any", "count": "int" },
+    "requires": [
+      {"check": "has_attached_energy_cards", "args": {"target": "$self", "energy_type": "$energy_type", "count": "$count"}}
+    ],
+    "steps": [
+      {"call": "discard_attached_energy_cards", "args": {"target": "$self", "energy_type": "$energy_type", "count": "$count"}}
+    ]
+  },
+  "discard_energy_cards_then_damage": {
+    "params": { "energy_type": "energy_type_or_any", "count": "int" },
+    "steps": [
+      {"call": "discard_own_energy_cards", "args": {"energy_type": "$energy_type", "count": "$count"}},
+      {"call": "attack_damage", "args": {"times": 1, "plus": 0}}
+    ]
+  },
+  "discard_all_energy_cards_then_damage": {
+    "params": {},
+    "steps": [
+      {"call": "discard_all_attached_energy_cards", "args": {"target": "$self"}},
+      {"call": "attack_damage", "args": {"times": 1, "plus": 0}}
+    ]
+  },
+  "draw": {
+    "params": { "count": "int" },
+    "steps": [
+      {"call": "draw_cards", "args": {"player": "$player", "count": "$count"}}
+    ]
+  },
+  "damage_then_draw_on_heads": {
+    "params": { "count": "int" },
+    "steps": [
+      {"call": "flip_coins", "args": {"count": 1}, "as": "heads"},
+      {"call": "attack_damage", "args": {"times": 1, "plus": 0}},
+      {"call": "draw", "args": {"count": "$count"}, "when": {"value": "$heads", "eq": 1}}
+    ]
+  }
+}
